@@ -1,0 +1,21 @@
+<include file="Public:header"/>
+<div class="c_main fr">
+<form action="{:u('Index/check')}" method="POST" id="post_form">
+	<div class="c_main_title"><span class="fr padding5">Powered by(phonegap100.com)</span>{$Think.lang.step_check_desc}</div>
+	<div class="c_main_body">
+        <volist name="error" id="val">
+        <div class="error_msg">{$val}</div>
+        </volist>
+    </div>
+    <div class="act">
+        <div class="btn">
+            <present name="error">
+            <input type="submit" class="btn_next" value="{$Think.lang.recheck}"/>
+            <else/>
+            <input type="submit" name="dosubmit" id="submit_button"  value="{$Think.lang.next}" class="btn_next" />
+            </present>
+        </div>
+    </div>
+</form>
+</div>
+<include file="Public:footer"/>
