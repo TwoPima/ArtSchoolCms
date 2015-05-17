@@ -23,6 +23,10 @@ class BaseAction extends Action {
 //        $this->seo_mod = M('seo');
 	}
 	function _initialize(){
+		//截取
+		load('extend');
+		/* header("Content-Type:text/html; charset=utf-8");
+		 header('Content-Type:application/json; charset=utf-8'); */
 		$this->initModel();		
 		$this->site_root="http://".$_SERVER['SERVER_NAME'].($_SERVER['SERVER_PORT']==80?'':':'.$_SERVER['SERVER_PORT']).__ROOT__."/";
 
@@ -60,6 +64,7 @@ class BaseAction extends Action {
 			'request'=>$_REQUEST
 		);	
 		$this->assign('def',json_encode($def));
+		
         
 	}
 	//检查权限
