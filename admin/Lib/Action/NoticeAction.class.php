@@ -9,7 +9,7 @@
 // +----------------------------------------------------------------------
 
 
-class NavAction extends BaseAction{	
+class NoticeAction extends BaseAction{	
 	private $nav_mod;
 	function __construct(){
 		$this->nav_mod=M('nav');
