@@ -25,9 +25,36 @@
               <th>{:L('site_keyword')} :</th>
               <td><input type="text" name="site[site_keyword]" size="80" value="{$set.site_keyword}"></td>
             </tr>
+            <tr><!--  院长信箱-->
+              <th>{:L('president_email')} :</th>
+              <td><input type="text" name="site[president_email]" size="80" value="{$set.president_email}"></td>
+            </tr>
             <tr>
+              <th>{:L('postcode')} :</th>
+              <td><input type="text" name="site[postcode]" size="80" value="{$set.postcode}"></td>
+            </tr>
+            <tr>
+              <th>{:L('duty_web')} :</th>
+              <td><input type="text" name="site[duty_web]" size="80" value="{$set.duty_web}"></td>
+            </tr>
+            <tr>
+            <tr>
+              <th>{:L('tel')} :</th>
+              <td><input type="text" name="site[tel]" size="80" value="{$set.tel}"></td>
+            </tr>
+            <tr>
+              <th>{:L('address')} :</th>
+              <td><input type="text" name="site[address]" size="80" value="{$set.address}"></td>
+            </tr>
+            <tr>
+<!--网站描述 -->
               <th>{:L('site_description')} :</th>
               <td><textarea rows="3" cols="80" name="site[site_description]">{$set.site_description}</textarea></td>
+            </tr> 
+            <tr>
+			<!--关于我们  -->
+              <th>{:L('about_web')} :</th>
+              <td><textarea rows="10" cols="80" name="site[about_web]">{$set.about_web}</textarea></td>
             </tr> 
 			<tr>
               <th>{:L('site_logo')} :</th>
