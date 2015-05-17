@@ -19,6 +19,6 @@ define('DATA_PATH', './data/');
 define('HTML_PATH', DATA_PATH . 'html/');
 
 /* DEBUG开关*/
-//define('APP_DEBUG', true);
+define('APP_DEBUG', true);
 require(ROOT_PATH.'/core/core.php');
 ?>

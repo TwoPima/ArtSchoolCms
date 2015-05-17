@@ -13,13 +13,7 @@ class CommonAction extends Action {
 		$systemConfig = include WEB_ROOT . 'Common/systemConfig.php';
 		F("systemConfig", $systemConfig, WEB_ROOT . "Common/");
 		$this->assign("site", $systemConfig);
-		//爱情攻略
-		$footwhere['sys_type']="2";
-		$findMenu=M('Article')->where($footwhere)->order('sort')->limit(4)->select();
-		$this->assign('footMenu',$findMenu);
-		$this->assign('wishing',M('Wish')->where('status=1')->order('create_time DESC')->limit(2)->select());//许愿框
-		//个人心情语录展示
-		$this->assign('mood',M('Mood')->where('status=1')->order('create_time DESC')->limit(3)->select());
+		
 		//标签展示（置顶的永远显示）
 		$this->assign('label',M('Label')->where('status=1')->order('sort DESC')->limit(8)->select());
 		//友情链接
@@ -31,32 +25,7 @@ class CommonAction extends Action {
 		where('class=1 AND isLock=1') */
 		$this->assign('Activity1',$Activity->where('isLock=1')->limit(5)->order('activity_id desc')->select());
 		$this->assign('Activity2',$Activity->where('isLock=1')->limit(5)->order('activity_id desc')->select());
-		/* 
-		//最新留言
-		$new_leave = D('Message')->where('status=1 AND pid=0 AND aid=0')->order('add_time DESC')->limit(5)->select();
-		foreach ($new_leave as $key => $val){
-			$new_leave[$key] = $this->msgmodify($val);
-		}
-		$this->assign('new_leave',$new_leave);
-		//最新评论
-		$new_comment = D('Message')->where('status=1 AND pid=0 AND aid!=0')->order('add_time DESC')->limit(5)->select();
-		foreach ($new_comment as $key => $val){
-			$new_comment[$key] = $this->msgmodify($val);
-		} */
-		 //首页心情语录和爱情攻略
-		/* $mood=M('Article');
-		$cid=$this->getclass('心情语录','Article');
-		$where['cid']=$cid;
-		$this->assign('mood',$mood->where($where)->limit(5)->order('article_id desc')->select());
-		$cid1=$this->getclass('爱情攻略','Article');
-		$where1['cid']=$cid1;
-		$this->assign('loveStrategy',$mood->where($where1)->limit(5)->order('article_id desc')->select());
-		$this->assign('new_comment',$new_comment);
-		$this->assign('nav_list',$nav_list);  */
-		/*
-		 * 用封装之后的调用方式 $id = $this->router();
-		$type = D('Category')->where('status=1')->find($id);
-		$map = D('Common')->getCategoryMap($id);*/
+		
 		
 	}
 	/* public function listNews($firstRow = 0, $listRows = 20,$where) {

@@ -1,0 +1,695 @@
+*{
+	margin:0;
+	padding:0;
+	text-decoration:none;
+}
+body{
+	margin:auto;
+	font-family:微软雅黑;
+	font-size:16px;
+}
+ul{
+	list-style:none;
+}
+a{
+	color:#fff;
+	text-decoration:none;
+}
+.container_nav{
+	margin:auto;
+	width:1170px;
+}
+.clearfix:after{  
+    content:".";  
+    height:0;  
+    visibility:hidden;  
+    display:block;  
+    clear:both;  
+} 
+.clearfix{
+	/*触发 haslayout*/
+	zoom:1;
+}
+.container{
+	margin:auto;
+	width:1170px;
+}
+/*---------------header--------------------*/
+#header{
+	background-color:#10646F;
+}
+.top{
+	height:15px;
+	background-color:#000;
+}
+.nav ul{
+	font-size:20px;
+	height:50px;
+	background-color:#000;
+	position:relative;
+	z-index:3;
+}
+.nav ul li{
+	line-height:50px;
+	height:50px;
+	float:left;
+
+}
+.nav ul li a{
+	padding:0 18px;
+	color:#fff;
+	text-decoration:none;
+	text-align:center;
+	display:block;
+	height:50px;
+}
+
+.nav ul li a:hover{
+	background-color:#0C4C55;
+	color:#FDB000;
+}
+.nav	ul li ul{
+	height:40px;
+	width:1170px;
+	background-color:#000;
+	filter:alpha(opacity=80);  /* ie 有效*/
+	-moz-opacity:0.8; /* Firefox  有效*/
+	opacity: 0.8; /* 通用，其他浏览器  有效*/
+	position:absolute;
+	left:0px;
+	top:50px;
+	display:none;
+	font-size:16px;
+}
+.nav ul li ul li{
+	line-height:40px;
+	float:left;
+}
+.nav ul li ul li a{
+	height:40px;
+	padding:0 10px;
+}
+.nav ul li ul li a:hover{
+	color:#FEAF00;
+	background-color:#000;
+	filter:alpha(opacity=100);  /* ie 有效*/
+	-moz-opacity:1; /* Firefox  有效*/
+	opacity: 1; /* 通用，其他浏览器  有效*/
+}
+.nav	ul li:hover ul{
+	display:block; 
+}
+/*-----------------photochange_importantnews-----------------*/
+#photochange_importantnews{
+	height:450px;
+	background-image:url(../Image/bg.jpg);
+}
+/*-----------------轮换图------------------*/
+#photochange {
+	float:left;
+   width: 800px; 
+   height: 450px; 
+   overflow: hidden; 
+   position: relative;
+  }
+  #list { 
+  width: 5600px; 
+  height: 450px;
+  position: absolute;
+  z-index: 1;
+  }
+  #list img {
+  width: 800px;
+  height: 450px; 
+  float: left;
+}
+  #buttons { 
+  overflow:hidden;
+   position: absolute;
+    width:715px; 
+    height: 40px;
+    z-index: 2; 
+    bottom: 0px; 
+    left: 0px;
+  }
+  #buttons span{
+     color:#fff;
+     font-size:18px;
+    display:none;
+    cursor: pointer;
+    width:715px;
+    height: 40px;
+    background: #333; 
+    padding-left:10px;
+    line-height:40px;
+    }
+  #buttons .on {
+      display:block;
+      background:#333;
+      	filter:alpha(opacity=70);  /* ie 有效*/
+				-moz-opacity:0.7; /* Firefox  有效*/
+				opacity: 0.7; /* 通用，其他浏览器  有效*/
+		
+  }
+  .arrow { 
+      cursor: pointer;
+      line-height: 39px; 
+      text-align: center; 
+      font-size: 36px; 
+      font-weight: bold; 
+      width: 40px; 
+      height: 40px;  
+      position: absolute; 
+      z-index: 2; 
+      top: 410px;
+      background:#333;
+    	filter:alpha(opacity=70);  /* ie 有效*/
+			-moz-opacity:0.7; /* Firefox  有效*/
+			opacity: 0.7; /* 通用，其他浏览器  有效*/
+      color: #fff;
+  }
+  #prev { right: 42px;}
+  #next { right: 0px;}
+/*--------------------------------------------*/
+.importantnews{
+	width:370px;
+	height:450px;
+	background-color:#2B8890;
+	color:#fff;
+	float:left;
+}
+.importantnews h1{
+	font-size:24px;
+}
+.importantnews h3{
+	float:right;
+	font-size:16px;
+	margin-right:20px;
+}
+.importantnews h1,.importantnews ul{
+	margin-right:20px;
+	margin-left:20px;
+	margin-top:15px;
+}
+
+.importantnews ul{
+	height:350px;
+}
+.importantnews ul li  span{
+	float:right;
+}
+.importantnews ul li{
+	line-height:1.7;
+}
+.importantnews  hr{
+	height:1px; 
+	border:none;
+	border-top:1px dashed #fff;
+	*height:1px;
+}
+.importantnews ul li a{
+	font-size:14px;
+	color:#fff;
+}
+.importantnews ul li a:hover{
+	color:#FFAD01;
+}
+.importantnews h3 a:hover,.collegenews h3 a:hover{
+	color:#FFAD01;
+}
+/*--------------------focus_collegenews---------------*/
+#focus_collegenews{
+	height:430px;
+}
+.focus{
+	float:left;
+	height:430px;
+	width:740px;
+}
+.focus_main{
+	float:left;
+	margin-top:40px;
+	margin-right:20px;
+	width:350px;
+	height:150px;
+}
+.focus_main_image{
+	float:left;
+	width:200px;
+	height:150px;
+}
+.focus_main_image img{
+	width:200px;
+	height:150px;
+}
+.focus_main_name{
+	color:#fff;
+	float:left;
+	width:150px;
+	height:150px;
+	background:#10646F;
+}
+.focus_main_name h3{
+		margin-top:30px;
+		margin-left:10px;
+}
+.focus_main_name h4{
+		margin-top:10px;
+		margin-left:10px;
+}
+
+.collegenews{
+	float:left;
+	height:430px;
+	width:430px;
+	background:#dedede;
+}
+.collegenews h1{
+	font-size:24px;
+}
+.collegenews h3{
+	font-size:16px;
+}
+.collegenews h1,.collegenews ul,.collegenews h3{
+	margin-right:20px;
+	margin-left:30px;
+	margin-top:15px;
+}
+
+.collegenews span,.collegenews h3{
+	float:right;
+}
+.collegenews ul{
+	height:310px;
+}
+.collegenews ul li{
+	line-height:1.7;
+}
+.collegenews ul li a{
+	font-size:14px;
+	color:#000;
+}
+.collegenews h3 a{
+	color:#000;
+}
+.collegenews ul li a:hover{
+	color:#FFAD01;
+}
+.collegenews  hr{
+		height:1px; 
+		border:none;
+		border-top:1px dashed #000;
+}
+/*------------------office-------------------*/
+#office{
+	height:360px;
+}
+.office_body{
+	margin-top:10px;
+	height:300px;
+	}
+.office_title{
+	width:250px;
+	height:50px;
+	position:relative;
+	background-image:url(../Image/office-title.jpg) ;
+}
+.office_title span{
+	font-size:24px;
+	position:absolute;
+	top:16px;
+	left:32px;
+}
+
+.office_main{
+	padding:0 17px;
+	float:left;
+	width:200px;
+	height:300px;
+}
+.office_main_photo{
+	position:relative;
+	width:200px;
+	height:150px;
+}
+.office_main_photo h4{
+	padding:3px 15px;
+	background-color:#10646F;
+	filter:alpha(opacity=70);  /* ie 有效*/
+	-moz-opacity:0.7; /* Firefox  有效*/
+	opacity: 0.7; /* 通用，其他浏览器  有效*/
+	color:#fff;
+	position:absolute;
+	top:0px;
+	left:0px;
+}
+.office_main_photo img{
+	width:200px;
+	height:150px;
+}
+.office_main_content{
+	position:relative;
+	width:200px;
+	height:130px;
+	background-color:#EBEBEB;
+}
+.office_main_content p{
+	width:200px;
+	font-size:14px;
+}
+.office_main_content h5{
+	padding:4px 5px;
+	background-color:#000;
+	filter:alpha(opacity=50);  /* ie 有效*/
+	-moz-opacity:0.5; /* Firefox  有效*/
+	opacity: 0.5; /* 通用，其他浏览器  有效*/
+	position:absolute;
+	right:0px;
+	bottom:0px;
+}
+.office_main_content a{
+	color:#fff;
+}
+.office_main_content a:hover{
+	color:#FFAD01;
+}
+/*-------------discipline-------*/
+#discipline{
+	height:360px;
+}
+.discipline_body{
+	margin-top:10px;
+	height:300px;
+	}
+.discipline_title{
+	width:240px;
+	height:50px;
+	position:relative;
+	background-image:url(../Image/discipline-title.jpg) ;
+}
+.discipline_title span{
+	font-size:24px;
+	position:absolute;
+	top:16px;
+	left:23px;
+}
+
+/*-------------footer-------*/
+#footer{
+	margin-top:10px;
+	height:220px;
+}
+.footer_main{
+	height:170px;
+	background-color:#1D1D1D;
+}
+.footer_main_logo{
+	padding-top:10px;
+	background-color:#1D1D1D;
+	float:left;
+	width:370px;
+	height:160px;
+}
+.footer_main_logo img{
+	width:100%;
+	height:130px;
+}
+.footer_main_friend_link{
+	color:#000;
+	background-color:#1D1D1D;
+	float:left;
+	width:800px;
+	height:170px;
+}
+.footer_main_friend_link_title{
+	width:800px;
+	height:40px;
+}
+.footer_main_friend_link_title ul{
+	width:800px;
+	height:40px;
+}
+.footer_main_friend_link_title ul li{
+	text-align:center;
+	width:200px;
+	float:left;
+	line-height:40px;
+}
+.footer_main_friend_link_title ul li a{
+	display:block;
+	width:200px;
+}
+.select{
+	font-size:18px;
+}
+.footer_main_friend_link_con{
+	height:130px;
+	background-color:#1D1D1D;
+}
+.mod{
+		color:#fff;
+		width:800px;
+		height:130px;
+		display:none;
+}
+.mod span{
+	margin:10px 15px;
+}
+
+.foot_copyright{
+	color:#fff;
+	height:50px;
+	line-height:50px;
+	background-color:#000;
+}
+.copyright_right{
+		float:right;
+}
+.copyright_left{
+	float:left;
+}
+/*---------------------公共图片------------------------*/
+#photo{
+	background-color:#10646F;
+	height:230px;
+}
+#photo img{
+	width:100%;
+	height:230px;
+}
+/*-----------------------左侧列表导航---------------------*/
+#main{
+
+}
+.main_list{
+	width:300px;
+	height:500px;
+	float:left;
+}
+.main_list_title{
+		font-size:13px;
+		padding-top:10px;
+		padding-left:10px;
+		padding-bottom:10px;
+		border-bottom:10px solid #10646F;
+}
+.main_list_title img{
+		width:16px;
+		height:16px;
+}
+.main_list_nav{
+	padding-bottom:15px;
+	background-color:#F4F4F4;
+}
+.main_list_nav ul{
+	background-color:#F4F4F4;
+	color:#000;
+}
+.main_list_nav ul li{
+	padding:5px 0;
+	border-bottom:2px solid #EBE9EA;
+}
+.main_list_nav ul li a{
+	margin-top:14px;
+	margin-left:50px;
+	color:#000;
+}
+
+
+.main_list_nav ul li a:hover{
+	color:#FFAD01;
+}
+/*----------------------------右侧----------------------*/
+.main_con{
+	background-color:#F4F4F4;
+	margin-left:30px;
+	padding-right:20px;
+	float:left;
+	width:820px;
+}
+.main_con_title{
+	padding:5px 0;
+	margin-left:30px;
+	border-bottom:3px solid #EBE9EA;
+}
+.span1{
+	margin-left:15px;
+	color:#10646F;
+	font-weight:bold;
+	font-size:30px;
+}
+.span2{
+	color:#10646F;
+	font-weight:bold;
+	font-size:20px;
+}
+.main_con_con{
+	margin-left:30px;
+	padding:10px 20px;
+}
+/*----------------图片文字-------------*/
+.main_con_con img{
+	height:300px;
+	width:100%;
+}
+.main_con_con p{
+	line-height:1.5;
+	font-size:20px;
+}
+/*----------------teacher-------------*/
+.teacher{
+	margin-top:30px;
+	width:100%;
+	float:left;
+}
+.teacher_function{
+	padding:5px 0;
+	width:100%;
+	height:30px;
+	background-color:#1C6C76;
+	color:#fff;
+}
+.teacher_function span{
+	font-size:22px;
+	margin-left:30px;
+}
+.teacher_name{
+	overflow:hidden;
+	width:100%;
+	background-color:#dedede;
+}
+.teacher_name ul{
+	overflow:hidden;
+	width:100%;
+}
+.teacher_name a{
+	color:#000;
+}
+.teacher_name a:hover{
+	color:#FFAD01;
+}
+.teacher_name ul li{
+	float:left;
+	font-size:18px;
+	text-align:center;
+	line-height:1.8;
+	width:20%;
+}
+/*----------------现任领导---------------*/
+.leader_main{
+	padding:10px 0;
+}
+.leader{
+	width:750px;
+	height:220px;
+	margin-bottom:30px;
+}
+.leader_photo{
+	float:left;
+	width:180px;
+	height:220px;
+}
+.leader_photo img{
+	width:180px;
+	height:220px;
+}
+.leader_intro{
+	border:1px solid #C9C9C9;
+	float:left;
+	width:568px;
+	height:218px;
+}
+.leader_intro_title{
+	width:568px;
+	line-height:35px;
+	border-bottom:1px solid #C9C9C9;
+}
+.leader_intro_name{
+	margin-left:15px;
+	color:#1D6D76;
+	font-size:20px;
+}
+.leader_intro_position{
+	margin-left:15px;
+	font-size:16px;
+}
+.leader_intro_con{
+	overflow:hidden;
+}
+.intro_con{
+	padding-left:15px;
+	float:left;
+	width:84px;
+	height:181px;
+	background-color:#E8E8E8;
+}
+.intro_con_main{
+	padding:10px 10px;
+	font-size:15px;
+	float:left;
+	height:161px;
+	width:449px;
+}
+/*------------------------列表属性---------------------*/
+.main_con_con ul{
+	
+}
+.main_con_con ul li{
+	height:40px;
+	font-size:15px;
+	padding-left:15px;
+	margin-top:1px;
+}
+.main_con_con ul li img{
+		margin-right:10px;
+		width:13px;
+		height:13px;
+}
+.main_con_con a{
+	font-size:14px;
+	height:30px;
+	line-height:30px;
+	color:#000;
+}
+.main_con_con a:hover{
+	font-weight:bold;
+	color:#FEAF00;
+}
+.main_con_list_right{
+	float:right;
+	font-size:14px;
+}
+/*-------------------分页-------------------*/
+
+
+/*-----------------精品课程----------------------*/
+#class_header{
+		width:70px;
+		border-color:#10646F;
+}
+
+
+
+
+
+
