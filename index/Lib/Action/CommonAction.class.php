@@ -3,9 +3,6 @@
 class CommonAction extends Action {
 	//初始化
 	function _initialize(){
-		//友情链接全部取出
-		//文章取出5条
-		//同校活动取出5条
 		Load('extend');
 		import("ORG.Util.Page");       //载入分页类
 		$this->assign('menu',M('menu')->where('parentid=0 AND type=1')->order('sort')->limit(8)->select());//导航数据组装
@@ -13,20 +10,11 @@ class CommonAction extends Action {
 		$systemConfig = include WEB_ROOT . 'Common/systemConfig.php';
 		F("systemConfig", $systemConfig, WEB_ROOT . "Common/");
 		$this->assign("site", $systemConfig);
-		
 		//标签展示（置顶的永远显示）
 		$this->assign('label',M('Label')->where('status=1')->order('sort DESC')->limit(8)->select());
 		//友情链接
-		$this->assign('link',M('Link')->where('status=1')->order('sort DESC')->select());
-		//首页活动
-		$Activity=M('Activity');
-		/* $ip=get_client_ip();
-		 $country=$this->getCity($ip);
-		where('class=1 AND isLock=1') */
-		$this->assign('Activity1',$Activity->where('isLock=1')->limit(5)->order('activity_id desc')->select());
-		$this->assign('Activity2',$Activity->where('isLock=1')->limit(5)->order('activity_id desc')->select());
-		
-		
+		$this->assign('link',M('Flink')->where('status=1')->order('ordid DESC')->select());
+	
 	}
 	/* public function listNews($firstRow = 0, $listRows = 20,$where) {
 		$name=$this->getModelName();
@@ -166,13 +154,13 @@ class CommonAction extends Action {
     public function index(){
     	//封装一个留学生index方法
     	//1.哪个表；2.表里提取哪种类型数据，3.不操作数据表；
-    	$name=$this->getActionName();
+    	/* $name=$this->getActionName();
     	$M = M($name);
     	$this->assign("list", D($name)->listNews($page->firstRow, $page->listRows));
     	$list=M($name)->select();
-    	 $this->assign('list',$list);
+    	 $this->assign('list',$list); */
     	$this->display();
-    }
+    } 
     //空操作
 	public function _empty(){
 		$this->redirect("/");

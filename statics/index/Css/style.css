@@ -34,6 +34,20 @@ a{
 	margin:auto;
 	width:1170px;
 }
+/* 分页显示 */
+.paging{
+	font-size:18px;
+	line-height:30px;	
+	text-align:center;
+}
+.paging a{
+	color:#000;
+	font-size:18px;
+}
+.paging a:hover{
+	color:#FFAD01;
+	font-size:18px;
+}
 /*---------------header--------------------*/
 #header{
 	background-color:#10646F;
@@ -452,10 +466,14 @@ a{
 		height:130px;
 		display:none;
 }
-.mod span{
-	margin:10px 15px;
+.mod ul li{
+	float:left;
+	width:25%;
+	text-align:center;
 }
-
+.mod ul li a:hover{
+	color:#FFAD01;
+}
 .foot_copyright{
 	color:#fff;
 	height:50px;

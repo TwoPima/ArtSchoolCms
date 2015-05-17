@@ -7,28 +7,6 @@ class IndexAction extends CommonAction{
 		$this->assign('slide',D('Photo')->where('status=1 AND tid=5')->select());//幻灯片调用ID
 		$this->assign('video',D('Video')->where('status=1')->find(1));//视频调用ID
 		 */
-		//同校恋情
-		$schoolwhere['islock']="2";
-		$field=array('username,r.member_id,nationName,schoolName,age,height,cPoint,headphoto,OnlineTF,loginCount');
-		$schoolyard = M()->table("mxczhyk_member r")->join("mxczhyk_member_detail s on r.member_id=s.member_id")->where($schoolwhere)->field($field)->order('OnlineTF DESC,loginCount DESC,cPoint DESC')->limit(10)->select();
-		//dump($schoolyard);
-		$this->assign('schoolyard',$schoolyard);
-		//民族恋情
-		$nationwhere['islock']="2";
-		$nationwhere['nationName']!="汉族";
-		$nationfield=array('username,r.member_id,nationName,schoolName,age,height,cPoint,headphoto,OnlineTF,loginCount');
-		$nation = M()->table("mxczhyk_member r")->join("mxczhyk_member_detail s on r.member_id=s.member_id")->where($nationwhere)->field($nationfield)->order('OnlineTF DESC,nationName,cPoint DESC')->limit(10)->select();
-		$this->assign('nation',$nation);
-		//留学生恋情
-		$overseaswhere['islock']="2";
-		$overseaswhere['if_overseas']="2";
-		$overseasfield=array('username,r.member_id,nationName,schoolName,age,height,cPoint,headphoto,OnlineTF,loginCount');
-		$overseas = M()->table("mxczhyk_member r")->join("mxczhyk_member_detail s on r.member_id=s.member_id")->where($overseaswhere)->field($overseasfield)->order('OnlineTF DESC,cPoint DESC')->limit(5)->select();
-		$this->assign('overseas',$overseas);
-		//牵手恋人
-		$successwhere['status']="1";
-		$succcess = M("Success_object")->where($successwhere)->order('create_time DESC')->limit(5)->select();
-		$this->assign('success',$overseas);
 		//广告
 		$this->assign('ad_top',M('Advertisement')->where('type=1 AND available=1')->order('displayorder')->limit(4)->select());
 		//爱情攻略

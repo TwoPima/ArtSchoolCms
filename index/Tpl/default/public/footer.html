@@ -15,19 +15,11 @@
 						  </div>
 						   <div id="footer_main_friend_link_con" class="footer_main_friend_link_con">
 						   	<div class="mod">
-						   			<span><a href="#">中央美院</a></span>
-						   			<span><a href="#">人民大学艺术学院中北</a></span>
-						   			<span><a href="#">人民大学艺术</a></span>
-						   			<span><a href="#">中央美院中央美院</a></span>
-						   			<span><a href="#">中央美院</a></span>
-						   			<span><a href="#">中央美院</a></span>
-						   			<span><a href="#">中央美院</a></span>
-						   			<span><a href="#">中央美院</a></span>
-						   			<span><a href="#">中央美院</a></span>
-						   			<span><a href="#">中央美院</a></span>
-						   			<span><a href="#">中央美院</a></span>
-						   			<span><a href="#">中央美院</a></span>
-						   			<span><a href="#">中央美院</a></span>
+						   			<ul>
+						   			 <volist name="link" id="val">
+						   				<li><a href="{$val.url}">{$val.name}</a></li>
+						   			</volist>
+						   			</ul>
 						   	</div>
 						   	<div class="mod">
 						   			联系方式:<br>
