@@ -36,6 +36,13 @@ return array(
 	'ATTACHMENT_PATH'=>'附件保存位置',
 	'ATTACHMENT_TYPE'=>'附件类型',
 	'ATTACHMENT_SIZE'=>'附件大小',	
-	'COMMENT_TIME'=>'评论时间'
+	'COMMENT_TIME'=>'评论时间',
+	'postcode'=>'邮政编码',
+	'duty_web'=>'主要负责人',
+	'tel'=>'联系方式',
+	'address'=>'地址',
+	'president_email'=>'院长信箱',
+	'about_web'=>'关于我们'
+		
 );
 ?>

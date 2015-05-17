@@ -21,7 +21,7 @@ class NoticeAction extends BaseAction{
 			$list_rel[]=$value;
 		}	
 		$this->assign('notice_list',$list_rel);
-		$big_menu = array('javascript:window.top.art.dialog({id:\'add\',iframe:\'?m=notice&a=add\', title:\'添加导航\', width:\'540\', height:\'510\', lock:true}, function(){var d = window.top.art.dialog({id:\'add\'}).data.iframe;var form = d.document.getElementById(\'dosubmit\');form.click();return false;}, function(){window.top.art.dialog({id:\'add\'}).close()});void(0);','添加导航');
+		$big_menu = array('javascript:window.top.art.dialog({id:\'add\',iframe:\'?m=Notice&a=add\', title:\'添加通知\', width:\'540\', height:\'510\', lock:true}, function(){var d = window.top.art.dialog({id:\'add\'}).data.iframe;var form = d.document.getElementById(\'dosubmit\');form.click();return false;}, function(){window.top.art.dialog({id:\'add\'}).close()});void(0);','添加通知');
 		$this->assign('big_menu',$big_menu);
 		$this->assign('show_header', true);
 		$this->display();
@@ -33,11 +33,11 @@ class NoticeAction extends BaseAction{
 				$this->error( $this->notice_mod->error() );
 			}
 			if($vo['name']==''){
-				$this->error('导航名称不能为空');
+				$this->error('通知名称不能为空');
 			}
-			$result = $this->notice_mod->where("pid=".$vo['pid']." AND name='".$vo['name']."'")->count();
+			$result = $this->notice_mod->where("id=".$vo['id']." AND name='".$vo['name']."'")->count();
 			if($result != 0){
-				$this->error('该导航已经存在');
+				$this->error('该名称已经存在');
 			}
 			//保存当前数据
 			$app_cate_id = $this->notice_mod->add();
@@ -90,12 +90,12 @@ class NoticeAction extends BaseAction{
 	function delete()
 	{
 		if((!isset($_GET['id']) || empty($_GET['id'])) && (!isset($_POST['id']) || empty($_POST['id']))) {
-			$this->error('请选择要删除的导航！');
+			$this->error('请选择要删除的通知！');
 		}
 		$old_notice = $this->notice_mod->where('id='.$_REQUEST['id'])->find();
-		if( $old_notice['system']=='1' ){
+		/* if( $old_notice['system']=='1' ){
 			$this->error('您无权删除');
-		}
+		} */
 		if (isset($_POST['id']) && is_array($_POST['id'])) {
 			$cate_ids = implode(',', $_POST['id']);
 			$this->notice_mod->delete($cate_ids);
@@ -110,7 +110,7 @@ class NoticeAction extends BaseAction{
 	{
 		if (isset($_POST['listorders'])) {
 			foreach ($_POST['listorders'] as $id=>$sort_order) {
-				$data['sort_order'] = $sort_order;
+				$data['uploadtime'] = $sort_order;
 				$this->notice_mod->where('id='.$id)->save($data);
 			}
 			$this->success('排序已完成');

@@ -1,6 +1,6 @@
 <include file="Public:header" />
 <div class="pad-lr-10">
-    <form id="myform" name="myform" action="{:u('Nav/delete')}" method="post" onsubmit="return check();">
+    <form id="myform" name="myform" action="{:u('Notice/delete')}" method="post" onsubmit="return check();">
     <div class="table-list">
     <table width="100%" cellspacing="0">
         <thead>
@@ -50,7 +50,7 @@ function edit(id, name) {
 }
 
 function check(){
-	if($("#myform").attr('action') != '{:u("Nav/sort_order")}') {
+	if($("#myform").attr('action') != '{:u("Notice/sort_order")}') {
 		var ids='';
 		$("input[name='id[]']:checked").each(function(i, n){
 			ids += $(n).val() + ',';
@@ -63,14 +63,14 @@ function check(){
 	return true;
 }
 function status(id,type){
-    $.get("{:u('Nav/status')}", { id: id, type: type }, function(jsondata){
+    $.get("{:u('Notice/status')}", { id: id, type: type }, function(jsondata){
 		var return_data  = eval("("+jsondata+")");
 		$("#"+type+"_"+id+" img").attr('src', '__ROOT__/statics/images/status_'+return_data+'.gif');
 	}); 
 }
 //排序方法
 function sort(id,type,num){    
-    $.get("{:u('Nav/sort')}", { id: id, type: type,num:num }, function(jsondata){        
+    $.get("{:u('Notice/sort')}", { id: id, type: type,num:num }, function(jsondata){        
 		$("#"+type+"_"+id+" ").attr('value', jsondata);
 	},'json'); 
 }
