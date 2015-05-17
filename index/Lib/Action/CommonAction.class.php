@@ -14,6 +14,7 @@ class CommonAction extends Action {
 		$this->assign('label',M('Label')->where('status=1')->order('sort DESC')->limit(8)->select());
 		//友情链接
 		$this->assign('link',M('Flink')->where('status=1')->order('ordid DESC')->select());
+		
 	
 	}
 	/* public function listNews($firstRow = 0, $listRows = 20,$where) {
@@ -22,13 +23,18 @@ class CommonAction extends Action {
 		$list = $M->where($where)->limit("$firstRow , $listRows")->select();
 		return $list;
 	} */
-	//详细会员操作；根据传过来的表名和类型取数据
-	public function detail(){
+	//详细操作；根据传过来的表名和类型取数据
+	public function detail(){		
 		$table=$_GET['table'];
 		$model=M($table);
 		$str=$model->getPk ();
 		$where[$str]=(int) $_GET['id'];
-		$result=$model->where($where)->select();
+		
+		$result_se=$model->where($where)->select();
+		$result=array();
+		foreach ($result_se as $value){
+			$result[]=$value;
+		}
 		$this->assign('detail',$result);
 		$this->display();
 	}

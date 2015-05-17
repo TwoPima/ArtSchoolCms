@@ -1,0 +1,33 @@
+<include file="Public:header"/>
+<!-- photo start -->
+<div id="photo">
+	<div class="container">
+			<img src="__ROOT__/statics/index/Image/teacher.jpg" alt="tuqian">
+	</div>
+</div>
+<!-- photo end -->
+<div id="main">
+	<div class="container clearfix">
+			<div id="main_mid">
+				<include file="Public:mainleft"/>
+				<div class="main_con" id="main_con">
+						<div class="main_con_title">
+								<span class="span1"></span>
+								<span class="span2">{$detail[0]['name']}</span>
+						</div>
+						<div class="main_con_con">
+							<p>
+							{$detail[0]['content']}
+							</p>
+						</div><!-- ./main_con_con -->
+					<div class="paging">
+					<p>
+						<a href="#">上一页</a>
+						<a href="#">下一页</a>
+					</p>
+				</div>
+				</div>
+			</div>
+		</div>
+</div>
+<include file="Public:footer"/>

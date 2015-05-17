@@ -4,9 +4,11 @@
 	<div class="container">
 			<div id="photochange">
 					<div id="list" style="left: -800px;">
-		        <img src="__ROOT__/statics/index/Image/5.jpg" alt="1"/>
 		        <img src="__ROOT__/statics/index/Image/1.jpg" alt="1"/>
-		        <img src="__ROOT__/statics/index/Image/2.jpg" alt="2"/>
+		        <img src="__ROOT__/statics/index/Image/1.jpg" alt="1"/>
+		        <volist name="Ad" id="vo">
+		        	  <img src="__ROOT__/data/advert/{$vo.code}" alt="2"/>
+		        </volist>
 		        <img src="__ROOT__/statics/index/Image/3.jpg" alt="3"/>
 		        <img src="__ROOT__/statics/index/Image/4.jpg" alt="4"/>
 		        <img src="__ROOT__/statics/index/Image/5.jpg" alt="5"/>
@@ -14,7 +16,10 @@
 		    </div>
 		    <div id="buttons">
 		        <span index="1" class="on">合唱团在青歌赛上获得铜奖</span>
-		        <span index="2">第五届大广赛获国家三等奖</span>
+		        <volist name="Ad" id="vo">
+		        	 <span index="2">{$vo.name}</span>
+		        </volist>
+		        
 		        <span index="3">军工文化艺术团揭牌</span>
 		        <span index="4">文联副主席徐沛东来我院讲学</span>
 		        <span index="5">张建设老师的彭德怀元帅雕塑在我校德怀广场落成</span>
@@ -25,17 +30,9 @@
 			<div class="importantnews">
 				<h1>重要通知</h1>
 					 <ul>
-							<li><a href="#">学校将在2015年6月换成网站<span>【05-16】</span></a></li><hr>
-							<li><a href="#">学校将在2015年6月换成网站<span>【05-16】</span></a></li><hr>
-							<li><a href="#">学校将在2015年6月换成网站<span>【05-16】</span></a></li><hr>
-							<li><a href="#">学校将在2015年6月换成网站<span>【05-16】</span></a></li><hr>
-							<li><a href="#">学校将在2015年6月换成网站<span>【05-16】</span></a></li><hr>
-							<li><a href="#">学校将在2015年6月换成网站<span>【05-16】</span></a></li><hr>
-							<li><a href="#">学校将在2015年6月换成网站<span>【05-16】</span></a></li><hr>
-							<li><a href="#">学校将在2015年6月换成网站<span>【05-16】</span></a></li><hr>
-							<li><a href="#">学校将在2015年6月换成网站<span>【05-16】</span></a></li><hr>
-							<li><a href="#">学校将在2015年6月换成网站<span>【05-16】</span></a></li><hr>
-							<li><a href="#">学校将在2015年6月换成网站<span>【05-16】</span></a></li><hr>
+				 		<volist name="Notice" id="val">
+					   		<li><a href="__APP__/Notice/detail?table=Notice&id={$val.id}">{$val.name|msubstr=0,21,'utf-8',false}<span>{$val.uploadtime|date="m-d",###}</span></a></li><hr>
+					   	</volist>
 						</ul> 
 				<h3><a href="#">READ MORE >></a></h3>
 			</div>
