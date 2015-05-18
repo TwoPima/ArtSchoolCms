@@ -14,7 +14,6 @@ class CommonAction extends Action {
 		$this->assign('label',M('Label')->where('status=1')->order('sort DESC')->limit(8)->select());
 		//友情链接
 		$this->assign('link',M('Flink')->where('status=1')->order('ordid DESC')->select());
-		
 	
 	}
 	/* public function listNews($firstRow = 0, $listRows = 20,$where) {
@@ -29,7 +28,6 @@ class CommonAction extends Action {
 		$model=M($table);
 		$str=$model->getPk ();
 		$where[$str]=(int) $_GET['id'];
-		
 		$result_se=$model->where($where)->select();
 		$result=array();
 		foreach ($result_se as $value){

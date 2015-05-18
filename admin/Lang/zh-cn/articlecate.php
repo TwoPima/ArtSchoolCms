@@ -3,6 +3,7 @@ return array(
 	'PID'=>'上级分类',
     'NAME' => '分类名称',
     'ALIAS' => '分类别名',
+    'english_name' => '英文名称',
     'SORT_ORDER' => '排序',	
 	'STATUS'=>'状态',
 	'ID'=>'分类ID',
