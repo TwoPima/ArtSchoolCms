@@ -6,11 +6,12 @@
         <thead>
             <tr>
                 <th width="4%"><input type="checkbox" value="all" id="check_box" onclick="selectall('id[]');" name="all"></th>              	
-                <th width="100">通知名称</th>
+                <th width="100">名称</th>
 				 <th width="260">内容</th>
 				 <th width="40">发表时间</th>
-                <th width="60">是否显示</th>
-                <th width="60">站内/站外</th>
+                <th width="40">是否显示</th>
+                <th width="40">种类</th>
+                <th width="40">站内/站外</th>
                 <th width="40">操作</th>
             </tr>
         </thead>
@@ -24,7 +25,8 @@
                 <td align="center" onclick="status({$val.id},'is_show')" id="is_show_{$val.id}">
                 	<img src="__ROOT__/statics/images/status_{$val.is_show}.gif"
                 </td>
-                <td align="center"><if condition="$val.in_site eq '1'"><em class="blue">是</em><else/>否</if></td>
+                <td align="center"><if condition="$val.type eq '1'"><em class="blue">学院新闻</em><else/>重要通知</if></td>
+                <td align="center"><if condition="$val.in_site eq '1'"><em class="blue">站内</em><else/>站外</if></td>
                 <td align="center"><a class="blue" href="javascript:edit({$val.id},'{$val.name}')">编辑</a> </td>
             </tr>
             </volist>
