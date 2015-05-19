@@ -13,13 +13,11 @@ class IndexAction extends CommonAction{
 		$com['cid']=$this->getclass('爱情攻略','Article');
 		$com['islock']="1";
 		//---------------------重要通知
-		$this->assign('Notice',M('Notice')->where('in_site=1 AND is_show=1')->order('uploadtime DESC')->limit(11)->select());
+		$this->assign('Notice',M('Notice')->where('type=0 AND is_show=1')->order('uploadtime DESC')->limit(11)->select());
 		//---------------------学院新闻
-		$this->assign('CollegeNotice',M('Notice')->where('in_site=0 AND is_show=1')->order('uploadtime DESC')->limit(10)->select());
+		$this->assign('CollegeNotice',M('Notice')->where('type=1 AND is_show=1')->order('uploadtime DESC')->limit(10)->select());
 		//---------------------幻灯片轮播数据添加
 		$this->assign('Ad',M('Ad')->where("type='image' AND status=1")->order('add_time DESC')->limit(5)->select());
-		
-		$this->assign('loveStrategy',M('Article')->where($com)->order('update_time DESC')->limit(6)->select());
 		$this->display();
 		
     }

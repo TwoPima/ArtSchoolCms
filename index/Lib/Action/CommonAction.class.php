@@ -6,12 +6,18 @@ class CommonAction extends Action {
 		Load('extend');
 		import("ORG.Util.Page");       //载入分页类
 		$this->assign('menu',M('menu')->where('parentid=0 AND type=1')->order('sort')->limit(8)->select());//导航数据组装
-		//seo
+		/* //seo
 		$systemConfig = include WEB_ROOT . 'Common/systemConfig.php';
 		F("systemConfig", $systemConfig, WEB_ROOT . "Common/");
-		$this->assign("site", $systemConfig);
-		//标签展示（置顶的永远显示）
-		$this->assign('label',M('Label')->where('status=1')->order('sort DESC')->limit(8)->select());
+		$this->assign("site", $systemConfig); */
+		//获取网站配置信息
+		$setting_mod = M('setting');
+		$setting = $setting_mod->select();
+		foreach ( $setting as $val ) {
+			$set[$val['name']] = stripslashes($val['data']);
+		}
+		$this->setting = $set;
+		$this->assign('set',$this->setting);
 		//友情链接
 		$this->assign('link',M('Flink')->where('status=1')->order('ordid DESC')->select());
 	

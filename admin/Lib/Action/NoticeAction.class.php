@@ -106,18 +106,6 @@ class NoticeAction extends BaseAction{
 		$this->success('已成功删除');
 	}
 
-	function sort_order()
-	{
-		if (isset($_POST['listorders'])) {
-			foreach ($_POST['listorders'] as $id=>$sort_order) {
-				$data['uploadtime'] = $sort_order;
-				$this->notice_mod->where('id='.$id)->save($data);
-			}
-			$this->success('排序已完成');
-		}
-		$this->error('排序失败');
-	}
-
 	//修改状态
 	function status()
 	{
