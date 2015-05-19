@@ -20,8 +20,15 @@
     <tr>
       <th>站内/站外通知</th>
       <td>
-         <input type="radio" name="in_site" onclick="changeData(1);" value="1" <if condition="$notice.in_site eq '1'">checked="checked"</if>  />&nbsp;是&nbsp;&nbsp;
-         <input type="radio" name="in_site" onclick="changeData(0);" value="0" <if condition="$notice.in_site eq '0'">checked="checked"</if> />&nbsp;否&nbsp;&nbsp;
+         <input type="radio" name="in_site" onclick="changeData(1);" value="1" <if condition="$notice.in_site eq '1'">checked="checked"</if>  />站内
+         <input type="radio" name="in_site" onclick="changeData(0);" value="0" <if condition="$notice.in_site eq '0'">checked="checked"</if> />站外
+      </td>
+    </tr>
+    <tr>
+      <th>种类</th>
+      <td>
+         <input type="radio" name="type" onclick="changeData(1);" value="1" <if condition="$notice.type eq '1'">checked="checked"</if>  />学院新闻
+         <input type="radio" name="type" onclick="changeData(0);" value="0" <if condition="$notice.type eq '0'">checked="checked"</if> />重要通知
       </td>
     </tr>
 	<tr id="tr_url"  >
