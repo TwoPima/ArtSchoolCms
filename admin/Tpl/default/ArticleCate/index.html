@@ -8,10 +8,10 @@
             <tr>
             	<th width="50">{:L('id')}</th> 
                 <th width="4%"><input type="checkbox" value="" id="check_box" onclick="selectall('id[]');"></th>
-              	<th width="250">{:L('name')}</th>
+              	<th width="180">{:L('name')}</th>
 				<th width="80">{:L('alias')}</th>              	
-				<th width="80">{:L('english_name')}</th>              	
-                <th align="left">SEO Title</th>               
+				<th width="250">{:L('english_name')}</th>
+                <th align="left">SEO Title</th>            
               	<th width="80">{:L('artile_num')}</th>               
               	<th width="60">{:L('sort')}</th>
                 <th width="60">{:L('status')}</th>
@@ -25,7 +25,7 @@
             <td align="center"><input type="checkbox" value="{$val.id}" name="id[]"></td>
             <td>&nbsp;&nbsp;<img src="__ROOT__/statics/admin/images/tv-expandable.gif" />&nbsp;&nbsp;{$val.name}</td>
 			<td align="center"><em style="color:blue;">{$val.alias}<em style="color:red;"></td> 		           
-            <td align="center">{$val.english_name}</td>
+  		    <td align="center">{$val.english_name}</td>
             <td align="left">{$val.seo_title}</td>
 			<td align="center"><em style="color:red;">{$val.article_nums}</em></td>
             <td align="center"><input type="text" class="input-text-c input-text" value="{$val.sort_order}" id="sort_{$val.id}" onblur="sort({$val.id},'sort_order',this.value)" size="4" name="listorders[{$val.id}]"></td>
@@ -37,7 +37,8 @@
         		<td align="center">{$sval.id}</td>
                 <td align="center"><input type="checkbox" value="{$sval.id}" name="id[]"></td>
                 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="__ROOT__/statics/admin/images/tv-collapsable.gif" />&nbsp;&nbsp;{$sval.name}</td>
-				<td align="center"><em style="color:blue;">{$sval.alias}<em style="color:red;"></td>                
+				<td align="center"><em style="color:blue;">{$sval.alias}<em style="color:red;"></td>  
+				<td align="center">{$sval.english_name}</td>              
                 <td align="left">{$sval.seo_title}</td>
 				<td align="center"><em style="color:red;">{$sval.article_nums}</em></td>
                 <td align="center"><input type="text" class="input-text-c input-text" value="{$sval.sort_order}" id="sort_{$sval.id}" onblur="sort({$sval.id},'sort_order',this.value)" size="4" name="listorders[{$sval.id}]"></td>
@@ -52,9 +53,7 @@
     <div class="btn">
     <label for="check_box">{$Think.lang.select_all}/{$Think.lang.cancel}</label>
     <input type="submit" class="button" name="dosubmit" value="{$Think.lang.delete}" onclick="return confirm('{$Think.lang.sure_delete}')"/>
-    
     </div>
-
     </div>
     </form>
 </div>

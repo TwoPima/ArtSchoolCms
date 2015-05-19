@@ -35,6 +35,12 @@
       <th width="100">{:L('sort_order')} :</th>
       <td><input type="text" name="sort_order" id="sort_order" class="input-text" size="4" onkeyup="value=value.replace(/[^\d]/g,'')"onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))"></td>
     </tr>
+    <!-- 英语名称 -->
+     <tr> 
+      <th width="100">{:L('english_name')}:</th>
+      <td><input type="text" name="english_name" id="english_name" class="input-text" size="50"></td>
+    </tr>
+
 	<tr>
       <th>{:L('status')} :</th>
       <td><input type="radio" name="status" value="1" checked>&nbsp;已审核&nbsp;&nbsp;&nbsp;
