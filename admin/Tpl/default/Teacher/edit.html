@@ -1,0 +1,58 @@
+<tagLib name="tpl" />
+<include file="Public:header" />
+<form action="{:u('Teacher/edit')}" method="post" name="myform" id="myform" enctype="multipart/form-data" style="margin-top:10px;">
+  <div class="pad-10">
+  <div class="col-tab">
+  <div id="div_setting_1" class="contentList pad-10">
+    <table width="100%" cellpadding="2" cellspacing="1" class="table_form">
+      <tr>
+        <th width="100">{:L('name')} :</th>
+        <td><input type="text" name="name" id="name" class="input-text" size="60" value="{$Teacher.name}"></td>
+      </tr>
+      <tr>
+        <th width="100">{:L('position')} :</th>
+        <td><input type="text" name="position" id="position" class="input-text" size="60" value="{$Teacher.position}"></td>
+      </tr>
+       <tr>
+        <th width="100">{:L('PHONE')} :</th>
+        <td><input type="text" name="phone" id="phone" class="input-text" size="60" value="{$Teacher.phone}"></td>
+      </tr>
+      
+      <tr>
+        <th>{:L('sort_order')} :</th>
+        <td><input type="text" name="sort_order" id="sort_order" class="input-text" size="8" value="{$Profession.sort_order}" ></td>
+      </tr>
+      <tr>
+      <th width="100">{:L('intro')} :</th>
+      <td>
+      	<textarea id="intro" class="input-text" style="height: 200px; width:400px;" name="intro">{$Profession.intro}</textarea>
+	 </td>
+    </tr>
+      <tr>
+      	<th>{:L('logo')} :</th>
+      	<td>
+        	<input type="file" name="logo" id="img" class="input-text" style="width:200px;" />
+            <if condition="$Profession['logo'] neq ''">
+            <br /><img src="./data/news/{$Profession.logo}" style="width:50px;height:50px;"/>
+            </if>
+        </td>
+      </tr>
+      <tr>
+        <th width="400">{:L('rule')} :</th>
+        <td>        	
+			<tpl:editor id="rule" name="rule" type="KINDEDITOR" style="width:70%;height:350px;" >{$Profession.rule}</tpl:editor>
+		</td>
+      </tr>
+      <tr><td><input type="hidden" name="id" value="{$Profession.id}" id="Profession_id"/></td></tr>
+    </table>
+  </div>
+  <div class="bk15"></div>
+  <div class="btn">
+    <input type="submit" value="{$Think.lang.submit}" name="dosubmit" onclick="return submitFrom();" class="button" id="dosubmit">
+  </div>
+
+</div>
+</div>
+</form>
+</body>
+</html>
