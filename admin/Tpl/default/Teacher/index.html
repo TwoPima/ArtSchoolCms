@@ -1,6 +1,6 @@
 <include file="Public:header" />
 <div class="pad-lr-10">
-    <form id="myform" name="myform" action="{:u('teacher/delete')}" method="post" onsubmit="return check();">
+    <form id="myform" name="myform" action="{:u('Teacher/delete')}" method="post" onsubmit="return check();">
     <div class="table-list">
     <table width="100%" cellspacing="0">
         <thead>
@@ -18,12 +18,12 @@
         	<volist name="teacher_list" id='val'>
             <tr>
                 <td align="center"><input type="checkbox" value="{$val.id}" name="id[]"></td>                
-                <td align="center">{$val.name|msubstr=0,20,'utf-8',false}</td>
-                <td align="center">{$val.position|msubstr=0,20,'utf-8',false}</td>
-                <th width="center">{$val.type}</th>
-                <th width="center">{$val.type}</th>
-                <td align="center"><input type="text" class="input-text-c input-text" id="sort_{$val.id}" onblur="sort({$val.id},'sort_order',this.value)" value="{$val.sort_order}" size="4" name="listorders[{$val.id}]"></td>
-               	<td align="center"><a class="blue" href="{:u('teacher/edit', array('id'=>$val['id']))}">编辑</a></td>
+                <td align="center">{$val.name}</td>
+                <td align="center">{$val.position}</td>
+                 <th width="center"><if condition="$val.type eq '1'"><em class="blue">领导</em><else/>教师</if></th>
+                <th width="center"><if condition="$val.ishot eq '1'"><em class="blue">教学名师</em><else/>否</if></th>
+                <td align="center"><input type="text" class="input-text-c input-text" id="sort_{$val.id}" onblur="sort({$val.id},'sort_order',this.value)" value="{$val.ordid}" size="4" name="listorders[{$val.id}]"></td>
+               	<td align="center"><a class="blue" href="{:u('Teacher/edit', array('id'=>$val['id']))}">编辑</a></td>
             </volist>
         </tbody>
     </table>
@@ -39,11 +39,11 @@
 function edit(id, name) {
 	var lang_edit = "编辑";
 	window.top.art.dialog({id:'edit'}).close();
-	window.top.art.dialog({title:lang_edit+'--'+name,id:'edit',iframe:'?m=Profession&a=edit&id='+id,width:'550',height:'400'}, function(){var d = window.top.art.dialog({id:'edit'}).data.iframe;d.document.getElementById('dosubmit').click();return false;}, function(){window.top.art.dialog({id:'edit'}).close()});
+	window.top.art.dialog({title:lang_edit+'--'+name,id:'edit',iframe:'?m=Teacher&a=edit&id='+id,width:'550',height:'400'}, function(){var d = window.top.art.dialog({id:'edit'}).data.iframe;d.document.getElementById('dosubmit').click();return false;}, function(){window.top.art.dialog({id:'edit'}).close()});
 }
 
 function check(){
-	if($("#myform").attr('action') != '{:u("Profession/sort_order")}') {
+	if($("#myform").attr('action') != '{:u("Teacher/sort_order")}') {
 		var ids='';
 		$("input[name='id[]']:checked").each(function(i, n){
 			ids += $(n).val() + ',';
@@ -56,14 +56,14 @@ function check(){
 	return true;
 }
 function status(id,type){
-    $.get("{:u('Profession/status')}", { id: id, type: type }, function(jsondata){
+    $.get("{:u('Teacher/status')}", { id: id, type: type }, function(jsondata){
 		var return_data  = eval("("+jsondata+")");
 		$("#"+type+"_"+id+" img").attr('src', '__ROOT__/statics/images/status_'+return_data+'.gif');
 	}); 
 }
 //排序方法
 function sort(id,type,num){    
-    $.get("{:u('Profession/sort')}", { id: id, type: type,num:num }, function(jsondata){        
+    $.get("{:u('Teacher/sort')}", { id: id, type: type,num:num }, function(jsondata){        
 		$("#"+type+"_"+id+" ").attr('value', jsondata);
 	},'json'); 
 }

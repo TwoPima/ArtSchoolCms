@@ -9,7 +9,14 @@
         <th width="100">{:L('name')} :</th>
         <td><input type="text" name="name" id="name" class="input-text" size="60" value="{$Teacher.name}"></td>
       </tr>
-      <tr>
+         <tr>
+       	<th>{:L('type')}：</th>
+       	<td>
+           	<input type="checkbox" name="type" id="type" value="1" <if condition="$Teacher['type'] eq '1'">checked="checked"</if>>  &nbsp;领导&nbsp;&nbsp;&nbsp;
+               <input type="checkbox" name="type"   id="type" value="0"<if condition="$Teacher['type'] eq '0'">checked="checked"</if>>  &nbsp;教师
+           </td>
+        </tr>
+         <TR>
         <th width="100">{:L('position')} :</th>
         <td><input type="text" name="position" id="position" class="input-text" size="60" value="{$Teacher.position}"></td>
       </tr>
@@ -17,40 +24,39 @@
         <th width="100">{:L('PHONE')} :</th>
         <td><input type="text" name="phone" id="phone" class="input-text" size="60" value="{$Teacher.phone}"></td>
       </tr>
-      
       <tr>
-        <th>{:L('sort_order')} :</th>
-        <td><input type="text" name="sort_order" id="sort_order" class="input-text" size="8" value="{$Profession.sort_order}" ></td>
+        <th>{:L('ORDID')} :</th>
+        <td><input type="text" name="ordid" id="ordid" class="input-text" size="8" value="{$Teacher.ordid}" ></td>
       </tr>
       <tr>
-      <th width="100">{:L('intro')} :</th>
-      <td>
-      	<textarea id="intro" class="input-text" style="height: 200px; width:400px;" name="intro">{$Profession.intro}</textarea>
-	 </td>
-    </tr>
-      <tr>
-      	<th>{:L('logo')} :</th>
+      	<th>{:L('img')} :</th>
       	<td>
-        	<input type="file" name="logo" id="img" class="input-text" style="width:200px;" />
-            <if condition="$Profession['logo'] neq ''">
-            <br /><img src="./data/news/{$Profession.logo}" style="width:50px;height:50px;"/>
+        	<input type="file" name="img" id="img" class="input-text" style="width:200px;" />
+            <if condition="$Teacher['img'] neq ''">
+          	<img src="./data/teacher/{$Teacher.img}" style="width:100px;height:150px;"/>
             </if>
         </td>
       </tr>
+       <tr>
+        	<th>{:L('status')}：</th>
+        	<td>
+            	<input type="checkbox" name="status" id="status" value="1" <if condition="$Teacher['status'] eq '1'">checked="checked"</if>>  &nbsp;已审核&nbsp;&nbsp;&nbsp;
+                <input type="checkbox" name="status" id="status" value="0" <if condition="$Teacher['status'] eq '0'">checked="checked"</if>>  &nbsp;待审核
+            </td>
+          </tr>
       <tr>
-        <th width="400">{:L('rule')} :</th>
+        <th>{:L('intro')} :</th>
         <td>        	
-			<tpl:editor id="rule" name="rule" type="KINDEDITOR" style="width:70%;height:350px;" >{$Profession.rule}</tpl:editor>
+			<tpl:editor id="intro" name="intro" type="KINDEDITOR"  style="height: 200px; width:1000px;" >{$Teacher.intro}</tpl:editor>
 		</td>
       </tr>
-      <tr><td><input type="hidden" name="id" value="{$Profession.id}" id="Profession_id"/></td></tr>
+      <tr><td><input type="hidden" name="id" value="{$Teacher.id}" id="id"/></td></tr>
     </table>
   </div>
   <div class="bk15"></div>
   <div class="btn">
     <input type="submit" value="{$Think.lang.submit}" name="dosubmit" onclick="return submitFrom();" class="button" id="dosubmit">
   </div>
-
 </div>
 </div>
 </form>

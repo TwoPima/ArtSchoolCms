@@ -10,135 +10,62 @@
 
 class TeacherAction extends BaseAction
 {
-	private $profession_mod;
+	private $teacher_mod;
 	function __construct(){
-		$this->profession_mod=M('Teacher');
+		$this->teacher_mod=M('Teacher');
 	}
 	public function index()
 	{
 		/*列表  */
-		$profession_list = $this->profession_mod->order('sort_order ASC')->select();
+		$teacher_list = $this->teacher_mod->order('ordid ASC')->select();
 		$list_rel=array();
-		foreach ($profession_list as $value){			
+		foreach ($teacher_list as $value){			
 			$list_rel[]=$value;
 		}	
-		$this->assign('Profession_list',$list_rel);
+		$this->assign('teacher_list',$list_rel);
 		$this->display();
 	}
 
 	function edit()
 	{
-		if(isset($_POST['dosubmit'])){
-			$article_mod = D('Teacher');
-			$attatch_mod = D('attatch');
-			$data = $article_mod->create();
-			if ($_FILES['img']['name']!=''||$_FILES['attachment']['name'][0]!='') {
-			    $upload_list = $this->_upload();
-			    if ($_FILES['img']['name']!=''&&$_FILES['attachment']['name'][0]!='') {
-				    $data['img'] = $upload_list['0']['savename'];
-				    array_shift($upload_list);
-				    $aid_arr = array();
-			        foreach ($upload_list as $att) {
-			            $file['title'] = $att['name'];
-			            $file['filetype'] = $att['extension'];
-					    $file['filesize'] = $att['size'];
-					    $file['url'] = $att['savename'];
-					    $file['uptime'] = date('Y-m-d H:i:s');
-						$attatch_mod->add($file);
-						$aid_arr[] = mysql_insert_id();
-			        }
-			        $data['aid'] = implode(',', $aid_arr);
-			    } elseif ($_FILES['img']['name']!='') {
-			        $data['img'] = $upload_list['0']['savename'];
-			    } else {
-			        $aid_arr = array();
-			        foreach ($upload_list as $att) {
-			            $file['title'] = $att['name'];
-			            $file['filetype'] = $att['extension'];
-					    $file['filesize'] = $att['size'];
-					    $file['url'] = $att['savename'];
-					    $file['uptime'] = date('Y-m-d H:i:s');
-						$attatch_mod->add($file);
-						$aid_arr[] = mysql_insert_id();
-			        }
-			        $data['aid'] = implode(',', $aid_arr);
-			    }
-			    if ($data['aid']) {
-			        $article_info = $article_mod->where('id='.$data['id'])->find();
-			        if ($article_info['aid']) {
-			            $data['aid'] = $article_info['aid'].','.$data['aid'];
-			        }
-			    }
+	if(isset($_POST['dosubmit'])){
+			$profession_mod = M('Teacher');
+			$data = $profession_mod->create();
+			if ($_FILES['img']['name']!='') {
+				$upload_list = $this->_upload();
+				$data['img'] = $upload_list['0']['savename'];
 			}
-			$result = $article_mod->save($data);
+			//最后的整体操作
+			$result = $profession_mod->where('id='.$data['id'])->save($data);
 			if(false !== $result){
 				$this->success(L('operation_success'),U('Teacher/index'));
 			}else{
 				$this->error(L('operation_failure'));
 			}
 		}else{
+			//不是编辑操作
 			$article_mod = D('Teacher');
 			if( isset($_GET['id']) ){
 				$article_id = isset($_GET['id']) && intval($_GET['id']) ? intval($_GET['id']) : $this->error(L('please_select'));
 			}
 			$article_info = $article_mod->where('id='.$article_id)->find();
-
-			//附件
-			$attatch_mod = D('attatch');
-			$article_info['attatch'] = $attatch_mod->where("aid IN (".$article_info['aid'].")")->select();
-
 			$this->assign('show_header', false);
-			$this->assign('Profession',$article_info);
+			$this->assign('Teacher',$article_info);
 			$this->display();
 		}
-
-
 	}
 
 	function add()
 	{
-		if(isset($_POST['dosubmit'])){
-			$article_mod = D('Teacher');
-			$attatch_mod = D('attatch');
-			if(false === $data = $article_mod->create()){
-				$this->error($article_mod->error());
+	if(isset($_POST['dosubmit'])){
+			$profession_mod = M('Teacher');
+			$data = $profession_mod->create();
+			if ($_FILES['img']['name']!='') {
+				$upload_list = $this->_upload();
+				$data['img'] = $upload_list['0']['savename'];
 			}
-			if ($_FILES['img']['name']!=''||$_FILES['attachment']['name'][0]!='') {
-			    if ($_FILES['img']['name']!=''&&$_FILES['attachment']['name'][0]!='') {
-				    $upload_list = $this->_upload();
-				    $data['img'] = $upload_list['0']['savename'];
-				    array_shift($upload_list);
-				    $aid_arr = array();
-			        foreach ($upload_list as $att) {
-			            $file['title'] = $att['name'];
-			            $file['filetype'] = $att['extension'];
-					    $file['filesize'] = $att['size'];
-					    $file['url'] = $att['savename'];
-					    $file['uptime'] = date('Y-m-d H:i:s');
-						$attatch_mod->add($file);
-						$aid_arr[] = mysql_insert_id();
-			        }
-			        $data['aid'] = implode(',', $aid_arr);
-			    } elseif ($_FILES['img']['name']!='') {
-			        $upload_list = $this->_upload();
-			        $data['img'] = $upload_list['0']['savename'];
-			    } else {
-			        $upload_list = $this->_upload();
-			        $aid_arr = array();
-			        foreach ($upload_list as $att) {
-			            $file['title'] = $att['name'];
-					    $file['filetype'] = $att['extension'];
-					    $file['filesize'] = $att['size'];
-					    $file['url'] = $att['savename'];
-					    $file['uptime'] = date('Y-m-d H:i:s');
-						$attatch_mod->add($file);
-						$aid_arr[] = mysql_insert_id();
-			        }
-			        $data['aid'] = implode(',', $aid_arr);
-			    }
-			}
-			$data['add_time']=date('Y-m-d H:i:s',time());
-			$result = $article_mod->add($data);
+			//$data['add_time']=date('Y-m-d H:i:s',time());
+			$result = $profession_mod->add($data);
 			if($result){
 				$this->success('添加成功');
 			}else{
@@ -173,14 +100,14 @@ class TeacherAction extends BaseAction
     	if((!isset($_GET['id']) || empty($_GET['id'])) && (!isset($_POST['id']) || empty($_POST['id']))) {
     		$this->error('请选择要删除的选项！');
     	}
-    	$old_nav =$this->profession_mod->where('id='.$_REQUEST['id'])->find();
+    	$old_nav =$this->teacher_mod->where('id='.$_REQUEST['id'])->find();
     	
     	if (isset($_POST['id']) && is_array($_POST['id'])) {
     		$cate_ids = implode(',', $_POST['id']);
-    		$this->profession_mod->delete($cate_ids);
+    		$this->teacher_mod->delete($cate_ids);
     	} else {
     		$cate_id = intval($_GET['id']);
-    		$this->profession_mod->delete($cate_id);
+    		$this->teacher_mod->delete($cate_id);
     	}
     	$this->success('已成功删除');
     }
@@ -192,7 +119,7 @@ class TeacherAction extends BaseAction
         //设置上传文件大小
         $upload->maxSize = 3292200;
         //$upload->allowExts = explode(',', 'jpg,gif,png,jpeg');
-        $upload->savePath = './data/news/';
+        $upload->savePath = './data/teacher/';
 
         $upload->saveRule = uniqid;
         if (!$upload->upload()) {

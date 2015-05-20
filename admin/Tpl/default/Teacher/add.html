@@ -1,23 +1,13 @@
 <tagLib name="tpl" />
 <include file="Public:header" />
-<script type="text/javascript">		
-$(function(){
-	$("#add_attatch").click(function(){
-	$("#attatch_tr").clone().prependTo($("#attatch_tr").parent());
-	});
-})
-</script>
 <form action="{:u('Teacher/add')}" method="post" name="myform" id="myform"  enctype="multipart/form-data" style="margin-top:10px;">
   <div class="pad-10">
     <div class="col-tab">
-      <ul class="tabBut cu-li">
-        <li id="tab_setting_1" class="on" onclick="SwapTab('setting','on','',2,1);">{$Think.lang.general_info}</li>
-      </ul>
       <div id="div_setting_1" class="contentList pad-10">
         <table width="100%" cellpadding="2" cellspacing="1" class="table_form">
           <tr>
             <th width="100">{:L('name')}:</th>
-            <td><input type="text" name="title" id="title" class="input-text" size="60"></td>
+            <td><input type="text" name="name" id="name" class="input-text" size="60"></td>
           </tr>
 		  <tr>
             <th width="100">{:L('position')}:</th>
@@ -34,15 +24,6 @@ $(function(){
               		&nbsp;教师&nbsp;&nbsp;&nbsp;
               	<input type="radio" name="type" class="radio_style" value="1" >
               		&nbsp;领导
-              </td>
-          </tr>
-            <tr>
-            <th>{:L('ishot')} :</th>
-            <td>
-               	<input type="radio" name="ishot" class="radio_style" value="0" checked="checked">
-              		&nbsp;否
-            	<input type="radio" name="ishot" class="radio_style" value="1" >
-              		&nbsp;是&nbsp;&nbsp;&nbsp;
               </td>
           </tr>
           <tr>
@@ -81,26 +62,4 @@ $(function(){
     </div>
   </div>
 </form>
-<script type="text/javascript">
-function SwapTab(name,cls_show,cls_hide,cnt,cur){
-    for(i=1;i<=cnt;i++){
-		if(i==cur){
-			 $('#div_'+name+'_'+i).show();
-			 $('#tab_'+name+'_'+i).attr('class',cls_show);
-		}else{
-			 $('#div_'+name+'_'+i).hide();
-			 $('#tab_'+name+'_'+i).attr('class',cls_hide);
-		}
-	}
-}
-
-function submitFrom(){
-	if($("#cate_id").val()==0)
-	{
-	   alert('请选择文章分类');
-	   return false;
-	}
-
-}
-</script>
 </body></html>
