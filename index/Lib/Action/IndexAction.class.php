@@ -1,24 +1,24 @@
 <?php
-/*前台首页*/
 class IndexAction extends CommonAction{
     //首页
-	public function index(){
+	public function _before_index(){
 		/* $this->assign('diary',D('Diary')->where('status=1')->order('add_time DESC')->limit(5)->select());
 		$this->assign('slide',D('Photo')->where('status=1 AND tid=5')->select());//幻灯片调用ID
 		$this->assign('video',D('Video')->where('status=1')->find(1));//视频调用ID
 		 */
-		//广告
-		$this->assign('ad_top',M('Advertisement')->where('type=1 AND available=1')->order('displayorder')->limit(4)->select());
-		//爱情攻略
-		$com['cid']=$this->getclass('爱情攻略','Article');
-		$com['islock']="1";
+		//获取网站配置信息
+		$setting_mod = M('Setting');
+		$setting = $setting_mod->select();
+		foreach ( $setting as $val ) {
+			$set[$val['name']] = stripslashes($val['data']);
+		}
+		$this->assign('set',$set);
 		//---------------------重要通知
 		$this->assign('Notice',M('Notice')->where('type=0 AND is_show=1')->order('uploadtime DESC')->limit(11)->select());
 		//---------------------学院新闻
 		$this->assign('CollegeNotice',M('Notice')->where('type=1 AND is_show=1')->order('uploadtime DESC')->limit(10)->select());
 		//---------------------幻灯片轮播数据添加
 		$this->assign('Ad',M('Ad')->where("type='image' AND status=1")->order('add_time DESC')->limit(5)->select());
-		$this->display();
 		
     }
     /*  
@@ -46,6 +46,5 @@ class IndexAction extends CommonAction{
 		$this->seo('搜索'.$data.'结果', C('SITE_KEYWORDS'), C('SITE_DESCRIPTION'), 0);
 		$this->display();
 	}
-	/* 加入关注 */
 	
 }

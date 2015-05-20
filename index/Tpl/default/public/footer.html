@@ -23,14 +23,14 @@
 						   	</div>
 						   	<div class="mod">
 						   			联系方式:<br>
-						   			TEL:<br>
-						   			E-mail:123456789@qq.com<br>
+						   			TEL:{$set.tel}<br>
+						   			E-mail:{$set.mail_username}<br>
 						   	</div>
 						   	<div class="mod">
-						   			成立于1988年
+						   			{$set.about_web}
 						   	</div>
 						   	<div class="mod">
-						   		院长信箱：8888888@nuc.edu.cn
+						   		院长信箱：{$set.president_email}
 						   	</div>
 						  </div>
 					</div>
@@ -38,7 +38,7 @@
 			</div>
 				<div class="foot_copyright">
 					<div class="container">
-							<div class="copyright_left">#####
+							<div class="copyright_left">{$set.site_icp}
 							</div>
 							<div class="copyright_right">
 							版权所有:中北大学艺术学院

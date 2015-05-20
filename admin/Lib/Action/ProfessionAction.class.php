@@ -25,120 +25,65 @@ class ProfessionAction extends BaseAction
 		$this->assign('Profession_list',$list_rel);
 		$this->display();
 	}
-
+/*  public function index() {   
+        $Photo = M('Photo');   
+        $list = $Photo->order('create_time desc')->limit(2)->findAll();  
+        $this->assign('list', $list);   
+        $this->display();   
+    }   
+  
+    public function upload() {   
+        if (!emptyempty($_FILES)) {   
+            //如果有文件上传 上传附件   
+            $this->_upload();   
+            //$this->forward();   
+        }   
+    }    */
 	function edit()
 	{
 		if(isset($_POST['dosubmit'])){
-			$article_mod = D('Profession');
-			$attatch_mod = D('attatch');
-			$data = $article_mod->create();
-			if ($_FILES['img']['name']!=''||$_FILES['attachment']['name'][0]!='') {
-			    $upload_list = $this->_upload();
-			    if ($_FILES['img']['name']!=''&&$_FILES['attachment']['name'][0]!='') {
-				    $data['img'] = $upload_list['0']['savename'];
-				    array_shift($upload_list);
-				    $aid_arr = array();
-			        foreach ($upload_list as $att) {
-			            $file['title'] = $att['name'];
-			            $file['filetype'] = $att['extension'];
-					    $file['filesize'] = $att['size'];
-					    $file['url'] = $att['savename'];
-					    $file['uptime'] = date('Y-m-d H:i:s');
-						$attatch_mod->add($file);
-						$aid_arr[] = mysql_insert_id();
-			        }
-			        $data['aid'] = implode(',', $aid_arr);
-			    } elseif ($_FILES['img']['name']!='') {
-			        $data['img'] = $upload_list['0']['savename'];
-			    } else {
-			        $aid_arr = array();
-			        foreach ($upload_list as $att) {
-			            $file['title'] = $att['name'];
-			            $file['filetype'] = $att['extension'];
-					    $file['filesize'] = $att['size'];
-					    $file['url'] = $att['savename'];
-					    $file['uptime'] = date('Y-m-d H:i:s');
-						$attatch_mod->add($file);
-						$aid_arr[] = mysql_insert_id();
-			        }
-			        $data['aid'] = implode(',', $aid_arr);
-			    }
-			    if ($data['aid']) {
-			        $article_info = $article_mod->where('id='.$data['id'])->find();
-			        if ($article_info['aid']) {
-			            $data['aid'] = $article_info['aid'].','.$data['aid'];
-			        }
-			    }
+			$profession_mod = M('Profession');
+			$data = $profession_mod->create();
+			if ($_FILES['logo']['name']!='') {
+				$upload_list = $this->_upload();
+				$data['logo'] = $upload_list['0']['savename'];
 			}
-			$result = $article_mod->save($data);
+			//最后的整体操作
+			$result = $profession_mod->where('id='.$data['id'])->save($data);
 			if(false !== $result){
 				$this->success(L('operation_success'),U('Profession/index'));
 			}else{
 				$this->error(L('operation_failure'));
 			}
 		}else{
+			//不是编辑操作
 			$article_mod = D('Profession');
 			if( isset($_GET['id']) ){
 				$article_id = isset($_GET['id']) && intval($_GET['id']) ? intval($_GET['id']) : $this->error(L('please_select'));
 			}
 			$article_info = $article_mod->where('id='.$article_id)->find();
 
-			//附件
+/* 			//附件
 			$attatch_mod = D('attatch');
 			$article_info['attatch'] = $attatch_mod->where("aid IN (".$article_info['aid'].")")->select();
-
+ */
 			$this->assign('show_header', false);
 			$this->assign('Profession',$article_info);
 			$this->display();
 		}
-
-
 	}
 
 	function add()
 	{
 		if(isset($_POST['dosubmit'])){
-			$article_mod = D('Profession');
-			$attatch_mod = D('attatch');
-			if(false === $data = $article_mod->create()){
-				$this->error($article_mod->error());
+			$profession_mod = M('Profession');
+			$data = $profession_mod->create();
+			if ($_FILES['logo']['name']!='') {
+				$upload_list = $this->_upload();
+				$data['logo'] = $upload_list['0']['savename'];
 			}
-			if ($_FILES['img']['name']!=''||$_FILES['attachment']['name'][0]!='') {
-			    if ($_FILES['img']['name']!=''&&$_FILES['attachment']['name'][0]!='') {
-				    $upload_list = $this->_upload();
-				    $data['img'] = $upload_list['0']['savename'];
-				    array_shift($upload_list);
-				    $aid_arr = array();
-			        foreach ($upload_list as $att) {
-			            $file['title'] = $att['name'];
-			            $file['filetype'] = $att['extension'];
-					    $file['filesize'] = $att['size'];
-					    $file['url'] = $att['savename'];
-					    $file['uptime'] = date('Y-m-d H:i:s');
-						$attatch_mod->add($file);
-						$aid_arr[] = mysql_insert_id();
-			        }
-			        $data['aid'] = implode(',', $aid_arr);
-			    } elseif ($_FILES['img']['name']!='') {
-			        $upload_list = $this->_upload();
-			        $data['img'] = $upload_list['0']['savename'];
-			    } else {
-			        $upload_list = $this->_upload();
-			        $aid_arr = array();
-			        foreach ($upload_list as $att) {
-			            $file['title'] = $att['name'];
-					    $file['filetype'] = $att['extension'];
-					    $file['filesize'] = $att['size'];
-					    $file['url'] = $att['savename'];
-					    $file['uptime'] = date('Y-m-d H:i:s');
-						$attatch_mod->add($file);
-						$aid_arr[] = mysql_insert_id();
-			        }
-			        $data['aid'] = implode(',', $aid_arr);
-			    }
-			}
-			$data['add_time']=date('Y-m-d H:i:s',time());
-			$result = $article_mod->add($data);
+			//$data['add_time']=date('Y-m-d H:i:s',time());
+			$result = $profession_mod->add($data);
 			if($result){
 				$this->success('添加成功');
 			}else{
@@ -148,7 +93,6 @@ class ProfessionAction extends BaseAction
 	    	$this->display();
 		}
 	}
-
 	function delete_attatch()
     {
     	$attatch_mod = D('attatch');
@@ -185,26 +129,6 @@ class ProfessionAction extends BaseAction
     	$this->success('已成功删除');
     }
 
-    public function _upload()
-    {
-    	import("ORG.Net.UploadFile");
-        $upload = new UploadFile();
-        //设置上传文件大小
-        $upload->maxSize = 3292200;
-        //$upload->allowExts = explode(',', 'jpg,gif,png,jpeg');
-        $upload->savePath = './data/news/';
-
-        $upload->saveRule = uniqid;
-        if (!$upload->upload()) {
-            //捕获上传异常
-            $this->error($upload->getErrorMsg());
-        } else {
-            //取得成功上传的文件信息
-            $uploadList = $upload->getUploadFileInfo();
-        }
-        return $uploadList;
-    }
-
 	function sort_order()
     {
     	$article_mod = D('Profession');
@@ -229,6 +153,26 @@ class ProfessionAction extends BaseAction
 		$values = $article_mod->field("id,".$type)->where('id='.$id)->find();
 		$this->ajaxReturn($values[$type]);
 	}
+	// 文件上传
+  public function _upload()
+    {
+    	import("ORG.Net.UploadFile");
+        $upload = new UploadFile();
+        //设置上传文件大小
+        $upload->maxSize = 3292200;
+        //$upload->allowExts = explode(',', 'jpg,gif,png,jpeg');
+        $upload->savePath = './data/profession/';//width:200  140
 
+        $upload->saveRule = uniqid;
+        if (!$upload->upload()) {
+            //捕获上传异常
+            $this->error($upload->getErrorMsg());
+        } else {
+            //取得成功上传的文件信息
+            $uploadList = $upload->getUploadFileInfo();
+        }
+        return $uploadList;
+    }
+	
 }
 ?>

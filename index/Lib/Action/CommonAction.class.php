@@ -4,23 +4,38 @@ class CommonAction extends Action {
 	//初始化
 	function _initialize(){
 		Load('extend');
-		import("ORG.Util.Page");       //载入分页类
-		$this->assign('menu',M('menu')->where('parentid=0 AND type=1')->order('sort')->limit(8)->select());//导航数据组装
-		/* //seo
-		$systemConfig = include WEB_ROOT . 'Common/systemConfig.php';
-		F("systemConfig", $systemConfig, WEB_ROOT . "Common/");
-		$this->assign("site", $systemConfig); */
-		//获取网站配置信息
-		$setting_mod = M('setting');
-		$setting = $setting_mod->select();
-		foreach ( $setting as $val ) {
-			$set[$val['name']] = stripslashes($val['data']);
+		import("ORG.Util.Page"); //载入分页类
+		
+		//导航数据组装
+		$article_cate_mod = M('Article_cate');
+		$result = $article_cate_mod->order('sort_order ASC')->select();
+		$article_cate_list = array();
+		foreach ($result as $val) {
+			if ($val['pid']==0) {
+				$article_cate_list['parent'][$val['id']] = $val;
+			} else {
+				$article_cate_list['sub'][$val['pid']][] = $val;
+			}
 		}
-		$this->setting = $set;
-		$this->assign('set',$this->setting);
+		$this->assign('article_cate_list',$article_cate_list);
+	
+	
 		//友情链接
 		$this->assign('link',M('Flink')->where('status=1')->order('ordid DESC')->select());
 	
+	}
+	//导航index操作；
+	//统一分配变量
+	//首页更多操作;根据传过来的表名取数据
+	public function index(){
+		//封装一个留学生index方法
+		//1.哪个表；2.表里提取哪种类型数据，3.不操作数据表；
+		/* $name=$this->getActionName();
+		 $M = M($name);
+		$this->assign("list", D($name)->listNews($page->firstRow, $page->listRows));
+		$list=M($name)->select();
+		$this->assign('list',$list); */
+		$this->display();
 	}
 	/* public function listNews($firstRow = 0, $listRows = 20,$where) {
 		$name=$this->getModelName();
@@ -51,21 +66,7 @@ class CommonAction extends Action {
 		$cid=$result[0][$str];
 		return $cid;
 	}
-	public function getCity($ip){
-		//ip地址转换
-		import('ORG.Net.IpLocation');// 导入IpLocation类
-		$Ip = new IpLocation(); // 实例化类 参数表示IP地址库文件
-		$result = $Ip->getlocation($ip); // 获取域名服务器所在的位置
-		$country=$result[0]['country'];
-		return $country;
-		/*dump($area); 输出array(5) {
-		["ip"] => string(14) "61.135.169.105"
-		["beginip"] => string(12) "61.135.162.0"
-		["endip"] => string(14) "61.135.169.255"
-		["country"] => string(9) "北京市"
-		["area"] => string(12) "百度蜘蛛"
-		}   */
-	}
+	
 	//搜索部分
 	public function search(){
 		//搜索会员信息
@@ -85,61 +86,7 @@ class CommonAction extends Action {
 		$this->assign("list", D($name)->listNews($name,$page->firstRow, $page->listRows,$condition));
 		$this->display();
 	}
-    //SEO赋值
-    public function seo($title,$keywords,$description,$positioin){
-    	$this->assign('title',$title);
-    	$this->assign('keywords',$keywords);
-    	$this->assign('description',$description);
-    	$this->assign('position',$positioin);
-    }
-    //路由解析
-    public function router(){
-    	//路由判断,路径参数还原
-		$url = $_SERVER['PATH_INFO'];
-		$ary = explode('/', $url);
-		$rewrite = urldecode($ary[1]);
-		$r = D("Router")->where("rewrite='".$rewrite."'")->getField('url');
-		if($r){
-			$exp = explode('/', $r);
-			$id = $exp[3];
-		}elseif ($_GET['id']){
-			$id = $_GET['id'];
-		}
-		return $id;
-    }
-    //URL转换
-    public function changurl($ary){
-    	if(is_array($ary)){    		
-			if(key_exists('apv', $ary)){	
-    			$ary['rewrite']?$ary['url']='__APP__/'.$ary['rewrite']:$ary['url']='__APP__/article/view/id/'.$ary['id'];
-			}elseif(key_exists('module', $ary)){
-				$ary['rewrite']?$ary['url']='__APP__/'.$ary['rewrite']:$ary['url']='__APP__/'.strtolower($ary['module']).'/index/id/'.$ary['id'];
-			}else{
-				$ary['rewrite']?$ary['url']='__APP__/'.$ary['rewrite']:$ary['url']='__APP__/video/view/id/'.$ary['id'];
-			}
-			return $ary;
-		}		
-    }
-    //模板选择
-    public function choosetpl($ary){
-    	if(is_array($ary)){
-    		if(strpos($ary['template'], ':')){
-    			$exp = explode(':', $ary['template']);
-    			$file = $_SERVER['DOCUMENT_ROOT'].APP_TMPL_PATH.$exp[0].'/'.$exp[1].'.html';
-    		}    		
-    		if(strpos($ary['template'], ':') && is_file($file)){
-    			$this->display($ary['template']);
-    		}else{
-    			if(key_exists('apv', $ary)){
-    				$this->display('article:view');
-    			}elseif (key_exists('module', $ary)){
-    				$this->display(strtolower($ary['module']).':index');
-    			}else{
-    				$this->display('video:view');
-    			}
-    		}
-    	}
-    }
+   
     //文件下载
     public function download(){
 		$filename = $_SERVER[DOCUMENT_ROOT].__ROOT__.'/Public/Upload/download/'.$_GET['filename'];
@@ -150,27 +97,7 @@ class CommonAction extends Action {
 		fpassthru($fp);  
 		fclose($fp); 
     }
-    //留言评论信息处理
-    public function msgmodify($ary){
-    	if(is_array($ary)){
-    		if($ary['adder_id']) $ary['adder_name']=getUserName($ary['adder_id']);
-    		$ary['adder_email'] = md5($ary['adder_email']);
-    	}
-    	return $ary;
-    }
-    //导航index操作；
-    //统一分配变量
-    //首页更多操作;根据传过来的表名取数据
-    public function index(){
-    	//封装一个留学生index方法
-    	//1.哪个表；2.表里提取哪种类型数据，3.不操作数据表；
-    	/* $name=$this->getActionName();
-    	$M = M($name);
-    	$this->assign("list", D($name)->listNews($page->firstRow, $page->listRows));
-    	$list=M($name)->select();
-    	 $this->assign('list',$list); */
-    	$this->display();
-    } 
+  
     //空操作
 	public function _empty(){
 		$this->redirect("/");
@@ -182,27 +109,6 @@ class CommonAction extends Action {
 		$this->assign("list", D($name)->listNews($page->firstRow, $page->listRows));
 		$list=M($name)->select();
 		$this->assign('list',$list);
-		$this->display();
-	}
-	//详细会员操作；根据传过来的表名和类型取数据
-	public function memberDetail(){
-		$this->display();
-	}
-	//详细牵手恋人操作；根据传过来的表名取数据
-	public function SuccessDetail(){
-		$this->display();
-	}
-	
-	public function foot(){
-		//$model= 查到数据
-		$m=M('Article_class');
-		$where['sys_type']=2;
-		$datas=$m->where($where)->select();
-		foreach($datas as $k=>$v){
-			$map['cid']=$v['cid'];
-			$datas[$k]['data']=M('Article')->where($map)->select();
-		}
-		$this->assign('menu',$datas);
 		$this->display();
 	}
 	/* +++++++++++++++字符串处理++++

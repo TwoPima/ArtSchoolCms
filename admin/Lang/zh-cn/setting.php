@@ -40,6 +40,10 @@ return array(
 	'postcode'=>'邮政编码',
 	'duty_web'=>'主要负责人',
 	'tel'=>'联系方式',
+	'master_logo'=>'艺术硕士',
+	'institute_logo'=>'艺术研究院',
+	'class_logo'=>'精品课程',
+	'military_logo'=>'文化艺术团',
 	'address'=>'地址',
 	'president_email'=>'院长信箱',
 	'about_web'=>'关于我们'

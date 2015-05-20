@@ -2,7 +2,7 @@
 <html lang="zh_CN">
 <head>
 	<meta charset="UTF8">
-	<title>欢迎来到中北大学艺术学院</title>
+	<title>{$set.site_title}</title>
 	<link rel="stylesheet" href="__ROOT__/statics/index/Css/style.css">
 	<script type="text/javascript" src="__ROOT__/statics/index/Js/script.js"></script>
 	<script type="text/javascript" src="__ROOT__/statics/index/Js/jquery.1.10.2.js"></script>
@@ -15,112 +15,19 @@
 	<div class="top"></div>
 		<div class="container">
 			<div class="logo">
-				<img src="__ROOT__/statics/index/Image/logo.jpg">
+				<img src="__ROOT__/statics/index/Image/logo.jpg"><!-- {$set.site_logo} -->
 			</div>
 				<div class="nav">
 					<ul>
-						<li><a href="__APP__/Index/index">首&nbsp;&nbsp;&nbsp;&nbsp;页</a></li>
-						<li><a href="#">学校概况</a>
+					 <volist name="article_cate_list['parent']" id='val'>
+						<li><a href="{$val.alias}/index">{$val.name}</a>
 							 <ul>
-				<li><a href="__APP__/Greeting/index">学院简介</a></li>
-				<li><a href="#">院长致辞</a></li>
-									<li><a href="#">现任领导</a></li>
-									<li><a href="#">办公机构</a></li>
-									<li><a href="#">师资队伍</a></li>
+								<volist name="article_cate_list['sub'][$val['id']]" id='sval'>
+									<li><a href="__APP__/Greeting/index">{$sval.name}</a></li>
+								</volist>
 							</ul> 
 						</li>
-						<li><a href="#">党的建设</a>
-							 <ul>
-										<li><a href="#">组织机构</a></li>
-										<li><a href="__APP__/Party/index">党建制度</a></li>
-										<li><a href="#">支部建设</a></li>
-										<li><a href="#">党建动态</a></li>
-										<li><a href="#">学生党建</a></li>
-										<li><a href="#">廉政建设</a></li>
-										<li><a href="#">党员教育</a></li>
-										<li><a href="#">学习园地</a></li>
-										<li><a href="#">工会之家</a></li>
-								</ul> 
-						</li>
-						<li><a href="#">教学管理</a>
- 								<ul>
-										<li><a href="#">教学动态</a></li>
-										<li><a href="#">规章制度</a></li>
-										<li><a href="#">教学质量监控</a></li>
-										<li><a href="#">教学指导委员会</a></li>
-										<li><a href="#">教学改革与成果</a></li>
-										<li><a href="#">实验、实践教学中心</a></li>
-										<li><a href="#">公共艺术教学</a></li>
-										<li><a href="#">课程建设</a></li>
-										<li><a href="#">资料下载</a></li>
-										<li><a href="#">校教务处</a></li>
-								</ul> 
-						</li>
-						<li><a href="#">学科科研</a>	
-								<ul>
-										<li><a href="#">科研动态</a></li>
-										<li><a href="#">规章制度</a></li>
-										<li><a href="#">艺术类专业硕士授权点</a></li>
-										<li><a href="#">研究生教育</a></li>
-										<li><a href="#">联合培养硕士</a></li>
-										<li><a href="#">课题项目</a></li>
-										<li><a href="#">研究成果</a></li>
-										<li><a href="#">学术委员会</a></li>
-										<li><a href="#">资料下载</a></li>
-								</ul>
-
-						</li>
-						<li><a href="#">学生工作</a>
-									<ul>
-										<li><a href="#">学工动态</a></li>
-										<li><a href="#">团学在线</a></li>
-										<li><a href="#">规章制度</a></li>
-										<li><a href="#">日常管理</a></li>
-										<li><a href="#">入学教育</a></li>
-										<li><a href="#">奖助勤贷</a></li>
-										<li><a href="#">学风建设</a></li>
-										<li><a href="#">心理健康</a></li>
-										<li><a href="#">主题班会</a></li>
-										<li><a href="#">安全教育</a></li>
-										<li><a href="#">人文素质报告</a></li>
-										<li><a href="#">资料下载</a></li>
-										<li><a href="#">校学生处</a></li>
-								</ul>
-						</li>
-						<li><a href="#">招生就业</a>
-								<ul>
-									<li><a href="#">本科艺术类招生</a></li>
-									<li><a href="#">硕士点简介</a></li>
-									<li><a href="#">就业指导</a></li>
-									<li><a href="#">就业信息</a></li>
-									<li><a href="#">创业教育</a></li>
-									<li><a href="#">校招生与就业处</a></li>
-								</ul>
-						</li>
-						<li><a href="#">国际交流</a>
-								<ul>
-									<li><a href="#">学术讲座</a></li>
-									<li><a href="#">学术会议</a></li>
-									<li><a href="#">合作项目</a></li>
-									<li><a href="#">国际会议</a></li>
-								</ul>
-						</li>
-						<li><a href="#">实践展演</a>
-								<ul>
-									<li><a href="#">艺术竞赛</a></li>
-									<li><a href="#">音乐演出</a></li>
-									<li><a href="#">设计展示</a></li>
-									<li><a href="#">精品剧目</a></li>
-								</ul>
-						</li>
-						<li><a href="#">公共艺术</a>
-								<ul>
-									<li><a href="#">艺术课程</a></li>
-									<li><a href="#">艺术赏析</a></li>
-									<li><a href="#">艺术讲座</a></li>
-									<li><a href="#">社团指导</a></li>
-								</ul>
-						</li>
+					</volist>
 					</ul>
 			</div>
 		</div>
