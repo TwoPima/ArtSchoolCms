@@ -1,7 +1,6 @@
 <?php
 return array(
     'NAME' => '部门',
-
 	'intro'=>'简介',
 	'img'=>'部门logo',
 	'num'=>'部门编号',

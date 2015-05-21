@@ -2,7 +2,7 @@
 // +----------------------------------------------------------------------
 // |中北大学艺术学院后台管理系统
 // +----------------------------------------------------------------------
-// | provide by ：马晓成
+// | provide by ：
 // 
 // +----------------------------------------------------------------------
 // | Author: 857773627@qq.com
@@ -10,22 +10,22 @@
 
 class DepartmentAction extends BaseAction
 {
-	private $profession_mod;
+	private $department_mod;
 	function __construct(){
-		$this->profession_mod=M('Department');
+		$this->department_mod=M('Department');
 	}
 	public function index()
 	{
 		/*列表  */
-		$profession_list = $this->profession_mod->order('sort_order ASC')->select();
+		$department_list = $this->department_mod->order('sort_order ASC')->select();
 		$list_rel=array();
-		foreach ($profession_list as $value){			
+		foreach ($department_list as $value){			
 			$list_rel[]=$value;
 		}	
-		$this->assign('Profession_list',$list_rel);
+		$this->assign('department_list',$list_rel);
 		$this->display();
 	}
-
+	/* 编辑 */
 	function edit()
 	{
 		if(isset($_POST['dosubmit'])){
@@ -72,7 +72,7 @@ class DepartmentAction extends BaseAction
 			}
 			$result = $article_mod->save($data);
 			if(false !== $result){
-				$this->success(L('operation_success'),U('Profession/index'));
+				$this->success(L('operation_success'),U('Department/index'));
 			}else{
 				$this->error(L('operation_failure'));
 			}
@@ -88,7 +88,7 @@ class DepartmentAction extends BaseAction
 			$article_info['attatch'] = $attatch_mod->where("aid IN (".$article_info['aid'].")")->select();
 
 			$this->assign('show_header', false);
-			$this->assign('Profession',$article_info);
+			$this->assign('Department',$article_info);
 			$this->display();
 		}
 
@@ -140,7 +140,7 @@ class DepartmentAction extends BaseAction
 			$data['add_time']=date('Y-m-d H:i:s',time());
 			$result = $article_mod->add($data);
 			if($result){
-				$this->success('添加成功');
+				$this->success('添加成功',U('Department/index'));
 			}else{
 				$this->error('添加失败');
 			}
@@ -173,14 +173,14 @@ class DepartmentAction extends BaseAction
     	if((!isset($_GET['id']) || empty($_GET['id'])) && (!isset($_POST['id']) || empty($_POST['id']))) {
     		$this->error('请选择要删除的选项！');
     	}
-    	$old_nav =$this->profession_mod->where('id='.$_REQUEST['id'])->find();
+    	$old_nav =$this->department_mod->where('id='.$_REQUEST['id'])->find();
     	
     	if (isset($_POST['id']) && is_array($_POST['id'])) {
     		$cate_ids = implode(',', $_POST['id']);
-    		$this->profession_mod->delete($cate_ids);
+    		$this->department_mod->delete($cate_ids);
     	} else {
     		$cate_id = intval($_GET['id']);
-    		$this->profession_mod->delete($cate_id);
+    		$this->department_mod->delete($cate_id);
     	}
     	$this->success('已成功删除');
     }

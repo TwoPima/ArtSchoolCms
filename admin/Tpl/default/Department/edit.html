@@ -1,40 +1,42 @@
 <tagLib name="tpl" />
 <include file="Public:header" />
-<form action="{:u('Profession/edit')}" method="post" name="myform" id="myform" enctype="multipart/form-data" style="margin-top:10px;">
+<form action="{:u('Department/edit')}" method="post" name="myform" id="myform" enctype="multipart/form-data" style="margin-top:10px;">
   <div class="pad-10">
   <div class="col-tab">
   <div id="div_setting_1" class="contentList pad-10">
-    <table width="100%" cellpadding="2" cellspacing="1" class="table_form">
+    <table width="100%" cellpadding="2" cellspacing="1" class="table_form" >
       <tr>
-        <th width="100">{:L('name')} :</th>
-        <td><input type="text" name="name" id="name" class="input-text" size="60" value="{$Profession.name}"></td>
+        <th  >{:L('name')} :</th>
+        <td><input type="text" name="name" id="name" class="input-text" size="60" value="{$Department.name}"></td>
+      </tr>
+       <tr>
+        <th  >{:L('contract')} :</th>
+        <td><input type="text" name="contract" id="contract" class="input-text" size="60" value="{$Department.contract}"></td>
+      </tr>
+       <tr>
+        <th  >{:L('office_place')} :</th>
+        <td><input type="text" name="office_place" id="office_place" class="input-text" size="60" value="{$Department.office_place}"></td>
       </tr>
       <tr>
         <th>{:L('sort_order')} :</th>
-        <td><input type="text" name="sort_order" id="sort_order" class="input-text" size="8" value="{$Profession.sort_order}" ></td>
+        <td><input type="text" name="sort_order" id="sort_order" class="input-text" size="8" value="{$Department.sort_order}" ></td>
       </tr>
       <tr>
-	      <th width="100">{:L('intro')} :</th>
+	      <th >{:L('intro')} :</th>
 	      <td>
-	      	<textarea id="intro" class="input-text" style="height: 200px; width:400px;" name="intro">{$Profession.intro}</textarea>
+	      	<textarea id="intro" class="input-text" style="width:70%;height:350px;" name="intro">{$Department.intro}</textarea>
 		 </td>
     </tr>
       <tr>
       	<th>{:L('logo')} :</th>
       	<td>
         	<input type="file" name="logo" id="img" class="input-text" style="width:200px;" />
-            <if condition="$Profession['logo'] neq ''">
-            <br /><img src="./data/news/{$Profession.logo}" style="width:50px;height:50px;"/>
+            <if condition="$Department['logo'] neq ''">
+            <br /><img src="./data/news/{$Department.logo}" style="width:50px;height:50px;"/>
             </if>
         </td>
       </tr>
-      <tr>
-        <th width="400">{:L('rule')} :</th>
-        <td>        	
-			<tpl:editor id="rule" name="rule" type="KINDEDITOR" style="width:70%;height:350px;" >{$Profession.rule}</tpl:editor>
-		</td>
-      </tr>
-      <tr><td><input type="hidden" name="id" value="{$Profession.id}" id="Profession_id"/></td></tr>
+      <tr><td><input type="hidden" name="id" value="{$Department.id}" id="Department_id"/></td></tr>
     </table>
   </div>
   <div class="bk15"></div>

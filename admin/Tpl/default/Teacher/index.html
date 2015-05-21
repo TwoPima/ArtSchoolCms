@@ -20,10 +20,11 @@
                 <td align="center"><input type="checkbox" value="{$val.id}" name="id[]"></td>                
                 <td align="center">{$val.name}</td>
                 <td align="center">{$val.position}</td>
-                 <th width="center"><if condition="$val.type eq '1'"><em class="blue">领导</em><else/>教师</if></th>
+                <th width="left"><if condition="$val.type eq '1'"><em class="blue">领导</em><else/>教师</if></th>
                 <th width="center"><if condition="$val.ishot eq '1'"><em class="blue">教学名师</em><else/>否</if></th>
                 <td align="center"><input type="text" class="input-text-c input-text" id="sort_{$val.id}" onblur="sort({$val.id},'sort_order',this.value)" value="{$val.ordid}" size="4" name="listorders[{$val.id}]"></td>
                	<td align="center"><a class="blue" href="{:u('Teacher/edit', array('id'=>$val['id']))}">编辑</a></td>
+              </tr>
             </volist>
         </tbody>
     </table>
