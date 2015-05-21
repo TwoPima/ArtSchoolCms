@@ -1,7 +1,7 @@
 <include file="Public:header" />
 
 <div class="pad_10">
-<form action="{:u('MasterCate/edit')}" method="post" name="myform" id="myform" >
+<form action="{:u('InstituteCate/edit')}" method="post" name="myform" id="myform" >
 <table width="100%" cellpadding="2" cellspacing="1" class="table_form">
 	<tr>
       <th></th>
@@ -69,7 +69,6 @@
 <script type="text/javascript">
 	$(function(){
 		$.formValidator.initConfig({formid:"myform",autotip:true,onerror:function(msg,obj){window.top.art.dialog({content:msg,lock:true,width:'250',height:'50'}, function(){this.close();$(obj).focus();})}});
-		
 		$("#name").formValidator({onshow:"不能为空",onfocus:"不能为空"}).inputValidator({min:1,onerror:"请填写分类名称"});
 	})
 </script>

@@ -1,6 +1,6 @@
 <?php
 return array(
-    'CATE_ID' => '资讯分类',
+    'ID' => 'ID',
     'TITLE' => '标题名称',
     'SORT' => '排序',	
 	'URL'=>'链接地址',

@@ -1,10 +1,19 @@
 <?php
-class MasterAction extends BaseAction
+// +----------------------------------------------------------------------
+// | MobileCms 移动应用软件后台管理系统
+// +----------------------------------------------------------------------
+// | provide by ：phonegap100.com
+// 
+// +----------------------------------------------------------------------
+// | Author: htzhanglong@foxmail.com
+// +----------------------------------------------------------------------
+
+class MilitaryAction extends BaseAction
 {
 	public function index()
 	{
-		$article_mod = D('Master');
-		$article_cate_mod = D('Master_cate');
+		$article_mod = D('Military');
+		$article_cate_mod = D('Military_cate');
 
 		//搜索
 		$where = '1=1';
@@ -56,7 +65,7 @@ class MasterAction extends BaseAction
 	function edit()
 	{
 		if(isset($_POST['dosubmit'])){
-			$article_mod = D('Master');
+			$article_mod = D('Military');
 			$attatch_mod = D('attatch');
 			$data = $article_mod->create();
 			if($data['cate_id']==0){
@@ -102,16 +111,16 @@ class MasterAction extends BaseAction
 			}
 			$result = $article_mod->save($data);
 			if(false !== $result){
-				$this->success(L('operation_success'),U('Master/index'));
+				$this->success(L('operation_success'),U('Military/index'));
 			}else{
 				$this->error(L('operation_failure'));
 			}
 		}else{
-			$article_mod = D('Master');
+			$article_mod = D('Military');
 			if( isset($_GET['id']) ){
 				$article_id = isset($_GET['id']) && intval($_GET['id']) ? intval($_GET['id']) : $this->error(L('please_select'));
 			}
-			$article_cate_mod = D('Master_cate');
+			$article_cate_mod = D('Military_cate');
 		    $result = $article_cate_mod->order('sort_order ASC')->select();
 		    $cate_list = array();
 		    foreach ($result as $val) {
@@ -139,7 +148,7 @@ class MasterAction extends BaseAction
 	function add()
 	{
 		if(isset($_POST['dosubmit'])){
-			$article_mod = D('Master');
+			$article_mod = D('Military');
 			$attatch_mod = D('attatch');
 			if($_POST['title']==''){
 				$this->error(L('input').L('article_title'));
@@ -184,19 +193,19 @@ class MasterAction extends BaseAction
 			$data['add_time']=date('Y-m-d H:i:s',time());
 			$result = $article_mod->add($data);
 			if($result){
-				$cate = M('Master_cate')->field('id,pid')->where("id=".$data['cate_id'])->find();
+				$cate = M('Military_cate')->field('id,pid')->where("id=".$data['cate_id'])->find();
 				if( $cate['pid']!=0 ){
-					M('Master_cate')->where("id=".$cate['pid'])->setInc('article_nums');
-					M('Master_cate')->where("id=".$data['cate_id'])->setInc('article_nums');
+					M('article_cate')->where("id=".$cate['pid'])->setInc('article_nums');
+					M('article_cate')->where("id=".$data['cate_id'])->setInc('article_nums');
 				}else{
-					M('Master_cate')->where("id=".$data['cate_id'])->setInc('article_nums');
+					M('article_cate')->where("id=".$data['cate_id'])->setInc('article_nums');
 				}
 				$this->success('添加成功');
 			}else{
 				$this->error('添加失败');
 			}
 		}else{
-			$article_cate_mod = D('Master_cate');
+			$article_cate_mod = D('Military_cate');
 	    	$result = $article_cate_mod->order('sort_order ASC')->select();
 	    	$cate_list = array();
 	    	foreach ($result as $val) {
@@ -214,7 +223,7 @@ class MasterAction extends BaseAction
 	function delete_attatch()
     {
     	$attatch_mod = D('attatch');
-    	$article_mod = D('Master');
+    	$article_mod = D('Military');
     	$article_id = isset($_GET['id']) && intval($_GET['id']) ? intval($_GET['id']) : exit('0');
     	$aid = isset($_GET['aid']) && intval($_GET['aid']) ? intval($_GET['aid']) : exit('0');
 		$article_info = $article_mod->where('id='.$article_id)->find();
@@ -232,7 +241,7 @@ class MasterAction extends BaseAction
 
 	function delete()
     {
-		$article_mod = D('Master');
+		$article_mod = D('Military');
 		if((!isset($_GET['id']) || empty($_GET['id'])) && (!isset($_POST['id']) || empty($_POST['id']))) {
             $this->error('请选择要删除的资讯！');
 		}
@@ -240,12 +249,12 @@ class MasterAction extends BaseAction
 			$cate_ids = implode(',',$_POST['id']);
 			foreach( $_POST['id'] as $val ){
 				$article = $article_mod->field("id,cate_id")->where("id=".$val)->find();
-				$cate = M('article_cate')->field('id,pid')->where("id=".$article['cate_id'])->find();
+				$cate = M('Military_cate')->field('id,pid')->where("id=".$article['cate_id'])->find();
 				if( $cate['pid']!=0 ){
-					M('Master_cate')->where("id=".$cate['pid'])->setDec('article_nums');
-					M('Master_cate')->where("id=".$article['cate_id'])->setDec('article_nums');
+					M('Military_cate')->where("id=".$cate['pid'])->setDec('article_nums');
+					M('Military_cate')->where("id=".$article['cate_id'])->setDec('article_nums');
 				}else{
-					M('Master_cate')->where("id=".$article['cate_id'])->setDec('article_nums');
+					M('Military_cate')->where("id=".$article['cate_id'])->setDec('article_nums');
 				}
 
 			}
@@ -253,7 +262,7 @@ class MasterAction extends BaseAction
 		}else{
 			$cate_id = intval($_GET['id']);
 			$article = $article_mod->field("id,cate_id")->where("id=".$cate_id)->find();
-			M('Master_cate')->where("id=".$article['cate_id'])->setDec('article_nums');
+			M('Military_cate')->where("id=".$article['cate_id'])->setDec('article_nums');
 		    $article_mod->where('id='.$cate_id)->delete();
 		}
 		$this->success(L('operation_success'));
@@ -266,7 +275,7 @@ class MasterAction extends BaseAction
         //设置上传文件大小
         $upload->maxSize = 3292200;
         //$upload->allowExts = explode(',', 'jpg,gif,png,jpeg');
-        $upload->savePath = './data/master/';
+        $upload->savePath = './data/military/';
 
         $upload->saveRule = uniqid;
         if (!$upload->upload()) {
@@ -281,7 +290,7 @@ class MasterAction extends BaseAction
 
 	function sort_order()
     {
-    	$article_mod = D('Master');
+    	$article_mod = D('Military');
 		if (isset($_POST['listorders'])) {
             foreach ($_POST['listorders'] as $id=>$sort_order) {
             	$data['ordid'] = $sort_order;
@@ -295,10 +304,10 @@ class MasterAction extends BaseAction
     //修改状态
 	function status()
 	{
-		$article_mod = D('Master');
+		$article_mod = D('Military');
 		$id 	= intval($_REQUEST['id']);
 		$type 	= trim($_REQUEST['type']);
-		$sql 	= "update ".C('DB_PREFIX')."master set $type=($type+1)%2 where id='$id'";
+		$sql 	= "update ".C('DB_PREFIX')."military set $type=($type+1)%2 where id='$id'";
 		$res 	= $article_mod->execute($sql);
 		$values = $article_mod->field("id,".$type)->where('id='.$id)->find();
 		$this->ajaxReturn($values[$type]);

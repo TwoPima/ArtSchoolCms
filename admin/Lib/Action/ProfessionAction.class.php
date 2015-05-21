@@ -78,6 +78,16 @@ class ProfessionAction extends BaseAction
 		if(isset($_POST['dosubmit'])){
 			$profession_mod = M('Profession');
 			$data = $profession_mod->create();
+		  if( false === $vo = $profession_mod->create() ){
+		        $this->error( $profession_mod->error() );
+		    }
+		    if($vo['name']==''){
+		    	$this->error('名称不能为空');exit;
+		    }
+		    $result1 = $profession_mod->where("name='".$vo['name'])->count();
+		    if($result1 != 0){
+		        $this->error('该分类已经存在');
+		    }
 			if ($_FILES['logo']['name']!='') {
 				$upload_list = $this->_upload();
 				$data['logo'] = $upload_list['0']['savename'];
