@@ -48,8 +48,11 @@
 							<img src="__ROOT__/statics/index/Image/focus1.jpg" alt="艺术照">
 					</div>
 					<div class="focus_main_name">
-						<h3><a href="#">艺术硕士</a></h3>
-						<h4><a href="#">Master of Arts</a></h4>
+					
+							<a href="#">
+							艺术硕士<br>
+							Master of Arts
+							</a>
 					</div>
 			</div>
 					<div class="focus_main">
@@ -97,76 +100,21 @@
 				<span>办公机构</span>
 		</div>
 		<div class="office_body">
-				<div class="office_main">
-					<div class="office_main_photo">
-							<h4>综合办</h4>
-							<img src="__ROOT__/statics/index/Image/office1.jpg" alt="艺术照">
+			<volist name="Department" id="val">	
+					<div class="office_main">
+						<div class="office_main_photo">
+								<h4>{$val.name}</h4>
+								<img src="__ROOT__/data/news/{$val.img}" alt="艺术照">
+						</div>
+						<div class="office_main_content">
+								<h4>{$val.name}</h4>
+								<p>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$val.intro|msubstr=0,53,'utf-8',false}
+								</p>
+								<h5><a href="#">READ MORE >></a></h5>
+						</div>
 					</div>
-					<div class="office_main_content">
-							<h4>综合办</h4>
-							<p>
-								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;工作简介工作简介工作简介工作简介工作简介工作简介工作简介
-								工作简介工作简介工作简介工作简介工作简介工作简介
-							</p>
-							<h5><a href="#">READ MORE >></a></h5>
-					</div>
-				</div>
-							<div class="office_main">
-					<div class="office_main_photo">
-							<h4>教学科</h4>
-							<img src="__ROOT__/statics/index/Image/office2.jpg" alt="艺术照">
-					</div>
-					<div class="office_main_content">
-							<h4>教学科</h4>
-							<p>
-								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;工作简介工作简介工作简介工作简介工作简介工作简介工作简介
-								工作简介工作简介工作简介工作简介工作简介工作简介
-							</p>
-							<h5><a href="#">READ MORE >></a></h5>
-					</div>
-				</div>
-							<div class="office_main">
-					<div class="office_main_photo">
-							<h4>科研科</h4>
-							<img src="__ROOT__/statics/index/Image/office3.jpg" alt="艺术照">
-					</div>
-					<div class="office_main_content">
-							<h4>科研科</h4>
-							<p>
-								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;工作简介工作简介工作简介工作简介工作简介工作简介工作简介
-								工作简介工作简介工作简介工作简介工作简介工作简介
-							</p>
-							<h5><a href="#">READ MORE >></a></h5>
-					</div>
-				</div>
-							<div class="office_main">
-					<div class="office_main_photo">
-							<h4>学生科</h4>
-							<img src="__ROOT__/statics/index/Image/office4.jpg" alt="艺术照">
-					</div>
-					<div class="office_main_content">
-							<h4>学生科</h4>
-							<p>
-								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;工作简介工作简介工作简介工作简介工作简介工作简介工作简介
-								工作简介工作简介工作简介工作简介工作简介工作简介
-							</p>
-							<h5><a href="#">READ MORE >></a></h5>
-					</div>
-				</div>
-							<div class="office_main">
-					<div class="office_main_photo">
-							<h4>院团委</h4>
-							<img src="__ROOT__/statics/index/Image/office5.jpg" alt="艺术照">
-					</div>
-					<div class="office_main_content">
-							<h4>院团委</h4>
-							<p>
-								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;工作简介工作简介工作简介工作简介工作简介工作简介工作简介
-								工作简介工作简介工作简介工作简介工作简介工作简介
-							</p>
-							<h5><a href="#">READ MORE >></a></h5>
-					</div>
-				</div>
+				</volist>
 		</div>
 	</div>
 </div>
@@ -178,77 +126,23 @@
 				<span>学科管理部</span>
 		</div>
 		<div class="office_body">
+		<volist name="Profession" id="val">	
 				<div class="office_main">
 					<div class="office_main_photo">
-							<h4>音乐学</h4>
-							<img src="__ROOT__/statics/index/Image/dicipline1.jpg" alt="艺术照">
+							<h4>{$val.name}</h4>
+							<img src="__ROOT__/data/profession/{$val.logo}" alt="艺术照">
 					</div>
 					<div class="office_main_content">
-							<h4>音乐学</h4>
+							<h4>{$val.name}</h4>
 							<p>
-								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;工作简介工作简介工作简介工作简介工作简介工作简介工作简介
-								工作简介工作简介工作简介工作简介工作简介工作简介
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$val.intro|msubstr=0,53,'utf-8',false}
 							</p>
 							<h5><a href="#">READ MORE >></a></h5>
 					</div>
+					
 				</div>
-							<div class="office_main">
-					<div class="office_main_photo">
-							<h4>音乐表演</h4>
-							<img src="__ROOT__/statics/index/Image/dicipline2.jpg" alt="艺术照">
-					</div>
-					<div class="office_main_content">
-							<h4>音乐表演</h4>
-							<p>
-								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;工作简介工作简介工作简介工作简介工作简介工作简介工作简介
-								工作简介工作简介工作简介工作简介工作简介工作简介
-							</p>
-							<h5><a href="#">READ MORE >></a></h5>
-					</div>
-				</div>
-							<div class="office_main">
-					<div class="office_main_photo">
-							<h4>视觉传达</h4>
-							<img src="__ROOT__/statics/index/Image/dicipline3.jpg" alt="艺术照">
-					</div>
-					<div class="office_main_content">
-							<h4>视觉传达</h4>
-							<p>
-								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;工作简介工作简介工作简介工作简介工作简介工作简介工作简介
-								工作简介工作简介工作简介工作简介工作简介工作简介
-							</p>
-							<h5><a href="#">READ MORE >></a></h5>
-					</div>
-				</div>
-							<div class="office_main">
-					<div class="office_main_photo">
-							<h4>产品设计</h4>
-							<img src="__ROOT__/statics/index/Image/dicipline4.jpg" alt="艺术照">
-					</div>
-					<div class="office_main_content">
-							<h4>产品设计</h4>
-							<p>
-								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;工作简介工作简介工作简介工作简介工作简介工作简介工作简介
-								工作简介工作简介工作简介工作简介工作简介工作简介
-							</p>
-							<h5><a href="#">READ MORE >></a></h5>
-					</div>
-				</div>
-							<div class="office_main">
-					<div class="office_main_photo">
-							<h4>环境设计</h4>
-							<img src="__ROOT__/statics/index/Image/dicipline5.jpg" alt="艺术照">
-					</div>
-					<div class="office_main_content">
-							<h4>环境设计</h4>
-							<p>
-								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;工作简介工作简介工作简介工作简介工作简介工作简介工作简介
-								工作简介工作简介工作简介工作简介工作简介工作简介
-							</p>
-							<h5><a href="#">READ MORE >></a></h5>
-					</div>
-				</div>
-		</div>
+			</volist>
+		</div>			   				   	
 	</div>
 </div>
 <!--discipline end -->

@@ -66,23 +66,21 @@ a{
 .nav ul li{
 	line-height:50px;
 	height:50px;
-	float:left;
 
+	float:left;
 }
 .nav ul li a{
-	padding:0 18px;
 	color:#fff;
 	text-decoration:none;
 	text-align:center;
 	display:block;
 	height:50px;
 }
-
 .nav ul li a:hover{
 	background-color:#0C4C55;
 	color:#FDB000;
 }
-.nav	ul li ul{
+.nav ul li ul{
 	height:40px;
 	width:1170px;
 	background-color:#000;
@@ -93,15 +91,15 @@ a{
 	left:0px;
 	top:50px;
 	display:none;
-	font-size:16px;
+	font-size:15px;
 }
 .nav ul li ul li{
 	line-height:40px;
+	padding:0 10px;
 	float:left;
 }
 .nav ul li ul li a{
 	height:40px;
-	padding:0 10px;
 }
 .nav ul li ul li a:hover{
 	color:#FEAF00;
@@ -110,7 +108,7 @@ a{
 	-moz-opacity:1; /* Firefox  有效*/
 	opacity: 1; /* 通用，其他浏览器  有效*/
 }
-.nav	ul li:hover ul{
+.nav ul li:hover ul{
 	display:block; 
 }
 /*-----------------photochange_importantnews-----------------*/
@@ -263,13 +261,13 @@ a{
 	height:150px;
 	background:#10646F;
 }
-.focus_main_name h3{
-		margin-top:30px;
-		margin-left:10px;
+.focus_main_name a{
+	font-size:18px;
+	color:#fff;
+	margin-top:10px;
 }
-.focus_main_name h4{
-		margin-top:10px;
-		margin-left:10px;
+.focus_main_name a:hover{
+	color:red;
 }
 
 .collegenews{

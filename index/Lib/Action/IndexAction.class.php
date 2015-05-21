@@ -19,7 +19,10 @@ class IndexAction extends CommonAction{
 		$this->assign('CollegeNotice',M('Notice')->where('type=1 AND is_show=1')->order('uploadtime DESC')->limit(10)->select());
 		//---------------------幻灯片轮播数据添加
 		$this->assign('Ad',M('Ad')->where("type='image' AND status=1")->order('add_time DESC')->limit(5)->select());
-		
+		//学科管理部
+		$this->assign('Profession',M('Profession')->order('sort_order ASC')->limit(5)->select());
+		//办公机构
+		$this->assign('Department',M('Department')->order('sort_order ASC')->limit(5)->select());
     }
     /*  
      *  public function index() {
