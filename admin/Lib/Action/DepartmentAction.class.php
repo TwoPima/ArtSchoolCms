@@ -192,7 +192,7 @@ class DepartmentAction extends BaseAction
         //设置上传文件大小
         $upload->maxSize = 3292200;
         //$upload->allowExts = explode(',', 'jpg,gif,png,jpeg');
-        $upload->savePath = './data/news/';
+        $upload->savePath = './data/department/';
 
         $upload->saveRule = uniqid;
         if (!$upload->upload()) {

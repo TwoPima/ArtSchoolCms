@@ -30,21 +30,14 @@ $(function(){
           </tr>
           <tr>
           	<th>{:L('img')} :</th>
-            <td><input type="file" name="img" id="img" class="input-text"  style="width:200px;" /></td>
+            <td><input type="file" name="img" id="img" class="input-text"  style="width:200px;" />
+         	</td>
           </tr>
            <tr>
             <th>{:L('intro')} :</th>
             <td>            	
 				<tpl:editor id="intro" name="intro" type="KINDEDITOR" style="width:70%;height:350px;" ></tpl:editor>
 			</td>
-          </tr>
-         <tr>
-            <th>{:L('status')} :</th>
-            <td><input type="radio" name="status" class="radio_style" value="1">
-              &nbsp;已审核&nbsp;&nbsp;&nbsp;
-              <input type="radio" name="status" class="radio_style" value="0" checked="checked">
-              &nbsp;待审核
-              </td>
           </tr>
         </table>
       </div>

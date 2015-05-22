@@ -28,11 +28,11 @@
 		 </td>
     </tr>
       <tr>
-      	<th>{:L('logo')} :</th>
+      	<th>{:L('img')} :</th>
       	<td>
-        	<input type="file" name="logo" id="img" class="input-text" style="width:200px;" />
-            <if condition="$Department['logo'] neq ''">
-            <br /><img src="./data/news/{$Department.logo}" style="width:50px;height:50px;"/>
+        	<input type="file" name="img" id="img" class="input-text" style="width:200px;" />
+            <if condition="$Department['img'] neq ''">
+            <img src="./data/department/{$Department.img}" style="width:150px;height:150px;"/>
             </if>
         </td>
       </tr>
