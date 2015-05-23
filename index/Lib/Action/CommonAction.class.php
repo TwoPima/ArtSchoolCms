@@ -5,6 +5,7 @@ class CommonAction extends Action {
 	function _initialize(){
 		Load('extend');
 		import("ORG.Util.Page"); //载入分页类
+		$this->site_root="http://".$_SERVER['SERVER_NAME'].($_SERVER['SERVER_PORT']==80?'':':'.$_SERVER['SERVER_PORT']).__ROOT__."/";
 		
 		//导航数据组装
 		$article_cate_mod = M('Article_cate');
@@ -52,10 +53,11 @@ class CommonAction extends Action {
 	} */
 	//详细操作；根据传过来的表名和类型取数据
 	public function detail(){		
-		$table=$_GET['table'];
+		$table=$_GET['m'];
 		$model=M($table);
-		$str=$model->getPk ();
-		$where[$str]=(int) $_GET['id'];
+		//$str=$model->getPk ();
+		//$where[$str]=(int) $_GET['id'];
+		$where['cate_id']=$_GET['id'];
 		$result_se=$model->where($where)->select();
 		$result=array();
 		foreach ($result_se as $value){
@@ -106,9 +108,9 @@ class CommonAction extends Action {
     }
   
     //空操作
-	public function _empty(){
+/* 	public function _empty(){
 		$this->redirect("/");
-	}
+	} */
 	//更多操作;根据传过来的表名取数据；导航栏有数据库的直接连接到导航栏方法；
 	public function listMore(){
 		$name=$this->getActionName();
@@ -135,6 +137,16 @@ class CommonAction extends Action {
 			$title=mb_substr($title,0,$length,$encoding);
 		}
 		return $title;
+	}
+	public function listNews($name,$firstRow = 0, $listRows = 20,$where) {
+		$M = M($name);
+		$count = $M->where($where)->count();
+		import("ORG.Util.Page");       //载入分页类
+		$page = new Page($count, 20);
+		$showPage = $page->show();
+		$this->assign("page", $showPage);
+		$list = $M->where($where)->limit("$firstRow , $listRows")->select();
+		return $list;
 	}
 	
 }
