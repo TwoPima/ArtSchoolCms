@@ -3,35 +3,28 @@
 <div id="photochange_importantnews">
 	<div class="container">
 			<div id="photochange">
-					<div id="list" style="left: -800px;">
-		        <img src="__ROOT__/statics/index/Image/1.jpg" alt="1"/>
-		        <img src="__ROOT__/statics/index/Image/1.jpg" alt="1"/>
-		        <volist name="Ad" id="vo">
-		        	  <img src="__ROOT__/data/advert/{$vo.code}" alt="2"/>
-		        </volist>
-		        <img src="__ROOT__/statics/index/Image/3.jpg" alt="3"/>
-		        <img src="__ROOT__/statics/index/Image/4.jpg" alt="4"/>
-		        <img src="__ROOT__/statics/index/Image/5.jpg" alt="5"/>
-		        <img src="__ROOT__/statics/index/Image/1.jpg" alt="5"/>
-		    </div>
+				<div id="list" style="left: -800px;">
+				   		<img src="__ROOT__/data/advert/{$Adasc[0]['code']}" alt="{$Adasc[0]['ordid']}"/>
+				         <volist name="Ad" id="vo">
+			        	  <img src="__ROOT__/data/advert/{$vo.code}" alt="{$vo.ordid}"/>
+			        	  </volist>
+				   <img src="__ROOT__/data/advert/{$Addesc[0]['code']}" alt="{$Addesc[0]['ordid']}"/>
+		    	</div>
 		    <div id="buttons">
-		        <span index="1" class="on">合唱团在青歌赛上获得铜奖</span>
 		        <volist name="Ad" id="vo">
-		        	 <span index="2">{$vo.name}</span>
+		        	 <span index="{$vo.ordid}" class="on" > 
+		        	 	<a href="{$vo.url}">{$vo.name}</a>
+		        	 </span>
 		        </volist>
-		        
-		        <span index="3">军工文化艺术团揭牌</span>
-		        <span index="4">文联副主席徐沛东来我院讲学</span>
-		        <span index="5">张建设老师的彭德怀元帅雕塑在我校德怀广场落成</span>
 		    </div>
-    <a href="javascript:;" id="prev" class="arrow">&lt;</a>
-    <a href="javascript:;" id="next" class="arrow">&gt;</a>
+			    <a href="javascript:;" id="prev" class="arrow">&lt;</a>
+			    <a href="javascript:;" id="next" class="arrow">&gt;</a>
 			</div>
 			<div class="importantnews">
 				<h1>重要通知 </h1>
 					 <ul>
 				 		<volist name="Notice" id="val">
-					   		<li><a href="__APP__/Notice/detail?table=Notice&id={$val.id}">{$val.name|msubstr=0,18,'utf-8',true}<span>【{$val.uploadtime|date="m-d",###}】</span></a></li><hr>
+					   		<li ><a href="__APP__/Notice/detail?table=Notice&id={$val.id}">{$val.name|msubstr=0,18,'utf-8',true}<span>【{$val.uploadtime|date="m-d",###}】</span></a></li><hr>
 					   	</volist>
 						</ul> 
 				<h3><a href="__APP__/More/index/m=Notice&type=0">READ MORE >></a></h3>

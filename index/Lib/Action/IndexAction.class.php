@@ -11,7 +11,9 @@ class IndexAction extends CommonAction{
 		//---------------------学院新闻
 		$this->assign('CollegeNotice',M('Notice')->where('type=1 AND is_show=1')->order('uploadtime DESC')->limit(10)->select());
 		//---------------------幻灯片轮播数据添加
-		$this->assign('Ad',M('Ad')->where("type='image' AND status=1")->order('add_time DESC')->limit(5)->select());
+		$this->assign('Ad',M('Ad')->where("type='image' AND status=1")->order('ordid ASC')->limit(5)->select());
+		$this->assign('Adasc',M('Ad')->where("type='image' AND status=1")->order('ordid ASC')->limit(1)->select());
+		$this->assign('Addesc',M('Ad')->where("type='image' AND status=1")->order('ordid DESC')->limit(1)->select());
 		//学科管理部
 		$this->assign('Profession',M('Profession')->order('sort_order ASC')->limit(5)->select());
 		//办公机构
