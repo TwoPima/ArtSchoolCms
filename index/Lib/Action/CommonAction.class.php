@@ -87,14 +87,7 @@ class CommonAction extends Action {
 		$this->display($action_name);
 	}
 	
-	//首页更多方法
-	public function more(){
-		$condition['cid']=$_GET['id'];
-		$name=$_GET['name'];
-		$m=M($name);
-		$this->assign("list", D($name)->listNews($name,$page->firstRow, $page->listRows,$condition));
-		$this->display();
-	}
+
    
     //文件下载
     public function download(){
@@ -137,16 +130,6 @@ class CommonAction extends Action {
 			$title=mb_substr($title,0,$length,$encoding);
 		}
 		return $title;
-	}
-	public function listNews($name,$firstRow = 0, $listRows = 20,$where) {
-		$M = M($name);
-		$count = $M->where($where)->count();
-		import("ORG.Util.Page");       //载入分页类
-		$page = new Page($count, 20);
-		$showPage = $page->show();
-		$this->assign("page", $showPage);
-		$list = $M->where($where)->limit("$firstRow , $listRows")->select();
-		return $list;
 	}
 	
 }

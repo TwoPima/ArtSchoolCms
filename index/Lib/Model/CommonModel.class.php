@@ -1,6 +1,6 @@
 <?php
 class CommonModel extends Model {
-	/* public function listNews($name,$firstRow = 0, $listRows = 20,$where) {
+ 	public function listNews($name,$firstRow = 0, $listRows = 20,$where) {
 		$M = M($name);
 		$count = $M->where($where)->count();
 		import("ORG.Util.Page");       //载入分页类
@@ -9,7 +9,7 @@ class CommonModel extends Model {
 		$this->assign("page", $showPage);
 		$list = $M->where($where)->limit("$firstRow , $listRows")->select();
 		return $list;
-	} */
+	} 
 	public function getPosition($id){
 		$type = D('Category')->where('status=1')->find($id);
 		if($type['pid']==0){

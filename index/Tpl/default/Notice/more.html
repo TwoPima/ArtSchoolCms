@@ -9,7 +9,18 @@
 <div id="main">
 	<div class="container clearfix">
 			<div id="main_mid">
-				<include file="Public:mainleft"/>
+			<div class="main_list" id="main_list">
+				<div class="main_list_title">
+					<img src="__ROOT__/statics/index/Image/nav_house.png" alt="lala">
+					您现在的位置：首页&nbsp;>&nbsp;{$bigmenu}
+				</div>
+				<div class="main_list_nav">
+					 <ul>
+						<li id=""><a href="__APP__/Notice/more?type=1">学院新闻</a></li>
+						<li id=""><a href="__APP__/Notice/more?type=0">重要通知</a></li>
+					</ul> 
+				</div>
+			</div>
 				<div class="main_con" id="main_con">
 						<div class="main_con_title">
 								<span class="span1">{$detail_cate.name}</span>

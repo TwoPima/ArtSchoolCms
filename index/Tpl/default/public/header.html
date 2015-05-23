@@ -20,12 +20,12 @@
 				<div class="nav">
 					<ul>
 					 <volist name="article_cate_list['parent']" id='val'>
-						<li style="width:10%"><a href="__APP__/Index/index">{$val.name}</a>
+						<li style="width:10%"><a href="">{$val.name}</a>
 							 <ul>
 								<volist name="article_cate_list['sub'][$val['id']]" id='sval'>
-									<li id=""><a href="__APP__/Submenu/index?id={$sval.id}&pid={$val.pid}">{$sval.name}</a></li>
+									<li id=""><a href="__APP__/Submenu/index?id={$sval.id}&pid={$val.id}">{$sval.name}</a></li>
 								</volist>
-							 </ul> <!--__APP__/Submenu/index/id/{$val.id}/m/model  -->
+							 </ul>
 						</li>
 					</volist>
 					</ul>
