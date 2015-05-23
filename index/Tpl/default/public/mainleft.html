@@ -5,10 +5,9 @@
 	</div>
 	<div class="main_list_nav">
 		 <ul>
-				<li><a href="#">院长致辞</a></li>
-				<li><a href="#">现任领导</a></li>
-				<li><a href="#">办公机构</a></li>
-				<li><a href="#">师资队伍</a></li>
+				<volist name="mainleft_cate_list" id='sval'>
+					<li id=""><a href="__APP__/Submenu/detail/id/{$sval.id}">{$sval.name}</a></li>
+				</volist>
 		</ul> 
 	</div>
 </div>

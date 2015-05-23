@@ -28,6 +28,19 @@ $(function(){
         <th width="100">{:L('title')} :</th>
         <td><input type="text" name="title" id="title" class="input-text" size="60" value="{$article.title}"></td>
       </tr>
+      <tr>
+        <th width="100">{:L('duty')} :</th>
+        <td><input type="text" name="duty" id="duty" class="input-text" size="60" value="{$article.duty}"></td>
+      </tr>
+      <tr>
+        <th width="100">{:L('due_time')} :</th>
+        <td><input type="text" name="due_time" id="due_time" class="input-text" size="60" value="{$article.due_time}"></td>
+      </tr>
+      <tr>
+        <th width="100">{:L('uploadby')} :</th>
+        <td><input type="text" name="uploadby" id="uploadby" class="input-text" size="60" value="{$article.uploadby}"></td>
+      </tr>
+      
 	  <tr>
         <th width="100">{:L('url')} :</th>
         <td><input type="text" name="url" id="url" class="input-text" size="60" value="{$article.url}"></td>
@@ -51,6 +64,15 @@ $(function(){
             </volist>
           </select></td>
       </tr>
+       <tr>
+        <th>{:L('pro_id')} :</th>
+        <td><select name="pro_id" id="pro_id" style="width:200px;">
+        	<option value="0">--请选择专业类别--</option>
+            <volist name="pro_list" id="val">
+              <option <if condition="$article['pro_id'] eq $val['id']"> selected="selected" </if> value="{$val.id}">{$val.name}</option>
+            </volist>
+          </select></td>
+      </tr>
       <tr>
           <th>{:L('orig')} :</th>
           <td><input type="text" name="orig" id="orig" class="input-text" value="{$article.orig}" size="30"></td>
@@ -67,6 +89,10 @@ $(function(){
       <tr>
         <th>{:L('abst')} :</th>
         <td><textarea name="abst" id="abst" style="width:68%;height:50px;">{$article.abst}</textarea></td>
+      </tr>
+       <tr>
+        <th>{:L('intro')} :</th>
+        <td><textarea name="intro" id="intro" style="width:68%;height:50px;">{$article.intro}</textarea></td>
       </tr>
       <tr>
         <th>{:L('info')} :</th>
@@ -85,6 +111,21 @@ $(function(){
                 <input type="checkbox" name="is_best" id="is_best" value="1" <if condition="$article['is_best'] eq '1'">checked="checked"</if>> &nbsp;推荐&nbsp;&nbsp;&nbsp;
             </td>
           </tr>
+          <tr>
+        	<th>{:L('in_site')}：</th>
+        	<td>
+            	<input type="radio" name="in_site" class="radio_style"  id="in_site" value="1" <if condition="$article['in_site'] eq '1'">checked="checked"</if>> &nbsp;校内&nbsp;&nbsp;&nbsp;
+                <input type="radio" name="in_site" class="radio_style"  id="in_site" value="0" <if condition="$article['in_site'] eq '0'">checked="checked"</if>> &nbsp;校外&nbsp;&nbsp;&nbsp;
+            </td>
+          </tr>
+          <tr>
+        <th>{:L('type')} :</th>
+        <td><input type="radio" name="type" class="radio_style" value="1" <if condition="$article.type eq 1"> checked</if>>
+          &nbsp;视频课件&nbsp;&nbsp;&nbsp;
+          <input type="radio" name="type" class="radio_style" value="0" <if condition="$article.type eq 0">  checked</if>>
+          &nbsp;文档
+          </td>
+      </tr>
       <tr>
         <th>{:L('status')} :</th>
         <td><input type="radio" name="status" class="radio_style" value="1" <if condition="$article.status eq 1"> checked</if>>
@@ -137,6 +178,14 @@ function submitFrom(){
 	if($("#cate_id").val()==0)
 	{
 	   alert('请选择文章分类');
+	   return false;
+	}
+
+}
+function submitFrom(){
+	if($("#pro_id").val()==0)
+	{
+	   alert('请选择专业');
 	   return false;
 	}
 

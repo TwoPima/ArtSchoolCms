@@ -7,5 +7,6 @@ return array (
   'DB_PORT' => '3306',
   'DB_PREFIX' => 'sch_',
   'DEFAULT_THEME' => 'default',
+		
 ); 
 ?>

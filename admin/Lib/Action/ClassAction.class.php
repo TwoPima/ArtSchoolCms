@@ -71,6 +71,9 @@ class ClassAction extends BaseAction
 			if($data['cate_id']==0){
 				$this->error('请选择资讯分类');
 			}
+			if($data['pro_id']==0){
+				$this->error('请选择专业类别');
+			}
 			if ($_FILES['img']['name']!=''||$_FILES['attachment']['name'][0]!='') {
 			    $upload_list = $this->_upload();
 			    if ($_FILES['img']['name']!=''&&$_FILES['attachment']['name'][0]!='') {
@@ -116,10 +119,12 @@ class ClassAction extends BaseAction
 				$this->error(L('operation_failure'));
 			}
 		}else{
+			//显示编辑数据
 			$article_mod = D('Class');
 			if( isset($_GET['id']) ){
 				$article_id = isset($_GET['id']) && intval($_GET['id']) ? intval($_GET['id']) : $this->error(L('please_select'));
 			}
+			//文章类别提取
 			$article_cate_mod = D('Class_cate');
 		    $result = $article_cate_mod->order('sort_order ASC')->select();
 		    $cate_list = array();
@@ -130,6 +135,14 @@ class ClassAction extends BaseAction
 		    	    $cate_list['sub'][$val['pid']][] = $val;
 		    	}
 		    }
+		    //专业提取
+		    $pro_cate_mod = D('Profession');
+		    $result_pro = $pro_cate_mod->order('sort_order ASC')->select();
+		    $pro_list = array();
+		    foreach ($result_pro as $val) {
+		    	$pro_list[]=$val;
+		    }
+		    
 			$article_info = $article_mod->where('id='.$article_id)->find();
 
 			//附件
@@ -138,6 +151,7 @@ class ClassAction extends BaseAction
 
 			$this->assign('show_header', false);
 	    	$this->assign('cate_list',$cate_list);
+	    	$this->assign('pro_list',$pro_list);
 			$this->assign('article',$article_info);
 			$this->display();
 		}
@@ -215,7 +229,16 @@ class ClassAction extends BaseAction
 	    	        $cate_list['sub'][$val['pid']][] = $val;
 	    	    }
 	    	}
+	    	//专业提取
+	    	$pro_cate_mod = D('Profession');
+	    	$result_pro = $pro_cate_mod->order('sort_order ASC')->select();
+	    	$pro_list = array();
+	    	foreach ($result_pro as $val) {
+	    		$pro_list[]=$val;
+	    	}
+	    	
 	    	$this->assign('cate_list',$cate_list);
+	    	$this->assign('pro_list',$pro_list);
 	    	$this->display();
 		}
 	}

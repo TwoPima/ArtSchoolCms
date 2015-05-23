@@ -21,6 +21,11 @@ $array = array(
 //	'URL_PATHINFO_DEPR' =>'-',  //参数之间的分割符号    	
     'DEFAULT_LANG' => 'zh-cn', // 默认语言	
 	'SHOW_PAGE_TRACE'=>true,
+		//'URL_HTML_SUFFIX'       => 'html',  // URL伪静态后缀设置
+		//'HTML_CACHE_ON' => true, // 开启静态缓存
+		//'URL_ROUTER_ON' => true, // 开启路由转换
+		//'URL_MODEL'=>'2',//前台隐藏index.php
+		//'URL_REWRITE'=>'2',//
 );
 return array_merge($config,$array);
 ?>

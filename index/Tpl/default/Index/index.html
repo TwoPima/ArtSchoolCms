@@ -34,7 +34,7 @@
 					   		<li><a href="__APP__/Notice/detail?table=Notice&id={$val.id}">{$val.name|msubstr=0,18,'utf-8',true}<span>【{$val.uploadtime|date="m-d",###}】</span></a></li><hr>
 					   	</volist>
 						</ul> 
-				<h3><a href="#">READ MORE >></a></h3>
+				<h3><a href="__APP__/More/index/m=Notice&type=0">READ MORE >></a></h3>
 			</div>
 	</div>
 </div>
@@ -48,7 +48,6 @@
 							<img src="__ROOT__/statics/index/Image/focus1.jpg" alt="艺术照">
 					</div>
 					<div class="focus_main_name">
-					
 							<a href="#">
 							艺术硕士<br>
 							Master of Arts
@@ -88,7 +87,7 @@
 					   		<li><a href="__APP__/Notice/detail?table=Notice&id={$val.id}">{$val.name|msubstr=0,21,'utf-8',true}<span>【{$val.uploadtime|date="m-d",###}】</span></a></li><hr>
 					   	</volist>
 						</ul> 
-				<h3><a href="#">READ MORE >></a></h3>
+				<h3><a href="__APP__/More/index/m=Notice&&type=1">READ MORE >></a></h3>
 		</div>
 	</div>
 </div>
@@ -111,7 +110,7 @@
 								<p>
 									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$val.intro|msubstr=0,53,'utf-8',false}
 								</p>
-								<h5><a href="#">READ MORE >></a></h5>
+								<h5><a href="__APP__/More/detail/m=Department&id={$val.id}">READ MORE >></a></h5>
 						</div>
 					</div>
 				</volist>
@@ -137,9 +136,8 @@
 							<p>
 								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$val.intro|msubstr=0,53,'utf-8',false}
 							</p>
-							<h5><a href="#">READ MORE >></a></h5>
+							<h5><a href="__APP__/More/detail/m=Profession&&id={$val.id}">READ MORE >></a></h5>
 					</div>
-					
 				</div>
 			</volist>
 		</div>			   				   	

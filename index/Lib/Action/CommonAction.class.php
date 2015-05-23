@@ -18,7 +18,14 @@ class CommonAction extends Action {
 			}
 		}
 		$this->assign('article_cate_list',$article_cate_list);
-	
+		
+		//获取网站配置信息
+		$setting_mod = M('Setting');
+		$setting = $setting_mod->select();
+		foreach ( $setting as $val ) {
+			$set[$val['name']] = stripslashes($val['data']);
+		}
+		$this->assign('set',$set);
 	
 		//友情链接
 		$this->assign('link',M('Flink')->where('status=1')->order('ordid DESC')->select());

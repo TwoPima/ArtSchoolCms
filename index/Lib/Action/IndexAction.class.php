@@ -6,13 +6,6 @@ class IndexAction extends CommonAction{
 		$this->assign('slide',D('Photo')->where('status=1 AND tid=5')->select());//幻灯片调用ID
 		$this->assign('video',D('Video')->where('status=1')->find(1));//视频调用ID
 		 */
-		//获取网站配置信息
-		$setting_mod = M('Setting');
-		$setting = $setting_mod->select();
-		foreach ( $setting as $val ) {
-			$set[$val['name']] = stripslashes($val['data']);
-		}
-		$this->assign('set',$set);
 		//---------------------重要通知
 		$this->assign('Notice',M('Notice')->where('type=0 AND is_show=1')->order('uploadtime DESC')->limit(11)->select());
 		//---------------------学院新闻
