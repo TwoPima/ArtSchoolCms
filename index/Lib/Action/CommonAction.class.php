@@ -150,7 +150,7 @@ class CommonAction extends Action {
 	 */
 	Public function getNowHere($catid){
 		$cat = M("Article_cate");
-		$herestr= '您现在的位置:'.'<a href="http://localhost/Artschoolcms/">首页&nbsp;&nbsp;</a>';
+		$herestr= '您现在的位置:'.'<a style="color:#000;" href="http://localhost/Artschoolcms/">&nbsp;&nbsp;首页&nbsp;&nbsp;</a>';
 		$uplevels = $cat->field("id,name")->where("id=$catid")->find();
 		$nowHere="$herestr"."->".$uplevels['name'];
 		return $nowHere;

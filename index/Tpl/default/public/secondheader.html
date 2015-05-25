@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="zh_CN">
+<head>
+	<meta charset="UTF8">
+	<title>{$set.site_title}</title>
+	<link rel="stylesheet" href="__ROOT__/statics/index/Css/style.css">
+	<script type="text/javascript" src="__ROOT__/statics/index/Js/script.js"></script>
+	<script type="text/javascript" src="__ROOT__/statics/index/Js/jquery.1.10.2.js"></script>
+	
+</head>
+<body>
+<!-- header start -->
+<div id="header_class">
+		<div class="top_class"></div>
+		<div class="container">
+			<div class="logo_class">
+				<img src="__ROOT__/statics/index/Image/logo.jpg" alt="">
+			</div>
+			<div class="sousuo_class">
+				<form action="##">
+						<input class="newinput" type="text" name="###">
+						<input type="submit" value="搜索">
+				</form>
+			</div>
+		</div>
+	</div>
+<div id="nav_class">
+		<div class="container">
+				<div class="nav_class_link">
+				<volist name="cate_list" id='sval'>
+				<span><a href="__APP__/Master/articleList?id={$sval.id}&mo=Master">{$sval.name}</a></span>
+				</volist>
+				</div>
+		</div>
+</div>
+<!-- header end -->

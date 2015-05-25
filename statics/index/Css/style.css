@@ -668,7 +668,11 @@ a{
 }
 /*------------------------列表属性---------------------*/
 .main_con_con ul{
-	
+
+height:auto!important;
+height:700px;
+min-height:700px;
+
 }
 .main_con_con ul li{
 	height:40px;
@@ -733,6 +737,144 @@ input{
 		width:70px;
 		border-color:#10646F;
 }
+
+/*-----------------jingpinkecheng--------------*/
+#header_class{
+	background-image:url(../Image/top.jpg);
+	color:#fff;
+	height:75px;
+}
+.top_class{
+	height:10px;
+	background-color:#000;
+}
+.logo_class{
+	height:65px;
+	float:left;
+}
+.logo_class img{
+	height:65px;
+}
+.sousuo_class{
+	margin-top:15px;
+	margin-right:70px;
+	float:right;
+}
+input{
+	color:#fff;
+	font-size:10px;
+	height:30px;
+	width:50px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-khtml-border-radius: 5px;
+	border-radius: 5px;
+	border:1px solid #10646F;
+	background-color:#1B5056;
+}
+.newinput{
+	margin:5px;
+	color:#fff;
+	font-size:13px;
+	height:30px;
+	width:157px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-khtml-border-radius: 5px;
+	border-radius: 5px;
+	border:1px solid #10646F;
+	background-color:#1B5056;
+}
+#nav_class{
+	line-height:33px;
+	font-weight:bold;
+	font-size:14px;
+	border-bottom:1px solid #A0A0A0;
+}
+.nav_class_link{
+	text-align:center;
+}
+.nav_class_link span{
+	margin:0 10px;
+}
+.nav_class_link a{
+	color:#000;
+}
+.nav_class_link a:hover{
+	color:#FFAD01;
+}
+#class_mian{
+	padding-top:30px;
+	background-color:#eeeeee;
+}
+.class_mian_list{
+	float:left;
+	width:290px;
+	background-color:#ffffff;
+}
+
+.class_mian_list ul li{
+	font-size:18px;
+	line-height:65px;
+}
+.class_mian_list ul li hr{
+	margin:0 10px;
+	border:1px solid #eeeeee;
+}
+.class_mian_list ul li:hover{
+border-left:10px solid #10646F;
+}
+.class_mian_list ul li a{
+	margin-left:25px;
+	color:#000;
+}
+.class_mian_list ul li span{
+	float:right;
+	margin-right:25px;
+}
+.class_mian_con{
+	padding:10px 20px;
+	float:right;
+	width:810px;
+	background-color:#ffffff;
+}
+.class_mian_con h3{
+	line-height:40px;
+}
+.class_mian_con_show {
+	overflow:hidden;
+}
+.class_mian_con_show ul li{
+	width:258px;
+	height:220px;
+	float:left;
+	margin:0 5px;
+	margin-top:20px;
+	border:1px solid #C9C9C9;
+}
+.class_mian_con_show img{
+	width:100%;
+	height:145px;
+}
+.class_mian_con_show p{
+	font-size:17px;
+	line-height:40px;
+	text-align:center;
+}
+.class_mian_con_into{
+	width:260px;
+}
+.class_mian_con_into_left{
+	margin-left:10px;
+	float:left;
+}
+.class_mian_con_into_right{
+	float:right;
+	margin-right:10px;
+}
+
+/*-----------------jingpinkecheng--------------*/
+/* 艺术硕士没有左边的列表页 */
 
 
 

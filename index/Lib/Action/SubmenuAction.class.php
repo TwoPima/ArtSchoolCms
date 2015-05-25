@@ -15,7 +15,7 @@ class SubmenuAction extends CommonAction {
 		$where1['cate_id']=$_GET['id'];
 		$where1['status']="1";
 		$count = $detail_mod->where($where1)->count();
-		$page = new Page($count,20);
+		$page = new Page($count,10);
 		$article_list = $detail_mod->where($where1)->limit($page->firstRow.','.$page->listRows)->order('add_time DESC,ordid ASC')->select();
 		$showPage = $page->show(); 
 	 	//分类名称详细显示
