@@ -7,13 +7,8 @@
             <tr>
             	<th width="50">ID</th>
                 <th width="4%"><input type="checkbox" value="all" id="check_box" onclick="selectall('id[]');" name="all"></th>              	
-                <th width="100">{:L('name')}</th>
-                <th width="100">{:L('alias')}</th>
-                <th align="left">&nbsp;&nbsp;&nbsp;&nbsp;{:L('url')}</th>
-				 <th width="260">{:L('category')}</th>
-                <th width="60">{:L('type')}</th>
-                <th width="60">{:L('is_show')}</th>
-                <th width="60">{:L('in_site')}</th>
+                <th width="100">{:L('logo')}</th>
+                 <th width="60">{:L('type')}</th>
               	<th width="40">{:L('sort_order')}</th>
                 <th width="40">{:L('operational')}</th>
             </tr>
@@ -23,13 +18,17 @@
             <tr>
             	<td align="center">{$val.id}</td>
                 <td align="center"><input type="checkbox" value="{$val.id}" name="id[]" <if condition="$val['system'] eq '1'">disabled</if>></td>                
-                <td align="center">{$val.name}</td>
-                <td align="center"><b>{$val.alias}</b></td>
-                <td align="left">&nbsp;&nbsp;&nbsp;<font color="red">{$val.url}</font></td>
-				<td align="center">{$val.category.name}</td>
-                <td align="center"><if condition="$val.type eq '1'"><em class="blue">顶部</em><else/>底部</if></td>
-                <td align="center" onclick="status({$val.id},'is_show')" id="is_show_{$val.id}"><img src="__ROOT__/statics/images/status_{$val.is_show}.gif"</td>
-                <td align="center"><if condition="$val.in_site eq '1'"><em class="blue">是</em><else/>否</if></td>
+                <td align="center">{$val.logo}</td>
+                <td align="center">
+                <if condition="$val.type eq '0'">
+               		 <em class="blue">艺术硕士</em>
+                 <elseif condition="$val.type eq 1"/>
+                 	<em class="blue">精品课程</em>
+                  <elseif condition="$val.type eq 2"/>
+               		 <em class="blue">军工文化艺术团</em>
+                  <else /><em class="blue">中北大学艺术研究所</em>
+                	</if>
+                </td>
                 <td align="center"><input type="text" class="input-text-c input-text" id="sort_{$val.id}" onblur="sort({$val.id},'sort_order',this.value)" value="{$val.sort_order}" size="4" name="listorders[{$val.id}]"></td>
                 <td align="center"><a class="blue" href="javascript:edit({$val.id},'{$val.name}')">编辑</a> </td>
             </tr>
@@ -37,12 +36,6 @@
         
         </tbody>
     </table>
-
-    <div class="btn">
-    <label for="check_box">全选/取消</label>
-    <input type="submit" class="button" name="dosubmit" value="删除" onclick="return confirm('确认删除')"/>
-    
-    </div>
 
     </div>
     </form>

@@ -34,11 +34,11 @@ class NavAction extends BaseAction{
 				$this->error( $this->nav_mod->error() );
 			}
 			if($vo['name']==''){
-				$this->error('导航名称不能为空');
+				$this->error('LOGO不能为空');
 			}
 			$result = $this->nav_mod->where("pid=".$vo['pid']." AND name='".$vo['name']."'")->count();
 			if($result != 0){
-				$this->error('该导航已经存在');
+				$this->error('该LOGO已经存在');
 			}
 			//保存当前数据
 			$app_cate_id = $this->nav_mod->add();
@@ -52,21 +52,19 @@ class NavAction extends BaseAction{
 	function edit()
 	{
 		if(isset($_POST['dosubmit'])){
-			if( false === $vo = $this->nav_mod->create() ){
-				$this->error( $this->nav_mod->error() );
+			$profession_mod = M('Nav');
+			$data = $profession_mod->create();
+			if ($_FILES['logo']['name']!='') {
+				$upload_list = $this->_upload();
+				$data['logo'] = $upload_list['0']['savename'];
 			}
-
-			$old_nav = $this->nav_mod->where('id='.$_POST['id'])->find();
-
-			//导航不能重复
-			if ($_POST['name'] != $old_nav['name']) {
-				if ($this->_cate_exists($_POST['name'], $_POST['id'])) {
-					$this->error('导航名称重复！');
-				}
+			//最后的整体操作
+			$result = $profession_mod->where('id='.$data['id'])->save($data);
+			if(false !== $result){
+				$this->success('修改成功', '', '', 'edit');
+			}else {
+				$this->error('修改失败', '', '', 'edit');
 			}
-
-			$app_cate_id = $this->nav_mod->save($vo);
-			$this->success('修改成功', '', '', 'edit');
 		}else{
 			$id = isset($_REQUEST['id'])&&intval($_REQUEST['id'])?intval($_REQUEST['id']):$this->error('请选择分类');
 			$nav = $this->nav_mod->where('id='.$id)->find();			
@@ -130,5 +128,25 @@ class NavAction extends BaseAction{
 
 	}
 
+// 文件上传
+  public function _upload()
+    {
+    	import("ORG.Net.UploadFile");
+        $upload = new UploadFile();
+        //设置上传文件大小
+        $upload->maxSize = 3292200;
+        //$upload->allowExts = explode(',', 'jpg,gif,png,jpeg');
+        $upload->savePath = './data/nav/';//width:200  140
+
+        $upload->saveRule = uniqid;
+        if (!$upload->upload()) {
+            //捕获上传异常
+            $this->error($upload->getErrorMsg());
+        } else {
+            //取得成功上传的文件信息
+            $uploadList = $upload->getUploadFileInfo();
+        }
+        return $uploadList;
+    }
 }
 ?>

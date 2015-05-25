@@ -699,6 +699,36 @@ a{
 
 
 /*-----------------精品课程----------------------*/
+.sousuo_class{
+	margin-top:15px;
+	margin-right:70px;
+		float:right;
+}
+input{
+	color:#fff;
+	font-size:10px;
+	height:30px;
+	width:50px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-khtml-border-radius: 5px;
+	border-radius: 5px;
+	border:1px solid #10646F;
+	background-color:#1B5056;
+}
+.newinput{
+	margin:5px;
+	color:#fff;
+	font-size:13px;
+	height:30px;
+	width:157px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-khtml-border-radius: 5px;
+	border-radius: 5px;
+	border:1px solid #10646F;
+	background-color:#1B5056;
+}
 #class_header{
 		width:70px;
 		border-color:#10646F;

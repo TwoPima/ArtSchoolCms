@@ -1,9 +1,10 @@
 <?php
 return array(
-    'NAME' => '导航名称',    
-    'ALIAS' => '导航别名',
+    'NAME' => 'logo名称',    
+    'ALIAS' => '别名',
+    'LOGO' => '更换图片',
 	'URL'=>'导航URL',
-	'TYPE'=>'导航位置',
+	'TYPE'=>'所属分类',
 	'IS_SHOW'=>'是否显示',
 	'IN_SITE'=>'站内链接',
 	'SORT_ORDER'=>'排序值',
@@ -15,6 +16,7 @@ return array(
 	'CLICKS'=>'点击量',
 	'ORDID'=>'排序',
 	'OPERATIONAL'=>'操作'	,
-	'CATEGORY'=>'所属分类'
+	'CATEGORY'=>'所属'
+		
 );
 ?>
