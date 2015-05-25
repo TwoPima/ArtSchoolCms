@@ -1,0 +1,19 @@
+<div class="main_list" id="main_list">
+	<div class="main_list_title">
+		<img src="__ROOT__/statics/index/Image/nav_house.png" alt="lala">
+		{$now_here}<!-- 首页菜单不显示；样式不对 -->
+	</div>
+	<div class="main_list_nav">
+		 <ul>
+		  <volist name="$cate_list['parent']" id='val'>
+			<li style="width:10%"><a href="__APP__/">{$val.name}</a>
+				 <ul>
+					<volist name="$cate_list['sub'][$val['id']]" id='sval'>
+						<li id=""><a href="__APP__/Submenu/index?id={$sval.id}&pid={$val.id}">{$sval.name}</a></li>
+					</volist>
+				 </ul>
+			</li>
+		</volist>
+		</ul> 
+	</div>
+</div>

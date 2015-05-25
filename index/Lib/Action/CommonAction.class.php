@@ -57,12 +57,24 @@ class CommonAction extends Action {
 		$model=M($table);
 		//$str=$model->getPk ();
 		//$where[$str]=(int) $_GET['id'];
-		$where['cate_id']=$_GET['id'];
+		$where['id']=$_GET['id'];
 		$result_se=$model->where($where)->select();
 		$result=array();
 		foreach ($result_se as $value){
 			$result[]=$value;
 		}
+		//上一篇  
+		$front=$model->where("id<".$_GET['id'])->order('id desc')->limit('1')->find();
+		if (empty($front)) {
+			$front="没有了！";
+		}
+		//下一篇  
+		$after=$model->where("id>".$_GET['id'])->order('id desc')->limit('1')->find();  
+		if (empty($after)) {
+			$after="没有了！";
+		}
+		$this->assign('front',$front);
+		$this->assign('after',$after); 
 		$this->assign('detail',$result);
 		$this->display();
 	}
@@ -131,5 +143,18 @@ class CommonAction extends Action {
 		}
 		return $title;
 	}
+	/*  
+	 * 获取当前位置
+	 * 当前位置-第一个参数 catid为当前栏目的id
+	 * $this->assign("now_here",$this->now_here($catid);
+	 */
+	Public function getNowHere($catid){
+		$cat = M("Article_cate");
+		$herestr= '您现在的位置:'.'<a href="http://localhost/Artschoolcms/">首页&nbsp;&nbsp;</a>';
+		$uplevels = $cat->field("id,name")->where("id=$catid")->find();
+		$nowHere="$herestr"."->".$uplevels['name'];
+		return $nowHere;
+	}
+
 	
 }

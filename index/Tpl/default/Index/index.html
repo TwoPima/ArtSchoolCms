@@ -24,7 +24,7 @@
 				<h1>重要通知 </h1>
 					 <ul>
 				 		<volist name="Notice" id="val">
-					   		<li ><a href="__APP__/Notice/detail?table=Notice&id={$val.id}">{$val.name|msubstr=0,18,'utf-8',true}<span>【{$val.uploadtime|date="m-d",###}】</span></a></li><hr>
+					   		<li ><a href="__APP__/Notice/detail?mo=Notice&id={$val.id}">{$val.name|msubstr=0,18,'utf-8',true}<span>【{$val.uploadtime|date="m-d",###}】</span></a></li><hr>
 					   	</volist>
 						</ul> 
 				<h3><a href="__APP__/Notice/more/mo=Notice&type=0">READ MORE >></a></h3>
@@ -38,34 +38,34 @@
 		<div class="focus">
 			<div class="focus_main">
 					<div class="focus_main_image">
-							<img src="__ROOT__/statics/index/Image/focus1.jpg" alt="艺术照">
-					</div>
-					<div class="focus_main_name">
-							<a href="#">
-							艺术硕士<br>
-							Master of Arts
-							</a>
+					 <img src="__ROOT__/data/nav/{$Master.logo}" alt="艺术照">
+					 </div>
+					 <div class="focus_main_name">
+						<h3><a href="__APP__/Master/index">艺术硕士</a></h3>
+						<h4><a href="__APP__/Master/index">Master of Arts</a></h4>
 					</div>
 			</div>
 					<div class="focus_main">
 					<div class="focus_main_image">
-							<img src="__ROOT__/statics/index/Image/focus2.jpg" alt="艺术照">
+							<img src="__ROOT__/data/nav/{$coirse.logo}" alt="艺术照">
 					</div>
 					<div class="focus_main_name">
 						<h3><a href="#">精品课程</a></h3>
 						<h4><a href="#">Excellent coirse</a></h4>
 					</div>
-			</div>	<div class="focus_main">
+					</div>
+				<div class="focus_main">
 					<div class="focus_main_image">
-							<img src="__ROOT__/statics/index/Image/focus3.jpg" alt="艺术照">
+							<img src="__ROOT__/data/nav/{$Institute.logo}" alt="艺术照">
 					</div>
 					<div class="focus_main_name">
 						<h3><a href="#">中北大学<br>艺术研究所</a></h3>
 						<h4><a href="#">Art Institute of North University</a></h4>
 					</div>
-			</div>	<div class="focus_main">
+			</div>	
+			<div class="focus_main">
 					<div class="focus_main_image">
-							<img src="__ROOT__/statics/index/Image/focus4.jpg" alt="艺术照">
+							<img src="__ROOT__/data/nav/{$military.logo}" alt="艺术照">
 					</div>
 					<div class="focus_main_name">
 						<h3><a href="#">中国军工<br>文化艺术团</a></h3>
@@ -77,10 +77,10 @@
 				<h1>学院新闻</h1>
 					 <ul>
 					 	<volist name="CollegeNotice" id="val">
-					   		<li><a href="__APP__/Notice/detail?table=Notice&id={$val.id}">{$val.name|msubstr=0,21,'utf-8',true}<span>【{$val.uploadtime|date="m-d",###}】</span></a></li><hr>
+					   		<li><a href="__APP__/Notice/detail?mo=Notice&id={$val.id}">{$val.name|msubstr=0,21,'utf-8',true}<span>【{$val.uploadtime|date="m-d",###}】</span></a></li><hr>
 					   	</volist>
 						</ul> 
-				<h3><a href="__APP__/More/index/m=Notice&&type=1">READ MORE >></a></h3>
+				<h3><a href="__APP__/Notice/more/type=1">READ MORE >></a></h3>
 		</div>
 	</div>
 </div>

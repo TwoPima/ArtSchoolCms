@@ -14,6 +14,17 @@ class IndexAction extends CommonAction{
 		$this->assign('Profession',M('Profession')->order('sort_order ASC')->limit(5)->select());
 		//办公机构
 		$this->assign('Department',M('Department')->order('sort_order ASC')->limit(5)->select());
+		$logo=M('Nav')->select();
+		if ($logo[0]['type']=="0") {
+			$this->assign('Master',$logo);//提取logo艺术硕士
+		}elseif ($logo[0]['type']=="1"){
+			$this->assign('coirse',$logo);//提取logo精品课程
+		}elseif ($logo[0]['type']=="2"){
+			$this->assign('Institute',$logo);//提取logo研究院
+		}else {
+			$this->assign('military',$logo);//提取logo军工技术团
+		}
+		
     }
 	//站内搜索
 	public function search(){

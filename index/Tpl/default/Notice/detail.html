@@ -19,17 +19,15 @@
 							<p>
 							{$detail[0]['content']}
 							</p>
-						</div><!-- ./main_con_con -->
-				
+						</div>
 				</div>
-
 			</div>
 		</div>
 </div>
 <div class="paging">
 	<p>
-		<a href="#">上一页</a>
-		<a href="#">下一页</a>
+		<a href="__APP__/Notice/detail?id={$front.id}&mo=Notice">{$front.name}</a>
+		<a href="__APP__/Notice/detail?id={$after.id}&mo=Notice">{$after.name}</a>
 	</p>
 </div>
 <include file="Public:footer"/>
