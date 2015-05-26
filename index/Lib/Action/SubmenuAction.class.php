@@ -65,7 +65,7 @@ class SubmenuAction extends CommonAction {
 		$this->assign('detail',$result_se);
 		$this->display();
 	}
-	
+
 }
 
 ?>
