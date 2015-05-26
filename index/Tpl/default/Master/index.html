@@ -1,18 +1,24 @@
 <include file="Public:secondheader"/>
-<div id="class_mian">
-		<div class="container clearfix">
-				<div class="main_con_con">
-							<ul>
-								<volist name="master_article_list" id='sval'>
-									<li>
-									<a href="__APP__/Master/detail?id={$sval.id}&mo=Master">
-									<img src="__ROOT__/statics/index/Image/list.png" alt="xiaotubiao">{$sval.title}
-									<span class="main_con_list_right">{$sval.add_time}</span>
-									</a>
-									</li>
-								</volist>
-							</ul>
-				</div>
+<div id="class_main">
+	<div class="container clearfix">
+		<div class="class_main_list">
+			<ul>
+				<volist name="master_article_list" id='sval'>
+					<li>
+					<a href="__APP__/Master/detail?id={$sval.id}&mo=Master">
+					<img src="__ROOT__/statics/index/Image/list.png" alt="xiaotubiao">{$sval.title}
+					<span class="class_main_list_right">{$sval.add_time}</span>
+					</a>
+					</li>
+				</volist>
+			</ul>
 		</div>
+		<div class="paging">
+		<p>
+		{$page}
+		</p>
 </div>
+	</div>
+</div>
+
 <include file="Public:footer"/>

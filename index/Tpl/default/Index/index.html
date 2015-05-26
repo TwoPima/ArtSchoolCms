@@ -5,10 +5,10 @@
 			<div id="photochange">
 				<div id="list" style="left: -800px;">
 				   		<img src="__ROOT__/data/advert/{$Adasc[0]['code']}" alt="{$Adasc[0]['ordid']}"/>
-				         <volist name="Ad" id="vo">
-			        	  <img src="__ROOT__/data/advert/{$vo.code}" alt="{$vo.ordid}"/>
-			        	  </volist>
-				   <img src="__ROOT__/data/advert/{$Addesc[0]['code']}" alt="{$Addesc[0]['ordid']}"/>
+					         <volist name="Ad" id="vo">
+				        	  <img src="__ROOT__/data/advert/{$vo.code}" alt="{$vo.ordid}"/>
+				        	  </volist>
+				  		 <img src="__ROOT__/data/advert/{$Addesc[0]['code']}" alt="{$Addesc[0]['ordid']}"/>
 		    	</div>
 		    <div id="buttons">
 		        <volist name="Ad" id="vo">
@@ -41,26 +41,32 @@
 					 <img src="__ROOT__/data/nav/{$Master[0]['logo']}" alt="艺术照">
 					 </div>
 					 <div class="focus_main_name">
-						<h3><a href="__APP__/Master/index">艺术硕士</a></h3>
-						<h4><a href="__APP__/Master/index">Master of Arts</a></h4>
+							<a href="__APP__/Master/index">
+										<h4>艺术硕士</h4>
+										<h5>Master of Arts</h5>
+							</a>
 					</div>
 			</div>
-					<div class="focus_main">
+			<div class="focus_main">
 					<div class="focus_main_image">
 							<img src="__ROOT__/data/nav/{$coirse[0]['logo']}" alt="艺术照">
 					</div>
 					<div class="focus_main_name">
-						<h3><a href="#">精品课程</a></h3>
-						<h4><a href="#">Excellent coirse</a></h4>
+							<a href="__APP__/Master/index">
+										<h4>精品课程</h4>
+										<h5>Excellent coirse</h5>
+							</a>
 					</div>
-					</div>
-				<div class="focus_main">
+			</div>
+			<div class="focus_main">
 					<div class="focus_main_image">
 							<img src="__ROOT__/data/nav/{$Institute[0]['logo']}" alt="艺术照">
 					</div>
 					<div class="focus_main_name">
-						<h3><a href="#">中北大学<br>艺术研究所</a></h3>
-						<h4><a href="#">Art Institute of North University</a></h4>
+							<a href="__APP__/Master/index">
+										<h4>中北大学<br>艺术研究所</h4>
+										<h5>Art Institute of North University</h5>
+							</a>
 					</div>
 			</div>	
 			<div class="focus_main">
@@ -68,8 +74,10 @@
 							<img src="__ROOT__/data/nav/{$military[0]['logo']}" alt="艺术照">
 					</div>
 					<div class="focus_main_name">
-						<h3><a href="#">中国军工<br>文化艺术团</a></h3>
-						<h4><a href="#">Chinese military culture in North Troupe</a></h4>
+						<a href="__APP__/Master/index">
+									<h4>中国军工<br>文化艺术团</h4>
+									<h5>Chinese military culture in North Troupe</h5>
+						</a>
 					</div>
 			</div>
 		</div>

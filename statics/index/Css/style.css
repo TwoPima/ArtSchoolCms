@@ -34,19 +34,32 @@ a{
 	margin:auto;
 	width:1170px;
 }
-/* 分页显示 */
+/* ----------------分页显示------------- */
 .paging{
+	height:30px;
 	font-size:18px;
 	line-height:30px;	
 	text-align:center;
 }
+.paging p {
+	height:30px;
+}
 .paging a{
+	height:30px;
 	color:#000;
 	font-size:18px;
 }
 .paging a:hover{
 	color:#FFAD01;
 	font-size:18px;
+}
+.paging_left{
+	float:left;
+	margin-left:20px;
+}
+.paging_right{
+	float:right;
+	margin-right:20px;
 }
 /*---------------header--------------------*/
 #header{
@@ -55,6 +68,18 @@ a{
 .top{
 	height:15px;
 	background-color:#000;
+}
+.logo_sousuo{
+	height:120px;
+}
+.logo{
+	float:left;
+	height:120px;
+}
+.sousuo{
+	margin-top:35px;
+	margin-right:70px;
+	float:right;
 }
 .nav ul{
 	font-size:20px;
@@ -259,17 +284,17 @@ a{
 	float:left;
 	width:150px;
 	height:150px;
-	background:#10646F;
+	background:#10646F; 
 }
 .focus_main_name a{
-	font-size:18px;
+	margin-top:20px;
+	margin-left:10px;
+	display:block;
 	color:#fff;
-	margin-top:10px;
 }
 .focus_main_name a:hover{
-	color:red;
+	color:#FFAD01;
 }
-
 .collegenews{
 	float:left;
 	height:430px;
@@ -410,6 +435,7 @@ a{
 #footer{
 	margin-top:10px;
 	height:220px;
+	font-size:15px;
 }
 .footer_main{
 	height:170px;
@@ -452,17 +478,18 @@ a{
 	width:200px;
 }
 .select{
-	font-size:18px;
+	/* font-size:18px; */
 }
 .footer_main_friend_link_con{
 	height:130px;
 	background-color:#1D1D1D;
 }
 .mod{
-		color:#fff;
-		width:800px;
-		height:130px;
-		display:none;
+	font-size:14px;
+	color:#fff;
+	width:800px;
+	height:130px;
+	display:none;
 }
 .mod ul li{
 	float:left;
@@ -473,15 +500,18 @@ a{
 	color:#FFAD01;
 }
 .foot_copyright{
+	font-size:15px;
 	color:#fff;
 	height:50px;
 	line-height:50px;
 	background-color:#000;
 }
 .copyright_right{
-		float:right;
+	margin-right:15px;
+	float:right;
 }
 .copyright_left{
+	margin-left:15px;
 	float:left;
 }
 /*---------------------公共图片------------------------*/
@@ -562,6 +592,9 @@ a{
 .main_con_con{
 	margin-left:30px;
 	padding:10px 20px;
+	height:auto!important;
+	height:600px;
+	min-height:600px;
 }
 /*----------------图片文字-------------*/
 .main_con_con img{
@@ -668,11 +701,10 @@ a{
 }
 /*------------------------列表属性---------------------*/
 .main_con_con ul{
-
-height:auto!important;
+/* height:auto!important;
 height:700px;
 min-height:700px;
-
+ */
 }
 .main_con_con ul li{
 	height:40px;
@@ -706,7 +738,7 @@ min-height:700px;
 .sousuo_class{
 	margin-top:15px;
 	margin-right:70px;
-		float:right;
+	float:right;
 }
 input{
 	color:#fff;
@@ -738,7 +770,7 @@ input{
 		border-color:#10646F;
 }
 
-/*-----------------jingpinkecheng--------------*/
+/*-----------------艺术硕士--------------*/
 #header_class{
 	background-image:url(../Image/top.jpg);
 	color:#fff;
@@ -803,16 +835,56 @@ input{
 .nav_class_link a:hover{
 	color:#FFAD01;
 }
-#class_mian{
+/*-----------------------------------------------艺术硕士——正文部门------------------------*/
+#class_main{
 	padding-top:30px;
 	background-color:#eeeeee;
 }
+
+.class_main_con{
+	width:100%;
+	background-color:#fff;
+}
+
+.class_main_list ul{
+height:auto!important;
+height:400px;
+min-height:400px;
+}
+
+.class_main_list ul li{
+	height:40px;
+	font-size:15px;
+	padding-left:15px;
+	padding-right:15px;
+	margin-top:1px;
+}
+
+.class_main_list ul li img{
+	margin-right:10px;
+	width:13px;
+	height:13px;
+}
+.class_main_list a{
+	font-size:14px;
+	height:30px;
+	line-height:30px;
+	color:#000;
+}
+.class_main_list a:hover{
+	font-weight:bold;
+	color:#FEAF00;
+}
+.class_main_list_right{
+	float:right;
+	font-size:14px;
+}
+/*---------------艺术硕士左侧列表--------------*/
 .class_mian_list{
 	float:left;
 	width:290px;
 	background-color:#ffffff;
 }
-
 .class_mian_list ul li{
 	font-size:18px;
 	line-height:65px;
