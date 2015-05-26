@@ -15,11 +15,12 @@
 	<div class="top"></div>
 		<div class="container">
 			<div class="logo">
-				<img src="__ROOT__/statics/index/Image/logo.jpg"><!-- {$set.site_logo} -->
+				<a href="__APP__"><img src="__ROOT__/statics/index/Image/logo.jpg"></a><!-- {$set.site_logo} -->
 			<div class="sousuo_class">
-				<form action="##">
+				<form name="searchform" action="" method="get">
 						<input class="newinput" type="text" name="###">
-						<input type="submit" value="搜索">
+						<input type="hidden" name="m" value="Article" />
+					 <input type="submit" name="search" class="button" value="搜索" />
 				</form>
 			</div>
 			</div>
