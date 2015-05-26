@@ -1,36 +1,23 @@
 <include file="Public:secondheader"/>
-<div id="main">
+<div id="class_main">
 	<div class="container clearfix">
-			<div id="main_mid">
-				<div class="main_con_con" id="main_con">
-			<!-- 			<div class="main_con_title">
-								<span class="span1"></span>
-								<span class="span2">{$detail[0]['title']}</span>
-						</div>
-						<div class="main_con_con">
-							<p>
-							{$detail[0]['info']}
-							</p>
-						</div> -->
-						<ul>
-						<volist name="detail" id='sval'>
-									<li>
-										<a href="__APP__/Master/detail?id={$sval.id}&mo=Master">
-										<img src="__ROOT__/statics/index/Image/list.png" alt="xiaotubiao">{$sval.title}
-										<span class="main_con_list_right">{$sval.add_time}</span>
-									</a>
-									</li>
-								</volist>
-						</ul>
-							
-				</div>
-			</div>
+		<div class="class_main_list" id="main_con">
+			<ul>
+				<volist name="detail" id='sval'>
+					<li>
+						<a href="__APP__/Master/detail?id={$sval.id}&mo=Master">
+						<img src="__ROOT__/statics/index/Image/list.png" alt="xiaotubiao">{$sval.title}
+						<span class="class_main_list_right">{$sval.add_time}</span>
+					</a>
+					</li>
+				</volist>
+			</ul>
 		</div>
-</div>
-<div class="paging">
-	<p>
-		<a href="__APP__/Master/detail?id={$front.id}&mo=Master">{$front.name}</a>
-		<a href="__APP__/Master/detail?id={$after.id}&mo=Master">{$after.name}</a>
-	</p>
+		<div class="paging">
+			<p>
+				{$page}
+			</p>
+		</div>
+	</div>
 </div>
 <include file="Public:footer"/>
