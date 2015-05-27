@@ -13,17 +13,18 @@
 <div id="header">
 	<div class="top"></div>
 		<div class="container">
-			<div class="logo_sousuo">
-				<div class="logo">
-					<img src="__ROOT__/statics/index/Image/logo.jpg"><!-- {$set.site_logo} -->
+		<div class="logo_sousuo">
+			<div class="logo">
+				<a href="__APP__"><img src="__ROOT__/statics/index/Image/logo.jpg"></a><!-- {$set.site_logo} -->
 				</div>
-				<div class="sousuo">
-					<form action="#" name="#">
-							<input class="newinput" type="text" name="###">
-							<input type="submit" value="搜索">
-					</form>
-				</div>
+			<div class="sousuo">
+				<form name="searchform" action="" method="get">
+						<input class="newinput" type="text" name="###">
+						<input type="hidden" name="m" value="Article" />
+					 <input type="submit" name="search" class="button" value="搜索" />
+				</form>
 			</div>
+		</div>
 			<div class="nav">
 				<ul>
 				 <volist name="article_cate_list['parent']" id='val'>
