@@ -32,60 +32,22 @@ class IndexAction extends CommonAction{
     }
 	//站内搜索
 	public function search(){
-	/* 	$data = $_POST['words'];
-		$r = D('Article')->where("status=1 AND title LIKE '%$data%' OR content LIKE '%$data%'")->select();
-		foreach($r as $val){
+		echo "asdf";
+		exit();
+		$article_mod = D('article');
+		$data = $_POST['words'];
+		import("ORG.Util.Page");
+		$count = $article_mod->where("status=1 AND title LIKE '%$data%' OR content LIKE '%$data%' or seo_title like '%$data%' ")->count();
+		$page = new Page($count,10);
+		$article_list = $article_mod->where("status=1 AND title LIKE '%$data%' OR content LIKE '%$data%' or seo_title like '%$data%' ")->limit($p->firstRow.','.$p->listRows)->order('add_time DESC,ordid ASC')->select();
+		$showPage = $page->show();
+		foreach($article_list as $val){
 			$val['title']=str_replace($data,"<font color=red><b>$data</b></font>",$val['title']);
 			$val['content']=str_replace($data,"<font color=red><b>$data</b></font>",$val['content']);
-			$list[]=$this->changurl($val);
 		}
-		$this->assign('list',$list);
-		$this->seo('搜索'.$data.'结果', C('SITE_KEYWORDS'), C('SITE_DESCRIPTION'), 0);
-		 */
-		$article_mod = D('article');
-		$article_cate_mod = D('article_cate');
-		
-		//搜索
-		$where = '1=1';
-		if (isset($_GET['keyword']) && trim($_GET['keyword'])) {
-			$where .= " AND title LIKE '%".$_GET['keyword']."%'";
-			$this->assign('keyword', $_GET['keyword']);
-		}
-		if (isset($_GET['time_start']) && trim($_GET['time_start'])) {
-			$time_start = $_GET['time_start'];
-			$where .= " AND add_time>='".$time_start."'";
-			$this->assign('time_start', $_GET['time_start']);
-		}
-		if (isset($_GET['time_end']) && trim($_GET['time_end'])) {
-			$time_end = $_GET['time_end'];
-			$where .= " AND add_time<='".$time_end."'";
-			$this->assign('time_end', $_GET['time_end']);
-		}
-		if (isset($_GET['cate_id']) && intval($_GET['cate_id'])) {
-			$where .= " AND cate_id=".$_GET['cate_id'];
-			$this->assign('cate_id', $_GET['cate_id']);
-		}
-		import("ORG.Util.Page");
-		$count = $article_mod->where($where)->count();
-		$p = new Page($count,20);
-		$article_list = $article_mod->where($where)->limit($p->firstRow.','.$p->listRows)->order('add_time DESC,ordid ASC')->select();
-		
-		$key = 1;
-		foreach($article_list as $k=>$val){
-			$article_list[$k]['key'] = ++$p->firstRow;
-			$article_list[$k]['cate_name'] = $article_cate_mod->field('name')->where('id='.$val['cate_id'])->find();
-		}
-		$result = $article_cate_mod->order('sort_order ASC')->select();
-		$cate_list = array();
-		foreach ($result as $val) {
-			if ($val['pid']==0) {
-				$cate_list['parent'][$val['id']] = $val;
-			} else {
-				$cate_list['sub'][$val['pid']][] = $val;
-			}
-		
-			}
-			$this->display();
+		$this->assign('list',$val);
+		$this->assign("page", $showPage);
+		$this->display();
 		}
 
 		
