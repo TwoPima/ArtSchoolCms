@@ -7,7 +7,7 @@
 					<div class="footer_main_friend_link">
 						  <div id="footer_main_friend_link_title" class="footer_main_friend_link_title">
 						  		<ul>
-						  			<li class="select"><a>友情链接</a></li>
+						  			<li><a>友情链接</a></li>
 						  			<li><a>联系方式</a></li>
 						  			<li><a>关于我们</a></li>
 						  			<li ><a>院长信箱</a></li>
@@ -22,15 +22,20 @@
 						   			</ul>
 						   	</div>
 						   	<div class="mod">
-						   			联系方式:<br>
-						   			TEL:{$set.tel}<br>
-						   			E-mail:{$set.mail_username}<br>
+						   		<span class="mod_pad">
+							   			TEL:{$set.tel}<br>
+							   			E-mail:{$set.mail_username}<br>
+						   		</span>
 						   	</div>
 						   	<div class="mod">
-						   			{$set.about_web}
+						   		<span class="mod_pad">	
+							   			{$set.about_web}
+							   	</span>	
 						   	</div>
 						   	<div class="mod">
-						   		院长信箱：{$set.president_email}
+							   	<span class="mod_pad">	
+								   			院长信箱：{$set.president_email}
+							   	</span>	
 						   	</div>
 						  </div>
 					</div>

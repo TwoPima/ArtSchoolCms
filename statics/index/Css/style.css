@@ -140,6 +140,7 @@ a{
 /*-----------------photochange_importantnews-----------------*/
 #photochange_importantnews{
 	height:450px;
+	width:100%;
 	background-image:url(../Image/bg.jpg);
 }
 /*-----------------轮换图------------------*/
@@ -434,7 +435,6 @@ a{
 
 /*-------------footer-------*/
 #footer{
-	margin-top:10px;
 	height:220px;
 	font-size:15px;
 }
@@ -499,6 +499,11 @@ a{
 }
 .mod ul li a:hover{
 	color:#FFAD01;
+}
+.mod_pad{
+	display:block;
+	margin-left:70px;
+	margin-right:70px;
 }
 .foot_copyright{
 	font-size:15px;
