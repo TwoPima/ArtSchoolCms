@@ -1,10 +1,37 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=">
-<title>在此处插入标题</title>
-</head>
-<body>
-
-</body>
-</html>
+<include file="Public:header"/>
+<!-- photo start -->
+<div id="photo">
+	<div class="container">
+			<img src="__ROOT__/statics/index/Image/teacher.jpg" alt="tuqian">
+	</div>
+</div>
+<!-- photo end -->
+<div id="main">
+	<div class="container clearfix">
+			<div id="main_mid">
+				<include file="Public:mainleft"/>
+				<div class="main_con" id="main_con">
+						<div class="main_con_title">
+								<span class="span1">{$detail_cate[0]['name']}</span>
+								<span class="span2">{$detail_cate[0]['english_name']}</span>
+						</div>
+						<div class="main_con_con">
+							<ul class="main_con_list">
+								<volist name="article_list" id='sval'>
+									<li>
+									<a href="__APP__/Submenu/detail?id={$sval.id}&mo=Article">
+									<img src="__ROOT__/statics/index/Image/list.png" alt="xiaotubiao">{$sval.title}
+									<span class="main_con_list_right">{$sval.add_time}</span>
+									</a>
+									</li>
+								</volist>
+							</ul>	
+						</div><!-- ./main_con_con -->
+						<div class="paging" id="paging">
+							<p>{$page}</p>
+						</div>
+				</div>
+			</div>
+		</div>
+</div>
+<include file="Public:footer"/>

@@ -1,7 +1,7 @@
 <?php
 /*空类*/
 class EmptyAction extends Action {
-//空模块
+/* //空模块
 	public function index(){
 		$this->dispath();
     }
@@ -20,5 +20,5 @@ class EmptyAction extends Action {
 		}else{
 			$this->redirect("index/index");
 		}	
-	}	 
+	} */	 
 }

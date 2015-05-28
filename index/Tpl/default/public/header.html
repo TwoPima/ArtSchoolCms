@@ -18,10 +18,10 @@
 				<a href="__APP__"><img src="__ROOT__/statics/index/Image/logo.jpg"></a><!-- {$set.site_logo} -->
 				</div>
 			<div class="sousuo">
-				<form name="searchform" action="" method="get">
-						<input class="newinput" type="text" name="###">
-						<input type="hidden" name="m" value="Article" />
-					 <input type="submit" name="search" class="button" value="搜索" />
+				<form name="searchform" action="__APP__/Index/search" method="post">
+						<input class="newinput" type="text" name="word">
+						<input type="hidden" name="mo" value="Article" />
+					 <input type="submit" name="search"  value="搜索" />
 				</form>
 			</div>
 		</div>
