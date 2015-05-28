@@ -1,11 +1,20 @@
 <include file="Public:secondheader"/>
+<div id="nav_class">
+		<div class="container">
+				<div class="nav_class_link">
+				<volist name="cate_list" id='sval'>
+				<span><a href="__APP__/Institute/articleList?id={$sval.id}&mo=Institute_cate">{$sval.name}</a></span>
+				</volist>
+				</div>
+		</div>
+</div>
 <div id="class_main">
 	<div class="container clearfix">
 		<div class="class_main_list" id="main_con">
 			<ul>
 				<volist name="detail" id='sval'>
 					<li>
-						<a href="__APP__/Master/detail?id={$sval.id}&mo=Master">
+						<a href="__APP__/Institute/detail?id={$sval.id}&mo=Institute">
 						<img src="__ROOT__/statics/index/Image/list.png" alt="xiaotubiao">{$sval.title}
 						<span class="class_main_list_right">{$sval.add_time}</span>
 					</a>

@@ -8,14 +8,14 @@ $(function(){
 	$(".delete_attatch").click(function(){
 		var article_id = $("#article_id").val();
 		var aid = $(this).attr('aid');
-		$.get("admin.php?m=Class&a=delete_attatch&id="+article_id+"&aid="+aid, function(data){
+		$.get("admin.php?m=Coirse&a=delete_attatch&id="+article_id+"&aid="+aid, function(data){
 			$("#list_"+aid).hide();
 		});
 	});
 })
 </script>
 
-<form action="{:u('Class/edit')}" method="post" name="myform" id="myform" enctype="multipart/form-data" style="margin-top:10px;">
+<form action="{:u('Coirse/edit')}" method="post" name="myform" id="myform" enctype="multipart/form-data" style="margin-top:10px;">
   <div class="pad-10">
   <div class="col-tab">
   <ul class="tabBut cu-li">
@@ -82,7 +82,7 @@ $(function(){
       	<td>
         	<input type="file" name="img" id="img" class="input-text" style="width:200px;" />
             <if condition="$article['img'] neq ''">
-            <br /><img src="./data/class/{$article.img}" style="width:50px;height:50px;"/>
+            <br /><img src="./data/Coirse/{$article.img}" style="width:50px;height:50px;"/>
             </if>
         </td>
       </tr>

@@ -1,16 +1,16 @@
 <?php
 /*
-// 艺术硕士
+// 精品课程
 // +----------------------------------------------------------------------
 */
-class InstituteAction extends CommonAction {
+class CoirseAction extends CommonAction {
 	public function index(){
 		//加载头部导航信息
-		$mod_cate_list=M('Institute_cate');
+		$mod_cate_list=M('Coirse_cate');
 		$re_cate_list=$mod_cate_list->where('pid=0')->order('sort_order ASC')->select();
 		$this->assign('cate_list',$re_cate_list);
 		//资讯列表
-		$detail_mod=M('Institute');
+		$detail_mod=M('Coirse');
 		$where1['status']="1";
 		$where1['is_hot']="1";
 		$where1['is_best']="1";
@@ -18,13 +18,13 @@ class InstituteAction extends CommonAction {
 		$page = new Page($count,10);
 		$article_list = $detail_mod->where($where1)->limit($page->firstRow.','.$page->listRows)->order('add_time DESC,ordid ASC')->select();
 		$showPage = $page->show();
-		$this->assign('institute_article_list',$article_list);
+		$this->assign('Coirse_article_list',$article_list);
 		$this->assign("page", $showPage);
 		$this->display();
 	}
 	
 	public function _before_detail(){
-		$mod_cate_list=M('Institute_cate');
+		$mod_cate_list=M('Coirse_cate');
 		$re_cate_list=$mod_cate_list->where('pid=0')->order('sort_order ASC')->select();
 		$this->assign('cate_list',$re_cate_list);
 	}
@@ -41,10 +41,12 @@ class InstituteAction extends CommonAction {
 		//下一篇
 		$after=$model->where("id>".$_GET['id'])->order('id desc')->limit('1')->find();
 		if (empty($after)) {
-			$after="没有了";
+			//$after= iconv('UTF-8', 'gb2312//IGNORE', '没有了');
+			$after=auto_charset('没有了','utf-8','gb2312');
 		}
+	
 		//分类列表
-		$menu_mod = M('Institute_cate');
+		$menu_mod = M('Coirse_cate');
 		$cate_where['id']=$result_se[0]['cate_id'];
 		$cate_where['status']="1";
 		$result_cate = $menu_mod->where($cate_where)->order('sort_order ASC')->select();
@@ -58,13 +60,13 @@ class InstituteAction extends CommonAction {
 		$this->display();
 	}
 	
-
+	
 	public function articleList(){
-		$mod_cate_list=M('Institute_cate');
+		$mod_cate_list=M('Coirse_cate');
 		$re_cate_list=$mod_cate_list->where('pid=0')->order('sort_order ASC')->select();
 		$this->assign('cate_list',$re_cate_list);
 		//资讯列表
-		$detail_mod=M('Institute');
+		$detail_mod=M('Coirse');
 		$where1['cate_id']=$_GET['id'];
 		$where1['status']="1";
 		$count = $detail_mod->where($where1)->count();

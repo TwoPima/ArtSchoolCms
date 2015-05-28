@@ -1,4 +1,13 @@
 <include file="Public:secondheader"/>
+<div id="nav_class">
+		<div class="container">
+				<div class="nav_class_link">
+				<volist name="cate_list" id='sval'>
+				<span><a href="__APP__/Military/articleList?id={$sval.id}&mo=Military_cate">{$sval.name}</a></span>
+				</volist>
+				</div>
+		</div>
+</div>
 <div id="class_main">
 	<div class="container clearfix">
 		<div class="class_main_con" >
@@ -14,8 +23,8 @@
 		</div>
 		<div class="paging">
 			<p>
-			<span class="paging_left"><a href="__APP__/Master/detail?id={$front.id}&mo=Master">{$front.title}</a></span>
-			<span class="paging_right"><a href="__APP__/Master/detail?id={$after.id}&mo=Master">{$after.title}</a></span>
+			<span class="paging_left"><a href="__APP__/Military/detail?id={$front.id}&mo=Military">{$front.title}</a></span>
+			<span class="paging_right"><a href="__APP__/Military/detail?id={$after.id}&mo=Military">{$after.title}</a></span>
 			</p>
 		</div>
 	</div>

@@ -4,13 +4,12 @@
 // +----------------------------------------------------------------------
 */
 class MasterAction extends CommonAction {
-	public function _before_index(){
+
+		public function index(){
 		//加载头部导航信息
 		$mod_cate_list=M('Master_cate');
 		$re_cate_list=$mod_cate_list->where('pid=0')->order('sort_order ASC')->select();
 		$this->assign('cate_list',$re_cate_list);
-	}
-		public function index(){
 		//资讯列表
 		$detail_mod=M('Master');
 		$where1['status']="1";
@@ -32,15 +31,12 @@ class MasterAction extends CommonAction {
 		if (empty($after)) {
 			$after="没有了！";
 		}
-		$this->display();
 	}
 	
-	public function _before_detail(){
+	public function detail(){
 		$mod_cate_list=M('Master_cate');
 		$re_cate_list=$mod_cate_list->where('pid=0')->order('sort_order ASC')->select();
 		$this->assign('cate_list',$re_cate_list);
-	}
-	public function detail(){
 		$table=$_GET['mo'];
 		$model=M($table);
 		$where['id']=$_GET['id'];
@@ -70,13 +66,10 @@ class MasterAction extends CommonAction {
 		$this->display();
 	}
 	
-	public function _before_articleList(){
+	public function articleList(){
 		$mod_cate_list=M('Master_cate');
 		$re_cate_list=$mod_cate_list->where('pid=0')->order('sort_order ASC')->select();
 		$this->assign('cate_list',$re_cate_list);
-	}
-
-	public function articleList(){
 		//资讯列表
 		$detail_mod=M('Master');
 		$where1['cate_id']=$_GET['id'];

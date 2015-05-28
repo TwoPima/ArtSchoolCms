@@ -1,4 +1,13 @@
 <include file="Public:secondheader"/>
+<div id="nav_class">
+		<div class="container">
+				<div class="nav_class_link">
+				<volist name="cate_list" id='sval'>
+				<span><a href="__APP__/Master/articleList?id={$sval.id}&mo=Master_cate">{$sval.name}</a></span>
+				</volist>
+				</div>
+		</div>
+</div>
 <div id="class_main">
 	<div class="container clearfix">
 		<div class="class_main_list" id="main_con">
