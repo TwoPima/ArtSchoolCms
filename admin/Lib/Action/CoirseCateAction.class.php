@@ -8,14 +8,14 @@
 // | Author: htzhanglong@foxmail.com
 // +----------------------------------------------------------------------
 
-class ClassCateAction extends BaseAction
+class CoirseCateAction extends BaseAction
 {
 
 	//分类列表
     function index()
     {
-        $article_cate_mod = M('Class_cate');
-        $article_mod = D('Class');
+        $article_cate_mod = M('Coirse_cate');
+        $article_mod = D('Coirse');
     	$result = $article_cate_mod->order('sort_order ASC')->select();
     	$article_cate_list = array();
     	foreach ($result as $val) {
@@ -36,7 +36,7 @@ class ClassCateAction extends BaseAction
     	}
 
     	$this->assign('article_cate_list',$article_cate_list);
-		$big_menu = array('javascript:window.top.art.dialog({id:\'add\',iframe:\'?m=ClassCate&a=add\', title:\''.L('add_cate').'\', width:\'500\', height:\'400\', lock:true}, function(){var d = window.top.art.dialog({id:\'add\'}).data.iframe;var form = d.document.getElementById(\'dosubmit\');form.click();return false;}, function(){window.top.art.dialog({id:\'add\'}).close()});void(0);', L('add_cate'));
+		$big_menu = array('javascript:window.top.art.dialog({id:\'add\',iframe:\'?m=CoirseCate&a=add\', title:\''.L('add_cate').'\', width:\'500\', height:\'400\', lock:true}, function(){var d = window.top.art.dialog({id:\'add\'}).data.iframe;var form = d.document.getElementById(\'dosubmit\');form.click();return false;}, function(){window.top.art.dialog({id:\'add\'}).close()});void(0);', L('add_cate'));
 		$this->assign('big_menu',$big_menu);
 		$this->display();
     }
@@ -45,7 +45,7 @@ class ClassCateAction extends BaseAction
     function add()
     {
     	if(isset($_POST['dosubmit'])){
-			$article_cate_mod = M('Class_cate');
+			$article_cate_mod = M('Coirse_cate');
 	        if( false === $vo = $article_cate_mod->create() ){
 		        $this->error( $article_cate_mod->error() );
 		    }
@@ -60,7 +60,7 @@ class ClassCateAction extends BaseAction
 		    $article_cate_id = $article_cate_mod->add();
 		    $this->success(L('operation_success'), '', '', 'add');
     	}else{
-    		$article_cate_mod = D('Class_cate');
+    		$article_cate_mod = D('Coirse_cate');
 	    	$result = $article_cate_mod->order('sort_order ASC')->select();
 	    	$article_cate_list = array();
 	    	foreach ($result as $val) {
@@ -82,7 +82,7 @@ class ClassCateAction extends BaseAction
         if((!isset($_GET['id']) || empty($_GET['id'])) && (!isset($_POST['id']) || empty($_POST['id']))) {
             $this->error('请选择要删除的分类！');
 		}
-		$article_cate_mod = M('Class_cate');
+		$article_cate_mod = M('Coirse_cate');
 		if (isset($_POST['id']) && is_array($_POST['id'])) {
 		    $cate_ids = implode(',', $_POST['id']);
 		    $article_cate_mod->delete($cate_ids);
@@ -97,7 +97,7 @@ class ClassCateAction extends BaseAction
     function edit()
     {
     	if(isset($_POST['dosubmit'])){
-    		$article_cate_mod = M('Class_cate');
+    		$article_cate_mod = M('Coirse_cate');
 
 	    	$old_cate = $article_cate_mod->where('id='.$_POST['id'])->find();
 	        //名称不能重复
@@ -126,7 +126,7 @@ class ClassCateAction extends BaseAction
 				$this->error(L('operation_failure'));
 			}
     	}else{
-    		$article_cate_mod = M('Class_cate');
+    		$article_cate_mod = M('Coirse_cate');
 			if( isset($_GET['id']) ){
 				$cate_id = isset($_GET['id']) && intval($_GET['id']) ? intval($_GET['id']) : $this->error(L('please_select').L('article_name'));
 			}
@@ -156,7 +156,7 @@ class ClassCateAction extends BaseAction
     	if( $id&&intval($id) ){
     		$where .= " AND id<>'".$id."'";
     	}
-        $result = M('Class_cate')->where($where)->count();
+        $result = M('Coirse_cate')->where($where)->count();
         //echo(M('article_cate')->getLastSql());exit;
         if ($result) {
             return true;
@@ -167,7 +167,7 @@ class ClassCateAction extends BaseAction
 
     function sort_order()
     {
-    	$article_cate_mod = M('Class_cate');
+    	$article_cate_mod = M('Coirse_cate');
 		if (isset($_POST['listorders'])) {
             foreach ($_POST['listorders'] as $id=>$sort_order) {
             	$data['sort_order'] = $sort_order;
@@ -180,11 +180,11 @@ class ClassCateAction extends BaseAction
     //修改状态
 	function status()
 	{
-		$article_cate_mod = D('Class_cate');
+		$article_cate_mod = D('Coirse_cate');
 		$flink_mod = D('flink');
 		$id 	= intval($_REQUEST['id']);
 		$type 	= trim($_REQUEST['type']);
-		$sql 	= "update ".C('DB_PREFIX')."Class_cate set $type=($type+1)%2 where id='$id'";
+		$sql 	= "update ".C('DB_PREFIX')."Coirse_cate set $type=($type+1)%2 where id='$id'";
 		$res 	= $article_cate_mod->execute($sql);
 		$values = $article_cate_mod->where('id='.$id)->find();
 		$this->ajaxReturn($values[$type]);

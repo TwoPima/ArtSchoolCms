@@ -1,7 +1,7 @@
 <include file="Public:header" />
 <script language="javascript" type="text/javascript" src="__ROOT__/statics/js/jquery/jquery.article_cate.js"></script>
 <div class="pad-lr-10" >
-    <form id="myform" name="myform" action="{:u('ClassCate/delete')}" method="post" onsubmit="return check();">
+    <form id="myform" name="myform" action="{:u('CoirseCate/delete')}" method="post" onsubmit="return check();">
     <div class="table-list">
     <table width="100%" cellspacing="0">
         <thead>
@@ -61,11 +61,11 @@
 function edit(id, name) {
 	var lang_edit = "{$Think.lang.edit}";
 	window.top.art.dialog({id:'edit'}).close();
-	window.top.art.dialog({title:lang_edit+'--'+name,id:'edit',iframe:'?m=ClassCate&a=edit&id='+id,width:'500',height:'420'}, function(){var d = window.top.art.dialog({id:'edit'}).data.iframe;d.document.getElementById('dosubmit').click();return false;}, function(){window.top.art.dialog({id:'edit'}).close()});
+	window.top.art.dialog({title:lang_edit+'--'+name,id:'edit',iframe:'?m=CoirseCate&a=edit&id='+id,width:'500',height:'420'}, function(){var d = window.top.art.dialog({id:'edit'}).data.iframe;d.document.getElementById('dosubmit').click();return false;}, function(){window.top.art.dialog({id:'edit'}).close()});
 }
 var lang_cate_name = "{$Think.lang.article_cate_name}";
 function check(){
-	if($("#myform").attr('action') != '{:u("ClassCate/sort_order")}') {
+	if($("#myform").attr('action') != '{:u("CoirseCate/sort_order")}') {
 		var ids='';
 		$("input[name='id[]']:checked").each(function(i, n){
 			ids += $(n).val() + ',';
@@ -79,7 +79,7 @@ function check(){
 	return true;
 }
 function status(id,type){
-    $.get("{:u('ClassCate/status')}", { id: id, type: type }, function(jsondata){
+    $.get("{:u('CoirseCate/status')}", { id: id, type: type }, function(jsondata){
 		var return_data  = eval("("+jsondata+")");
 		$("#"+type+"_"+id+" img").attr('src', '__ROOT__/statics/images/status_'+return_data+'.gif')
 	}); 
@@ -87,7 +87,7 @@ function status(id,type){
 //排序方法
 function sort(id,type,num){
     
-    $.get("{:u('ClassCate/sort')}", { id: id, type: type,num:num }, function(jsondata){
+    $.get("{:u('CoirseCate/sort')}", { id: id, type: type,num:num }, function(jsondata){
         
 		$("#"+type+"_"+id+" ").attr('value', jsondata);
 	},'json'); 

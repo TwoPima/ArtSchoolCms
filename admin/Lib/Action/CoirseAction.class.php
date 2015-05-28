@@ -8,12 +8,12 @@
 // | Author: htzhanglong@foxmail.com
 // +----------------------------------------------------------------------
 
-class ClassAction extends BaseAction
+class CoirseAction extends BaseAction
 {
 	public function index()
 	{
-		$article_mod = D('Class');
-		$article_cate_mod = D('Class_cate');
+		$article_mod = D('Coirse');
+		$article_cate_mod = D('Coirse_cate');
 
 		//搜索
 		$where = '1=1';
@@ -65,7 +65,7 @@ class ClassAction extends BaseAction
 	function edit()
 	{
 		if(isset($_POST['dosubmit'])){
-			$article_mod = D('Class');
+			$article_mod = D('Coirse');
 			$attatch_mod = D('attatch');
 			$data = $article_mod->create();
 			if($data['cate_id']==0){
@@ -114,18 +114,18 @@ class ClassAction extends BaseAction
 			}
 			$result = $article_mod->save($data);
 			if(false !== $result){
-				$this->success(L('operation_success'),U('Class/index'));
+				$this->success(L('operation_success'),U('Coirse/index'));
 			}else{
 				$this->error(L('operation_failure'));
 			}
 		}else{
 			//显示编辑数据
-			$article_mod = D('Class');
+			$article_mod = D('Coirse');
 			if( isset($_GET['id']) ){
 				$article_id = isset($_GET['id']) && intval($_GET['id']) ? intval($_GET['id']) : $this->error(L('please_select'));
 			}
 			//文章类别提取
-			$article_cate_mod = D('Class_cate');
+			$article_cate_mod = D('Coirse_cate');
 		    $result = $article_cate_mod->order('sort_order ASC')->select();
 		    $cate_list = array();
 		    foreach ($result as $val) {
@@ -162,7 +162,7 @@ class ClassAction extends BaseAction
 	function add()
 	{
 		if(isset($_POST['dosubmit'])){
-			$article_mod = D('Class');
+			$article_mod = D('Coirse');
 			$attatch_mod = D('attatch');
 			if($_POST['title']==''){
 				$this->error(L('input').L('article_title'));
@@ -207,19 +207,19 @@ class ClassAction extends BaseAction
 			$data['add_time']=date('Y-m-d H:i:s',time());
 			$result = $article_mod->add($data);
 			if($result){
-				$cate = M('Class_cate')->field('id,pid')->where("id=".$data['cate_id'])->find();
+				$cate = M('Coirse_cate')->field('id,pid')->where("id=".$data['cate_id'])->find();
 				if( $cate['pid']!=0 ){
-					M('Class_cate')->where("id=".$cate['pid'])->setInc('article_nums');
-					M('Class_cate')->where("id=".$data['cate_id'])->setInc('article_nums');
+					M('Coirse_cate')->where("id=".$cate['pid'])->setInc('article_nums');
+					M('Coirse_cate')->where("id=".$data['cate_id'])->setInc('article_nums');
 				}else{
-					M('Class_cate')->where("id=".$data['cate_id'])->setInc('article_nums');
+					M('Coirse_cate')->where("id=".$data['cate_id'])->setInc('article_nums');
 				}
 				$this->success('添加成功');
 			}else{
 				$this->error('添加失败');
 			}
 		}else{
-			$article_cate_mod = D('Class_cate');
+			$article_cate_mod = D('Coirse_cate');
 	    	$result = $article_cate_mod->order('sort_order ASC')->select();
 	    	$cate_list = array();
 	    	foreach ($result as $val) {
@@ -246,7 +246,7 @@ class ClassAction extends BaseAction
 	function delete_attatch()
     {
     	$attatch_mod = D('attatch');
-    	$article_mod = D('Class');
+    	$article_mod = D('Coirse');
     	$article_id = isset($_GET['id']) && intval($_GET['id']) ? intval($_GET['id']) : exit('0');
     	$aid = isset($_GET['aid']) && intval($_GET['aid']) ? intval($_GET['aid']) : exit('0');
 		$article_info = $article_mod->where('id='.$article_id)->find();
@@ -264,7 +264,7 @@ class ClassAction extends BaseAction
 
 	function delete()
     {
-		$article_mod = D('Class');
+		$article_mod = D('Coirse');
 		if((!isset($_GET['id']) || empty($_GET['id'])) && (!isset($_POST['id']) || empty($_POST['id']))) {
             $this->error('请选择要删除的资讯！');
 		}
@@ -272,12 +272,12 @@ class ClassAction extends BaseAction
 			$cate_ids = implode(',',$_POST['id']);
 			foreach( $_POST['id'] as $val ){
 				$article = $article_mod->field("id,cate_id")->where("id=".$val)->find();
-				$cate = M('Class_cate')->field('id,pid')->where("id=".$article['cate_id'])->find();
+				$cate = M('Coirse_cate')->field('id,pid')->where("id=".$article['cate_id'])->find();
 				if( $cate['pid']!=0 ){
-					M('Class_cate')->where("id=".$cate['pid'])->setDec('article_nums');
-					M('Class_cate')->where("id=".$article['cate_id'])->setDec('article_nums');
+					M('Coirse_cate')->where("id=".$cate['pid'])->setDec('article_nums');
+					M('Coirse_cate')->where("id=".$article['cate_id'])->setDec('article_nums');
 				}else{
-					M('Class_cate')->where("id=".$article['cate_id'])->setDec('article_nums');
+					M('Coirse_cate')->where("id=".$article['cate_id'])->setDec('article_nums');
 				}
 
 			}
@@ -285,7 +285,7 @@ class ClassAction extends BaseAction
 		}else{
 			$cate_id = intval($_GET['id']);
 			$article = $article_mod->field("id,cate_id")->where("id=".$cate_id)->find();
-			M('Class_cate')->where("id=".$article['cate_id'])->setDec('article_nums');
+			M('Coirse_cate')->where("id=".$article['cate_id'])->setDec('article_nums');
 		    $article_mod->where('id='.$cate_id)->delete();
 		}
 		$this->success(L('operation_success'));
@@ -298,7 +298,7 @@ class ClassAction extends BaseAction
         //设置上传文件大小
         $upload->maxSize = 3292200;
         //$upload->allowExts = explode(',', 'jpg,gif,png,jpeg');
-        $upload->savePath = './data/class/';
+        $upload->savePath = './data/Coirse/';
 
         $upload->saveRule = uniqid;
         if (!$upload->upload()) {
@@ -313,7 +313,7 @@ class ClassAction extends BaseAction
 
 	function sort_order()
     {
-    	$article_mod = D('Class');
+    	$article_mod = D('Coirse');
 		if (isset($_POST['listorders'])) {
             foreach ($_POST['listorders'] as $id=>$sort_order) {
             	$data['ordid'] = $sort_order;
@@ -327,10 +327,10 @@ class ClassAction extends BaseAction
     //修改状态
 	function status()
 	{
-		$article_mod = D('Class');
+		$article_mod = D('Coirse');
 		$id 	= intval($_REQUEST['id']);
 		$type 	= trim($_REQUEST['type']);
-		$sql 	= "update ".C('DB_PREFIX')."class set $type=($type+1)%2 where id='$id'";
+		$sql 	= "update ".C('DB_PREFIX')."Coirse set $type=($type+1)%2 where id='$id'";
 		$res 	= $article_mod->execute($sql);
 		$values = $article_mod->field("id,".$type)->where('id='.$id)->find();
 		$this->ajaxReturn($values[$type]);

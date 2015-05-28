@@ -1,4 +1,13 @@
 <include file="Public:secondheader"/>
+<div id="nav_class">
+		<div class="container">
+				<div class="nav_class_link">
+				<volist name="cate_list" id='sval'>
+				<span><a href="__APP__/Coirse/articleList?id={$sval.id}&mo=Coirse_cate">{$sval.name}</a></span>
+				</volist>
+				</div>
+		</div>
+</div>
 <div id="class_mian">
 		<div class="container clearfix">
 			<include file="Public:class_left"/>
@@ -6,9 +15,8 @@
 						<h3>视觉传达</h3><hr>
 						<div class="class_mian_con_show">
 							<ul>
-							
 							<li>
-										<img src="__ROOT__/statics/index/Image/class.jpg" alt="">
+							<img src="__ROOT__/statics/index/Image/class.jpg" alt="">
 							
 									<div class="class_mian_con_into">
 										<p><b>魔法调色</b></p>
