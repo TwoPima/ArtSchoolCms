@@ -8,11 +8,11 @@
 // | Author: 857773627@qq.com
 // +----------------------------------------------------------------------
 
-class ProfessionAction extends BaseAction
+class ProfessionCateAction extends BaseAction
 {
 	private $profession_mod;
 	function __construct(){
-		$this->profession_mod=M('Profession');
+		$this->profession_mod=M('ProfessionCate');
 	}
 	public function index()
 	{
@@ -42,7 +42,7 @@ class ProfessionAction extends BaseAction
 	function edit()
 	{
 		if(isset($_POST['dosubmit'])){
-			$profession_mod = M('Profession');
+			$profession_mod = M('ProfessionCate');
 			$data = $profession_mod->create();
 			if ($_FILES['logo']['name']!='') {
 				$upload_list = $this->_upload();
@@ -51,13 +51,13 @@ class ProfessionAction extends BaseAction
 			//最后的整体操作
 			$result = $profession_mod->where('id='.$data['id'])->save($data);
 			if(false !== $result){
-				$this->success(L('operation_success'),U('Profession/index'));
+				$this->success(L('operation_success'),U('ProfessionCate/index'));
 			}else{
 				$this->error(L('operation_failure'));
 			}
 		}else{
 			//不是编辑操作
-			$article_mod = D('Profession');
+			$article_mod = D('ProfessionCate');
 			if( isset($_GET['id']) ){
 				$article_id = isset($_GET['id']) && intval($_GET['id']) ? intval($_GET['id']) : $this->error(L('please_select'));
 			}
@@ -76,7 +76,7 @@ class ProfessionAction extends BaseAction
 	function add()
 	{
 		if(isset($_POST['dosubmit'])){
-			$profession_mod = M('Profession');
+			$profession_mod = M('ProfessionCate');
 			$data = $profession_mod->create();
 		  if( false === $vo = $profession_mod->create() ){
 		        $this->error( $profession_mod->error() );
@@ -106,7 +106,7 @@ class ProfessionAction extends BaseAction
 	function delete_attatch()
     {
     	$attatch_mod = D('attatch');
-    	$article_mod = D('Profession');
+    	$article_mod = D('ProfessionCate');
     	$article_id = isset($_GET['id']) && intval($_GET['id']) ? intval($_GET['id']) : exit('0');
     	$aid = isset($_GET['aid']) && intval($_GET['aid']) ? intval($_GET['aid']) : exit('0');
 		$article_info = $article_mod->where('id='.$article_id)->find();
@@ -141,7 +141,7 @@ class ProfessionAction extends BaseAction
 
 	function sort_order()
     {
-    	$article_mod = D('Profession');
+    	$article_mod = D('ProfessionCate');
 		if (isset($_POST['listorders'])) {
             foreach ($_POST['listorders'] as $id=>$sort_order) {
             	$data['ordid'] = $sort_order;
@@ -155,7 +155,7 @@ class ProfessionAction extends BaseAction
     //修改状态
 	function status()
 	{
-		$article_mod = D('Profession');
+		$article_mod = D('ProfessionCate');
 		$id 	= intval($_REQUEST['id']);
 		$type 	= trim($_REQUEST['type']);
 		$sql 	= "update ".C('DB_PREFIX')."article set $type=($type+1)%2 where id='$id'";

@@ -24,6 +24,10 @@ $(function(){
             <th width="100">{:L('url')}:</th>
             <td><input type="text" name="url" id="url" class="input-text" size="60"></td>
           </tr>
+           <tr>
+          <th>{:L('add_time')} :</th>
+          <td><input type="text" name="add_time" id="add_time" class="input-text" value="{$article.add_time}" onClick="WdatePicker()"size="30"></td>
+      </tr>
           <tr>
             <th>{:L('cate_id')}:</th>
             <td><select name="cate_id" id="cate_id" style="width:200px;">

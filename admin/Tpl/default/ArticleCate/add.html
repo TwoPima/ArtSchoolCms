@@ -31,6 +31,31 @@
       <th>{:L('alias')} :</th>
       <td><input type="text" name="alias" id="alias" class="input-text" value="{$article_cate_info.alias}"></td>
     </tr>
+     <tr>
+      <th>{:L('is_nav')}:</th>
+      <td>
+		<input type="radio" name="is_nav" value="0" <if condition="$article_cate_info.is_nav eq '0'">checked="checked"</if>/>&nbsp;是&nbsp;&nbsp;
+         <input type="radio" name="is_nav" value="1" <if condition="$article_cate_info.is_nav eq '1'">checked="checked"</if>/>&nbsp;否&nbsp;&nbsp;
+	</td>
+    </tr>
+    <tr>
+      <th>{:L('is_dep')}:</th>
+      <td>
+		<input type="radio" name="is_dep" value="0" <if condition="$article_cate_info.is_dep eq '0'">checked="checked"</if>/>&nbsp;否&nbsp;&nbsp;
+         <input type="radio" name="is_dep" value="1" <if condition="$article_cate_info.is_dep eq '1'">checked="checked"</if>/>&nbsp;是&nbsp;&nbsp;
+	</td>
+    </tr>
+    <tr>
+      <th>{:L('in_site')}:</th>
+      <td>
+         <input type="radio" name="in_site" value="0" <if condition="$article_cate_info.in_site eq '0'">checked="checked"</if> />站内
+         <input type="radio" id="showUrl" name="in_site" value="1" <if condition="$article_cate_info.in_site eq '1'">checked="checked"</if> />站外
+        </td>
+    </tr>
+    <tr id="url">
+       <th>{:L('url')}:</th>
+      <td><input type="text" name="url" id="url" value="{$article_cate_info.url}"><span style="color:red;">只有在站外链接的状态下使用</span></td>
+    </tr>
 	<tr>
       <th width="100">{:L('sort_order')} :</th>
       <td><input type="text" name="sort_order" id="sort_order" class="input-text" size="4" onkeyup="value=value.replace(/[^\d]/g,'')"onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))"></td>

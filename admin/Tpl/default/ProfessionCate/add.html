@@ -1,0 +1,41 @@
+<tagLib name="tpl" />
+<include file="Public:header" />
+<form action="{:u('ProfessionCate/add')}" method="post" name="myform" id="myform" enctype="multipart/form-data" style="margin-top:10px;">
+  <div class="pad-10" style="float:left;">
+  <div class="col-tab">
+  <input type="hidden" name="id" id="id" value="{$Profession.id}">
+    <table width="100%" cellpadding="2" cellspacing="1" class="table_form">
+      <tr>
+        <th width="100">{:L('name')} :</th>
+        <td><input type="text" name="name" id="name" class="input-text" size="60" value="{$Profession.name}"></td>
+      </tr>
+      <tr>
+        <th>{:L('sort_order')} :</th>
+        <td><input type="text" name="sort_order" id="sort_order" class="input-text" size="8" value="{$Profession.sort_order}" ></td>
+      </tr>
+      <tr>
+	      <th>{:L('intro')} :</th>
+	      <td>
+	      	<textarea id="intro" class="input-text" style="height: 200px; width:1000px;" name="intro">{$Profession.intro}</textarea>
+		 </td>
+    </tr>
+      <tr>
+      	<th>{:L('logo')} :</th>
+      	<td>
+        	<input type="file" name="logo" id="logo" class="input-text" style="width:200px;" />
+            <if condition="$Profession['logo'] neq ''">
+            <br /><img src="./data/profession/{$Profession.logo}" style="width:50px;height:50px;"/>
+            </if>
+        </td>
+      </tr>
+      <tr><td><input type="hidden" name="id" value="{$Profession.id}" id="Profession_id"/></td></tr>
+    </table>
+  <div class="bk15"></div>
+  <div class="btn">
+    <input type="submit" value="{$Think.lang.submit}" name="dosubmit" onclick="return submitFrom();" class="button" id="dosubmit">
+  </div>
+</div>
+</div>
+</form>
+</body>
+</html>

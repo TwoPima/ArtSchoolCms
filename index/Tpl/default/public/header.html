@@ -28,14 +28,17 @@
 			<div class="nav">
 				<ul>
 				 <volist name="article_cate_list['parent']" id='val'>
-					<li style="width:10%"><a href="__APP__/">{$val.name}</a>
+					<li style="width:10%"><a href="__APP__">{$val.name}</a>
 						 <ul>
 							<volist name="article_cate_list['sub'][$val['id']]" id='sval'>
-								<li id=""><a href="__APP__/Submenu/index?id={$sval.id}&pid={$val.id}">{$sval.name}</a></li>
+							<if condition="$sval.in_site  eq '1'">
+							<li id=""><a  target="_blank" href="{$sval.url}">{$sval.name}</a></li>
+							<else/>
+							<li id=""><a  target="_blank" href="__APP__/Submenu/index?id={$sval.id}&pid={$val.id}">{$sval.name}</a></li>
+							</if>
 							</volist>
 						 </ul>
 					</li>
-			
 				</volist>
 				</ul>
 			</div>
