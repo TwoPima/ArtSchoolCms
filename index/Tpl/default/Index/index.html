@@ -102,19 +102,20 @@
 		<div class="office_body">
 			<volist name="Department" id="val">	
 					<div class="office_main">
-						<div class="office_main_photo">
-								<h4>{$val.name}</h4>
-								<img src="__ROOT__/data/department/{$val.img}" alt="艺术照">
-						</div>
-						<div class="office_main_content">
-								<h4>{$val.name}</h4>
-								<p>
-									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$val.intro|msubstr=0,53,'utf-8',false}
-								</p>
-								<h5><a href="__APP__/More/detail/m=Department&id={$val.id}">READ MORE >></a></h5>
-						</div>
+						<a href="__APP__/More/detail/m=Department&id={$val.id}">
+							<div class="office_main_photo">
+								
+									<h4>{$val.name}</h4>
+									<img src="__ROOT__/data/department/{$val.img}" alt="艺术照">
+							</div>
+							<div class="office_main_content">
+									<h4>&nbsp;{$val.name}</h4>
+									<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$val.intro|msubstr=0,53,'utf-8',false}
+									</p>
+							</div>
+							</a>
 					</div>
-				</volist>
+			</volist>
 		</div>
 	</div>
 </div>
@@ -128,17 +129,18 @@
 		<div class="office_body">
 		<volist name="Profession" id="val">	
 				<div class="office_main">
-					<div class="office_main_photo">
-							<h4>{$val.name}</h4>
-							<img src="__ROOT__/data/profession/{$val.logo}" alt="艺术照">
-					</div>
-					<div class="office_main_content">
-							<h4>{$val.name}</h4>
-							<p>
-								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$val.intro|msubstr=0,53,'utf-8',false}
-							</p>
-							<h5><a href="__APP__/More/detail/m=Profession&&id={$val.id}">READ MORE >></a></h5>
-					</div>
+					<a href="__APP__/More/detail/m=Profession&&id={$val.id}">
+						<div class="office_main_photo">
+								<h4>{$val.name}</h4>
+								<img src="__ROOT__/data/profession/{$val.logo}" alt="艺术照">
+						</div>
+						<div class="office_main_content">
+								<h4>&nbsp;{$val.name}</h4>
+								<p>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$val.intro|msubstr=0,53,'utf-8',false}
+								</p>
+						</div>
+					</a>	
 				</div>
 			</volist>
 		</div>			   				   	

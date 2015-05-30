@@ -31,6 +31,7 @@ class MasterAction extends CommonAction {
 		if (empty($after)) {
 			$after="没有了！";
 		}
+		$this->display();
 	}
 	
 	public function detail(){

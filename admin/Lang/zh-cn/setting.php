@@ -28,7 +28,7 @@ return array(
 	'STATUS'=>'审核',
 	'CHECK_CODE'=>'后台验证码',
 	'SITE_SHARE'=>'浮动分享代码',
-	'SITE_LOGO'=>'网站LOGO',
+	'SITE_LOGO'=>'微信图片',
 	'SITE_INFO'=>'网站信息',
 	'MAIL_INFO'=>'邮件设置',
 	'SITE_STATUS'=>'站点信息',

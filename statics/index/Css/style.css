@@ -92,7 +92,6 @@ a{
 .nav ul li{
 	line-height:50px;
 	height:50px;
-
 	float:left;
 }
 .nav ul li a{
@@ -110,9 +109,9 @@ a{
 	height:40px;
 	width:1170px;
 	background-color:#000;
-	filter:alpha(opacity=80);  /* ie 有效*/
-	-moz-opacity:0.8; /* Firefox  有效*/
-	opacity: 0.8; /* 通用，其他浏览器  有效*/
+ 	filter:alpha(opacity=80);  
+	-moz-opacity:0.8; 
+	opacity: 0.8; 
 	position:absolute;
 	left:0px;
 	top:50px;
@@ -123,12 +122,13 @@ a{
 	line-height:40px;
 	padding:0 10px;
 	float:left;
+	color:#FDB000;
 }
 .nav ul li ul li a{
 	height:40px;
 }
 .nav ul li ul li a:hover{
-	color:#FEAF00;
+	color:#FDB000;
 	background-color:#000;
 	filter:alpha(opacity=100);  /* ie 有效*/
 	-moz-opacity:1; /* Firefox  有效*/
@@ -359,12 +359,17 @@ a{
 	top:16px;
 	left:32px;
 }
-
 .office_main{
 	padding:0 17px;
 	float:left;
 	width:200px;
 	height:300px;
+}
+.office_main a{
+	color:#000;
+}
+.office_main a:hover{
+	color:#FFAD01;
 }
 .office_main_photo{
 	position:relative;
@@ -377,8 +382,8 @@ a{
 	filter:alpha(opacity=70);  /* ie 有效*/
 	-moz-opacity:0.7; /* Firefox  有效*/
 	opacity: 0.7; /* 通用，其他浏览器  有效*/
-	color:#fff;
 	position:absolute;
+	color:#fff;
 	top:0px;
 	left:0px;
 }
@@ -396,22 +401,19 @@ a{
 	width:200px;
 	font-size:14px;
 }
-.office_main_content h5{
+
+/* .office_main_content h5{
 	padding:4px 5px;
 	background-color:#000;
-	filter:alpha(opacity=50);  /* ie 有效*/
-	-moz-opacity:0.5; /* Firefox  有效*/
-	opacity: 0.5; /* 通用，其他浏览器  有效*/
+	filter:alpha(opacity=50);  ie 有效
+	-moz-opacity:0.5; Firefox  有效
+	opacity: 0.5; 通用，其他浏览器  有效
 	position:absolute;
 	right:0px;
 	bottom:0px;
-}
-.office_main_content a{
-	color:#fff;
-}
-.office_main_content a:hover{
-	color:#FFAD01;
-}
+} */
+
+
 /*-------------discipline-------*/
 #discipline{
 	height:360px;
@@ -852,6 +854,7 @@ input{
 	background-color:#fff;
 }
 
+
 .class_main_list ul{
 height:auto!important;
 height:400px;
@@ -885,7 +888,7 @@ min-height:400px;
 	float:right;
 	font-size:14px;
 }
-/*---------------艺术硕士左侧列表--------------*/
+/*---------------艺术硕士左侧列表 开始--------------*/
 .class_mian_list{
 	float:left;
 	width:290px;
@@ -950,9 +953,9 @@ border-left:10px solid #10646F;
 	float:right;
 	margin-right:10px;
 }
-
+/*--------------- 艺术硕士左侧的列表页 结束------------ */
 /*-----------------jingpinkecheng--------------*/
-/* 艺术硕士没有左边的列表页 */
+
 
 
 
