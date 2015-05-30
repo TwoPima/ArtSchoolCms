@@ -12,7 +12,7 @@ if (!defined('THINK_PATH'))	exit();
 
 $config = require("config.inc.php");
 $array = array( 	    
-	'URL_MODEL' => '2',
+	'URL_MODEL' => '0',
     //缓存配置
  //   'DATA_CACHE_TYPE' => 'file', // 数据缓存方式 文件
 //    'DATA_CACHE_TIME' => 0, // 数据缓存时间

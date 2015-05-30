@@ -124,5 +124,8 @@ return array(
 	'NO'=>'否',
 	'INTEGRAL'=>'积分',
 	'VERIFY_ERROR'=>'验证码错误',
+		
+		'tips'=>'温馨提示',
+		
 );
 ?>

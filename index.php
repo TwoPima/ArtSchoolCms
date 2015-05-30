@@ -7,9 +7,9 @@ if (!is_file(ROOT_PATH . '/data/install.lock')) {
 }
 /************这是安装文件的运用结束******/
 /* 应用名称*/
-define('APP_NAME', 'index');
+define('APP_NAME', 'Index');
 /* 应用目录*/
-define('APP_PATH', './index/');
+define('APP_PATH', './Index/');
 /* 数据目录*/
 define('DATA_PATH', './data/');
 /* HTML静态文件目录*/

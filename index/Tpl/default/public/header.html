@@ -28,7 +28,7 @@
 			<div class="nav">
 				<ul>
 				 <volist name="article_cate_list['parent']" id='val'>
-					<li style="width:10%"><a href="__APP__">{$val.name}</a>
+					<li style="width:10%"><a href="__APP__/Submenu/showFirstMenu?id={$val.id}&pid={$val.id}">{$val.name}</a>
 						 <ul>
 							<volist name="article_cate_list['sub'][$val['id']]" id='sval'>
 							<if condition="$sval.in_site  eq '1'">
