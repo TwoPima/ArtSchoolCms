@@ -2,6 +2,9 @@
 class IndexAction extends CommonAction{
     //首页
 	public function _before_index(){
+		/* <!--  <if condition="$val.in_site  eq 1 ">
+		<li style="width:10%"><a href="$val.url">{$val.name</a>
+		<else />  	</if>--> */
 		//---------------------重要通知
 		$this->assign('Notice',M('Notice')->where('type=0 AND is_show=1')->order('uploadtime DESC')->limit(11)->select());
 		//---------------------学院新闻
