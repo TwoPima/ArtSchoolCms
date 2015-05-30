@@ -10,5 +10,9 @@ return array(
 	'ARTILE_NUM'=>'资讯数',
 	'SORT'=>'排序值',
 	'STATUS'=>'审核',	
+		'is_nav'=>'导航菜单',
+		'is_dep'=>'部门菜单',
+		'in_site'=>'站内/站外',
+		'url'=>'外链地址',
 );
 ?>
