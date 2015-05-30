@@ -66,47 +66,11 @@
 			  </td>
             </tr> 
             	<!--关于我们  -->
-            <tr>
-              <th>{:L('master_logo')} :</th>
-              <td>              	
-				<input type="file" name="master_logo" id="master_logo" class="input-text" size=21 />
-				<if condition="$set['master_logo'] neq ''">
-					<img src="{$set['master_logo']}" style="max-height:64px;" />
-				</if>
-			  </td>
-            </tr> 
-            <tr>
-              <th>{:L('institute_logo')} :</th>
-              <td>              	
-				<input type="file" name="institute_logo" id="institute_logo" class="input-text" size=21 />
-				<if condition="$set['institute_logo'] neq ''">
-					<img src="{$set['institute_logo']}" style="max-height:64px;" />
-				</if>
-			  </td>
-            </tr> 
-            <tr>
-              <th>{:L('class_logo')} :</th>
-              <td>              	
-				<input type="file" name="class_logo" id="class_logo" class="input-text" size=21 />
-				<if condition="$set['class_logo'] neq ''">
-					<img src="{$set['class_logo']}" style="max-height:64px;" />
-				</if>
-			  </td>
-            </tr> 
-            <tr>
-              <th>{:L('military_logo')} :</th>
-              <td>              	
-				<input type="file" name="military_logo" id="military_logo" class="input-text" size=21 />
-				<if condition="$set['military_logo'] neq ''">
-					<img src="{$set['military_logo']}" style="max-height:64px;" />
-				</if>
-			  </td>
-            </tr> 
 			<tr>
               <th width="120">{:L('check_code')} :</th>
               <td>
-                <input type="radio" <if condition="$set.check_code eq '1'">checked="checked"</if> onclick="" value="1" name="site[check_code]" /> 开启 &nbsp;&nbsp;
-                <input type="radio" <if condition="$set.check_code eq '0'">checked="checked"</if> onclick="" value="0" name="site[check_code]" /> 关闭 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;				
+	                <input type="radio" <if condition="$set.check_code eq '1'">checked="checked"</if> onclick="" value="1" name="site[check_code]" /> 开启 &nbsp;&nbsp;
+	                <input type="radio" <if condition="$set.check_code eq '0'">checked="checked"</if> onclick="" value="0" name="site[check_code]" /> 关闭 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;				
               </td>
             </tr>
             <tr>

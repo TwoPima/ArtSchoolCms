@@ -105,7 +105,5 @@ class SettingAction extends BaseAction
 		$this->display(APP_PATH.'Tpl/'.C('DEFAULT_THEME').'/setting/collect_success.html');
 		exit;
 	}
-	
-	
 }
 ?>
