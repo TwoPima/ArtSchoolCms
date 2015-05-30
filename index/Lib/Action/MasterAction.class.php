@@ -4,12 +4,11 @@
 // +----------------------------------------------------------------------
 */
 class MasterAction extends CommonAction {
-
 		public function index(){
 		//加载头部导航信息
 		$mod_cate_list=M('Master_cate');
 		$re_cate_list=$mod_cate_list->where('pid=0')->order('sort_order ASC')->select();
-		$this->assign('cate_list',$re_cate_list);
+		$this->assign('mainleft_cate_list',$re_cate_list);
 		//资讯列表
 		$detail_mod=M('Master');
 		$where1['status']="1";
@@ -21,6 +20,9 @@ class MasterAction extends CommonAction {
 		$showPage = $page->show();
 		$this->assign('master_article_list',$article_list);
 		$this->assign("page", $showPage);
+		//左侧您现在的位置
+		$getNowHere=$this->getNowHere($_GET['id']);
+		$this->assign('now_here',$getNowHere);
 		//上一篇
 		$front=$detail_mod->where("id<".$_GET['id'])->order('id desc')->limit('1')->find();
 		if (empty($front)) {
