@@ -13,7 +13,11 @@ class IndexAction extends CommonAction{
 		//学科管理部
 		$this->assign('Profession',M('ProfessionCate')->order('sort_order ASC')->limit(5)->select());
 		//办公机构
-		$this->assign('Department',M('Department')->order('sort_order ASC')->limit(5)->select());
+		$dep_mod = M('Article_cate');
+		$where_dep['is_dep']="1";
+		$where_dep['pid']="0";
+		$result_dep = $dep_mod->where($where_dep)->order('sort_order ASC')->limit(5)->select();
+		$this->assign('Department',$result_dep);
 		
 		$Master=M('Nav')->where("type=0")->select();
 		$this->assign('Master',$Master);//提取logo艺术硕士
@@ -32,8 +36,6 @@ class IndexAction extends CommonAction{
     }
 	//站内搜索
 	public function search(){
-		echo "asdf";
-		exit();
 		$article_mod = D('article');
 		$data = $_POST['words'];
 		import("ORG.Util.Page");

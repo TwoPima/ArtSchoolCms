@@ -6,8 +6,8 @@
   <div id="div_setting_1" class="contentList pad-10">
     <table width="100%" cellpadding="2" cellspacing="1" class="table_form" >
       <tr>
-        <th  >{:L('name')} :</th>
-        <td><input type="text" name="name" id="name" class="input-text" size="60" value="{$Department.name}"></td>
+        <th  >{:L('ALIAS')} :</th>
+        <td>{$Department.alias}</td>
       </tr>
        <tr>
         <th  >{:L('contract')} :</th>
@@ -18,15 +18,11 @@
         <td><input type="text" name="office_place" id="office_place" class="input-text" size="60" value="{$Department.office_place}"></td>
       </tr>
       <tr>
-        <th>{:L('sort_order')} :</th>
-        <td><input type="text" name="sort_order" id="sort_order" class="input-text" size="8" value="{$Department.sort_order}" ></td>
-      </tr>
-      <tr>
 	      <th >{:L('intro')} :</th>
 	      <td>
 	      	<textarea id="intro" class="input-text" style="width:70%;height:350px;" name="intro">{$Department.intro}</textarea>
 		 </td>
-    </tr>
+   	 </tr>
       <tr>
       	<th>{:L('img')} :</th>
       	<td>
@@ -43,7 +39,6 @@
   <div class="btn">
     <input type="submit" value="{$Think.lang.submit}" name="dosubmit" onclick="return submitFrom();" class="button" id="dosubmit">
   </div>
-
 </div>
 </div>
 </form>

@@ -29,8 +29,15 @@
     </tr>
 	<tr>
       <th>{:L('alias')} :</th>
-      <td><input type="text" name="alias" id="alias" class="input-text" value="{$article_cate_info.alias}"></td>
+        <td><input type="text" name="alias" id="alias" class="input-text" value="{$article_cate_info.alias}"></td>
     </tr>
+    	<tr style="color:red;">
+    	  <th>{:L('tips')} :</th>
+    	 <td>
+    	 *添加部门顶级菜单一般别名与原来名称一样，除了教学科，学生科和科研科；<br/>
+    	 *其他菜单的别名填写一般以开发者模块方法名类似即可；
+    	 </td>
+    	</tr>
      <tr>
       <th>{:L('is_nav')}:</th>
       <td>

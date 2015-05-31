@@ -9,7 +9,8 @@ class CommonAction extends Action {
 		
 		//导航数据组装
 		$article_cate_mod = M('Article_cate');
-		$result = $article_cate_mod->order('sort_order ASC')->select();
+		$where_menu['is_nav']="0";
+		$result = $article_cate_mod->where($where_menu)->order('sort_order ASC')->select();
 		$article_cate_list = array();
 		foreach ($result as $val) {
 			if ($val['pid']==0) {

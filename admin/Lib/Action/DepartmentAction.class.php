@@ -12,12 +12,14 @@ class DepartmentAction extends BaseAction
 {
 	private $department_mod;
 	function __construct(){
-		$this->department_mod=M('Department');
+		$this->department_mod=M('ArticleCate');
 	}
 	public function index()
 	{
 		/*列表  */
-		$department_list = $this->department_mod->order('sort_order ASC')->select();
+		$where['is_dep']="1";
+		$where['pid']="0";
+		$department_list = $this->department_mod->where($where)->order('sort_order ASC')->select();
 		$list_rel=array();
 		foreach ($department_list as $value){			
 			$list_rel[]=$value;
@@ -29,7 +31,7 @@ class DepartmentAction extends BaseAction
 	function edit()
 	{
 		if(isset($_POST['dosubmit'])){
-			$article_mod = D('Department');
+			$article_mod = D('ArticleCate');
 			$attatch_mod = D('attatch');
 			$data = $article_mod->create();
 			if ($_FILES['img']['name']!=''||$_FILES['attachment']['name'][0]!='') {
@@ -77,7 +79,7 @@ class DepartmentAction extends BaseAction
 				$this->error(L('operation_failure'));
 			}
 		}else{
-			$article_mod = D('Department');
+			$article_mod = D('ArticleCate');
 			if( isset($_GET['id']) ){
 				$article_id = isset($_GET['id']) && intval($_GET['id']) ? intval($_GET['id']) : $this->error(L('please_select'));
 			}
@@ -98,7 +100,7 @@ class DepartmentAction extends BaseAction
 	function add()
 	{
 		if(isset($_POST['dosubmit'])){
-			$article_mod = D('Department');
+			$article_mod = D('ArticleCate');
 			$attatch_mod = D('attatch');
 			if(false === $data = $article_mod->create()){
 				$this->error($article_mod->error());
@@ -149,40 +151,10 @@ class DepartmentAction extends BaseAction
 		}
 	}
 
-	function delete_attatch()
-    {
-    	$attatch_mod = D('attatch');
-    	$article_mod = D('Department');
-    	$article_id = isset($_GET['id']) && intval($_GET['id']) ? intval($_GET['id']) : exit('0');
-    	$aid = isset($_GET['aid']) && intval($_GET['aid']) ? intval($_GET['aid']) : exit('0');
-		$article_info = $article_mod->where('id='.$article_id)->find();
-    	$aid_arr = explode(',', $article_info['aid']);
-    	foreach ($aid_arr as $key=>$val) {
-    	    if ($val == $aid) {
-    	        unset($aid_arr[$key]);
-    	    }
-    	}
-    	$aids = implode(',', $aid_arr);
-    	$article_mod->where('id='.$article_id)->save(array('aid'=>$aids));
-    	echo '1';
-    	exit;
-    }
-
 	function delete()
     {
-    	if((!isset($_GET['id']) || empty($_GET['id'])) && (!isset($_POST['id']) || empty($_POST['id']))) {
-    		$this->error('请选择要删除的选项！');
-    	}
-    	$old_nav =$this->department_mod->where('id='.$_REQUEST['id'])->find();
     	
-    	if (isset($_POST['id']) && is_array($_POST['id'])) {
-    		$cate_ids = implode(',', $_POST['id']);
-    		$this->department_mod->delete($cate_ids);
-    	} else {
-    		$cate_id = intval($_GET['id']);
-    		$this->department_mod->delete($cate_id);
-    	}
-    	$this->success('已成功删除');
+    	$this->error('请在内容管理下的导航分类管理里进行删除操作！');
     }
 
     public function _upload()
@@ -205,30 +177,7 @@ class DepartmentAction extends BaseAction
         return $uploadList;
     }
 
-	function sort_order()
-    {
-    	$article_mod = D('Department');
-		if (isset($_POST['listorders'])) {
-            foreach ($_POST['listorders'] as $id=>$sort_order) {
-            	$data['ordid'] = $sort_order;
-                $article_mod->where('id='.$id)->save($data);
-            }
-            $this->success(L('operation_success'));
-        }
-        $this->error(L('operation_failure'));
-    }
 
-    //修改状态
-	function status()
-	{
-		$article_mod = D('Department');
-		$id 	= intval($_REQUEST['id']);
-		$type 	= trim($_REQUEST['type']);
-		$sql 	= "update ".C('DB_PREFIX')."article set $type=($type+1)%2 where id='$id'";
-		$res 	= $article_mod->execute($sql);
-		$values = $article_mod->field("id,".$type)->where('id='.$id)->find();
-		$this->ajaxReturn($values[$type]);
-	}
 
 }
 ?>

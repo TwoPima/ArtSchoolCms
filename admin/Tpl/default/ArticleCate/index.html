@@ -9,9 +9,9 @@
             	<th width="50">{:L('id')}</th> 
                 <th width="4%"><input type="checkbox" value="" id="check_box" onclick="selectall('id[]');"></th>
               	<th width="180">{:L('name')}</th>
-				<th width="80">{:L('alias')}</th>              	
-				<th width="250">{:L('english_name')}</th>
-                <th align="left">{:L('is_nav')}</th>            
+				<th width="250">{:L('ALIAS')}</th>
+				<th width="60">{:L('is_dep')}</th>  
+                <th align="center">{:L('is_nav')}</th>            
               	<th width="80">{:L('artile_num')}</th>               
               	<th width="60">{:L('sort')}</th>
                 <th width="60">{:L('status')}</th>
@@ -24,9 +24,14 @@
         	<td align="center">{$val.id}</td>
             <td align="center"><input type="checkbox" value="{$val.id}" name="id[]"></td>
             <td>&nbsp;&nbsp;<img src="__ROOT__/statics/admin/images/tv-expandable.gif" />&nbsp;&nbsp;{$val.name}</td>
-			<td align="center"><em style="color:blue;">{$val.alias}<em style="color:red;"></td> 		           
-  		    <td align="center">{$val.english_name}</td>
-            <td align="left">
+  		    <td align="center">{$val.alias}</td>
+  		    <td align="center">
+             <if condition="$val.is_dep eq '0'">
+            <em class="blue">否</em>
+              <else /><em class="blue">是</em>
+             </if>
+            </td>
+            <td align="center">
              <if condition="$val.is_nav eq '0'">
             	<em class="blue">是</em>
               <else /><em class="blue">否</em>
@@ -42,10 +47,15 @@
         		<td align="center">{$sval.id}</td>
                 <td align="center"><input type="checkbox" value="{$sval.id}" name="id[]"></td>
                 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="__ROOT__/statics/admin/images/tv-collapsable.gif" />&nbsp;&nbsp;{$sval.name}</td>
-				<td align="center"><em style="color:blue;">{$sval.alias}<em style="color:red;"></td>  
-				<td align="center">{$sval.english_name}</td>              
-                <td align="left">   
-                <if condition="$val.is_nav eq '0'">
+          	  <td align="center">{$sval.alias}</td>       
+            	<td align="center">
+	             <if condition="$sval.is_dep eq '0'">
+	            <em class="blue">否</em>
+	              <else /><em class="blue">是</em>
+	             </if>
+	            </td>       
+                <td align="center">   
+                <if condition="$sval.is_nav eq '0'">
             	<em class="blue">是</em>
 	              <else /><em class="blue">否</em>
 	             </if>
@@ -71,7 +81,7 @@
 function edit(id, name) {
 	var lang_edit = "{$Think.lang.edit}";
 	window.top.art.dialog({id:'edit'}).close();
-	window.top.art.dialog({title:lang_edit+'--'+name,id:'edit',iframe:'?m=ArticleCate&a=edit&id='+id,width:'1000',height:'500'}, function(){var d = window.top.art.dialog({id:'edit'}).data.iframe;d.document.getElementById('dosubmit').click();return false;}, function(){window.top.art.dialog({id:'edit'}).close()});
+	window.top.art.dialog({title:lang_edit+'--'+name,id:'edit',iframe:'?m=ArticleCate&a=edit&id='+id,width:'800',height:'500'}, function(){var d = window.top.art.dialog({id:'edit'}).data.iframe;d.document.getElementById('dosubmit').click();return false;}, function(){window.top.art.dialog({id:'edit'}).close()});
 }
 var lang_cate_name = "{$Think.lang.article_cate_name}";
 function check(){
@@ -80,7 +90,6 @@ function check(){
 		$("input[name='id[]']:checked").each(function(i, n){
 			ids += $(n).val() + ',';
 		});
-
 		if(ids=='') {
 			window.top.art.dialog({content:lang_please_select+lang_cate_name,lock:true,width:'200',height:'50',time:1.5},function(){});
 			return false;

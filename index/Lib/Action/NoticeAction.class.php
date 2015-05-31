@@ -42,6 +42,13 @@ class NoticeAction extends CommonAction {
 		if (empty($after)) {
 			$after="132123123";
 		}
+		if ($_GET['type']=="0") {
+			$str="重要通知";
+			$str1="0";
+		}else {
+			$str="学院新闻";
+			$str1="1";
+		}
 		//分类列表
 		$menu_mod = M('Master_cate');
 		$cate_where['id']=$result_se[0]['cate_id'];
@@ -54,6 +61,7 @@ class NoticeAction extends CommonAction {
 		$this->assign('front',$front);//上一条
 		$this->assign('after',$after);//下一条
 		$this->assign('detail',$result_se);
+		$this->assign('bigmenu',$str);
 		$this->display();
 	}
 	

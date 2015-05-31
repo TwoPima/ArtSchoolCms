@@ -24,7 +24,7 @@
 				<h1>重要通知 </h1>
 					 <ul>
 				 		<volist name="Notice" id="val">
-					   		<li ><a href="__APP__/Notice/detail?mo=Notice&id={$val.id}">{$val.name|msubstr=0,18,'utf-8',true}<span>【{$val.uploadtime|date="m-d",###}】</span></a></li><hr>
+					   		<li ><a href="__APP__/Notice/detail?mo=Notice&id={$val.id}&type={$val.type}">{$val.name|msubstr=0,18,'utf-8',true}<span>【{$val.uploadtime|date="m-d",###}】</span></a></li><hr>
 					   	</volist>
 						</ul> 
 				<h3><a href="__APP__/Notice/more/mo=Notice&type=0">READ MORE >></a></h3>
@@ -85,7 +85,7 @@
 				<h1>学院新闻</h1>
 					 <ul>
 					 	<volist name="CollegeNotice" id="val">
-					   		<li><a href="__APP__/Notice/detail?mo=Notice&id={$val.id}">{$val.name|msubstr=0,21,'utf-8',true}<span>【{$val.uploadtime|date="m-d",###}】</span></a></li><hr>
+					   		<li><a href="__APP__/Notice/detail?mo=Notice&id={$val.id}&type={$val.type}">{$val.name|msubstr=0,21,'utf-8',true}<span>【{$val.uploadtime|date="m-d",###}】</span></a></li><hr>
 					   	</volist>
 						</ul> 
 				<h3><a href="__APP__/Notice/more/type=1">READ MORE >></a></h3>
@@ -104,11 +104,11 @@
 					<div class="office_main">
 						<a href="__APP__/More/detail/m=Department&id={$val.id}">
 							<div class="office_main_photo">
-									<h4>{$val.name}</h4>
+									<h4>{$val.alias}</h4>
 									<img src="__ROOT__/data/department/{$val.img}" alt="艺术照">
 							</div>
 							<div class="office_main_content">
-									<h4>&nbsp;{$val.name}</h4>
+									<h4>&nbsp;{$val.alias}</h4>
 									<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$val.intro|msubstr=0,53,'utf-8',false}
 									</p>
 							</div>
