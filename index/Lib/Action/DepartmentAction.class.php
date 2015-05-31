@@ -1,14 +1,9 @@
 <?php
-
 /*
- // 学科管理操作方法
+// read more 的整体操作方法
 // +----------------------------------------------------------------------
 */
-class ProfessionAction extends CommonAction {
-
-	public function _before_index(){
-
-	}
+class DepartmentAction extends CommonAction {
 	public function detail(){
 		$table=$_GET['mo'];
 		$model=M($table);

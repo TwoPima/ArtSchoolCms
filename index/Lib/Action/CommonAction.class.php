@@ -147,11 +147,11 @@ class CommonAction extends Action {
 	/*  
 	 * 获取当前位置
 	 * 当前位置-第一个参数 catid为当前栏目的id
-	 * $this->assign("now_here",$this->now_here($catid);
+	 *
 	 */
 	Public function getNowHere($catid){
 		$cat = M("Article_cate");
-		$herestr= '您现在的位置:'.'<a style="color:#000;" href="http://localhost/Artschoolcms/">&nbsp;&nbsp;首页&nbsp;&nbsp;</a>';
+		$herestr= '您现在的位置:'.'<a style="color:#000;" href="__APP__">&nbsp;&nbsp;首页&nbsp;&nbsp;</a>';
 		$uplevels = $cat->field("id,name")->where("id=$catid")->find();
 		$nowHere="$herestr"."->".$uplevels['name'];
 		return $nowHere;
