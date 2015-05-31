@@ -9,16 +9,13 @@ class MasterAction extends CommonAction {
 		$mod_cate_list=M('Master_cate');
 		$re_cate_list=$mod_cate_list->where('pid=0')->order('sort_order ASC')->select();
 		$this->assign('mainleft_cate_list',$re_cate_list);
-		//资讯列表
+		//确定进入后是第一个页面的内容
 		$detail_mod=M('Master');
-		$where1['status']="1";
-		$where1['is_hot']="1";
-		$where1['is_best']="1";
+		$list=$detail_mod->where('pid=0')->order('sort_order ASC')->select();
+		$this->assign('mainleft_cate_list',$list);
 		$count = $detail_mod->where($where1)->count();
 		$page = new Page($count,10);
-		$article_list = $detail_mod->where($where1)->limit($page->firstRow.','.$page->listRows)->order('add_time DESC,ordid ASC')->select();
 		$showPage = $page->show();
-		$this->assign('master_article_list',$article_list);
 		$this->assign("page", $showPage);
 		//左侧您现在的位置
 		$getNowHere=$this->getNowHere($_GET['id']);
