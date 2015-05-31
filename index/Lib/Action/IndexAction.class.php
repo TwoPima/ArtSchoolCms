@@ -37,20 +37,29 @@ class IndexAction extends CommonAction{
     }
 	//站内搜索
 	public function search(){
-		$article_mod = D('article');
-		$data = $_POST['words'];
+		$article_mod = M('Article');
+		
+		$data = $_POST['word'];
 		import("ORG.Util.Page");
-		$count = $article_mod->where("status=1 AND title LIKE '%$data%' OR content LIKE '%$data%' or seo_title like '%$data%' ")->count();
+		$count = $article_mod->where("status=1 AND title LIKE '%$data%' OR info LIKE '%$data%' or seo_title like '%$data%' ")->count();
 		$page = new Page($count,10);
-		$article_list = $article_mod->where("status=1 AND title LIKE '%$data%' OR content LIKE '%$data%' or seo_title like '%$data%' ")->limit($p->firstRow.','.$p->listRows)->order('add_time DESC,ordid ASC')->select();
+		$article_list = $article_mod->where("status=1 AND title LIKE '%$data%' OR info LIKE '%$data%' or seo_title like '%$data%' ")->order('add_time DESC,ordid ASC')->select();
 		$showPage = $page->show();
-		foreach($article_list as $val){
-			$val['title']=str_replace($data,"<font color=red><b>$data</b></font>",$val['title']);
-			$val['content']=str_replace($data,"<font color=red><b>$data</b></font>",$val['content']);
-		}
-		$this->assign('list',$val);
+		$this->assign('list',$article_list);
 		$this->assign("page", $showPage);
+		//左侧您现在的位置
+		$getNowHere=$this->getNowHere($_GET['id']);
+		$this->assign('now_here',$getNowHere);
+		
 		$this->display();
+		
+		
+		/* 下面的是给字体加红 但是没有实现 */
+		/* foreach($article_list as $val){
+		 $val['title']=str_replace($data,"<font color=red><b>$data</b></font>",$val['title']);
+		$val['info']=str_replace($data,"<font color=red><b>$data</b></font>",$val['info']);
+		}
+		dump($article_list); */
 		}
 
 		
