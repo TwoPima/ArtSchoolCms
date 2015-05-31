@@ -1,47 +1,72 @@
-<tagLib name="tpl" />
 <include file="Public:header" />
-<form action="{:u('ProfessionCate/edit')}" method="post" name="myform" id="myform" enctype="multipart/form-data" style="margin-top:10px;">
-  <div class="pad-10" style="float:left;">
-  <div class="col-tab">
-  <input type="hidden" name="id" id="id" value="{$Profession.id}">
-    <table width="100%" cellpadding="2" cellspacing="1" class="table_form">
-      <tr>
-        <th width="100">{:L('name')} :</th>
-        <td><input type="text" name="name" id="name" class="input-text" size="60" value="{$Profession.name}"></td>
-      </tr>
-      <tr>
-        <th>{:L('sort_order')} :</th>
-        <td><input type="text" name="sort_order" id="sort_order" class="input-text" size="8" value="{$Profession.sort_order}" ></td>
-      </tr>
-      <tr>
-	      <th>{:L('intro')} :</th>
-	      <td>
-	      	<textarea id="intro" class="input-text" style="height: 200px; width:1000px;" name="intro">{$Profession.intro}</textarea>
-		 </td>
+<div class="pad_10">
+<form action="{:u('ProfessionCate/edit')}" method="post" enctype="multipart/form-data" name="myform" id="myform" >
+<table width="100%" cellpadding="2" cellspacing="1" class="table_form">
+	<tr>
+      <th></th>
+      <td><input type="hidden" name="id" class="input-text" value="{$article_cate_info.id}"></td>
     </tr>
-      <tr>
-      	<th>{:L('logo')} :</th>
+    <tr>
+      <th>{:L('pid')} :</th>
+      <td><select name="pid" style="width:150px;">
+      	    <option value="0" <if condition="$article_cate_info.pid eq 0">selected="selected"</if>>--顶级分类--</option>
+        	<volist name="cate_list['parent']" id="val">
+            <option value="{$val.id}" <if condition="$article_cate_info.pid eq $val['id']">selected="selected"</if>>{$val.name}</option>
+            	<notempty name="cate_list['sub'][$val['id']]">
+                <volist name="cate_list['sub'][$val['id']]" id="sval">
+                <option value="{$sval.id}" <if condition="$article_cate_info.pid eq $sval['id']">selected="selected"</if>>&nbsp;&nbsp;&nbsp;&nbsp;{$sval.name}</option>
+                    <notempty name="cate_list['sub'][$sval['id']]">
+                    <volist name="cate_list['sub'][$sval['id']]" id="ssval">
+                    <option value="{$ssval.id}" <if condition="$article_cate_info.pid eq $ssval['id']">selected="selected"</if>>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$ssval.name}</option>
+                    </volist>
+                    </notempty>
+                </volist>
+            	</notempty>
+            </volist>
+      </select>
+      </td>
+    </tr>
+    <tr>
+      <th width="100">{:L('name')} :</th>
+      <td><input type="text" name="name" id="name" class="input-text" value="{$article_cate_info.name}"></td>
+    </tr>
+	<tr>
+      <th>{:L('alias')}:</th>
+      <td><input type="text" name="alias" id="alias" class="input-text" value="{$article_cate_info.alias}"></td>
+    </tr>
+    <tr>
+      <th width="100">{:L('sort_order')} :</th>
+      <td><input type="text" name="sort_order" id="sort_order" class="input-text" value="{$article_cate_info.sort_order}" size="4" onkeyup="value=value.replace(/[^\d]/g,'')"onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))"></td>
+    </tr>
+    <tr>
+      <th>{:L('status')} :</th>
+      <td><input type="radio" name="status" value="1" <if condition="$article_cate_info.status eq 1"> 	checked</if> >&nbsp;已审核&nbsp;&nbsp;&nbsp;
+      	  <input type="radio" name="status" value="0" <if condition="$article_cate_info.status eq 0"> 	checked</if> >&nbsp;未审核</td>
+    </tr>
+    <tr>
+      <th width="100">{:L('intro')} ::</th>
+      <td><textarea name="intro" cols="47" rows="4">{$article_cate_info.intro}</textarea></td>
+    </tr>
+     <tr>
+      	<th>{:L('img')} :</th>
       	<td>
-        	<input type="file" name="logo" id="logo" class="input-text" style="width:200px;" />
-            <if condition="$Profession['logo'] neq ''">
-            <img src="./data/profession/{$Profession.logo}" style="width:200px;height:140px;"/>
+        	<input type="file" name="img" id="img" class="input-text" style="width:200px;" />
+            <if condition="$article_cate_info['img'] neq ''">
+            <img src="./data/profession/{$article_cate_info.img}" style="width:200px;height:140px;"/>
             </if>
         </td>
       </tr>
-     <!--  <tr>
-        <th>{:L('rule')} :</th>
-        <td>        	
-			<tpl:editor id="rule" name="rule" type="KINDEDITOR" style="width:1000px;height:800px;" >{$Profession.rule}</tpl:editor>
-		</td>
-      </tr> -->
-      <tr><td><input type="hidden" name="id" value="{$Profession.id}" id="Profession_id"/></td></tr>
-    </table>
-  <div class="bk15"></div>
-  <div class="btn">
+</table>
+    <div class="bk15"></div>
+ <div class="btn">
     <input type="submit" value="{$Think.lang.submit}" name="dosubmit" onclick="return submitFrom();" class="button" id="dosubmit">
   </div>
-</div>
-</div>
 </form>
+<script type="text/javascript">
+	$(function(){
+		$("#name").formValidator({onshow:"不能为空",onfocus:"不能为空"}).inputValidator({min:1,onerror:"请填写分类名称"});
+	})
+</script>
+</div>
 </body>
 </html>

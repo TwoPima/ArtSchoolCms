@@ -11,7 +11,8 @@ class IndexAction extends CommonAction{
 		$this->assign('Adasc',M('Ad')->where("type='image' AND status=1")->order('ordid ASC')->limit(1)->select());
 		$this->assign('Addesc',M('Ad')->where("type='image' AND status=1")->order('ordid DESC')->limit(1)->select());
 		//学科管理部
-		$this->assign('Profession',M('ProfessionCate')->order('sort_order ASC')->limit(5)->select());
+		$where_pro['pid']="0";
+		$this->assign('Profession',M('ProfessionCate')->where($where_pro)->order('sort_order ASC')->limit(5)->select());
 		//办公机构
 		$dep_mod = M('Article_cate');
 		$where_dep['is_dep']="1";
