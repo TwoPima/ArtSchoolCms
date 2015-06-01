@@ -2,7 +2,7 @@
 <div id="nav_class">
 		<div class="container">
 				<div class="nav_class_link">
-				<volist name="cate_list" id='sval'>
+				<volist name="top_cate_list" id='sval'>
 				<span><a href="__APP__/Coirse/articleList?id={$sval.id}&mo=Coirse_cate">{$sval.name}</a></span>
 				</volist>
 				</div>
@@ -10,7 +10,13 @@
 </div>
 <div id="class_mian">
 		<div class="container clearfix">
-			<include file="Public:class_left"/>
+			<div class="class_mian_list">
+			<ul>
+			<li><a href="#">全部课程</a><hr></li>
+			<volist name="pro_list" id='sval'>
+				<li><a href="#">音乐表演</a><hr></li>
+			</ul>
+		</div>
 				<div class="class_mian_con">
 						<h3>视觉传达</h3><hr>
 						<div class="class_mian_con_show">

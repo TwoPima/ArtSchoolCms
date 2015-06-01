@@ -145,7 +145,7 @@ class CommonAction extends Action {
 		return $title;
 	}
 	/*  
-	 * 获取当前位置
+	 * 获取菜单的当前位置
 	 * 当前位置-第一个参数 catid为当前栏目的id
 	 *
 	 */
@@ -156,6 +156,41 @@ class CommonAction extends Action {
 		$nowHere="$herestr"."->".$uplevels['name'];
 		return $nowHere;
 	}
-
+	
+	/*+++++++++
+	 * 获得艺术硕士、研究所、文化艺术团、精品课程的当前位置；
+	*
+	* ++++  */
+	Public function secGetNowHere($catid,$model){
+		$herestr= '您现在的位置:'.'<a style="color:#000;" href="__APP__">&nbsp;&nbsp;首页&nbsp;&nbsp;</a>';
+		$get_mod_cate=$model.'_'.'cate';
+		$cate=M($get_mod_cate);
+		if (empty($catid)) {
+			$uplevels=$cate->where('pid=0')->field("id,name")->order('sort_order ASC')->limit(1)->find();
+		}else {
+			$uplevels = $cate->field("id,name")->where("id=$catid")->find();
+		}
+		$nowHere="$herestr"."->".$uplevels['name'];
+		return $nowHere;
+	}
+/*
+ * 单一分类名称详细展示；
+ *  艺术硕士、研究所、文化艺术团、精品课程；
+ */
+	public  function detailCatesingle($catid,$model){
+		$get_mod_cate=$model.'_'.'cate';
+		$cate=M($get_mod_cate);
+		if (empty($catid)) {
+			$result=$cate->where('pid=0')->field("id,name")->order('sort_order ASC')->limit(1)->find();
+		}else {
+			$where['id']=$catid;
+			$result = $cate->where($where)->field("id,name")->find();
+		}
+		$detail_catname=$result['name'];
+		return $detail_catname;
+	}
+	
+	
+	
 	
 }

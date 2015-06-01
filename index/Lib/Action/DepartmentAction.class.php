@@ -7,26 +7,33 @@ class DepartmentAction extends CommonAction {
 	public function detail(){
 		$table=$_GET['mo'];
 		$model=M($table);
-		$where['id']=$_GET['id'];
-		$result_se=$model->where($where)->select();
-	
-		//分类列表
-		$menu_mod = M('Profession_cate');
-		$cate_where['id']=$result_se[0]['cate_id'];
-		$cate_where['status']="1";
-		$result_cate = $menu_mod->where($cate_where)->order('sort_order ASC')->select();
-		$this->assign('mainleft_cate_list',$result_cate);
-
-		//分类名称详细显示
-		$where2['id']=$_GET['id'];
-		$detail_cate = $menu_mod->where($where2)->select();
-	
-		$getNowHere=$this->getNowHere($result_se[0]['cate_id']);
-	
-		$this->assign('now_here',$getNowHere);
-
-		$this->assign('detail_cate',$detail_cate);
+		$cate_name_model=M($table.'_'.'cate');
+		//部门菜单
+		$where_menu['is_dep']="1";
+		$result = $cate_name_model->where($where_menu)->order('sort_order ASC')->select();
+		$dep_cate_list = array();
+		foreach ($result as $val) {
+			if ($val['pid']==0) {
+				$dep_cate_list['parent'][$val['id']] = $val;
+			} else {
+				$dep_cate_list['sub'][$val['pid']][] = $val;
+			}
+		}
+		$this->assign('dep_cate_list',$dep_cate_list);
 		
+		//分类名称详细显示一个
+		$detail_cate=$this->detailCatesingle($_GET['id'],$table);
+		
+		//左侧您现在的位置
+		$getNowHere=$this->secGetNowHere($_GET['id'],$table);
+		//部门详细操作
+		$dep_detail=$cate_name_model->where('cate_id='.$_GET['id'])->find();
+		
+		$this->assign('now_here',$getNowHere);
+		$this->assign('detail_cate',$detail_cate);
+		$this->assign('detail_dep',$dep_detail);
+		
+		/* 
 		//上一篇
 		$front=$model->where("id<".$_GET['id'])->order('id desc')->limit('1')->find();
 		if (empty($front)) {
@@ -38,8 +45,7 @@ class DepartmentAction extends CommonAction {
 			$after="没有了！";
 		}
 		$this->assign('front',$front);
-		$this->assign('after',$after);
-		$this->assign('detail',$result_se);
+		$this->assign('after',$after); */
 		$this->display();
 	}
 }
