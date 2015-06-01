@@ -8,9 +8,9 @@
             <td>
             <div class="explain-col">
             	{:L('time')}：         
-				<wego:calendar name="time_start">{$time_start}</wego:calendar>
+				<tpl:calendar name="start_time"></tpl:calendar>
                 -      
-				<wego:calendar name="time_end" more="true">{$time_end}</wego:calendar>
+				<tpl:calendar name="end_time" more="true"></tpl:calendar>
             	&nbsp;&nbsp;资讯分类：
                 <select name="cate_id">
             	<option value="0">--请选择分类--</option>

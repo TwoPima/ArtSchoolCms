@@ -8,9 +8,9 @@
             <td>
             <div class="explain-col">
             	{:L('time')}：         
-            	<input id="d11" type="text" name="time_start"  onClick="WdatePicker()"/>
+				<tpl:calendar name="start_time"></tpl:calendar>
                 -      
-				<input id="d11" type="text" name="time_end"  onClick="WdatePicker()"/>
+				<tpl:calendar name="end_time" more="true"></tpl:calendar>
             	&nbsp;&nbsp;资讯分类：
                 <select name="cate_id">
             	<option value="0">--请选择分类--</option>

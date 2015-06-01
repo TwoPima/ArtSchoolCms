@@ -12,7 +12,21 @@ $(function(){
 			$("#list_"+aid).hide();
 		});
 	});
+	 $("#is_img").click(function(){  
+			$(".onlyArtcle").hide();
+	  });    
+	 $("#is_img2").click(function(){  
+				$(".onlyArtcle").show();
+		  });  
+	 //$("#is_img").bind("click", function(event) { $(".onlyArtcle").hide(); $(".onlyArtcle").hide(); });
+	/*  $(".judgeImgArticle").click(function(){
+			var img = $("#is_img").val();
+			if(img==1){
+				$(".onlyArtcle").hide();
+			}
+		}); */
 })
+
 </script>
 
 <form action="{:u('Article/edit')}" method="post" name="myform" id="myform" enctype="multipart/form-data" style="margin-top:10px;">
@@ -27,6 +41,14 @@ $(function(){
       <tr>
         <th width="100">{:L('title')} :</th>
         <td><input type="text" name="title" id="title" class="input-text" size="60" value="{$article.title}"></td>
+      </tr>
+      <tr>
+        <th>{:L('is_img')} :</th>
+        <td id="imgTitle"><input id="is_img" type="radio" name="is_img" class="radio_style" value="1" <if condition="$article.is_img eq 1"> checked</if>>
+          &nbsp;图片(导航新闻)&nbsp;&nbsp;&nbsp;
+          <input type="radio" id="is_img2"  name="is_img" class="radio_style" value="0" <if condition="$article.is_img eq 0">  checked</if>>
+          &nbsp;发布文章
+          </td>
       </tr>
 	  <tr>
         <th width="100">{:L('url')} :</th>
@@ -51,15 +73,7 @@ $(function(){
             </volist>
           </select></td>
       </tr>
-      <tr>
-          <th>{:L('orig')} :</th>
-          <td><input type="text" name="orig" id="orig" class="input-text" value="{$article.orig}" size="30"></td>
-      </tr>
-      <tr>
-          <th>{:L('add_time')} :</th>
-          <td><input type="text" name="add_time" id="add_time" class="input-text" value="{$article.add_time}" onClick="WdatePicker()"size="30"></td>
-      </tr>
-      <tr>
+        <tr>
       	<th>{:L('img')} :</th>
       	<td>
         	<input type="file" name="img" id="img" class="input-text" style="width:200px;" />
@@ -67,16 +81,6 @@ $(function(){
             <br /><img src="./data/news/{$article.img}" style="width:50px;height:50px;"/>
             </if>
         </td>
-      </tr>
-      <tr>
-        <th>{:L('abst')} :</th>
-        <td><textarea name="abst" id="abst" style="width:68%;height:50px;">{$article.abst}</textarea></td>
-      </tr>
-      <tr>
-        <th>{:L('info')} :</th>
-        <td>        	
-			<tpl:editor id="info" name="info" type="KINDEDITOR" style="width:70%;height:350px;" >{$article.info}</tpl:editor>
-		</td>
       </tr>
       <tr>
         <th>{:L('ordid')} :</th>
@@ -97,11 +101,40 @@ $(function(){
           &nbsp;未审核
           </td>
       </tr>
+       <tr>
+          <th>{:L('add_time')} :</th>
+          <td>
+          <tpl:calendar id="add_time" class="input-text" name="add_time" size="30">{$article.add_time}</tpl:calendar>
+          </td>
+      </tr>
+      <tr>
+          <th>{:L('orig')} :</th>
+          <td><input type="text" name="orig" id="orig" class="input-text" value="{$article.orig}" size="30"></td>
+      </tr>
+      <tr class="onlyArtcle">
+        <th>{:L('abst')} :</th>
+        <td><textarea name="abst" id="abst" style="width:68%;height:50px;">{$article.abst}</textarea></td>
+      </tr>
+      <tr class="onlyArtcle">
+        <th>{:L('info')} :</th>
+        <td>        	
+			<tpl:editor id="info" name="info" type="KINDEDITOR" style="width:70%;height:350px;" >{$article.info}</tpl:editor>
+		</td>
+      </tr>
+       <tr>
+        <th width="100">{:L('attach')}:</th>
+        <td>
+       		<input type="file" name="attachment" id="attachment" class="input-text"  />
+            <if condition="$article['title'] neq ''">
+            <br /><a href="">{$article.title}</a>
+            </if>
+        </td>
+      </tr>
       <tr><td><input type="hidden" name="id" value="{$article.id}" id="article_id"/></td></tr>
     </table>
   </div>
 
-  <div id="div_setting_2" class="contentList pad-10 hidden">
+  <div id="div_setting_2" class="contentList pad-10 hidden onlyArtcle">
     <table width="100%" cellpadding="2" cellspacing="1" class="table_form">
       <tr>
         <th width="100">{$Think.lang.seo_title} :</th>
@@ -117,6 +150,7 @@ $(function(){
       </tr>
     </table>
   </div>
+  
   <div class="bk15"></div>
   <div class="btn">
     <input type="submit" value="{$Think.lang.submit}" name="dosubmit" onclick="return submitFrom();" class="button" id="dosubmit">

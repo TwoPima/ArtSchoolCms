@@ -5,7 +5,6 @@ class MasterAction extends BaseAction
 	{
 		$article_mod = D('Master');
 		$article_cate_mod = D('Master_cate');
-
 		//搜索
 		$where = '1=1';
 		if (isset($_GET['keyword']) && trim($_GET['keyword'])) {
@@ -181,7 +180,7 @@ class MasterAction extends BaseAction
 			        $data['aid'] = implode(',', $aid_arr);
 			    }
 			}
-			$data['add_time']=date('Y-m-d H:i:s',time());
+			//$data['add_time']=date('Y-m-d H:i:s',time());
 			$result = $article_mod->add($data);
 			if($result){
 				$cate = M('Master_cate')->field('id,pid')->where("id=".$data['cate_id'])->find();

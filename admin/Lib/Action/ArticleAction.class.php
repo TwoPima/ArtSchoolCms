@@ -190,7 +190,7 @@ class ArticleAction extends BaseAction
 			        $data['aid'] = implode(',', $aid_arr);
 			    }
 			}
-			$data['add_time']=date('Y-m-d H:i:s',time());
+			//$data['add_time']=date('Y-m-d H:i:s',time());
 			$result = $article_mod->add($data);
 			if($result){
 				$cate = M('article_cate')->field('id,pid')->where("id=".$data['cate_id'])->find();
