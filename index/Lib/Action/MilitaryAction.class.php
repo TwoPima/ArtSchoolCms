@@ -4,31 +4,53 @@
 // +----------------------------------------------------------------------
 */
 class MilitaryAction extends CommonAction {
-	public function index(){
+public function index(){
 		//加载头部导航信息
 		$mod_cate_list=M('Military_cate');
 		$re_cate_list=$mod_cate_list->where('pid=0')->order('sort_order ASC')->select();
-		$this->assign('cate_list',$re_cate_list);
-		//资讯列表
-		$detail_mod=M('Military');
-		$where1['status']="1";
-		$where1['is_hot']="1";
-		$where1['is_best']="1";
-		$count = $detail_mod->where($where1)->count();
+		/*
+	 * 进入后判断是否只有一条数据
+	 * 如果是一条数据详细展示；
+	 * 并且只提取
+	*  艺术硕士、研究所、文化艺术团、精品课程；
+	*/
+		/* $catid=$_GET['id'];
+		$getmodel="Military";
+		$get_mod_cate=$getmodel.'_'.'cate';
+		$cate=M($get_mod_cate);
+		$model=M($getmodel); */
+		$catid=$_GET['id'];
+		$model=M('Military');
+		if (empty($catid)) {
+			$whereId=$mod_cate_list->where('pid=0')->field("id")->order('sort_order ASC')->find();
+			$count =$model->where('cate_id='.$whereId['id'])->count();
+			$article_list=$model->where('cate_id='.$whereId['id'])->order('ordid ASC')->select();
+		}else {
+			$whereArt['cate_id']=$catid;
+			$count =$model->where($whereArt)->count();
+			$article_list=$model->where($whereArt)->order('ordid ASC')->select();
+		}
 		$page = new Page($count,10);
-		$article_list = $detail_mod->where($where1)->limit($page->firstRow.','.$page->listRows)->order('add_time DESC,ordid ASC')->select();
 		$showPage = $page->show();
-		$this->assign('Military_article_list',$article_list);
+		
+		//分类名称详细显示一个
+		$detail_cate=$this->detailCatesingle($_GET['id'],Military);
+		
+		//左侧您现在的位置
+		$getNowHere=$this->secGetNowHere($_GET['id'],Military);
+		
+		$this->assign('now_here',$getNowHere);
+		$this->assign('article_list',$article_list);
+		$this->assign('detail_cate',$detail_cate);
 		$this->assign("page", $showPage);
+		$this->assign('left_cate_list',$re_cate_list);
 		$this->display();
 	}
 	
-	public function _before_detail(){
+	public function detail(){
 		$mod_cate_list=M('Military_cate');
 		$re_cate_list=$mod_cate_list->where('pid=0')->order('sort_order ASC')->select();
 		$this->assign('cate_list',$re_cate_list);
-	}
-	public function detail(){
 		$table=$_GET['mo'];
 		$model=M($table);
 		$where['id']=$_GET['id'];
@@ -36,15 +58,13 @@ class MilitaryAction extends CommonAction {
 		//上一篇
 		$front=$model->where("id<".$_GET['id'])->order('id desc')->limit('1')->find();
 		if (empty($front)) {
-			$front="没有了";
+			$front="3123123123123";
 		}
 		//下一篇
 		$after=$model->where("id>".$_GET['id'])->order('id desc')->limit('1')->find();
 		if (empty($after)) {
-			//$after= iconv('UTF-8', 'gb2312//IGNORE', '没有了');
-			$after=auto_charset('没有了','utf-8','gb2312');
+			$after="132123123";
 		}
-	
 		//分类列表
 		$menu_mod = M('Military_cate');
 		$cate_where['id']=$result_se[0]['cate_id'];
@@ -58,31 +78,6 @@ class MilitaryAction extends CommonAction {
 		$this->assign('after',$after);//下一条
 		$this->assign('detail',$result_se);
 		$this->display();
-	}
-	
-	
-	public function articleList(){
-		$mod_cate_list=M('Military_cate');
-		$re_cate_list=$mod_cate_list->where('pid=0')->order('sort_order ASC')->select();
-		$this->assign('cate_list',$re_cate_list);
-		//资讯列表
-		$detail_mod=M('Military');
-		$where1['cate_id']=$_GET['id'];
-		$where1['status']="1";
-		$count = $detail_mod->where($where1)->count();
-		
-		if ($count=="1") {
-			$article_list = $detail_mod->where($where1)->select();
-			$this->assign('detail',$article_list);
-			$this->display('detail');
-		}else {
-			$page = new Page($count,10);
-			$article_list = $detail_mod->where($where1)->limit($page->firstRow.','.$page->listRows)->order('add_time DESC,ordid ASC')->select();
-			$showPage = $page->show();
-			$this->assign('detail',$article_list);
-			$this->assign("page", $showPage);
-			$this->display('articleList');
-		}
 	}
 }
 

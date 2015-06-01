@@ -5,29 +5,45 @@
 			<img src="__ROOT__/statics/index/Image/teacher.jpg" alt="tuqian">
 	</div>
 </div>
-<!-- photo end -->
-<div id="main">
+ <div id="class_main">
 	<div class="container clearfix">
-			<div id="main_mid">
-				<include file="Public:mainleft"/>
-				<div class="main_con" id="main_con">
-						<div class="main_con_title">
-								<span class="span1"></span>
-								<span class="span2">{$detail[0]['title']}</span>
-						</div>
-						<div class="main_con_con">
-							<p>
-							{$detail[0]['info']}
-							</p>
-						</div>
-				</div>
+		<!-- 左侧 -->
+		<div class="main_list" id="main_list">
+			<div class="main_list_title">
+				<img src="__ROOT__/statics/index/Image/nav_house.png" alt="lala">
+				{$now_here}
+			</div>
+			<div class="main_list_nav">
+				 <ul>
+					<volist name="dep_cate_list['parent']" id='val'>
+						<li style="border:1px solid red;"><a>{$val.name}</a>
+							 <ul>
+								<volist name="dep_cate_list['sub'][$val['id']]" id='sval'>
+									<if condition="$sval.in_site  eq '1'">
+									<li id=""><a  target="_blank" href="{$sval.url}">{$sval.name}</a></li>
+									<else/>
+									<li id=""><a  target="_blank" href="__APP__/Master/index?id={$sval.id}&pid={$sval.pid}&mo=Master">{$sval.name}</a></li>
+									</if>
+								</volist>
+							 </ul>
+						</li>
+				</volist>
+				</ul> 
 			</div>
 		</div>
-</div>
-<div class="paging">
-	<p>
-		<a href="__APP__/Submenu/detail?id={$front.id}&mo=Article">{$front.title}</a>
-		<a href="__APP__/Submenu/detail?id={$after.id}&mo=Article">{$after.title}</a>
-	</p>
-</div>
+			<div class="main_con" id="main_con">
+			<div class="main_con_con" >
+				<div class="main_con_title">
+								<span class="span1">
+								{$detail_cate}</span>
+						</div>
+				<ul class="main_con_list">
+					<li>{$detail_dep.alias}</li>
+					<li>{$detail_dep.intro}</li>
+					<li>{$detail_dep.contract}</li>
+				</ul>
+			</div>
+				</div>
+	</div>
+</div> 
 <include file="Public:footer"/>
