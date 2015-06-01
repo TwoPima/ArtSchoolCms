@@ -34,34 +34,7 @@ a{
 	margin:auto;
 	width:1170px;
 }
-/* ----------------分页显示------------- */
-.paging{
-	backgrund-color:red;
-	height:30px;
-	font-size:18px;
-	line-height:30px;	
-	text-align:center;
-}
-.paging p {
-	height:30px;
-}
-.paging a{
-	height:30px;
-	color:#000;
-	font-size:18px;
-}
-.paging a:hover{
-	color:#FFAD01;
-	font-size:18px;
-}
-.paging_left{
-	float:left;
-	margin-left:20px;
-}
-.paging_right{
-	float:right;
-	margin-right:20px;
-}
+
 /*---------------header--------------------*/
 #header{
 	background-color:#10646F;
@@ -523,7 +496,53 @@ a{
 	margin-left:15px;
 	float:left;
 }
-/*---------------------公共图片------------------------*/
+/*------主页完成------*/
+/*---------------------二级页面  开始------------------------*/
+#secondary_main{
+	
+}
+.main_mid{
+	
+}
+/* .class_main_con{
+	width:100%;
+	background-color:red;
+}
+
+.class_main_list ul{
+	height:auto!important;
+	height:400px;
+	min-height:400px;
+}
+
+.class_main_list ul li{
+	height:40px;
+	font-size:15px;
+	padding-left:15px;
+	padding-right:15px;
+	margin-top:1px;
+}
+
+.class_main_list ul li img{
+	margin-right:10px;
+	width:13px;
+	height:13px;
+}
+.class_main_list a{
+	font-size:14px;
+	height:30px;
+	line-height:30px;
+	color:#000;
+}
+.class_main_list a:hover{
+	font-weight:bold;
+	color:#FEAF00;
+}
+.class_main_list_right{
+	float:right;
+	font-size:14px;
+} */
+/*---二级页面头部导航---*/
 #photo{
 	background-color:#10646F;
 	height:230px;
@@ -532,8 +551,8 @@ a{
 	width:100%;
 	height:230px;
 }
-/*-----------------------左侧列表导航---------------------*/
-#main{
+/*---二级页面左侧列表导航---------------------*/
+#main_list{
 
 }
 .main_list{
@@ -569,14 +588,12 @@ a{
 	margin-left:50px;
 	color:#000;
 }
-
-
 .main_list_nav ul li a:hover{
 	color:#FFAD01;
 }
-/*----------------------------右侧----------------------*/
+/*---二级页面右侧---*/
 .main_con{
-	background-color:#F4F4F4;
+	background-color:#F4F4F4;/*F4F4F4*/
 	margin-left:30px;
 	padding-right:20px;
 	float:left;
@@ -602,18 +619,11 @@ a{
 	margin-left:30px;
 	padding:10px 20px;
 	height:auto!important;
-	height:600px;
-	min-height:600px;
+	height:500px;
+	min-height:500px;
 }
 /*----------------图片文字-------------*/
-.main_con_con img{
-	height:300px;
-	width:100%;
-}
-.main_con_con p{
-	line-height:1.5;
-	font-size:20px;
-}
+
 /*----------------teacher-------------*/
 .teacher{
 	margin-top:30px;
@@ -740,7 +750,6 @@ min-height:700px;
 	float:right;
 	font-size:14px;
 }
-/*-------------------分页-------------------*/
 
 
 /*-----------------精品课程----------------------*/
@@ -845,50 +854,7 @@ input{
 	color:#FFAD01;
 }
 /*-----------------------------------------------艺术硕士——正文部门------------------------*/
-#class_main{
-	padding-top:30px;
-	background-color:#eeeeee;
-}
 
-.class_main_con{
-	width:100%;
-	background-color:#fff;
-}
-
-
-.class_main_list ul{
-height:auto!important;
-height:400px;
-min-height:400px;
-}
-
-.class_main_list ul li{
-	height:40px;
-	font-size:15px;
-	padding-left:15px;
-	padding-right:15px;
-	margin-top:1px;
-}
-
-.class_main_list ul li img{
-	margin-right:10px;
-	width:13px;
-	height:13px;
-}
-.class_main_list a{
-	font-size:14px;
-	height:30px;
-	line-height:30px;
-	color:#000;
-}
-.class_main_list a:hover{
-	font-weight:bold;
-	color:#FEAF00;
-}
-.class_main_list_right{
-	float:right;
-	font-size:14px;
-}
 /*---------------艺术硕士左侧列表 开始--------------*/
 .class_mian_list{
 	float:left;
@@ -954,6 +920,52 @@ border-left:10px solid #10646F;
 	float:right;
 	margin-right:10px;
 }
+
+/* ----------------分页显示------------- */
+/* 分页*/
+.paging{
+	width:100%;
+	height:30px;
+	font-size:18px;
+	color:#000;
+	line-height:30px;	
+	text-align:center;
+}
+
+.paging a{
+	height:30px;
+	color:#000;
+	font-size:18px;
+}
+.paging a:hover{
+	color:#FFAD01;
+	font-size:18px;
+}
+/* 下一片*/
+.paging_next{
+	width:100%;
+	height:30px;
+	font-size:18px;
+	line-height:30px;	
+}
+.paging_next a{
+	height:30px;
+	color:#000;
+	font-size:18px;
+}
+.paging_next a:hover{
+	color:#FFAD01;
+	font-size:18px;
+}
+.paging_left{
+	float:left;
+	margin-left:20px;
+}
+.paging_right{
+	float:right;
+	margin-right:20px;
+}
+/*--------------- 分页显示------------ */
 /*--------------- 艺术硕士左侧的列表页 结束------------ */
 /*-----------------jingpinkecheng--------------*/
 

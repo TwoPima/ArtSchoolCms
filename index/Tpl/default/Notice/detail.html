@@ -6,9 +6,9 @@
 	</div>
 </div>
 <!-- photo end -->
-<div id="main">
+<div id="classics_main">
 	<div class="container clearfix">
-			<div id="main_mid">
+			<!-- 左侧 -->
 				<div class="main_list" id="main_list">
 				<div class="main_list_title">
 					<img src="__ROOT__/statics/index/Image/nav_house.png" alt="lala">
@@ -21,6 +21,7 @@
 					</ul> 
 				</div>
 			</div>
+			<!-- 右侧 -->
 				<div class="main_con" id="main_con">
 						<div class="main_con_title">
 								<span class="span1"></span>
@@ -31,15 +32,14 @@
 							{$detail[0]['content']}
 							</p>
 						</div>
-						<div class="paging">
-							<p>
-								<span class="paging_left"><a href="__APP__/Notice/detail?id={$front.id}&mo=Notice">{$front.name}</a>
-								<span class="paging_right"><a href="__APP__/Notice/detail?id={$after.id}&mo=Notice">{$after.name}</a>
-							</p>
-						</div>
+						<!-- 分页显示 -->
+					<div class="paging_next">
+							<span class="paging_left"><a href="__APP__/Notice/detail?id={$front.id}&mo=Notice">{$front.name}</a></span>
+							<span class="paging_right"><a href="__APP__/Notice/detail?id={$after.id}&mo=Notice">{$after.name}</a></span>
+					</div>
 				</div>
-			</div>
 		</div>
 </div>
+
 	
 <include file="Public:footer"/>

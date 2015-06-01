@@ -25,15 +25,13 @@
 							{$detail[0]['info']}
 							</p>
 						</div>
-
+						<div class="paging"><!-- 大类分页 -->
+							<span class="paging_left"><a href="__APP__/Index/searchResult?id={$front.id}&mo=Article">{$front.title}</a></span>
+							<span class="paging_right"><a href="__APP__/Index/searchResult?id={$after.id}&mo=Article">{$after.title}</a></span>
+						</div>
 				</div>
 			</div>
 		</div>
 </div>
-<div class="paging"><!-- 大类分页 -->
-	<p>
-		<span class="paging_left"><a href="__APP__/Index/searchResult?id={$front.id}&mo=Article">{$front.title}</a>
-		<span class="paging_right"><a href="__APP__/Index/searchResult?id={$after.id}&mo=Article">{$after.title}</a>
-	</p>
-</div>
+
 <include file="Public:footer"/>
