@@ -38,7 +38,6 @@ class IndexAction extends CommonAction{
 	//站内搜索
 	public function search(){
 		$article_mod = M('Article');
-		
 		$data = $_POST['word'];
 		import("ORG.Util.Page");
 		$count = $article_mod->where("status=1 AND title LIKE '%$data%' OR info LIKE '%$data%' or seo_title like '%$data%' ")->count();
@@ -52,7 +51,7 @@ class IndexAction extends CommonAction{
 		$this->assign('now_here',$getNowHere);
 		
 		$this->display();
-		
+		}
 		
 		/* 下面的是给字体加红 但是没有实现 */
 		/* foreach($article_list as $val){
@@ -60,8 +59,29 @@ class IndexAction extends CommonAction{
 		$val['info']=str_replace($data,"<font color=red><b>$data</b></font>",$val['info']);
 		}
 		dump($article_list); */
+		//搜索详细页面
+		public function searchResult(){
+			$table=$_GET['mo'];
+			$model=M($table);
+			$where['id']=$_GET['id'];
+			$result_se=$model->where($where)->select();
+			//上一篇
+			$front=$model->where("id<".$_GET['id'])->order('id desc')->limit('1')->find();
+			if (empty($front)) {
+				$front="No Related Articles";
+			}
+			//下一篇
+			$after=$model->where("id>".$_GET['id'])->order('id desc')->limit('1')->find();
+			if (empty($after)) {
+				$after="ro Related Articles";
+			}
+			$getNowHere=$this->getNowHere($result_se[0]['cate_id']);
+			$this->assign('now_here',$getNowHere);
+			$this->assign('front',$front);
+			$this->assign('after',$after);
+			$this->assign('detail',$result_se);
+			$this->display();
+			
 		}
-
-		
 	
 }

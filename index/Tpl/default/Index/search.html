@@ -9,23 +9,28 @@
 <div id="main">
 	<div class="container clearfix">
 			<div id="main_mid">
-				<include file="Public:mainleft"/>
+				<div class="main_list" id="main_list">
+					<div class="main_list_title">
+						<img src="__ROOT__/statics/index/Image/nav_house.png" alt="lala">
+							{$now_here}&nbsp;搜索
+					</div>
+				</div>
 				<div class="main_con" id="main_con">
-						<div class="main_con_con">
-							<ul class="main_con_list">
-								<volist name="list" id='sval'>
-									<li>
-										<a href="__APP__/Submenu/detail?id={$sval.id}&mo=Article">
-										<img src="__ROOT__/statics/index/Image/list.png" alt="xiaotubiao">{$sval.title}
-										<span class="main_con_list_right">{$sval.add_time}</span>
-										</a>
-									</li>
-								</volist>
-							</ul>	
-						</div><!-- ./main_con_con -->
-						<div class="paging" id="paging">
-							<p>{$page}</p>
-						</div>
+					<div class="main_con_con">
+						<ul class="main_con_list">
+							<volist name="list" id='sval'>
+								<li>
+									<a href="__APP__/Index/searchResult?id={$sval.id}&mo=Article">
+									<img src="__ROOT__/statics/index/Image/list.png" alt="xiaotubiao">{$sval.title}
+									<span class="main_con_list_right">{$sval.add_time}</span>
+									</a>
+								</li>
+							</volist>
+						</ul>	
+					</div><!-- ./main_con_con -->
+					<div class="paging" id="paging"><!-- 分页 -->
+						<p>{$page}</p>
+					</div>
 				</div>
 			</div>
 		</div>

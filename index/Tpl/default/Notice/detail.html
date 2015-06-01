@@ -31,14 +31,15 @@
 							{$detail[0]['content']}
 							</p>
 						</div>
+						<div class="paging">
+							<p>
+								<span class="paging_left"><a href="__APP__/Notice/detail?id={$front.id}&mo=Notice">{$front.name}</a>
+								<span class="paging_right"><a href="__APP__/Notice/detail?id={$after.id}&mo=Notice">{$after.name}</a>
+							</p>
+						</div>
 				</div>
 			</div>
 		</div>
 </div>
-<div class="paging">
-	<p>
-		<a href="__APP__/Notice/detail?id={$front.id}&mo=Notice">{$front.name}</a>
-		<a href="__APP__/Notice/detail?id={$after.id}&mo=Notice">{$after.name}</a>
-	</p>
-</div>
+	
 <include file="Public:footer"/>

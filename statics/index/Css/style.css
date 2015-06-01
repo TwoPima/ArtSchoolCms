@@ -36,6 +36,7 @@ a{
 }
 /* ----------------分页显示------------- */
 .paging{
+	backgrund-color:red;
 	height:30px;
 	font-size:18px;
 	line-height:30px;	
@@ -185,9 +186,9 @@ a{
   #buttons .on {
       display:block;
       background:#333;
-      	filter:alpha(opacity=70);  /* ie 有效*/
-				-moz-opacity:0.7; /* Firefox  有效*/
-				opacity: 0.7; /* 通用，其他浏览器  有效*/
+		   	filter:alpha(opacity=70);  /* ie 有效*/
+			-moz-opacity:0.7; /* Firefox  有效*/
+			opacity: 0.7; /* 通用，其他浏览器  有效*/
 		
   }
   .arrow { 
