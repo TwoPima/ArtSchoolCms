@@ -5,10 +5,6 @@
 // +----------------------------------------------------------------------
 */
 class ProfessionAction extends CommonAction {
-
-	public function _before_index(){
-
-	}
 	public function detail(){
 		$table=$_GET['mo'];
 		$model=M($table);

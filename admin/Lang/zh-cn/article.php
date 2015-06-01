@@ -15,5 +15,6 @@ return array(
 	'ORDID'=>'排序',
 	'RECOMMEND'=>'推荐',
 	'HOT'=>'热门',
+		'is_img'=>'图片/文章',
 );
 ?>
