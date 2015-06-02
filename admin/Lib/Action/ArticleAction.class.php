@@ -72,12 +72,14 @@ class ArticleAction extends BaseAction
 			if($data['cate_id']==0){
 				$this->error('请选择资讯分类');
 			}
-		    $upload_list = $this->_upload();
+		
 		    if ($_FILES['img']['name']!='') {
 		    	//只有图片不为空时
+		    	$upload_list = $this->_upload();
 		        $data['img'] = $upload_list['0']['savename'];
 		    } 
 		    if ($_FILES['attachment']['name'][0]!='') {
+		    	$upload_list = $this->_upload();
 			    array_shift($upload_list);
 			    $aid_arr = array();
 		        foreach ($upload_list as $att) {
