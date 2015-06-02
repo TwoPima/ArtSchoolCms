@@ -30,10 +30,11 @@ public function index(){
 		
 		//左侧您现在的位置
 		$getNowHere=$this->secGetNowHere($_GET['id'],Coirse);
+		$this->assign('now_here',$getNowHere);
 		//专业提取
 		$prolist=M('Profession_cate')->where('status=1 AND pid=0')->order('sort_order ASC')->select();
 		
-		$this->assign('now_here',$getNowHere);
+
 		$this->assign('article_list',$article_list);
 		$this->assign('detail_cate',$detail_cate);
 		$this->assign("page", $showPage);
@@ -72,6 +73,12 @@ public function index(){
 		$this->assign('front',$front);//上一条
 		$this->assign('after',$after);//下一条
 		$this->assign('detail',$result_se);
+		$this->display();
+	}
+	public function articleList(){
+		$mod_cate_list=M('Coirse_cate');
+		$re_cate_list=$mod_cate_list->where('pid=0')->order('sort_order ASC')->select();
+		$this->assign('cate_list',$re_cate_list);
 		$this->display();
 	}
 }

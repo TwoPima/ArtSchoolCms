@@ -26,6 +26,7 @@ class DepartmentAction extends CommonAction {
 		
 		//左侧您现在的位置
 		$getNowHere=$this->secGetNowHere($_GET['id'],$table);
+		
 		//部门详细操作
 		$dep_detail=$cate_name_model->where('cate_id='.$_GET['id'])->find();
 		

@@ -34,6 +34,62 @@ a{
 	margin:auto;
 	width:1170px;
 }
+/* 搜索栏 */
+input{
+	color:#fff;
+	font-size:10px;
+	height:30px;
+	width:50px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-khtml-border-radius: 5px;
+	border-radius: 5px;
+	border:1px solid #10646F;
+	background-color:#1B5056;
+}
+.newinput{
+	margin:5px;
+	color:#fff;
+	font-size:13px;
+	height:30px;
+	width:157px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-khtml-border-radius: 5px;
+	border-radius: 5px;
+	border:1px solid #10646F;
+	background-color:#1B5056;
+}
+
+/*经典列表属性*/
+.main_con_con ul{
+
+}
+.main_con_con ul li{
+	height:40px;
+	font-size:15px;
+	padding-left:15px;
+	margin-top:1px;
+}
+.main_con_con ul li img{
+		margin-right:10px;
+		width:13px;
+		height:13px;
+}
+.main_con_con a{
+	font-size:14px;
+	height:30px;
+	line-height:30px;
+	color:#000;
+}
+.main_con_con a:hover{
+	font-weight:bold;
+	color:#FEAF00;
+}
+.main_con_list_right{
+	float:right;
+	font-size:14px;
+}
 
 /*---------------header--------------------*/
 #header{
@@ -498,7 +554,7 @@ a{
 }
 /*------主页完成------*/
 /*---------------------二级页面  开始------------------------*/
-#secondary_main{
+#{
 	
 }
 .main_mid{
@@ -622,8 +678,249 @@ a{
 	height:500px;
 	min-height:500px;
 }
-/*----------------图片文字-------------*/
 
+
+
+/*-----------------精品课程----------------------*/
+.sousuo_class{
+	margin-top:15px;
+	margin-right:70px;
+	float:right;
+}
+input{
+	color:#fff;
+	font-size:10px;
+	height:30px;
+	width:50px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-khtml-border-radius: 5px;
+	border-radius: 5px;
+	border:1px solid #10646F;
+	background-color:#1B5056;
+}
+.newinput{
+	margin:5px;
+	color:#fff;
+	font-size:13px;
+	height:30px;
+	width:157px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-khtml-border-radius: 5px;
+	border-radius: 5px;
+	border:1px solid #10646F;
+	background-color:#1B5056;
+}
+#class_header{
+		width:70px;
+		border-color:#10646F;
+}
+/*-----------------------------------精品课程正文部门------------------------*/
+/* 精品课程头部 */
+#header_class{
+	background-image:url(../Image/top.jpg);
+	color:#fff;
+	height:75px;
+}
+.top_class{
+	height:10px;
+	background-color:#000;
+}
+.logo_class{
+	height:65px;
+	float:left;
+}
+.logo_class img{
+	height:65px;
+}
+.sousuo_class{
+	margin-top:15px;
+	margin-right:70px;
+	float:right;
+}
+#nav_class{
+	line-height:33px;
+	font-weight:bold;
+	font-size:14px;
+	border-bottom:1px solid #A0A0A0;
+}
+.nav_class_link{
+	text-align:center;
+}
+.nav_class_link span{
+	margin:0 10px;
+}
+.nav_class_link a{
+	color:#000;
+}
+.nav_class_link a:hover{
+	color:#FFAD01;
+}
+/*------------------------精品课程index---------------------------*/
+#class_main{
+	padding-top:30px;
+	padding-bottom:30px;
+	border:1px solid red;
+	background-color:#EEEEEE;
+}
+/* 左侧分类 */
+.class_main_left{
+	float:left;
+	width:290px;
+	background-color:#ffffff;
+	color:#000;
+}
+.class_main_left ul li{
+	font-size:18px;
+	line-height:65px;
+}
+.class_main_left ul li hr{
+	margin:0 10px;
+	border:1px solid #eeeeee;
+}
+.class_main_left ul li:hover{
+border-left:10px solid #10646F;
+}
+.class_main_left ul li a{
+	margin-left:25px;
+	color:#000;
+}
+.class_main_left ul li span{
+	float:right;
+	margin-right:25px;
+}
+/* 右侧分类 */
+.class_main_con{
+	padding:10px 20px;
+	float:right;
+	width:810px;
+	background-color:#fff;
+	height:auto!important;
+	height:600px;
+	min-height:600px;
+}
+.class_main_con h3{
+	line-height:40px;
+}
+.class_main_con_show {
+	overflow:hidden;
+}
+.class_main_con_show ul li{
+	width:258px;
+	height:220px;
+	float:left;
+	margin:0 5px;
+	margin-top:20px;
+	border:1px solid #C9C9C9;
+}
+.class_main_con_show img{
+	width:100%;
+	height:145px;
+}
+.class_main_con_show p{
+	font-size:17px;
+	line-height:40px;
+	text-align:center;
+}
+.class_main_con_into{
+	width:260px;
+}
+.class_main_con_into_left{
+	margin-left:10px;
+	float:left;
+}
+.class_main_con_into_right{
+	float:right;
+	margin-right:10px;
+}
+/*------------------------精品课程index end---------------------------*/
+/*------------------------精品课程article state---------------------------*/
+
+/*精品课程列表*/
+.class_main_con ul{
+
+}
+.class_main_con ul li{
+	height:40px;
+	font-size:15px;
+	padding-left:15px;
+	margin-top:1px;
+}
+.class_main_con ul li img{
+		margin-right:10px;
+		width:13px;
+		height:13px;
+}
+.class_main_con a{
+	font-size:14px;
+	height:30px;
+	line-height:30px;
+	color:#000;
+}
+.class_main_con a:hover{
+	font-weight:bold;
+	color:#FEAF00;
+}
+.class_main_list_right{
+	float:right;
+	font-size:14px;
+}
+/*------------------------精品课程article end---------------------------*/
+
+
+
+
+
+
+
+/* ----------------分页显示------------- */
+/* 分页*/
+.paging{
+	width:100%;
+	height:30px;
+	font-size:18px;
+	color:#000;
+	line-height:30px;	
+	text-align:center;
+}
+
+.paging a{
+	height:30px;
+	color:#000;
+	font-size:18px;
+}
+.paging a:hover{
+	color:#FFAD01;
+	font-size:18px;
+}
+/* 下一片*/
+.paging_next{
+	width:100%;
+	height:30px;
+	font-size:18px;
+	line-height:30px;	
+}
+.paging_next a{
+	height:30px;
+	color:#000;
+	font-size:18px;
+}
+.paging_next a:hover{
+	color:#FFAD01;
+	font-size:18px;
+}
+.paging_left{
+	float:left;
+	margin-left:20px;
+}
+.paging_right{
+	float:right;
+	margin-right:20px;
+}
+/*--------------- 分页显示------------ */
+/*--------------- 艺术硕士左侧的列表页 结束------------ */
+/*-----------------jingpinkecheng--------------*/
 /*----------------teacher-------------*/
 .teacher{
 	margin-top:30px;
@@ -718,257 +1015,6 @@ a{
 	height:161px;
 	width:449px;
 }
-/*------------------------列表属性---------------------*/
-.main_con_con ul{
-/* height:auto!important;
-height:700px;
-min-height:700px;
- */
-}
-.main_con_con ul li{
-	height:40px;
-	font-size:15px;
-	padding-left:15px;
-	margin-top:1px;
-}
-.main_con_con ul li img{
-		margin-right:10px;
-		width:13px;
-		height:13px;
-}
-.main_con_con a{
-	font-size:14px;
-	height:30px;
-	line-height:30px;
-	color:#000;
-}
-.main_con_con a:hover{
-	font-weight:bold;
-	color:#FEAF00;
-}
-.main_con_list_right{
-	float:right;
-	font-size:14px;
-}
-
-
-/*-----------------精品课程----------------------*/
-.sousuo_class{
-	margin-top:15px;
-	margin-right:70px;
-	float:right;
-}
-input{
-	color:#fff;
-	font-size:10px;
-	height:30px;
-	width:50px;
-	-moz-border-radius: 5px;
-	-webkit-border-radius: 5px;
-	-khtml-border-radius: 5px;
-	border-radius: 5px;
-	border:1px solid #10646F;
-	background-color:#1B5056;
-}
-.newinput{
-	margin:5px;
-	color:#fff;
-	font-size:13px;
-	height:30px;
-	width:157px;
-	-moz-border-radius: 5px;
-	-webkit-border-radius: 5px;
-	-khtml-border-radius: 5px;
-	border-radius: 5px;
-	border:1px solid #10646F;
-	background-color:#1B5056;
-}
-#class_header{
-		width:70px;
-		border-color:#10646F;
-}
-
-/*-----------------艺术硕士--------------*/
-#header_class{
-	background-image:url(../Image/top.jpg);
-	color:#fff;
-	height:75px;
-}
-.top_class{
-	height:10px;
-	background-color:#000;
-}
-.logo_class{
-	height:65px;
-	float:left;
-}
-.logo_class img{
-	height:65px;
-}
-.sousuo_class{
-	margin-top:15px;
-	margin-right:70px;
-	float:right;
-}
-input{
-	color:#fff;
-	font-size:10px;
-	height:30px;
-	width:50px;
-	-moz-border-radius: 5px;
-	-webkit-border-radius: 5px;
-	-khtml-border-radius: 5px;
-	border-radius: 5px;
-	border:1px solid #10646F;
-	background-color:#1B5056;
-}
-.newinput{
-	margin:5px;
-	color:#fff;
-	font-size:13px;
-	height:30px;
-	width:157px;
-	-moz-border-radius: 5px;
-	-webkit-border-radius: 5px;
-	-khtml-border-radius: 5px;
-	border-radius: 5px;
-	border:1px solid #10646F;
-	background-color:#1B5056;
-}
-#nav_class{
-	line-height:33px;
-	font-weight:bold;
-	font-size:14px;
-	border-bottom:1px solid #A0A0A0;
-}
-.nav_class_link{
-	text-align:center;
-}
-.nav_class_link span{
-	margin:0 10px;
-}
-.nav_class_link a{
-	color:#000;
-}
-.nav_class_link a:hover{
-	color:#FFAD01;
-}
-/*-----------------------------------------------艺术硕士——正文部门------------------------*/
-
-/*---------------艺术硕士左侧列表 开始--------------*/
-.class_mian_list{
-	float:left;
-	width:290px;
-	background-color:#ffffff;
-}
-.class_mian_list ul li{
-	font-size:18px;
-	line-height:65px;
-}
-.class_mian_list ul li hr{
-	margin:0 10px;
-	border:1px solid #eeeeee;
-}
-.class_mian_list ul li:hover{
-border-left:10px solid #10646F;
-}
-.class_mian_list ul li a{
-	margin-left:25px;
-	color:#000;
-}
-.class_mian_list ul li span{
-	float:right;
-	margin-right:25px;
-}
-.class_mian_con{
-	padding:10px 20px;
-	float:right;
-	width:810px;
-	background-color:#ffffff;
-}
-.class_mian_con h3{
-	line-height:40px;
-}
-.class_mian_con_show {
-	overflow:hidden;
-}
-.class_mian_con_show ul li{
-	width:258px;
-	height:220px;
-	float:left;
-	margin:0 5px;
-	margin-top:20px;
-	border:1px solid #C9C9C9;
-}
-.class_mian_con_show img{
-	width:100%;
-	height:145px;
-}
-.class_mian_con_show p{
-	font-size:17px;
-	line-height:40px;
-	text-align:center;
-}
-.class_mian_con_into{
-	width:260px;
-}
-.class_mian_con_into_left{
-	margin-left:10px;
-	float:left;
-}
-.class_mian_con_into_right{
-	float:right;
-	margin-right:10px;
-}
-
-/* ----------------分页显示------------- */
-/* 分页*/
-.paging{
-	width:100%;
-	height:30px;
-	font-size:18px;
-	color:#000;
-	line-height:30px;	
-	text-align:center;
-}
-
-.paging a{
-	height:30px;
-	color:#000;
-	font-size:18px;
-}
-.paging a:hover{
-	color:#FFAD01;
-	font-size:18px;
-}
-/* 下一片*/
-.paging_next{
-	width:100%;
-	height:30px;
-	font-size:18px;
-	line-height:30px;	
-}
-.paging_next a{
-	height:30px;
-	color:#000;
-	font-size:18px;
-}
-.paging_next a:hover{
-	color:#FFAD01;
-	font-size:18px;
-}
-.paging_left{
-	float:left;
-	margin-left:20px;
-}
-.paging_right{
-	float:right;
-	margin-right:20px;
-}
-/*--------------- 分页显示------------ */
-/*--------------- 艺术硕士左侧的列表页 结束------------ */
-/*-----------------jingpinkecheng--------------*/
-
 
 
 

@@ -16,7 +16,7 @@
 			<div class="main_list_nav">
 				 <ul>
 					<volist name="dep_cate_list['parent']" id='val'>
-						<li style="border:1px solid red;"><a>{$val.name}</a>
+						<li style="border:1px solid red;"><a href="#">{$val.name}</a>
 							 <ul>
 								<volist name="dep_cate_list['sub'][$val['id']]" id='sval'>
 									<if condition="$sval.in_site  eq '1'">
