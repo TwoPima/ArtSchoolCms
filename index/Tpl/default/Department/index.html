@@ -1,0 +1,44 @@
+<include file="Public:header"/>
+<!-- photo start -->
+<div id="photo">
+	<div class="container">
+			<img src="__ROOT__/statics/index/Image/teacher.jpg" alt="tuqian">
+	</div>
+</div>
+ <div id="classics_main">
+	<div class="container clearfix">
+		<!-- 左侧 -->
+		<div class="main_list" id="main_list">
+			<div class="main_list_title">
+				<img src="__ROOT__/statics/index/Image/nav_house.png" alt="lala">
+				{$now_here}
+			</div>
+			<div class="main_list_nav">
+				 <ul>
+					<volist name="dep_cate_list" id='val'>
+						<li ><a href="__APP__/Department/articleList?id={$val.id}&pid={$val.pid}&mo=Article">{$val.name}</a></li>
+					</volist>
+				</ul> 
+			</div>
+		</div>
+		<!-- 右边 -->
+			<div class="main_con" >
+				<div class="main_con_title">
+					<span class="span2">{$dep_cate_con[0][name]}</span>
+				</div>
+				<div class="main_con_con">
+					<ul class="main_con_list">
+						<volist name="article_list" id='sval'>
+									<li>
+									<a href="__APP__/Department/detail?id={$sval.id}&pid={$sval.pid}&mo=Article">
+									<img src="__ROOT__/statics/index/Image/list.png" alt="xiaotubiao">{$sval.title}
+									<span class="main_con_list_right">{$sval.add_time}</span>
+									</a>
+									</li>
+						</volist>
+					</ul>
+				</div>
+			</div>
+	</div>
+</div> 
+<include file="Public:footer"/>

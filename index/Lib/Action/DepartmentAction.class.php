@@ -4,36 +4,27 @@
 // +----------------------------------------------------------------------
 */
 class DepartmentAction extends CommonAction {
-	public function detail(){
+	public function index(){
 		$table=$_GET['mo'];
+		$id=$_GET['id'];
 		$model=M($table);
 		$cate_name_model=M($table.'_'.'cate');
-		//部门菜单
-		$where_menu['is_dep']="1";
-		$result = $cate_name_model->where($where_menu)->order('sort_order ASC')->select();
-		$dep_cate_list = array();
-		foreach ($result as $val) {
-			if ($val['pid']==0) {
-				$dep_cate_list['parent'][$val['id']] = $val;
-			} else {
-				$dep_cate_list['sub'][$val['pid']][] = $val;
-			}
-		}
+		//提出左侧导航列表
+		$where_menu['pid']="$id";
+		$dep_cate_list = $cate_name_model->where($where_menu)->order('sort_order ASC')->select();
 		$this->assign('dep_cate_list',$dep_cate_list);
-		
-		//分类名称详细显示一个
-		$detail_cate=$this->detailCatesingle($_GET['id'],$table);
-		
 		//左侧您现在的位置
 		$getNowHere=$this->secGetNowHere($_GET['id'],$table);
-		
-		//部门详细操作
-		$dep_detail=$cate_name_model->where('cate_id='.$_GET['id'])->find();
-		
 		$this->assign('now_here',$getNowHere);
-		$this->assign('detail_cate',$detail_cate);
-		$this->assign('detail_dep',$dep_detail);
-		
+		//右侧提出第一条数据的正文
+		$dep_cate_con = $cate_name_model->where($where_menu)->order('sort_order ASC')->limit(1)->select();
+		$name_id= $dep_cate_con[0][id];
+		$this->assign('dep_cate_con',$dep_cate_con);
+		//右侧第的列表信息
+		$where_article_list['cate_id']="$name_id";
+		$article_list=$model->where($where_article_list)->order('add_time ASC')->select();
+		$this->assign('article_list',$article_list);
+		$this->display();
 		/* 
 		//上一篇
 		$front=$model->where("id<".$_GET['id'])->order('id desc')->limit('1')->find();
@@ -47,8 +38,42 @@ class DepartmentAction extends CommonAction {
 		}
 		$this->assign('front',$front);
 		$this->assign('after',$after); */
-		$this->display();
 	}
+		public function articleList(){
+		$table=$_GET['mo'];
+		$pid=$_GET['pid'];
+		$id=$_GET['id'];
+		$model=M($table);
+		$cate_name_model=M($table.'_'.'cate');
+		//右侧名字找出来
+		$where_name['id']="$id";
+		$dep_cate_name = $cate_name_model->where($where_name)->select();
+		$this->assign('dep_cate_name',$dep_cate_name);
+		//提出左侧导航列表
+		$where_menu['pid']="$pid";
+		$dep_cate_list = $cate_name_model->where($where_menu)->order('sort_order ASC')->select();
+		$this->assign('dep_cate_list',$dep_cate_list);
+		//左侧您现在的位置
+		$getNowHere=$this->secGetNowHere($_GET['id'],$table);
+		$this->assign('now_here',$getNowHere);
+		//右侧第的列表信息
+		$where_article_list['cate_id']="$id";
+		$article_list=$model->where($where_article_list)->order('add_time ASC')->select();
+		$this->assign('article_list',$article_list);
+		$this->display();
 }
-
+		public function detail(){
+		$table=$_GET['mo'];
+		$id=$_GET['id'];
+		$model=M($table);
+		$where['id']="$id";
+		//左侧您现在的位置
+		$getNowHere=$this->secGetNowHere($_GET['id'],$table);
+		$this->assign('now_here',$getNowHere);
+		//正文部分
+		$detail=$model->where($where)->select();
+		$this->assign('detail',$detail);
+		$this->display();
+		}
+}
 ?>
