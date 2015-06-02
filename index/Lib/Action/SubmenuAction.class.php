@@ -116,10 +116,14 @@ class SubmenuAction extends CommonAction {
 			$this->assign("page", $showPage);
 			$this->display('index');
 		}
-		
-	
 	}
-
+	public function teacher(){
+		$this->display();
+	}
+	public function xianrenlingdao(){
+		$this->display();
+	}
+	
 }
 
 ?>
