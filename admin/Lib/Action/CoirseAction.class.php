@@ -74,43 +74,39 @@ class CoirseAction extends BaseAction
 			if($data['pro_id']==0){
 				$this->error('请选择专业类别');
 			}
-			if ($_FILES['img']['name']!=''||$_FILES['attachment']['name'][0]!='') {
-			    $upload_list = $this->_upload();
-			    if ($_FILES['img']['name']!=''&&$_FILES['attachment']['name'][0]!='') {
-				    $data['img'] = $upload_list['0']['savename'];
-				    array_shift($upload_list);
-				    $aid_arr = array();
-			        foreach ($upload_list as $att) {
-			            $file['title'] = $att['name'];
-			            $file['filetype'] = $att['extension'];
-					    $file['filesize'] = $att['size'];
-					    $file['url'] = $att['savename'];
-					    $file['uptime'] = date('Y-m-d H:i:s');
-						$attatch_mod->add($file);
-						$aid_arr[] = mysql_insert_id();
-			        }
-			        $data['aid'] = implode(',', $aid_arr);
-			    } elseif ($_FILES['img']['name']!='') {
-			        $data['img'] = $upload_list['0']['savename'];
-			    } else {
-			        $aid_arr = array();
-			        foreach ($upload_list as $att) {
-			            $file['title'] = $att['name'];
-			            $file['filetype'] = $att['extension'];
-					    $file['filesize'] = $att['size'];
-					    $file['url'] = $att['savename'];
-					    $file['uptime'] = date('Y-m-d H:i:s');
-						$attatch_mod->add($file);
-						$aid_arr[] = mysql_insert_id();
-			        }
-			        $data['aid'] = implode(',', $aid_arr);
-			    }
-			    if ($data['aid']) {
-			        $article_info = $article_mod->where('id='.$data['id'])->find();
-			        if ($article_info['aid']) {
-			            $data['aid'] = $article_info['aid'].','.$data['aid'];
-			        }
-			    }
+		$upload_list = $this->_upload();
+		    if ($_FILES['img']['name']!='') {
+		    	//只有图片不为空时
+		        $data['img'] = $upload_list['0']['savename'];
+		    } 
+		    if ($_FILES['attachment']['name'][0]!='') {
+			    array_shift($upload_list);
+			    $aid_arr = array();
+		        foreach ($upload_list as $att) {
+		            $file['title'] = $att['name'];
+		            $file['filetype'] = $att['extension'];
+				    $file['filesize'] = $att['size'];
+				    $file['url'] = $att['savename'];
+				    $file['uptime'] = date('Y-m-d H:i:s');
+				    $file['aid']=$_POST['id'];
+				    $whereAtta['type']="5";
+				    $whereAtta['aid']=$_POST['id'];
+				    $attatch= $attatch_mod->where($whereAtta)->find();
+				    if ($attatch) {
+				    	//看是否已经存在;
+				    	$attatch_mod->where($whereAtta)->save($file);
+				    	/* if ($attatch_mod->where('aid='.$_POST['id'])->save($file)) {
+				    		$this->error('上传附件出现问题！');
+				    	} */
+				    }else {
+				    	//如果不存在直接添加；
+				    	$file['type']="5";
+				    	$attatch_mod->add($file);
+				    	/* if ($attatch_mod->add($file)) {
+				    		$this->error('上传附件出现问题！');
+				    	} */
+				    }
+		        }
 			}
 			$result = $article_mod->save($data);
 			if(false !== $result){
@@ -147,8 +143,11 @@ class CoirseAction extends BaseAction
 
 			//附件
 			$attatch_mod = D('attatch');
-			$article_info['attatch'] = $attatch_mod->where("aid IN (".$article_info['aid'].")")->select();
-
+			$whereAtta['type']="5";
+			$whereAtta['aid']=$_POST['id'];
+			$attatch= $attatch_mod->where($whereAtta)->find();
+			$this->assign('attatch',$attatch);
+			
 			$this->assign('show_header', false);
 	    	$this->assign('cate_list',$cate_list);
 	    	$this->assign('pro_list',$pro_list);
@@ -161,7 +160,7 @@ class CoirseAction extends BaseAction
 
 	function add()
 	{
-		if(isset($_POST['dosubmit'])){
+	if(isset($_POST['dosubmit'])){
 			$article_mod = D('Coirse');
 			$attatch_mod = D('attatch');
 			if($_POST['title']==''){
@@ -170,39 +169,27 @@ class CoirseAction extends BaseAction
 			if(false === $data = $article_mod->create()){
 				$this->error($article_mod->error());
 			}
-			if ($_FILES['img']['name']!=''||$_FILES['attachment']['name'][0]!='') {
-			    if ($_FILES['img']['name']!=''&&$_FILES['attachment']['name'][0]!='') {
-				    $upload_list = $this->_upload();
-				    $data['img'] = $upload_list['0']['savename'];
-				    array_shift($upload_list);
-				    $aid_arr = array();
-			        foreach ($upload_list as $att) {
-			            $file['title'] = $att['name'];
-			            $file['filetype'] = $att['extension'];
-					    $file['filesize'] = $att['size'];
-					    $file['url'] = $att['savename'];
-					    $file['uptime'] = date('Y-m-d H:i:s');
-						$attatch_mod->add($file);
-						$aid_arr[] = mysql_insert_id();
-			        }
-			        $data['aid'] = implode(',', $aid_arr);
-			    } elseif ($_FILES['img']['name']!='') {
-			        $upload_list = $this->_upload();
-			        $data['img'] = $upload_list['0']['savename'];
-			    } else {
-			        $upload_list = $this->_upload();
-			        $aid_arr = array();
-			        foreach ($upload_list as $att) {
-			            $file['title'] = $att['name'];
-					    $file['filetype'] = $att['extension'];
-					    $file['filesize'] = $att['size'];
-					    $file['url'] = $att['savename'];
-					    $file['uptime'] = date('Y-m-d H:i:s');
-						$attatch_mod->add($file);
-						$aid_arr[] = mysql_insert_id();
-			        }
-			        $data['aid'] = implode(',', $aid_arr);
-			    }
+			 $upload_list = $this->_upload();
+		    if ($_FILES['img']['name']!='') {
+		    	//只有图片不为空时
+		        $data['img'] = $upload_list['0']['savename'];
+		    } 
+		    if ($_FILES['attachment']['name'][0]!='') {
+			    array_shift($upload_list);
+			    $aid_arr = array();
+		        foreach ($upload_list as $att) {
+		            $file['title'] = $att['name'];
+		            $file['filetype'] = $att['extension'];
+				    $file['filesize'] = $att['size'];
+				    $file['url'] = $att['savename'];
+				    $file['uptime'] = date('Y-m-d H:i:s');
+				    $file['aid']=$_POST['id'];
+				    $file['type']="5";//精品课程类型
+				    $attatch_mod->add($file);
+				  /*  if ($attatch_mod->add($file)) {
+				   		$this->error('上传附件出现问题！');
+				   }  */
+		        }
 			}
 		//	$data['add_time']=date('Y-m-d H:i:s',time());
 			$result = $article_mod->add($data);

@@ -66,7 +66,12 @@ public function index(){
 		$cate_where['id']=$result_se[0]['cate_id'];
 		$cate_where['status']="1";
 		$result_cate = $menu_mod->where($cate_where)->order('sort_order ASC')->select();
-	
+		//附件下载
+		$attatch_mod = D('attatch');
+		$whereAtta['type']="0";
+		$whereAtta['aid']=$_GET['id'];
+		$attatch= $attatch_mod->where($whereAtta)->find();
+		$this->assign('attatch',$attatch);
 	
 		$this->assign('mainleft_cate_list',$result_cate);
 	
@@ -75,7 +80,8 @@ public function index(){
 		$this->assign('detail',$result_se);
 		$this->display();
 	}
-	public function articleList(){
+	public function proArtcleList(){
+		//根据专业操作
 		$mod_cate_list=M('Coirse_cate');
 		$re_cate_list=$mod_cate_list->where('pid=0')->order('sort_order ASC')->select();
 		$this->assign('cate_list',$re_cate_list);

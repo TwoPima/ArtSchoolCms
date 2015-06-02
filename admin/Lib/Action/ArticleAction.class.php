@@ -65,50 +65,46 @@ class ArticleAction extends BaseAction
 	function edit()
 	{
 		if(isset($_POST['dosubmit'])){
+			//编辑提交操作
 			$article_mod = D('article');
 			$attatch_mod = D('attatch');
 			$data = $article_mod->create();
 			if($data['cate_id']==0){
 				$this->error('请选择资讯分类');
 			}
-			if ($_FILES['img']['name']!=''||$_FILES['attachment']['name'][0]!='') {
-			    $upload_list = $this->_upload();
-			    if ($_FILES['img']['name']!=''&&$_FILES['attachment']['name'][0]!='') {
-				    $data['img'] = $upload_list['0']['savename'];
-				    array_shift($upload_list);
-				    $aid_arr = array();
-			        foreach ($upload_list as $att) {
-			            $file['title'] = $att['name'];
-			            $file['filetype'] = $att['extension'];
-					    $file['filesize'] = $att['size'];
-					    $file['url'] = $att['savename'];
-					    $file['uptime'] = date('Y-m-d H:i:s');
-						$attatch_mod->add($file);
-						$aid_arr[] = mysql_insert_id();
-			        }
-			        $data['aid'] = implode(',', $aid_arr);
-			    } elseif ($_FILES['img']['name']!='') {
-			        $data['img'] = $upload_list['0']['savename'];
-			    } else {
-			        $aid_arr = array();
-			        foreach ($upload_list as $att) {
-			            $file['title'] = $att['name'];
-			            $file['filetype'] = $att['extension'];
-					    $file['filesize'] = $att['size'];
-					    $file['url'] = $att['savename'];
-					    $file['uptime'] = date('Y-m-d H:i:s');
-						$attatch_mod->add($file);
-						$aid_arr[] = mysql_insert_id();
-			        }
-			        $data['aid'] = implode(',', $aid_arr);
-			    }
-			    if ($data['aid']) {
-			        $article_info = $article_mod->where('id='.$data['id'])->find();
-			        if ($article_info['aid']) {
-			            $data['aid'] = $article_info['aid'].','.$data['aid'];
-			        }
-			    }
+		    $upload_list = $this->_upload();
+		    if ($_FILES['img']['name']!='') {
+		    	//只有图片不为空时
+		        $data['img'] = $upload_list['0']['savename'];
+		    } 
+		    if ($_FILES['attachment']['name'][0]!='') {
+			    array_shift($upload_list);
+			    $aid_arr = array();
+		        foreach ($upload_list as $att) {
+		            $file['title'] = $att['name'];
+		            $file['filetype'] = $att['extension'];
+				    $file['filesize'] = $att['size'];
+				    $file['url'] = $att['savename'];
+				    $file['uptime'] = date('Y-m-d H:i:s');
+				    $file['aid']=$_POST['id'];
+				    $attatch= $attatch_mod->where('aid='.$_POST['id'])->find();
+				    if ($attatch) {
+				    	//看是否已经存在;
+				    	$attatch_mod->where('aid='.$_POST['id'])->save($file);
+				    	/* if ($attatch_mod->where('aid='.$_POST['id'])->save($file)) {
+				    		$this->error('上传附件出现问题！');
+				    	} */
+				    }else {
+				    	//如果不存在直接添加；
+				    	$attatch_mod->add($file);
+				    	/* if ($attatch_mod->add($file)) {
+				    		$this->error('上传附件出现问题！');
+				    	} */
+				    }
+		        }
+		        
 			}
+			//上传文件操作完毕；进行其他数据存蓄
 			$result = $article_mod->save($data);
 			if(false !== $result){
 				$this->success(L('operation_success'),U('Article/index'));
@@ -116,6 +112,7 @@ class ArticleAction extends BaseAction
 				$this->error(L('operation_failure'));
 			}
 		}else{
+			//显示编辑页面
 			$article_mod = D('article');
 			if( isset($_GET['id']) ){
 				$article_id = isset($_GET['id']) && intval($_GET['id']) ? intval($_GET['id']) : $this->error(L('please_select'));
@@ -131,11 +128,13 @@ class ArticleAction extends BaseAction
 		    	}
 		    }
 			$article_info = $article_mod->where('id='.$article_id)->find();
-
 			//附件
 			$attatch_mod = D('attatch');
-			$article_info['attatch'] = $attatch_mod->where("aid IN (".$article_info['aid'].")")->select();
-
+			$whereAtta['type']="0";
+			$whereAtta['aid']=$_POST['id'];
+			$attatch= $attatch_mod->where($whereAtta)->find();
+			$this->assign('attatch',$attatch);
+			
 			$this->assign('show_header', false);
 	    	$this->assign('cate_list',$cate_list);
 			$this->assign('article',$article_info);
@@ -156,39 +155,26 @@ class ArticleAction extends BaseAction
 			if(false === $data = $article_mod->create()){
 				$this->error($article_mod->error());
 			}
-			if ($_FILES['img']['name']!=''||$_FILES['attachment']['name'][0]!='') {
-			    if ($_FILES['img']['name']!=''&&$_FILES['attachment']['name'][0]!='') {
-				    $upload_list = $this->_upload();
-				    $data['img'] = $upload_list['0']['savename'];
-				    array_shift($upload_list);
-				    $aid_arr = array();
-			        foreach ($upload_list as $att) {
-			            $file['title'] = $att['name'];
-			            $file['filetype'] = $att['extension'];
-					    $file['filesize'] = $att['size'];
-					    $file['url'] = $att['savename'];
-					    $file['uptime'] = date('Y-m-d H:i:s');
-						$attatch_mod->add($file);
-						$aid_arr[] = mysql_insert_id();
-			        }
-			        $data['aid'] = implode(',', $aid_arr);
-			    } elseif ($_FILES['img']['name']!='') {
-			        $upload_list = $this->_upload();
-			        $data['img'] = $upload_list['0']['savename'];
-			    } else {
-			        $upload_list = $this->_upload();
-			        $aid_arr = array();
-			        foreach ($upload_list as $att) {
-			            $file['title'] = $att['name'];
-					    $file['filetype'] = $att['extension'];
-					    $file['filesize'] = $att['size'];
-					    $file['url'] = $att['savename'];
-					    $file['uptime'] = date('Y-m-d H:i:s');
-						$attatch_mod->add($file);
-						$aid_arr[] = mysql_insert_id();
-			        }
-			        $data['aid'] = implode(',', $aid_arr);
-			    }
+			 $upload_list = $this->_upload();
+		    if ($_FILES['img']['name']!='') {
+		    	//只有图片不为空时
+		        $data['img'] = $upload_list['0']['savename'];
+		    } 
+		    if ($_FILES['attachment']['name'][0]!='') {
+			    array_shift($upload_list);
+			    $aid_arr = array();
+		        foreach ($upload_list as $att) {
+		            $file['title'] = $att['name'];
+		            $file['filetype'] = $att['extension'];
+				    $file['filesize'] = $att['size'];
+				    $file['url'] = $att['savename'];
+				    $file['uptime'] = date('Y-m-d H:i:s');
+				    $file['aid']=$_POST['id'];
+				    $attatch_mod->add($file);
+				  /*  if ($attatch_mod->add($file)) {
+				   		$this->error('上传附件出现问题！');
+				   }  */
+		        }
 			}
 			//$data['add_time']=date('Y-m-d H:i:s',time());
 			$result = $article_mod->add($data);
@@ -273,7 +259,7 @@ class ArticleAction extends BaseAction
     	import("ORG.Net.UploadFile");
         $upload = new UploadFile();
         //设置上传文件大小
-        $upload->maxSize = 3292200;
+        $upload->maxSize = 13292200;
         //$upload->allowExts = explode(',', 'jpg,gif,png,jpeg');
         $upload->savePath = './data/news/';
 

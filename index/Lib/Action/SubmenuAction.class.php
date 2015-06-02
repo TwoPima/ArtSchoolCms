@@ -59,6 +59,12 @@ class SubmenuAction extends CommonAction {
 		//分类名称详细显示
 		$where2['id']=$_GET['id'];
 		$detail_cate = $menu_mod->where($where2)->select();
+		//附件下载
+		$attatch_mod = D('attatch');
+		$whereAtta['type']="0";
+		$whereAtta['aid']=$_GET['id'];
+		$attatch= $attatch_mod->where($whereAtta)->find();
+		$this->assign('attatch',$attatch);
 		
 		$getNowHere=$this->getNowHere($result_se[0]['cate_id']);
 		

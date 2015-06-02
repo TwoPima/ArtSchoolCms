@@ -71,7 +71,12 @@ class MasterAction extends CommonAction {
 		$cate_where['id']=$result_se[0]['cate_id'];
 		$cate_where['status']="1";
 		$result_cate = $menu_mod->where($cate_where)->order('sort_order ASC')->select();
-	
+		//附件下载
+		$attatch_mod = D('attatch');
+		$whereAtta['type']="1";
+		$whereAtta['aid']=$_GET['id'];
+		$attatch= $attatch_mod->where($whereAtta)->find();
+		$this->assign('attatch',$attatch);
 	
 		$this->assign('mainleft_cate_list',$result_cate);
 	

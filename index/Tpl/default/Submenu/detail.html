@@ -19,6 +19,13 @@
 							{$detail[0]['info']}
 							</p>
 						</div>
+						<div class="attach">
+						<empty name="{$attatch['id']}">
+							没有附件
+							 <else/>
+							 <a>附件下载：{$attatch['title']}</a>
+						 </empty>
+						</div>
 						<div class="paging_next">
 								<span class="paging_left"><a href="__APP__/Submenu/detail?id={$front.id}&mo=Article">{$front.title}</a></span>
 								<span class="paging_right"><a href="__APP__/Submenu/detail?id={$after.id}&mo=Article">{$after.title}</a></span>

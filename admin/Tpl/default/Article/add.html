@@ -98,6 +98,15 @@ $(function(){
               &nbsp;待审核
               </td>
           </tr>
+        <tr class="onlyArtcle">
+        <th width="100">{:L('attach')}:</th>
+        <td>
+       		<input type="file" name="attachment" id="attachment" class="input-text"  />
+            <if condition="$attatch['title'] neq ''">
+            <a href="">{$attatch.title}</a><!--__URL__/downAttatch?id={$attatch.id}  -->
+            </if>
+        </td>
+      </tr>
         </table>
       </div>
       

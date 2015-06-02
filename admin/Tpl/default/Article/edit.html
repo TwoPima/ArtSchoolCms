@@ -121,12 +121,12 @@ $(function(){
 			<tpl:editor id="info" name="info" type="KINDEDITOR" style="width:70%;height:350px;" >{$article.info}</tpl:editor>
 		</td>
       </tr>
-       <tr>
+       <tr class="onlyArtcle">
         <th width="100">{:L('attach')}:</th>
         <td>
        		<input type="file" name="attachment" id="attachment" class="input-text"  />
-            <if condition="$article['title'] neq ''">
-            <br /><a href="">{$article.title}</a>
+            <if condition="$attatch['title'] neq ''">
+            <a href="">{$attatch.title}</a><!--__URL__/downAttatch?id={$attatch.id}  -->
             </if>
         </td>
       </tr>
