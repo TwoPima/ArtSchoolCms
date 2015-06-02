@@ -5,38 +5,22 @@
 */
 class CoirseAction extends CommonAction {
 public function index(){
-		//加载头部导航信息
 		$mod_cate_list=M('Coirse_cate');
-		$re_cate_list=$mod_cate_list->where('pid=0')->order('sort_order ASC')->select();
-		/*
-	 * 进入后判断是否只有一条数据
-	 */
-		$catid=$_GET['id'];
 		$model=M('Coirse');
-		if (empty($catid)) {
-			$whereId=$mod_cate_list->where('pid=0')->field("id")->order('sort_order ASC')->find();
-			$count =$model->where('cate_id='.$whereId['id'])->count();
-			$article_list=$model->where('cate_id='.$whereId['id'])->order('ordid ASC')->select();
-		}else {
-			$whereArt['cate_id']=$catid;
-			$count =$model->where($whereArt)->count();
-			$article_list=$model->where($whereArt)->order('ordid ASC')->select();
-		}
-		$page = new Page($count,10);
+		//加载头部导航信息
+		$re_cate_list=$mod_cate_list->where('pid=0')->order('sort_order ASC')->select();
+		//视频课件提取
+		$whereArt['type']="1";
+		$count =$model->where($whereArt)->count();
+		$video_list=$model->where($whereArt)->order('ordid ASC')->select();
+		$page = new Page($count,9);
 		$showPage = $page->show();
 		
-		//分类名称详细显示一个
-		$detail_cate=$this->detailCatesingle($_GET['id'],Coirse);
-		
-		//左侧您现在的位置
-		$getNowHere=$this->secGetNowHere($_GET['id'],Coirse);
-		$this->assign('now_here',$getNowHere);
 		//专业提取
 		$prolist=M('Profession_cate')->where('status=1 AND pid=0')->order('sort_order ASC')->select();
 		
 
-		$this->assign('article_list',$article_list);
-		$this->assign('detail_cate',$detail_cate);
+		$this->assign('video_list',$video_list);
 		$this->assign("page", $showPage);
 		$this->assign('top_cate_list',$re_cate_list);
 		$this->assign('pro_list',$prolist);
@@ -81,10 +65,21 @@ public function index(){
 		$this->display();
 	}
 	public function proArtcleList(){
-		//根据专业操作
 		$mod_cate_list=M('Coirse_cate');
+		$model=M('Coirse');
+		//加载头部导航信息
 		$re_cate_list=$mod_cate_list->where('pid=0')->order('sort_order ASC')->select();
-		$this->assign('cate_list',$re_cate_list);
+		//专业提取
+		$prolist=$mod_cate_list->where('status=1 AND pid=0')->order('sort_order ASC')->select();
+		
+		//根据专提取信息
+		$where['pro_id']=$_GET['id'];
+		
+		$article_list=$model->where($where)->order('ordid ASC')->select();
+		
+		$this->assign("page", $showPage);
+		$this->assign('top_cate_list',$re_cate_list);
+		$this->assign('pro_list',$prolist);
 		$this->display();
 	}
 }

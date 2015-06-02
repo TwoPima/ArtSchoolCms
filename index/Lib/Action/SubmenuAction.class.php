@@ -25,6 +25,7 @@ class SubmenuAction extends CommonAction {
 		
 		//图片新闻
 		$where3['cate_id']=$_GET['pid'];
+		$where3['is_img']="1";
 		$detail_photo = $detail_mod->where($where3)->limit(1)->select();
 		
 		$getNowHere=$this->getNowHere($_GET['id']);

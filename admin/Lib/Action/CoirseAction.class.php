@@ -74,12 +74,14 @@ class CoirseAction extends BaseAction
 			if($data['pro_id']==0){
 				$this->error('请选择专业类别');
 			}
-		$upload_list = $this->_upload();
+			
 		    if ($_FILES['img']['name']!='') {
+		    	$upload_list = $this->_upload();
 		    	//只有图片不为空时
 		        $data['img'] = $upload_list['0']['savename'];
 		    } 
 		    if ($_FILES['attachment']['name'][0]!='') {
+		    	$upload_list = $this->_upload();
 			    array_shift($upload_list);
 			    $aid_arr = array();
 		        foreach ($upload_list as $att) {
@@ -132,13 +134,12 @@ class CoirseAction extends BaseAction
 		    	}
 		    }
 		    //专业提取
-		    $pro_cate_mod = D('Profession');
-		    $result_pro = $pro_cate_mod->order('sort_order ASC')->select();
+		    $pro_cate_mod = D('Profession_cate');
+		    $result_pro = $pro_cate_mod->where('pid=0')->order('sort_order ASC')->select();
 		    $pro_list = array();
 		    foreach ($result_pro as $val) {
 		    	$pro_list[]=$val;
 		    }
-		    
 			$article_info = $article_mod->where('id='.$article_id)->find();
 
 			//附件
@@ -169,12 +170,13 @@ class CoirseAction extends BaseAction
 			if(false === $data = $article_mod->create()){
 				$this->error($article_mod->error());
 			}
-			 $upload_list = $this->_upload();
 		    if ($_FILES['img']['name']!='') {
 		    	//只有图片不为空时
+		    	$upload_list = $this->_upload();
 		        $data['img'] = $upload_list['0']['savename'];
 		    } 
 		    if ($_FILES['attachment']['name'][0]!='') {
+		    	$upload_list = $this->_upload();
 			    array_shift($upload_list);
 			    $aid_arr = array();
 		        foreach ($upload_list as $att) {
@@ -217,8 +219,8 @@ class CoirseAction extends BaseAction
 	    	    }
 	    	}
 	    	//专业提取
-	    	$pro_cate_mod = D('Profession');
-	    	$result_pro = $pro_cate_mod->order('sort_order ASC')->select();
+	    	$pro_cate_mod = D('Profession_cate');
+	    	$result_pro = $pro_cate_mod->where('pid=0')->order('sort_order ASC')->select();
 	    	$pro_list = array();
 	    	foreach ($result_pro as $val) {
 	    		$pro_list[]=$val;
