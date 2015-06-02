@@ -15,10 +15,12 @@ class SubmenuAction extends CommonAction {
 	 	$detail_mod=M('Article');
 		$where1['cate_id']=$_GET['id'];
 		$where1['status']="1";
+		//分页显示
 		$count = $detail_mod->where($where1)->count();
 		$page = new Page($count,10);
 		$article_list = $detail_mod->where($where1)->limit($page->firstRow.','.$page->listRows)->order('add_time DESC,ordid ASC')->select();
 		$showPage = $page->show(); 
+		$this->assign("page", $showPage);
 	 	//分类名称详细显示
 		$where2['id']=$_GET['id'];
 		$detail_cate = $menu_mod->where($where2)->select();
@@ -34,7 +36,7 @@ class SubmenuAction extends CommonAction {
 		$this->assign('mainleft_cate_list',$result_cate);
 		$this->assign('article_list',$article_list);
 		$this->assign('detail_cate',$detail_cate);
-		$this->assign("page", $showPage);
+	
 	}
 	public function detail(){
 		$table=$_GET['mo'];

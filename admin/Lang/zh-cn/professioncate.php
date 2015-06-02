@@ -11,7 +11,7 @@ return array(
 	'STATUS'=>'审核',	
 	'in_site'=>'站内/站外',
 	'url'=>'外链地址',
-		'info'=>'介绍',
+		'INTRO'=>'介绍',
 		'img'=>'logo',
 		//部门相关菜单
 		

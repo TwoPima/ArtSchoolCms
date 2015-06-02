@@ -21,23 +21,15 @@ class DepartmentAction extends CommonAction {
 		$name_id= $dep_cate_con[0][id];
 		$this->assign('dep_cate_con',$dep_cate_con);
 		//右侧第的列表信息
+		//分页显示
 		$where_article_list['cate_id']="$name_id";
-		$article_list=$model->where($where_article_list)->order('add_time ASC')->select();
+		$count =$model->where($where_article_list)->count();
+		$page = new Page($count,10);
+		$article_list=$model->where($where_article_list)->limit($page->firstRow.','.$page->listRows)->order('add_time ASC')->select();
+		$showPage = $page->show();
+		$this->assign("page", $showPage);
 		$this->assign('article_list',$article_list);
 		$this->display();
-		/* 
-		//上一篇
-		$front=$model->where("id<".$_GET['id'])->order('id desc')->limit('1')->find();
-		if (empty($front)) {
-			$front="没有了！";
-		}
-		//下一篇
-		$after=$model->where("id>".$_GET['id'])->order('id desc')->limit('1')->find();
-		if (empty($after)) {
-			$after="没有了！";
-		}
-		$this->assign('front',$front);
-		$this->assign('after',$after); */
 	}
 		public function articleList(){
 		$table=$_GET['mo'];
@@ -57,11 +49,20 @@ class DepartmentAction extends CommonAction {
 		$getNowHere=$this->secGetNowHere($_GET['id'],$table);
 		$this->assign('now_here',$getNowHere);
 		//右侧第的列表信息
+		//分页显示
 		$where_article_list['cate_id']="$id";
-		$article_list=$model->where($where_article_list)->order('add_time ASC')->select();
+		$count =$model->where($where_article_list)->count();
+		/* dump($count);
+		exit(); */
+		$page = new Page($count,10);
+		$article_list=$model->where($where_article_list)->limit($page->firstRow.','.$page->listRows)->order('add_time ASC')->select();
+		$showPage = $page->show();
+		$this->assign("page", $showPage);
 		$this->assign('article_list',$article_list);
 		$this->display();
 }
+
+
 		public function detail(){
 		$table=$_GET['mo'];
 		$id=$_GET['id'];
@@ -73,7 +74,20 @@ class DepartmentAction extends CommonAction {
 		//正文部分
 		$detail=$model->where($where)->select();
 		$this->assign('detail',$detail);
-		$this->display();
+		//上一篇
+		$front=$model->where("id<".$_GET['id'])->order('id desc')->limit('1')->find();
+		if (empty($front)) {
+			$front="没有了！";
 		}
+		//下一篇
+		$after=$model->where("id>".$_GET['id'])->order('id desc')->limit('1')->find();
+		if (empty($after)) {
+			$after="没有了！";
+		}
+		$this->assign('front',$front);
+		$this->assign('after',$after);
+		
+		$this->display();
+}
 }
 ?>
