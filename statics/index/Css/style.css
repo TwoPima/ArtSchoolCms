@@ -558,9 +558,7 @@ input{
 }
 /*------主页完成------*/
 /*---------------------二级页面  开始------------------------*/
-#{
-	
-}
+
 .main_mid{
 	
 }
@@ -684,7 +682,7 @@ input{
 }
 
 
-
+/*-----------------------------------精品课程正文部门------------------------*/
 /*-----------------精品课程----------------------*/
 .sousuo_class{
 	margin-top:15px;
@@ -720,7 +718,6 @@ input{
 		width:70px;
 		border-color:#10646F;
 }
-/*-----------------------------------精品课程正文部门------------------------*/
 /* 精品课程头部 */
 #header_class{
 	background-image:url(../Image/top.jpg);
@@ -803,13 +800,14 @@ border-left:10px solid #10646F;
 	height:auto!important;
 	height:600px;
 	min-height:600px;
+	
 }
 .class_main_con h3{
 	line-height:40px;
 }
 .class_main_con_show {
 	overflow:hidden;
-}
+} 
 .class_main_con_show ul li{
 	width:258px;
 	height:220px;
