@@ -4,6 +4,7 @@
 // +----------------------------------------------------------------------
 */
 class CoirseAction extends CommonAction {
+	
 public function index(){
 		$mod_cate_list=M('Coirse_cate');
 		$model=M('Coirse');
@@ -18,8 +19,6 @@ public function index(){
 		
 		//专业提取
 		$prolist=M('Profession_cate')->where('status=1 AND pid=0')->order('sort_order ASC')->select();
-		
-
 		$this->assign('video_list',$video_list);
 		$this->assign("page", $showPage);
 		$this->assign('top_cate_list',$re_cate_list);

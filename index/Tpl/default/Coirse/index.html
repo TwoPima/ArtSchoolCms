@@ -21,16 +21,18 @@
 				<div class="class_main_con">
 						<h3>视觉传达</h3><hr>
 						<div class="class_main_con_show">
-							<ul>
+							<ul class="class_video_list">
 								<volist name="video_list" id='sval'>
 								<li>
+									<a href="{$sval.url}">
 									<img src="__ROOT__/statics/index/Image/class.jpg" alt="照片没出来">
 									<div class="class_main_con_into">
-										<p><b>{$sval.title}</b></p>
+										<p>{$sval.title|msubstr=0,15,'utf-8',false}></p>
 										<span class="class_main_con_into_left">{$sval.duty}</span>
 										<span class="class_main_con_into_right">{$sval.due_time}</span>
 									</div>
-									</li>
+									</a>
+								</li>
 								</volist>
 							</ul>
 						</div>

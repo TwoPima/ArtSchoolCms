@@ -806,9 +806,17 @@ border-left:10px solid #10646F;
 	line-height:40px;
 }
 .class_main_con_show {
-	overflow:hidden;
-} 
-.class_main_con_show ul li{
+	height:auto!important;
+	height:600px;
+	min-height:600px;
+}
+.class_video_list a{
+	color:#000;
+}
+.class_video_list a:hover{
+	color:#FFAD01;
+}
+.class_video_list li{
 	width:258px;
 	height:220px;
 	float:left;
@@ -816,12 +824,12 @@ border-left:10px solid #10646F;
 	margin-top:20px;
 	border:1px solid #C9C9C9;
 }
-.class_main_con_show img{
+.class_video_list li img{
 	width:100%;
 	height:145px;
 }
-.class_main_con_show p{
-	font-size:17px;
+.class_video_list li p{
+	font-size:14px;
 	line-height:40px;
 	text-align:center;
 }
@@ -840,34 +848,34 @@ border-left:10px solid #10646F;
 /*------------------------精品课程article state---------------------------*/
 
 /*精品课程列表*/
-.class_main_con ul{
-
+.class_article_list{
+	
 }
-.class_main_con ul li{
+.class_article_list li{
 	height:40px;
 	font-size:15px;
 	padding-left:15px;
 	margin-top:1px;
 }
-.class_main_con ul li img{
+.class_article_list li img{
 		margin-right:10px;
 		width:13px;
 		height:13px;
 }
-.class_main_con a{
+.class_article_list a{
 	font-size:14px;
 	height:30px;
 	line-height:30px;
 	color:#000;
 }
-.class_main_con a:hover{
+.class_article_list a:hover{
 	font-weight:bold;
 	color:#FEAF00;
 }
-.class_main_list_right{
+.class_article_list_right{
 	float:right;
 	font-size:14px;
-}
+} */
 /*------------------------精品课程article end---------------------------*/
 
 
