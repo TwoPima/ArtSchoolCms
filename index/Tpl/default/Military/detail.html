@@ -19,9 +19,21 @@
 				</div>
 		</div>
 		<div class="paging_next">
-			<span class="paging_left"><a href="__APP__/Military/detail?id={$front.id}&mo=Military">{$front.title}</a></span>
-			<span class="paging_right"><a href="__APP__/Military/detail?id={$after.id}&mo=Military">{$after.title}</a></span>
-		</div>
+								<span class="paging_left">
+								<if condition="$front.id eq ''">
+									没有文章了！
+									<else/>
+									<a href="__URL__/detail?id={$front.id}">{$front.title}</a>
+								 </if>
+								</span>
+								<span class="paging_right">
+								<if condition="$after.id eq ''">
+									没有文章了！
+								<else/>
+								<a href="__URL__/detail?id={$after.id}">{$after.title}</a>
+								</if>
+								</span>
+						</div>
 	</div>
 </div>
 <include file="Public:footer"/>
