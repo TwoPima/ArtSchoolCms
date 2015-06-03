@@ -64,22 +64,52 @@ public function index(){
 		$this->assign('detail',$result_se);
 		$this->display();
 	}
-	public function proArtcleList(){
+	public function articleList(){
+		$mod_cate_list=M('Coirse_cate');
+		$model=M('Coirse');
+		//加载头部导航信息
+		$re_cate_list=$mod_cate_list->where('pid=0')->order('sort_order ASC')->select();
+		//左边分类提取
+		$wherPro['id']=$_GET['id'];
+		$prolist=$mod_cate_list->where($wherPro)->order('sort_order ASC')->find();
+		
+		//提取信息
+		$where['id']=$_GET['id'];
+		$where['status']="1";
+		$article_list=$model->where($where)->order('ordid ASC')->select();
+		$count =$model->where($where)->count();
+		$page = new Page($count,10);
+		$showPage = $page->show();
+		
+		$this->assign('page', $showPage);
+		$this->assign('top_cate_list',$re_cate_list);
+		$this->assign('pro_list',$prolist);
+		$this->assign('article_list',$article_list);
+		$this->display();
+	}
+	public function proArticleList(){
 		$mod_cate_list=M('Coirse_cate');
 		$model=M('Coirse');
 		//加载头部导航信息
 		$re_cate_list=$mod_cate_list->where('pid=0')->order('sort_order ASC')->select();
 		//专业提取
-		$prolist=$mod_cate_list->where('status=1 AND pid=0')->order('sort_order ASC')->select();
-		
+		$wherPro['id']=$_GET['id'];
+		$pro_mod=M('Profession_cate');
+		$prolist=$pro_mod->where($wherPro)->order('sort_order ASC')->find();
+	
+	
 		//根据专提取信息
 		$where['pro_id']=$_GET['id'];
-		
+		$where['status']="1";
 		$article_list=$model->where($where)->order('ordid ASC')->select();
-		
+		$count =$model->where($where)->count();
+		$page = new Page($count,10);
+		$showPage = $page->show();
+	
 		$this->assign("page", $showPage);
 		$this->assign('top_cate_list',$re_cate_list);
 		$this->assign('pro_list',$prolist);
+		$this->assign('article_list',$article_list);
 		$this->display();
 	}
 }

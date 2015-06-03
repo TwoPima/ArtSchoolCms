@@ -45,15 +45,9 @@ class SubmenuAction extends CommonAction {
 		$where['id']=$_GET['id'];
 		$result_se=$model->where($where)->select();
 		//上一篇
-		$front=$model->where("id<".$_GET['id'])->order('id desc')->limit('1')->find();
-		if (empty($front)) {
-			$front="没有了！";
-		}
+		$front=$model->where("id<".$_GET['id'])->order('id desc')->find();
 		//下一篇
-		$after=$model->where("id>".$_GET['id'])->order('id desc')->limit('1')->find();
-		if (empty($after)) {
-			$after="没有了！";
-		}
+		$after=$model->where("id>".$_GET['id'])->order('id desc')->find();
 		//分类列表
 		$menu_mod = M('Article_cate');
 		$cate_where['id']=$result_se[0]['cate_id'];
