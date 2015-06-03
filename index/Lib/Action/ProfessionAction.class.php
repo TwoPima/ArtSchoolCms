@@ -47,15 +47,9 @@ class ProfessionAction extends CommonAction {
 		$this->assign('detail_cate',$detail_cate);
 		
 		//上一篇
-		$front=$model->where("id<".$_GET['id'])->order('id desc')->limit('1')->find();
-		if (empty($front)) {
-			$front="没有了！";
-		}
+		$front=$model->where("id<".$_GET['id'])->order('id desc')->find();
 		//下一篇
-		$after=$model->where("id>".$_GET['id'])->order('id desc')->limit('1')->find();
-		if (empty($after)) {
-			$after="没有了！";
-		}
+		$after=$model->where("id>".$_GET['id'])->order('id desc')->find();
 		$this->assign('front',$front);
 		$this->assign('after',$after);
 		$this->assign('detail',$result_se);
