@@ -1,5 +1,16 @@
 <tagLib name="tpl" />
 <include file="Public:header" />
+<script type="text/javascript">	
+/* $(function(){
+	 $("#is_img").click(function(){  
+			$(".onlyArtcle").hide();
+	  });    
+	 $("#is_img2").click(function(){  
+				$(".onlyArtcle").show();
+		  });  
+})
+ */
+</script>
 <form action="{:u('Teacher/edit')}" method="post" name="myform" id="myform" enctype="multipart/form-data" style="margin-top:10px;">
   <div class="pad-10">
   <div class="col-tab">
@@ -10,13 +21,20 @@
         <td><input type="text" name="name" id="name" class="input-text" size="60" value="{$Teacher.name}"></td>
       </tr>
          <tr>
-       	<th>{:L('type')}：</th>
+       	<th>{:L('is_leader')}：</th>
        	<td>
-           	<input type="checkbox" name="type" id="type" value="1" <if condition="$Teacher['type'] eq '1'">checked="checked"</if>>  &nbsp;领导&nbsp;&nbsp;&nbsp;
-               <input type="checkbox" name="type"   id="type" value="0"<if condition="$Teacher['type'] eq '0'">checked="checked"</if>>  &nbsp;教师
+           	<input type="radio" name="is_leader" id="is_leader" value="1" <if condition="$Teacher['is_leader'] eq '1'">checked="checked"</if>>  &nbsp;是&nbsp;&nbsp;&nbsp;
+               <input type="radio" name="is_leader"   id="is_leader" value="0"<if condition="$Teacher['is_leader'] eq '0'">checked="checked"</if>>  &nbsp;否
            </td>
         </tr>
-         <TR>
+          <tr>
+       	<th>{:L('is_teacher')}：</th>
+       	<td>
+           	<input type="radio" name="is_teacher" id="is_teacher" value="1" <if condition="$Teacher['is_teacher'] eq '1'">checked="checked"</if>>  &nbsp;是&nbsp;&nbsp;&nbsp;
+               <input type="radio" name="is_teacher"   id="is_teacher" value="0"<if condition="$Teacher['is_teacher'] eq '0'">checked="checked"</if>>  &nbsp;否
+           </td>
+        </tr>
+         <TR class="onlyArtcle">
         <th width="100">{:L('position')} :</th>
         <td><input type="text" name="position" id="position" class="input-text" size="60" value="{$Teacher.position}"></td>
       </tr>
@@ -40,8 +58,8 @@
        <tr>
         	<th>{:L('status')}：</th>
         	<td>
-            	<input type="checkbox" name="status" id="status" value="1" <if condition="$Teacher['status'] eq '1'">checked="checked"</if>>  &nbsp;已审核&nbsp;&nbsp;&nbsp;
-                <input type="checkbox" name="status" id="status" value="0" <if condition="$Teacher['status'] eq '0'">checked="checked"</if>>  &nbsp;待审核
+            	<input type="radio" name="status" id="status" value="1" <if condition="$Teacher['status'] eq '1'">checked="checked"</if>>  &nbsp;已审核&nbsp;&nbsp;&nbsp;
+                <input type="radio" name="status" id="status" value="0" <if condition="$Teacher['status'] eq '0'">checked="checked"</if>>  &nbsp;待审核
             </td>
           </tr>
       <tr>

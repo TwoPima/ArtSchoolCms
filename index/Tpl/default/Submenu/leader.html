@@ -1,0 +1,47 @@
+<include file="Public:header"/>
+<!-- photo start -->
+<div id="photo">
+	<div class="container">
+			<img src="Image/teacher.jpg" alt="tuqian">
+	</div>
+</div>
+<!-- photo end -->
+<!-- mian  start -->
+<div id="main">
+	<div class="container clearfix">
+				<include file="Public:mainleft"/>
+				<div class="main_con" id="main_con">
+						<div class="main_con_title">
+								<span class="span1">现任领导</span>
+								<span class="span2">Current Ieader ship</span>
+						</div>
+						<div class="main_con_con">
+								<div class="leader_main">
+									<volist name="teaList" id='sval'>
+										<div class="leader">
+											<div class="leader_photo">
+												<img src="Image/leader.jpg" alt="习大大">
+											</div>
+												<div class="leader_intro">
+													<div class="leader_intro_title">
+														<span class="leader_intro_name"><b>{$sval.name}</b></span>
+														<span class="leader_intro_position">{$sval.position}</span>
+													</div>
+													<div class="leader_intro_con">
+														<div class="intro_con">个人简介</div>
+														<div class="intro_con_main">
+															{$sval.intro}
+															<br>
+															办公电话:	{$sval.phone}
+														</div>
+													</div>
+												</div>
+										</div>
+										</volist>
+								</div>			
+						</div><!-- ./main_con_con -->
+				</div>
+	</div>
+</div>
+<!-- mian  end -->
+<include file="Public:footer"/>

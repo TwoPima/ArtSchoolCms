@@ -18,14 +18,19 @@
             <td><input type="text" name="phone" id="phone" class="input-text" size="60"></td>
           </tr>
           <tr>
-            <th>{:L('type')} :</th>
-            <td>
-            	<input type="radio" name="type" class="radio_style" value="0" checked="checked">
-              		&nbsp;教师&nbsp;&nbsp;&nbsp;
-              	<input type="radio" name="type" class="radio_style" value="1" >
-              		&nbsp;领导
-              </td>
-          </tr>
+       	<th>{:L('is_leader')}：</th>
+       	<td>
+           	<input type="radio" name="is_leader" id="is_leader" value="1" <if condition="$Teacher['is_leader'] eq '1'">checked="checked"</if>>  &nbsp;是&nbsp;&nbsp;&nbsp;
+               <input type="radio" name="is_leader"   id="is_leader" value="0"<if condition="$Teacher['is_leader'] eq '0'">checked="checked"</if>>  &nbsp;否
+           </td>
+        </tr>
+          <tr>
+       	<th>{:L('is_teacher')}：</th>
+       	<td>
+           	<input type="radio" name="is_teacher" id="is_teacher" value="1" <if condition="$Teacher['is_teacher'] eq '1'">checked="checked"</if>>  &nbsp;是&nbsp;&nbsp;&nbsp;
+               <input type="radio" name="is_teacher"   id="is_teacher" value="0"<if condition="$Teacher['is_teacher'] eq '0'">checked="checked"</if>>  &nbsp;否
+           </td>
+        </tr>
           <tr>
           	<th>{:L('img')} :</th>
             <td><input type="file" name="img" id="img" class="input-text"  style="width:200px;" /></td>

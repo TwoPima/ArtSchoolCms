@@ -4,40 +4,55 @@
 // +----------------------------------------------------------------------
 */
 class SubmenuAction extends CommonAction {
-	public function _before_index(){
+	public function index(){
 		//分类列表
 		$menu_mod = M('Article_cate');
 		$where['pid']=$_GET['pid'];
 		$where['status']="1";
 		$result_cate = $menu_mod->where($where)->order('sort_order ASC')->select();
+		$this->assign('mainleft_cate_list',$result_cate);
 		
 		//资讯列表
 	 	$detail_mod=M('Article');
 		$where1['cate_id']=$_GET['id'];
 		$where1['status']="1";
-		//分页显示
-		$count = $detail_mod->where($where1)->count();
-		$page = new Page($count,10);
-		$article_list = $detail_mod->where($where1)->limit($page->firstRow.','.$page->listRows)->order('add_time DESC,ordid ASC')->select();
-		$showPage = $page->show(); 
-		$this->assign("page", $showPage);
-	 	//分类名称详细显示
-		$where2['id']=$_GET['id'];
-		$detail_cate = $menu_mod->where($where2)->select();
-		
 		//图片新闻
 		$where3['cate_id']=$_GET['pid'];
 		$where3['is_img']="1";
 		$detail_photo = $detail_mod->where($where3)->limit(1)->select();
-		
-		$getNowHere=$this->getNowHere($_GET['id']);
-		
-		$this->assign('now_here',$getNowHere);
 		$this->assign('detail_photo',$detail_photo);
-		$this->assign('mainleft_cate_list',$result_cate);
-		$this->assign('article_list',$article_list);
-		$this->assign('detail_cate',$detail_cate);
-	
+		$getNowHere=$this->getNowHere($_GET['id']);
+		$this->assign('now_here',$getNowHere);
+		//判断是否是师资队伍和现任领导
+		$where_tea_lea['id']=$_GET['id'];
+		$cate_tea_lea = $menu_mod->where($where_tea_lea)->find();
+		if ($cate_tea_lea['alias']=="teacher") {
+			$mod_tea_leader=M('Teacher');
+			$whereTeaLeader['is_teacher']="1";
+			$re_tea=$mod_tea_leader->where($whereTeaLeader)->order('ordid ASC')->select();
+			$this->assign('teaList',$re_tea);
+			$this->display('teacher');
+		}elseif ($cate_tea_lea['alias']=="leader"){
+			$mod_tea_leader=M('Teacher');
+			$whereTeaLeader['is_leader']="1";
+			$re_tea=$mod_tea_leader->where($whereTeaLeader)->order('ordid ASC')->select();
+			$this->assign('teaList',$re_tea);
+			$this->display('leader');
+		}else {
+			//分页显示
+			$count = $detail_mod->where($where1)->count();
+			$page = new Page($count,10);
+			$article_list = $detail_mod->where($where1)->limit($page->firstRow.','.$page->listRows)->order('add_time DESC,ordid ASC')->select();
+			$showPage = $page->show();
+			$this->assign("page", $showPage);
+			//分类名称详细显示
+			$where2['id']=$_GET['id'];
+			$detail_cate = $menu_mod->where($where2)->select();
+			
+			$this->assign('detail_cate',$detail_cate);
+			$this->assign('article_list',$article_list);
+		}
+		
 	}
 	public function detail(){
 		$table=$_GET['mo'];
@@ -75,15 +90,15 @@ class SubmenuAction extends CommonAction {
 		$this->display();
 	}
 	public function showFirstMenu(){
-		//分类列表
 		$menu_mod = M('Article_cate');
+		
 		$where['pid']=$_GET['pid'];
 		$re_only_menu=$menu_mod->where($where)->count();//判别是否只有一个菜单
 		if ($re_only_menu == "0") {
 			$this->redirect("Index/index");
 		}else {
+			//分类列表
 			$result_cate = $menu_mod->where($where)->order('sort_order ASC')->select();
-
 			//资讯列表
 			$detail_mod=M('Article');
 			$where1['cate_id']=$_GET['id'];
@@ -92,12 +107,14 @@ class SubmenuAction extends CommonAction {
 			$page = new Page($count,10);
 			$article_list = $detail_mod->where($where1)->limit($page->firstRow.','.$page->listRows)->order('add_time DESC,ordid ASC')->select();
 			$showPage = $page->show();
+			
 			//分类名称详细显示
 			$where2['id']=$_GET['id'];
 			$detail_cate = $menu_mod->where($where2)->select();
 			
 			//图片新闻
 			$where3['cate_id']=$_GET['pid'];
+			$where3['is_img']="1";
 			$detail_photo = $detail_mod->where($where3)->limit(1)->select();
 			
 			$getNowHere=$this->getNowHere($_GET['id']);
