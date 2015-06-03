@@ -20,11 +20,11 @@
 							</p>
 						</div>
 						<div class="attach">
-							<empty name="$attatch['id']">
-								没有附件!!
-								 <else/>
+							<if condition="$attatch.id eq ''">
+									没有附件
+								<else/>
 								 <a href="__URL__/download">附件下载：{$attatch['title']}我爱你</a>
-							 </empty>
+							 </if>
 						</div>
 						<div class="paging_next">
 								<span class="paging_left">
