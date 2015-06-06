@@ -75,40 +75,31 @@ class CoirseAction extends BaseAction
 				$this->error('请选择专业类别');
 			}
 			
-		    if ($_FILES['img']['name']!='') {
-		    	$upload_list = $this->_upload();
-		    	//只有图片不为空时
-		        $data['img'] = $upload_list['0']['savename'];
-		    } 
-		    if ($_FILES['attachment']['name'][0]!='') {
-		    	$upload_list = $this->_upload();
-			    array_shift($upload_list);
-			    $aid_arr = array();
-		        foreach ($upload_list as $att) {
-		            $file['title'] = $att['name'];
-		            $file['filetype'] = $att['extension'];
-				    $file['filesize'] = $att['size'];
-				    $file['url'] = $att['savename'];
-				    $file['uptime'] = date('Y-m-d H:i:s');
-				    $file['aid']=$_POST['id'];
-				    $whereAtta['type']="5";
-				    $whereAtta['aid']=$_POST['id'];
-				    $attatch= $attatch_mod->where($whereAtta)->find();
-				    if ($attatch) {
-				    	//看是否已经存在;
-				    	$attatch_mod->where($whereAtta)->save($file);
-				    	/* if ($attatch_mod->where('aid='.$_POST['id'])->save($file)) {
-				    		$this->error('上传附件出现问题！');
-				    	} */
-				    }else {
-				    	//如果不存在直接添加；
-				    	$file['type']="5";
-				    	$attatch_mod->add($file);
-				    	/* if ($attatch_mod->add($file)) {
-				    		$this->error('上传附件出现问题！');
-				    	} */
-				    }
-		        }
+			if(!empty($_FILES['img']['name'])||!empty($_FILES['attachment']['name'])){
+				$upload_list = $this->_upload();
+				if ($_FILES['img']['name']!='') {
+					//只有图片不为空时
+					$data['img'] = $upload_list['0']['savename'];
+				}
+				if ($_FILES['attachment']['name']!='') {
+					$file['title'] = $upload_list[0]['name'];
+					$file['filetype'] = $upload_list[0]['extension'];
+					$file['filesize'] = $upload_list[0]['size'];
+					$file['url'] = $upload_list[0]['savename'];
+					$file['uptime'] = date('Y-m-d H:i:s');
+					$file['aid']=$_POST['id'];
+					$attatch= $attatch_mod->where('aid='.$_POST['id'])->find();
+					if ($attatch) {
+						//看是否已经存在;
+						$attatch_mod->where('aid='.$_POST['id'])->save($file);
+						/* if ($attatch_mod->where('aid='.$_POST['id'])->save($file)) {
+						 $this->error('上传附件出现问题！');
+						} */
+					}else {
+						//如果不存在直接添加；
+						$re_atta_add=$attatch_mod->add($file);
+					}
+				}
 			}
 			$result = $article_mod->save($data);
 			if(false !== $result){
@@ -170,32 +161,28 @@ class CoirseAction extends BaseAction
 			if(false === $data = $article_mod->create()){
 				$this->error($article_mod->error());
 			}
-		    if ($_FILES['img']['name']!='') {
-		    	//只有图片不为空时
-		    	$upload_list = $this->_upload();
-		        $data['img'] = $upload_list['0']['savename'];
-		    } 
-		    if ($_FILES['attachment']['name'][0]!='') {
-		    	$upload_list = $this->_upload();
-			    array_shift($upload_list);
-			    $aid_arr = array();
-		        foreach ($upload_list as $att) {
-		            $file['title'] = $att['name'];
-		            $file['filetype'] = $att['extension'];
-				    $file['filesize'] = $att['size'];
-				    $file['url'] = $att['savename'];
-				    $file['uptime'] = date('Y-m-d H:i:s');
-				    $file['aid']=$_POST['id'];
-				    $file['type']="5";//精品课程类型
-				    $attatch_mod->add($file);
-				  /*  if ($attatch_mod->add($file)) {
-				   		$this->error('上传附件出现问题！');
-				   }  */
-		        }
-			}
-		//	$data['add_time']=date('Y-m-d H:i:s',time());
-			$result = $article_mod->add($data);
-			if($result){
+		if(!empty($_FILES['img']['name'])||!empty($_FILES['attachment']['name'])){
+				$upload_list = $this->_upload();
+				if ($_FILES['img']['name']!='') {
+					//只有图片不为空时
+					$data['img'] = $upload_list['0']['savename'];
+				}
+				$result = $article_mod->add($data);
+				if($result){
+					if ($_FILES['attachment']['name'][0]!='') {
+						$file['title'] = $upload_list[0]['name'];
+						$file['filetype'] = $upload_list[0]['extension'];
+						$file['filesize'] = $upload_list[0]['size'];
+						$file['url'] = $upload_list[0]['savename'];
+						$file['uptime'] = date('Y-m-d H:i:s');
+						$file['aid']=$result;
+						$attatch_mod->add($file);
+						/*  if ($attatch_mod->add($file)) {
+						 $this->error('上传附件出现问题！');
+						}  */
+					}
+				}
+				
 				$cate = M('Coirse_cate')->field('id,pid')->where("id=".$data['cate_id'])->find();
 				if( $cate['pid']!=0 ){
 					M('Coirse_cate')->where("id=".$cate['pid'])->setInc('article_nums');

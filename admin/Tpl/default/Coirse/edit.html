@@ -79,7 +79,9 @@ $(function(){
             <volist name="pro_list" id="val">
               <option <if condition="$article['pro_id'] eq $val['id']"> selected="selected" </if> value="{$val.id}">{$val.name}</option>
             </volist>
-          </select></td>
+          </select>
+              <span style="color:red;">{:L('tips')} :1、附件上传填写:无须填写链接地址、摘要、详细内容（默认是文档资讯类型即可）,标题名称必须为文档名称；</span> 
+          </td>
       </tr>
       <tr>
           <th>{:L('orig')} :</th>

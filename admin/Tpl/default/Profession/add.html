@@ -5,6 +5,12 @@ $(function(){
 	$("#add_attatch").click(function(){
 	$("#attatch_tr").clone().prependTo($("#attatch_tr").parent());
 	});
+	 $("#is_img").click(function(){  
+			$(".onlyArtcle").hide();
+	  });    
+	 $("#is_img2").click(function(){  
+				$(".onlyArtcle").show();
+		  });  
 })
 </script>
 <form action="{:u('Profession/add')}" method="post" name="myform" id="myform"  enctype="multipart/form-data" style="margin-top:10px;">
@@ -24,6 +30,14 @@ $(function(){
             <th width="100">{:L('url')}:</th>
             <td><input type="text" name="url" id="url" class="input-text" size="60"></td>
           </tr>
+           <tr>
+        <th>{:L('is_img')} :</th>
+        <td id="imgTitle"><input id="is_img" type="radio" name="is_img" class="radio_style" value="1" <if condition="$article.is_img eq 1"> checked</if>>
+          &nbsp;图片(导航新闻)&nbsp;&nbsp;&nbsp;
+          <input type="radio" id="is_img2"  name="is_img" class="radio_style" value="0" <if condition="$article.is_img eq 0">  checked</if>>
+          &nbsp;发布文章
+          </td>
+      </tr>
           <tr>
             <th>{:L('cate_id')}:</th>
             <td><select name="cate_id" id="cate_id" style="width:200px;">
@@ -51,11 +65,11 @@ $(function(){
           	<th>{:L('img')} :</th>
             <td><input type="file" name="img" id="img" class="input-text"  style="width:200px;" /></td>
           </tr>
-          <tr>
+          <tr class="onlyArtcle">
             <th>{:L('abst')} :</th>
             <td><textarea name="abst" id="abst" style="width:68%;height:50px;"></textarea></td>
           </tr>
-           <tr>
+           <tr class="onlyArtcle">
             <th>{:L('info')} :</th>
             <td>            	
 				<tpl:editor id="info" name="info" type="KINDEDITOR" style="width:70%;height:350px;" ></tpl:editor>

@@ -166,10 +166,11 @@ class ArticleAction extends BaseAction
 						$file['uptime'] = date('Y-m-d H:i:s');
 						$file['aid']=$result;
 						$attatch_mod->add($file);
-						/*  if ($attatch_mod->add($file)) {
-						 $this->error('上传附件出现问题！');
-						}  */
 					}
+				}
+			}else {
+				$result = $article_mod->add($data);
+				if($result){
 					$cate = M('article_cate')->field('id,pid')->where("id=".$data['cate_id'])->find();
 					if( $cate['pid']!=0 ){
 						M('article_cate')->where("id=".$cate['pid'])->setInc('article_nums');
@@ -177,10 +178,7 @@ class ArticleAction extends BaseAction
 					}else{
 						M('article_cate')->where("id=".$data['cate_id'])->setInc('article_nums');
 					}
-					
 					$this->success('添加成功');
-			}
-		  
 			}else{
 				$this->error('添加失败');
 			}
