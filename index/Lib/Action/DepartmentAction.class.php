@@ -9,9 +9,16 @@ class DepartmentAction extends CommonAction {
 		$id=$_GET['id'];
 		$model=M($table);
 		$cate_name_model=M($table.'_'.'cate');
+		//图片新闻
+		$where3['cate_id']=$_GET['id'];
+		$where3['is_img']="1";
+		$detail_photo = $model->where($where3)->limit(1)->select();
+		$this->assign('detail_photo',$detail_photo);
 		//提出左侧导航列表
 		$where_menu['pid']="$id";
+		$where_menu['in_site']="0";
 		$dep_cate_list = $cate_name_model->where($where_menu)->order('sort_order ASC')->select();
+		dump($dep_cate_list);
 		$this->assign('dep_cate_list',$dep_cate_list);
 		//左侧您现在的位置
 		$getNowHere=$this->secGetNowHere($_GET['id'],$table);

@@ -14,6 +14,7 @@ class SubmenuAction extends CommonAction {
 		
 		//资讯列表
 	 	$detail_mod=M('Article');
+	 	$where1['is_img'] = "0";
 		$where1['cate_id']=$_GET['id'];
 		$where1['status']="1";
 		//图片新闻
@@ -21,6 +22,7 @@ class SubmenuAction extends CommonAction {
 		$where3['is_img']="1";
 		$detail_photo = $detail_mod->where($where3)->limit(1)->select();
 		$this->assign('detail_photo',$detail_photo);
+		//您现在的位置
 		$getNowHere=$this->getNowHere($_GET['id']);
 		$this->assign('now_here',$getNowHere);
 		//判断是否是师资队伍和现任领导
@@ -82,6 +84,17 @@ class SubmenuAction extends CommonAction {
 		$cate_where['id']=$result_se[0]['cate_id'];
 		$cate_where['status']="1";
 		$result_cate = $menu_mod->where($cate_where)->order('sort_order ASC')->select();
+		//图片显示
+		$where_photo['id']=$result_se[0]['cate_id'];
+		//$where_photo['is_img']="1";
+	
+		$detail_photo = $menu_mod->where($where_photo)->select();
+		$where_photo1['id']=$detail_photo[0]['pid'];
+		$photo = $menu_mod->where($where_photo1)->select();
+		$where_photo2['cate_id']=$photo[0]['id'];
+		$photo1 = $model->where($where_photo2)->select();
+		dump($photo1);
+		$this->assign('detail_photo',$photo1);
 		//分类名称详细显示
 		$where2['id']=$_GET['id'];
 		$detail_cate = $menu_mod->where($where2)->select();
@@ -112,11 +125,14 @@ class SubmenuAction extends CommonAction {
 			$this->redirect("Index/index");
 		}else {
 			//分类列表
+			$where['in_site']="0";
 			$result_cate = $menu_mod->where($where)->order('sort_order ASC')->select();
+			dump($result_cate);
 			//资讯列表
 			$detail_mod=M('Article');
 			$where1['cate_id']=$_GET['id'];
 			$where1['status']="1";
+			$where1['is_img'] = "0";
 			$count = $detail_mod->where($where1)->count();
 			$page = new Page($count,10);
 			$article_list = $detail_mod->where($where1)->limit($page->firstRow.','.$page->listRows)->order('add_time DESC,ordid ASC')->select();

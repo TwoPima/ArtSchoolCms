@@ -10,6 +10,11 @@ class ProfessionAction extends CommonAction {
 		$cate_where['pid']=$_GET['pid'];
 		$cate_where['status']="1";
 		$left_cate_list = $cate_mod->where($cate_where)->order('sort_order ASC')->select();
+		//图片新闻
+		$pro_mod = M('Profession');
+		$where3['cate_id']=$_GET['pid'];
+		$detail_photo = $pro_mod->where($where3)->limit(1)->select();
+		$this->assign('detail_photo',$detail_photo);
 		//左侧您现在的位置
 		$getNowHere=$this->secGetNowHere($_GET['id'],Profession);
 		//提取专业介绍
