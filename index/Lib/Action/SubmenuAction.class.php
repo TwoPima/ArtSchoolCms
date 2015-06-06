@@ -29,8 +29,13 @@ class SubmenuAction extends CommonAction {
 		if ($cate_tea_lea['alias']=="teacher") {
 			$mod_tea_leader=M('Teacher');
 			$mod_pro=M('Profession_cate');
+			$Stus=D('Teacher');
 			
-		$zhuanye=$mod_pro->where('pid=0')->order('sort_order ASC')->select();
+			$arr=$Stus->relation(true)->select();
+			dump($arr);
+			exit();
+		/* $zhuanye=$mod_pro->where('pid=0')->order('sort_order ASC')->select();
+		dump($zhuanye);
 		foreach($zhuanye as $key=>$val){
 			$data[$key]['name']=$val['name'];
 				$whereTeaLeader['is_teacher']="1";
@@ -38,9 +43,8 @@ class SubmenuAction extends CommonAction {
 				$jiaoshi=$mod_tea_leader->where($whereTeaLeader)->select();
 			$data[$key]['name']=$jiaoshi;
 		}
-	dump($data);
-	exit();
-		
+
+		 */
 		$this->assign('teaList',$data);
 		
 		//页面代码
