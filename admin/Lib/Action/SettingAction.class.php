@@ -17,27 +17,7 @@ class SettingAction extends BaseAction
 			$upload_list = $this->upload('setting');
 			$data['data'] = $upload_list;
 			$setting_mod->where("name='site_logo'")->save($data);			
-		}	
-		if ($_FILES['master_logo']['name']!='') {
-			$upload_list = $this->upload('setting');
-			$data['data'] = $upload_list;
-			$setting_mod->where("name='master_logo'")->save($data);
-		}
-		if ($_FILES['institute_logo']['name']!='') {
-			$upload_list = $this->upload('setting');
-			$data['data'] = $upload_list;
-			$setting_mod->where("name='institute_logo'")->save($data);
-		}
-		if ($_FILES['class_logo']['name']!='') {
-			$upload_list = $this->upload('setting');
-			$data['data'] = $upload_list;
-			$setting_mod->where("name='class_logo'")->save($data);
-		}
-		if ($_FILES['military_logo']['name']!='') {
-			$upload_list = $this->upload('setting');
-			$data['data'] = $upload_list;
-			$setting_mod->where("name='military_logo'")->save($data);
-		}	
+		}		
 		$this->success('修改成功',U('Setting/index'));
 	}
 	function delMailLog(){		

@@ -104,7 +104,8 @@ class CommonAction extends Action {
    
     //文件下载
     public function download(){
-		$filename = $_SERVER[DOCUMENT_ROOT].__ROOT__.'/Public/Upload/download/'.$_GET['filename'];
+    	$site=$_GET['site'];
+		$filename = $_SERVER[DOCUMENT_ROOT].__ROOT__.'/data/'.$site.'/'.$_GET['filename'];
 		header("Content-type: application/octet-stream");  
 		header("Content-Length: ".filesize($filename));  
 		header("Content-Disposition: attachment; filename={$_GET['filename']}");	

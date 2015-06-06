@@ -25,9 +25,22 @@
 							{$detail[0]['info']}
 							</p>
 						</div>
-						<div class="paging"><!-- 大类分页 -->
-							<span class="paging_left"><a href="__APP__/Index/searchResult?id={$front.id}&mo=Article">{$front.title}</a></span>
-							<span class="paging_right"><a href="__APP__/Index/searchResult?id={$after.id}&mo=Article">{$after.title}</a></span>
+							<div class="paging_next">
+								<span class="paging_left">
+								<if condition="$front.id eq ''">
+									没有文章了！
+									<else/>
+									<a href="__URL__/searchResult?id={$front.id}&mo=Article">{$front.title}</a>
+								 </if>
+								</span>
+								
+								<span class="paging_right">
+								<if condition="$after.id eq ''">
+									没有文章了！
+								<else/>
+								<a href="__URL__/searchResult?id={$after.id}&mo=Article">{$after.title}</a>
+								</if>
+								</span>
 						</div>
 				</div>
 			</div>

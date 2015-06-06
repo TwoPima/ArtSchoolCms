@@ -19,11 +19,11 @@
 							{$detail[0]['info']}
 							</p>
 						</div>
-						<div class="attach">
+						<div class="attach" style="color:red;">
 							<if condition="$attatch.id eq ''">
 									没有附件
 								<else/>
-								 <a href="__URL__/download">附件下载：{$attatch['title']}我爱你</a>
+								 <a href="__URL__/download?filename={$attatch['url']}&site=news">附件下载：{$attatch['title']}</a>
 							 </if>
 						</div>
 						<div class="paging_next">

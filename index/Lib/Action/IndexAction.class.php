@@ -40,9 +40,16 @@ class IndexAction extends CommonAction{
 		$article_mod = M('Article');
 		$data = $_POST['word'];
 		import("ORG.Util.Page");
-		$count = $article_mod->where("status=1 AND title LIKE '%$data%' OR info LIKE '%$data%' or seo_title like '%$data%' ")->count();
+		$where['title'] = array('like', "%$data%");
+		$where['info'] = array('like', "%$data%");
+		$where['seo_title'] = array('like', "%$data%");
+		$where['_logic'] = 'or';
+		$map['_complex'] = $where;
+		$map['status'] = array('eq',1);
+		$map['is_img'] = array('eq',0);
+		$count = $article_mod->where($map)->count();
 		$page = new Page($count,10);
-		$article_list = $article_mod->where("status=1 AND title LIKE '%$data%' OR info LIKE '%$data%' or seo_title like '%$data%' ")->order('add_time DESC,ordid ASC')->select();
+		$article_list = $article_mod->where($map)->order('add_time DESC,ordid ASC')->select();
 		$showPage = $page->show();
 		$this->assign('list',$article_list);
 		$this->assign("page", $showPage);
@@ -67,14 +74,8 @@ class IndexAction extends CommonAction{
 			$result_se=$model->where($where)->select();
 			//上一篇
 			$front=$model->where("id<".$_GET['id'])->order('id desc')->limit('1')->find();
-			if (empty($front)) {
-				$front="No Related Articles";
-			}
 			//下一篇
 			$after=$model->where("id>".$_GET['id'])->order('id desc')->limit('1')->find();
-			if (empty($after)) {
-				$after="ro Related Articles";
-			}
 			$getNowHere=$this->getNowHere($result_se[0]['cate_id']);
 			$this->assign('now_here',$getNowHere);
 			$this->assign('front',$front);

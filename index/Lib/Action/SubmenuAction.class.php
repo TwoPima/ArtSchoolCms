@@ -28,9 +28,22 @@ class SubmenuAction extends CommonAction {
 		$cate_tea_lea = $menu_mod->where($where_tea_lea)->find();
 		if ($cate_tea_lea['alias']=="teacher") {
 			$mod_tea_leader=M('Teacher');
-			$whereTeaLeader['is_teacher']="1";
-			$re_tea=$mod_tea_leader->where($whereTeaLeader)->order('ordid ASC')->select();
-			$this->assign('teaList',$re_tea);
+			$mod_pro=M('Profession_cate');
+			
+		$zhuanye=$mod_pro->where('pid=0')->order('sort_order ASC')->select();
+		foreach($zhuanye as $key=>$val){
+			$data[$key]['name']=$val['name'];
+				$whereTeaLeader['is_teacher']="1";
+				$whereTeaLeader['pid']=$val['id'];
+				$jiaoshi=$mod_tea_leader->where($whereTeaLeader)->select();
+			$data[$key]['name']=$jiaoshi;
+		}
+	dump($data);
+	exit();
+		
+		$this->assign('teaList',$data);
+		
+		//页面代码
 			$this->display('teacher');
 		}elseif ($cate_tea_lea['alias']=="leader"){
 			$mod_tea_leader=M('Teacher');
@@ -51,6 +64,7 @@ class SubmenuAction extends CommonAction {
 			
 			$this->assign('detail_cate',$detail_cate);
 			$this->assign('article_list',$article_list);
+			$this->display();
 		}
 		
 	}
@@ -128,13 +142,6 @@ class SubmenuAction extends CommonAction {
 			$this->display('index');
 		}
 	}
-	public function teacher(){
-		$this->display();
-	}
-	public function xianrenlingdao(){
-		$this->display();
-	}
-	
 }
 
 ?>
