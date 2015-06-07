@@ -16,14 +16,14 @@
 			<div class="main_list_nav">
 				 <ul>
 					<volist name="left_cate_list" id='sval'>
-						<li id=""><a href="__URL__/index?id={$sval.id}&pid={$sval.pid}">{$sval.name}</a></li>
+						<li id=""><a href="__URL__/index?id={$sval.id}&pid={$sval.pid}"><img src="__ROOT__/statics/index/Image/left_nav.jpg">{$sval.name}</a></li>
 					</volist>
 				</ul> 
 			</div>
 		</div>
 		<div class="main_con" id="main_con">
-					<div class="main_con_con" >
-			 <div class="main_con_title">
+			<div class="main_con_con" >
+			 	<div class="main_con_title">
 						<span class="span1">
 						{$detail_cate}</span>
 				</div> 
@@ -32,17 +32,17 @@
 						<li>
 						<a href="__URL__/detail?id={$sval.id}&mo=Profession">
 						<img src="__ROOT__/statics/index/Image/list.png" alt="xiaotubiao">{$sval.title}
-						<span class="class_main_list_right">{$sval.add_time}</span>
+						<span class="main_con_list_right">{$sval.add_time}</span>
 						</a>
 						</li>
 					</volist>
 				</ul>
 			</div>
-						<!-- 分页显示 -->
-						<p class="paging">
-							{$page}
-						</p>
-				</div>
+			<!-- 分页显示 -->
+			<p class="paging">
+				{$page}
+			</p>
+			</div>
 	</div>
 </div> 
 <include file="Public:footer"/>

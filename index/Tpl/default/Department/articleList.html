@@ -16,17 +16,17 @@
 			<div class="main_list_nav">
 				 <ul>
 					<volist name="dep_cate_list" id='val'>
-						<li ><a href="__APP__/Department/articleList?id={$val.id}&pid={$val.pid}&mo=Article">{$val.name}</a></li>
+						<li ><a href="__APP__/Department/articleList?id={$val.id}&pid={$val.pid}&mo=Article"><img src="__ROOT__/statics/index/Image/left_nav.jpg">{$val.name}</a></li>
 					</volist>
 				</ul> 
 			</div>
 		</div>
 		<!-- 右边 -->
-			<div class="main_con" >
-				<div class="main_con_title">
-					<span class="span2">{$dep_cate_name[0][name]}</span>
-				</div>
+			<div class="main_con" id="main_con">
 				<div class="main_con_con">
+					<div class="main_con_title">
+						<span class="span2">{$dep_cate_name[0][name]}</span>
+					</div>
 					<ul class="main_con_list">
 						<volist name="article_list" id='sval'>
 									<li>
@@ -37,11 +37,10 @@
 									</li>
 						</volist>
 					</ul>
-					
 				</div>
 				<p class="paging">
-					{$page}
-				</p>
+						{$page}
+					</p>
 			</div>
 	</div>
 </div> 

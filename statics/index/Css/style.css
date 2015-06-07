@@ -73,39 +73,9 @@ input{
 	background-color:#1B5056;
 }
 
-/*经典列表属性*/
-.main_con_con ul{
-
-}
-.main_con_con ul li{
-	height:40px;
-	font-size:15px;
-	padding-left:15px;
-	margin-top:1px;
-}
-.main_con_con ul li img{
-		margin-right:10px;
-		width:13px;
-		height:13px;
-}
-.main_con_con a{
-	font-size:14px;
-	height:30px;
-	line-height:30px;
-	color:#000;
-}
-.main_con_con a:hover{
-	font-weight:bold;
-	color:#FEAF00;
-}
-.main_con_list_right{
-	float:right;
-	font-size:14px;
-}
-
 /*---------------header--------------------*/
 #header{
-	background-color:#10646F;
+	background-color:red;
 	background-image:url(../Image/top.jpg);
 }
 .top{
@@ -524,7 +494,7 @@ input{
 }
 .select{
 	background-color:#000;
-	color:#FFAD01;/* #FFAD01 */
+	color:#FFAD01;
 	border-bottom:3px solid #fff;
 }
 .footer_main_friend_link_con{
@@ -583,7 +553,6 @@ input{
 }
 /*------主页完成------*/
 /*---------------------二级页面  开始------------------------*/
-
 .main_mid{
 	
 }
@@ -628,11 +597,11 @@ input{
 /*---二级页面头部导航---*/
 #photo{
 	background-color:#10646F;
-	height:230px;
+	height:250px;
 }
 #photo img{
 	width:100%;
-	height:230px;
+	height:250px;
 }
 /*---二级页面左侧列表导航---------------------*/
 #main_list{
@@ -644,11 +613,14 @@ input{
 	float:left;
 }
 .main_list_title{
-		font-size:13px;
-		padding-top:10px;
-		padding-left:10px;
-		padding-bottom:10px;
-		border-bottom:10px solid #10646F;
+	font-size:13px;
+	padding-top:10px;
+	padding-left:10px;
+	padding-bottom:10px;
+	border-bottom:10px solid #10646F;
+}
+.main_list_title a{
+color:#000;
 }
 .main_list_title img{
 		width:16px;
@@ -666,45 +638,83 @@ input{
 	padding:5px 0;
 	border-bottom:2px solid #EBE9EA;
 }
+.main_list_nav ul li img{
+	margin-top:5px;
+	width:15px;
+	height:15px;
+	margin-right:8px;
+}
 .main_list_nav ul li a{
 	margin-top:14px;
 	margin-left:50px;
 	color:#000;
 }
 .main_list_nav ul li a:hover{
-	color:#FFAD01;
+	margin-left:60px;
+	color:#10646F;
 }
 /*---二级页面右侧---*/
 .main_con{
-	background-color:#F4F4F4;/*F4F4F4*/
 	margin-left:30px;
-	padding-right:20px;
 	float:left;
-	width:820px;
+	width:840px;
 }
 .main_con_title{
 	padding:5px 0;
-	margin-left:30px;
 	border-bottom:3px solid #EBE9EA;
 }
 .span1{
 	margin-left:15px;
 	color:#10646F;
 	font-weight:bold;
-	font-size:30px;
+	font-size:20px;
 }
 .span2{
 	color:#10646F;
 	font-weight:bold;
-	font-size:20px;
+	font-size:18px;
 }
 .main_con_con{
-	margin-left:30px;
 	padding:10px 20px;
 	height:auto!important;
 	height:500px;
 	min-height:500px;
 }
+/*经典列表属性*/
+.main_con_list{
+	margin-top:15px;
+}
+
+.main_con_list li{
+	height:40px;
+	font-size:15px;
+	padding-left:15px;
+	margin-top:1px;
+}
+.main_con_list  li img{
+	margin-right:10px;
+	width:13px;
+	height:13px;
+}
+.main_con_list a{
+	font-size:14px;
+	height:30px;
+	line-height:30px;
+	color:#000;
+}
+.main_con_con a:hover{
+	font-weight:bold;
+	color:#FEAF00;
+}
+.main_con_list_right{
+	float:right;
+	font-size:14px;
+}
+/*经典z正文属性*/
+.main_con_text{
+	padding:10px 10px;
+}
+
 
 
 /*-----------------------------------精品课程正文部门------------------------*/
@@ -914,12 +924,9 @@ border-left:10px solid #10646F;
 .paging{
 	width:100%;
 	height:30px;
-	font-size:15px;
-	color:#000;
-	line-height:30px;	
-	text-align:center;
+	background-color:#000;
+	border:1px solid red;
 }
-
 .paging a{
 	height:30px;
 	color:#000;

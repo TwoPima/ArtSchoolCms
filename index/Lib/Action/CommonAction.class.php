@@ -171,7 +171,7 @@ class CommonAction extends Action {
 		}else {
 			$uplevels = $cate->field("id,name")->where("id=$catid")->find();
 		}
-		$nowHere="$herestr"."->".$uplevels['name'];
+		$nowHere="$herestr"."->&nbsp;&nbsp;".$uplevels['name'];
 		return $nowHere;
 	}
 /*

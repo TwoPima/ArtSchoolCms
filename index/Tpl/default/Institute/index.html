@@ -16,7 +16,7 @@
 			<div class="main_list_nav">
 				 <ul>
 					<volist name="left_cate_list" id='sval'>
-						<li id=""><a href="__APP__/Institute/index?id={$sval.id}&pid={$sval.pid}&mo=Institute">{$sval.name}</a></li>
+						<li id=""><a href="__APP__/Institute/index?id={$sval.id}&pid={$sval.pid}&mo=Institute"><img src="__ROOT__/statics/index/Image/left_nav.jpg">{$sval.name}</a></li>
 					</volist>
 				</ul> 
 			</div>
@@ -25,14 +25,15 @@
 			<div class="main_con_con" >
 				<div class="main_con_title">
 								<span class="span1">
-								{$detail_cate}</span>
+								{$detail_cate}
+								</span>
 						</div>
 				<ul class="main_con_list">
 					<volist name="article_list" id='sval'>
 						<li>
 						<a href="__APP__/Institute/detail?id={$sval.id}&mo=Institute">
 						<img src="__ROOT__/statics/index/Image/list.png" alt="xiaotubiao">{$sval.title}
-						<span class="class_main_list_right">{$sval.add_time}</span>
+						<span class="main_con_list_right">{$sval.add_time}</span>
 						</a>
 						</li>
 					</volist>

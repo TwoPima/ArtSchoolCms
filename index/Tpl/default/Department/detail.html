@@ -22,15 +22,14 @@
 			</div>
 		</div>
 		<!-- 右边 -->
-		<div class="main_con">
+		<div class="main_con" id="main_con">
+			<div class="main_con_con">
 						<div class="main_con_title">
 								<span class="span1"></span>
 								<span class="span2">{$detail[0]['title']}</span>
 						</div>
-						<div class="main_con_con">
-							<p>
+						<div class="main_con_text">
 							{$detail[0]['info']}
-							</p>
 						</div>
 						<div class="attach">
 							<if condition="$attatch.id eq ''">
@@ -55,7 +54,7 @@
 								</span>
 						</div>
 			</div>
-		
+			</div>
 	</div>
 </div> 
 <include file="Public:footer"/>
