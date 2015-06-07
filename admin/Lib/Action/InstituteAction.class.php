@@ -71,40 +71,31 @@ class InstituteAction extends BaseAction
 			if($data['cate_id']==0){
 				$this->error('请选择资讯分类');
 			}
-		    if ($_FILES['img']['name']!='') {
-		    	//只有图片不为空时
-		    	$upload_list = $this->_upload();
-		        $data['img'] = $upload_list['0']['savename'];
-		    } 
-		    if ($_FILES['attachment']['name'][0]!='') {
-		    	$upload_list = $this->_upload();
-			    array_shift($upload_list);
-			    $aid_arr = array();
-		        foreach ($upload_list as $att) {
-		            $file['title'] = $att['name'];
-		            $file['filetype'] = $att['extension'];
-				    $file['filesize'] = $att['size'];
-				    $file['url'] = $att['savename'];
-				    $file['uptime'] = date('Y-m-d H:i:s');
-				    $file['aid']=$_POST['id'];
-				    $whereAtta['type']="3";
-				    $whereAtta['aid']=$_POST['id'];
-				    $attatch= $attatch_mod->where($whereAtta)->find();
-				    if ($attatch) {
-				    	//看是否已经存在;
-				    	$attatch_mod->where($whereAtta)->save($file);
-				    	/* if ($attatch_mod->where('aid='.$_POST['id'])->save($file)) {
-				    		$this->error('上传附件出现问题！');
-				    	} */
-				    }else {
-				    	//如果不存在直接添加；
-				    	$file['type']="3";
-				    	$attatch_mod->add($file);
-				    	/* if ($attatch_mod->add($file)) {
-				    		$this->error('上传附件出现问题！');
-				    	} */
-				    }
-		        }
+		if(!empty($_FILES['img']['name'])||!empty($_FILES['attachment']['name'])){
+				$upload_list = $this->_upload();
+				if ($_FILES['img']['name']!='') {
+					//只有图片不为空时
+					$data['img'] = $upload_list['0']['savename'];
+				}
+				if ($_FILES['attachment']['name']!='') {
+					$file['title'] = $upload_list[0]['name'];
+					$file['filetype'] = $upload_list[0]['extension'];
+					$file['filesize'] = $upload_list[0]['size'];
+					$file['url'] = $upload_list[0]['savename'];
+					$file['uptime'] = date('Y-m-d H:i:s');
+					$file['aid']=$_POST['id'];
+					$attatch= $attatch_mod->where('aid='.$_POST['id'])->find();
+					if ($attatch) {
+						//看是否已经存在;
+						$attatch_mod->where('aid='.$_POST['id'])->save($file);
+						/* if ($attatch_mod->where('aid='.$_POST['id'])->save($file)) {
+						 $this->error('上传附件出现问题！');
+						} */
+					}else {
+						//如果不存在直接添加；
+						$re_atta_add=$attatch_mod->add($file);
+					}
+				}
 			}
 			$result = $article_mod->save($data);
 			if(false !== $result){

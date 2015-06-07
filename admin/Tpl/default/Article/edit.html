@@ -40,7 +40,8 @@ $(function(){
     <table width="100%" cellpadding="2" cellspacing="1" class="table_form">
       <tr>
         <th width="100">{:L('title')} :</th>
-        <td><input type="text" name="title" id="title" class="input-text" size="60" value="{$article.title}"></td>
+        <td><input type="text" name="title" id="title" class="input-text" size="60" value="{$article.title}">
+        </td>
       </tr>
       <tr>
         <th>{:L('is_img')} :</th>
@@ -71,7 +72,9 @@ $(function(){
                 </volist>
               </notempty>
             </volist>
-          </select></td>
+          </select>
+           <span style="color:red;">{:L('tips')} :1、资料下载填写:无须填写链接地址、摘要、详细内容（默认是文档资讯类型即可）,标题名称必须为文档名称；</span>  
+          </td>
       </tr>
         <tr>
       	<th>{:L('img')} :</th>
