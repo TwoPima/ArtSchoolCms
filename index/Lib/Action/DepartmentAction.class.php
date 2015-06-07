@@ -18,7 +18,6 @@ class DepartmentAction extends CommonAction {
 		$where_menu['pid']="$id";
 		$where_menu['in_site']="0";
 		$dep_cate_list = $cate_name_model->where($where_menu)->order('sort_order ASC')->select();
-		dump($dep_cate_list);
 		$this->assign('dep_cate_list',$dep_cate_list);
 		//左侧您现在的位置
 		$getNowHere=$this->secGetNowHere($_GET['id'],$table);

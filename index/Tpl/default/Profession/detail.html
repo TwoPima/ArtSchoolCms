@@ -24,20 +24,27 @@
 			</div>
 		</div>
 </div>
-<div class="paging_next">
-		<span class="paging_left">
-		<if condition="$front.id eq ''">
-			没有文章了！
-			<else/>
-			<a href="__URL__/detail?id={$front.id}">{$front.title}</a>
-		 </if>
-		</span>
-		<span class="paging_right">
-		<if condition="$after.id eq ''">
-			没有文章了！
+<div class="attach">
+	<if condition="$attatch.id eq ''">
+			没有附件
 		<else/>
-		<a href="__URL__/detail?id={$after.id}">{$after.title}</a>
-		</if>
-		</span>
+		 <a href="__URL__/download?filename={$attatch['url']}&site=news">附件下载：{$attatch['title']}</a>
+	 </if>
+</div>
+<div class="paging_next">
+	<span class="paging_left">
+	<if condition="$front.id eq ''">
+		没有文章了！
+		<else/>
+		<a href="__URL__/detail?id={$front.id}">{$front.title}</a>
+	 </if>
+	</span>
+	<span class="paging_right">
+	<if condition="$after.id eq ''">
+		没有文章了！
+	<else/>
+	<a href="__URL__/detail?id={$after.id}">{$after.title}</a>
+	</if>
+	</span>
 </div>
 <include file="Public:footer"/>

@@ -2,6 +2,7 @@
 <div id="nav_class">
 		<div class="container">
 				<div class="nav_class_link">
+					<span><a href="__APP__/Coirse/index">教学视频</a></span>
 					<volist name="top_cate_list" id='sval'>
 						<span><a href="__APP__/Coirse/articleList?id={$sval.id}&mo=Coirse_cate">{$sval.name}</a></span>
 					</volist>
@@ -12,9 +13,11 @@
 	<div class="container clearfix">
 		<div class="class_main_left" >
 			<ul>
+				<volist name="pro_list" id='pval'>
 				<li>
-					<a href="__APP__/Coirse/articleList?id={$pro_list.id}&mo=Coirse_cate">{$pro_list.name}</a>
+					<a href="__APP__/Coirse/articleList?id={$pro_list.id}&mo=Coirse_cate">{$pval.name}</a><hr>
 				</li>
+				</volist>
 			</ul>
 		</div>
 		<div class="class_main_con">

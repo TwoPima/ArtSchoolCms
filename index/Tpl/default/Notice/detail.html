@@ -32,6 +32,13 @@
 							{$detail[0]['content']}
 							</p>
 						</div>
+						<div class="attach">
+							<if condition="$attatch.id eq ''">
+									没有附件
+								<else/>
+								 <a href="__URL__/download?filename={$attatch['url']}&site=news">附件下载：{$attatch['title']}</a>
+							 </if>
+						</div>
 						<!-- 分页显示 -->
 					<div class="paging_next">
 							<span class="paging_left"><a href="__APP__/Notice/detail?id={$front.id}&mo=Notice">{$front.name}</a></span>

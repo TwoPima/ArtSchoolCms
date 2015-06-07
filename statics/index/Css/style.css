@@ -36,7 +36,15 @@ a{
 }
 /*附件下载样式*/
 .attach{
+	padding:10px 0;
+	font-size:14px;
 	margin-left:30px;
+}
+.attach a{
+	color:#000;
+}
+.attach a:hover{
+	color:#FFAD01;
 }
 /* 搜索栏 */
 input{
@@ -889,7 +897,7 @@ border-left:10px solid #10646F;
 .paging{
 	width:100%;
 	height:30px;
-	font-size:18px;
+	font-size:15px;
 	color:#000;
 	line-height:30px;	
 	text-align:center;
@@ -898,27 +906,27 @@ border-left:10px solid #10646F;
 .paging a{
 	height:30px;
 	color:#000;
-	font-size:18px;
+	font-size:15px;
 }
 .paging a:hover{
 	color:#FFAD01;
-	font-size:18px;
+	font-size:15px;
 }
 /* 下一片*/
 .paging_next{
 	width:100%;
 	height:30px;
-	font-size:18px;
+	font-size:15px;
 	line-height:30px;	
 }
 .paging_next a{
 	height:30px;
 	color:#000;
-	font-size:18px;
+	font-size:15px;
 }
 .paging_next a:hover{
 	color:#FFAD01;
-	font-size:18px;
+	font-size:15px;
 }
 .paging_left{
 	float:left;

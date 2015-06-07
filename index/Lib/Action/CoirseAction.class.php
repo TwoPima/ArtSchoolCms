@@ -9,7 +9,9 @@ public function index(){
 		$mod_cate_list=M('Coirse_cate');
 		$model=M('Coirse');
 		//加载头部导航信息
-		$re_cate_list=$mod_cate_list->where('pid=0')->order('sort_order ASC')->select();
+		$where_index['pid']=0;
+		$where_index['is_index']=1;
+		$re_cate_list=$mod_cate_list->where($where_index)->order('sort_order ASC')->select();
 		//视频课件提取
 		$whereArt['type']="1";
 		$count =$model->where($whereArt)->count();
@@ -67,10 +69,12 @@ public function index(){
 		$mod_cate_list=M('Coirse_cate');
 		$model=M('Coirse');
 		//加载头部导航信息
-		$re_cate_list=$mod_cate_list->where('pid=0')->order('sort_order ASC')->select();
+		$where_index['pid']=0;
+		$where_index['is_index']=1;
+		$re_cate_list=$mod_cate_list->where($where_index)->order('sort_order ASC')->select();
 		//左边分类提取
-		$wherPro['id']=$_GET['id'];
-		$prolist=$mod_cate_list->where($wherPro)->order('sort_order ASC')->find();
+		$wherPro['pid']=$_GET['id'];
+		$prolist=$mod_cate_list->where($wherPro)->order('sort_order ASC')->select();
 		
 		//提取信息
 		$where['id']=$_GET['id'];
@@ -90,7 +94,9 @@ public function index(){
 		$mod_cate_list=M('Coirse_cate');
 		$model=M('Coirse');
 		//加载头部导航信息
-		$re_cate_list=$mod_cate_list->where('pid=0')->order('sort_order ASC')->select();
+		$where_index['pid']=0;
+		$where_index['is_index']=1;
+		$re_cate_list=$mod_cate_list->where($where_index)->order('sort_order ASC')->select();
 		//专业提取
 		$wherPro['id']=$_GET['id'];
 		$pro_mod=M('Profession_cate');
