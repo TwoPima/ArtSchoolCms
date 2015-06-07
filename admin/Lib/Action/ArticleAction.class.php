@@ -139,7 +139,7 @@ class ArticleAction extends BaseAction
 
 	}
 
-	function add()
+function add()
 	{
 		if(isset($_POST['dosubmit'])){
 			$article_mod = D('article');
@@ -150,7 +150,8 @@ class ArticleAction extends BaseAction
 			if(false === $data = $article_mod->create()){
 				$this->error($article_mod->error());
 			}
-			if(!empty($_FILES['img']['name'])||!empty($_FILES['attachment']['name'])){
+			$upload_list = $this->_upload();
+			if($_FILES['img']['name']!=''||$_FILES['attachment']['name']!=''){
 				$upload_list = $this->_upload();
 				if ($_FILES['img']['name']!='') {
 					//只有图片不为空时
@@ -158,7 +159,7 @@ class ArticleAction extends BaseAction
 				}
 				$result = $article_mod->add($data);
 				if($result){
-					if ($_FILES['attachment']['name'][0]!='') {
+					if ($_FILES['attachment']['name']!='') {
 						$file['title'] = $upload_list[0]['name'];
 						$file['filetype'] = $upload_list[0]['extension'];
 						$file['filesize'] = $upload_list[0]['size'];
@@ -167,6 +168,17 @@ class ArticleAction extends BaseAction
 						$file['aid']=$result;
 						$attatch_mod->add($file);
 					}
+					$cate = M('article_cate')->field('id,pid')->where("id=".$data['cate_id'])->find();
+					if( $cate['pid']!=0 ){
+						M('article_cate')->where("id=".$cate['pid'])->setInc('article_nums');
+						M('article_cate')->where("id=".$data['cate_id'])->setInc('article_nums');
+					}else{
+						M('article_cate')->where("id=".$data['cate_id'])->setInc('article_nums');
+					}
+					$this->success('添加成功');
+				}else{
+					//有附件的增加失败
+					$this->error('添加失败');
 				}
 			}else {
 				$result = $article_mod->add($data);
@@ -179,10 +191,13 @@ class ArticleAction extends BaseAction
 						M('article_cate')->where("id=".$data['cate_id'])->setInc('article_nums');
 					}
 					$this->success('添加成功');
-			}else{
-				$this->error('添加失败');
+				}else{
+					$this->error('添加失败');
+				}
 			}
+			
 		}else{
+		//显示增加页面
 			$article_cate_mod = D('article_cate');
 	    	$result = $article_cate_mod->order('sort_order ASC')->select();
 	    	$cate_list = array();

@@ -71,7 +71,7 @@ class MilitaryAction extends BaseAction
 			if($data['cate_id']==0){
 				$this->error('请选择资讯分类');
 			}
-		if(!empty($_FILES['img']['name'])||!empty($_FILES['attachment']['name'])){
+		if(!empty($_FILES['img']['name'])||!empty($_FILES['attachment']['name'][0])){
 				$upload_list = $this->_upload();
 				if ($_FILES['img']['name']!='') {
 					//只有图片不为空时
