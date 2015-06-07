@@ -33,10 +33,22 @@
 							</p>
 						</div>
 						<!-- 分页显示 -->
-					<div class="paging_next">
-							<span class="paging_left"><a href="__APP__/Notice/detail?id={$front.id}&mo=Notice">{$front.name}</a></span>
-							<span class="paging_right"><a href="__APP__/Notice/detail?id={$after.id}&mo=Notice">{$after.name}</a></span>
-					</div>
+							<div class="paging_next">
+			<span class="paging_left">
+			<if condition="$front.id eq ''">
+				没有文章了！
+				<else/>
+				<a href="__URL__/detail?id={$front.id}&mo=Notice">{$front.name}</a>
+			 </if>
+			</span>
+			<span class="paging_right">
+			<if condition="$after.id eq ''">
+				没有文章了！
+			<else/>
+			<a href="__URL__/detail?id={$after.id}&mo=Notice">{$after.name}</a>
+			</if>
+			</span>
+		</div>
 				</div>
 		</div>
 </div>

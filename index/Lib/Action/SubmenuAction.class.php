@@ -32,7 +32,18 @@ class SubmenuAction extends CommonAction {
 			$mod_tea_leader=M('Teacher');
 			$mod_pro=M('Profession_cate');
 		/* 	$Stus=D('Teacher');
-			
+				<!-- 	
+						<php>
+							foreach($teaList as $val){
+							echo "<ul>";
+								echo "<li style="width:10%;"><a href="__URL__/showFirstMenu?id=$val.id&pid=$val.id">$val.name</a>";
+									foreach($val['data'] as $key=>$vo){
+										echo "	<li><a  target="_blank" href="$sval.url">$vo</a></li>";
+									}
+							echo "</li>";
+							echo " </ul>";
+						}
+						</php> -->
 			$arr=$Stus->relation(true)->select(); */
  		$zhuanye=$mod_pro->where('pid=0')->order('sort_order ASC')->select();
 		foreach($zhuanye as $key=>$val){

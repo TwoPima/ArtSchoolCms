@@ -20,7 +20,7 @@ class ProfessionAction extends CommonAction {
 		//左侧您现在的位置
 		$getNowHere=$this->secGetNowHere($_GET['id'],Profession);
 		$this->assign('now_here',$getNowHere);
-	//分类名称详细显示一个
+		//分类名称详细显示一个
 		$detail_cate=$this->detailCatesingle($_GET['id'],Profession);
 		$this->assign('detail_cate',$detail_cate);
 		
@@ -42,10 +42,6 @@ class ProfessionAction extends CommonAction {
 		$this->assign("page", $showPage);
 		$this->assign('article_list',$intro_pro);
 		
-	
-	
-	
-		
 	}
 	public function detail(){
 		$table=$_GET['mo'];
@@ -60,7 +56,8 @@ class ProfessionAction extends CommonAction {
 		$result_cate = $menu_mod->where($cate_where)->order('sort_order ASC')->select();
 		$this->assign('mainleft_cate_list',$result_cate);
 
-		$getNowHere=$this->getNowHere($result_se[0]['cate_id']);
+		//左侧您现在的位置*****传送的ID为cate_id******
+		$getNowHere=$this->secGetNowHere($result_se[0]['cate_id'],Profession);
 		$this->assign('now_here',$getNowHere);
 
 		//上一篇

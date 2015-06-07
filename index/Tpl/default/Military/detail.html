@@ -7,6 +7,20 @@
 </div>
 <div id="class_main">
 	<div class="container clearfix">
+	<!-- 左侧 -->
+				<div class="main_list" id="main_list">
+				<div class="main_list_title">
+					<img src="__ROOT__/statics/index/Image/nav_house.png" alt="lala">
+					{$now_here}
+				</div>
+				<div class="main_list_nav">
+				 <ul>
+					<volist name="dep_cate_list" id='val'>
+						<li ><a href="__APP__/Department/detail?id={$val.id}&pid={$val.pid}&mo=Article">{$val.name}</a></li>
+					</volist>
+				</ul> 
+			</div>
+			</div><!--  右侧-->
 		<div class="class_main_con" >
 				<div class="main_con_title">
 						<span class="span1"></span>

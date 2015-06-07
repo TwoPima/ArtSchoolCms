@@ -28,14 +28,13 @@ class NoticeAction extends CommonAction {
 		
 	}
 	public function detail(){
-		$table=$_GET['mo'];
-		$model=M($table);
+		$model=M('Notice');
 		$where['id']=$_GET['id'];
 		$result_se=$model->where($where)->select();
 		//上一篇
-		$front=$model->where("id<".$_GET['id'])->order('id desc')->limit('1')->find();
+		$front=$model->where("id<".$_GET['id'])->order('id desc')->find();
 		//下一篇
-		$after=$model->where("id>".$_GET['id'])->order('id desc')->limit('1')->find();
+		$after=$model->where("id>".$_GET['id'])->order('id desc')->find();
 		if ($_GET['type']=="0") {
 			$str="重要通知";
 			$str1="0";

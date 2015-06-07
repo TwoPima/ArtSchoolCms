@@ -6,9 +6,22 @@
 	</div>
 </div>
 <!-- photo end -->
-<div id="main">
+<div id="classics_main">
 	<div class="container clearfix">
-			<div id="main_mid">
+			<!-- 左侧 -->
+				<div class="main_list" id="main_list">
+				<div class="main_list_title">
+					<img src="__ROOT__/statics/index/Image/nav_house.png" alt="lala">
+					{$now_here}
+				</div>
+				<div class="main_list_nav">
+				 <ul>
+					<volist name="mainleft_cate_list" id='val'>
+						<li ><a href="__URL__/index?id={$val.id}&pid={$val.pid}">{$val.name}</a></li>
+					</volist>
+				</ul> 
+			</div>
+			</div><!--  右侧-->
 				<div class="main_con" id="main_con">
 						<div class="main_con_title">
 								<span class="span1"></span>
@@ -21,28 +34,27 @@
 						</div>
 				</div>
 			</div>
+		<div class="attach">
+			<if condition="$attatch.id eq ''">
+				<else/>
+				 <a href="__URL__/download?filename={$attatch['url']}&site=profession">附件下载：{$attatch['title']}</a>
+			 </if>
 		</div>
-</div>
-<div class="attach">
-	<if condition="$attatch.id eq ''">
-		<else/>
-		 <a href="__URL__/download?filename={$attatch['url']}&site=profession">附件下载：{$attatch['title']}</a>
-	 </if>
-</div>
-<div class="paging_next">
-	<span class="paging_left">
-	<if condition="$front.id eq ''">
-		没有文章了！
-		<else/>
-		<a href="__URL__/detail?id={$front.id}">{$front.title}</a>
-	 </if>
-	</span>
-	<span class="paging_right">
-	<if condition="$after.id eq ''">
-		没有文章了！
-	<else/>
-	<a href="__URL__/detail?id={$after.id}">{$after.title}</a>
-	</if>
-	</span>
-</div>
+		<div class="paging_next">
+			<span class="paging_left">
+			<if condition="$front.id eq ''">
+				没有文章了！
+				<else/>
+				<a href="__URL__/detail?id={$front.id}">{$front.title}</a>
+			 </if>
+			</span>
+			<span class="paging_right">
+			<if condition="$after.id eq ''">
+				没有文章了！
+			<else/>
+			<a href="__URL__/detail?id={$after.id}">{$after.title}</a>
+			</if>
+			</span>
+		</div>
+		</div>
 <include file="Public:footer"/>
