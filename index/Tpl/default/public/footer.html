@@ -7,14 +7,14 @@
 					<div class="footer_main_friend_link">
 						  <div id="footer_main_friend_link_title" class="footer_main_friend_link_title">
 						  		<ul>
-						  			<li><a>友情链接</a></li>
+						  			<li class="select"><a>友情链接</a></li>
 						  			<li><a>联系方式</a></li>
 						  			<li><a>关于我们</a></li>
-						  			<li ><a>院长信箱</a></li>
+						  			<li><a>院长信箱</a></li>
 						  		</ul>
 						  </div>
 						   <div id="footer_main_friend_link_con" class="footer_main_friend_link_con">
-						   	<div class="mod">
+						   	<div class="mod" style="display:block;">
 						   			<ul>
 						   					
 							   			 <volist name="link" id="val">
@@ -22,19 +22,19 @@
 							   			</volist> 
 						   			</ul>
 						   	</div>
-						   	<div class="mod">
+						   	<div class="mod" style="display:none;">
 						   		<span class="mod_pad">
 							   			TEL:{$set.tel}<br>
 							   			E-mail:{$set.mail_username}<br>
 							   			
 						   		</span>
 						   	</div>
-						   	<div class="mod">
+						   	<div class="mod" style="display:none;">
 						   		<span class="mod_pad">	
 							   			{$set.about_web}
 							   	</span>	
 						   	</div>
-						   	<div class="mod">
+						   	<div class="mod" style="display:none;">
 							   	<span class="mod_pad">	
 								   	院长信箱：{$set.president_email}
 								   	微信：<img src="__ROOT__/{$set.site_logo}">

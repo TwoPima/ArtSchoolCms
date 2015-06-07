@@ -510,20 +510,21 @@ input{
 }
 .footer_main_friend_link_title ul{
 	width:800px;
-	height:40px;
+	height:30px;
 }
 .footer_main_friend_link_title ul li{
 	text-align:center;
 	width:200px;
 	float:left;
-	line-height:40px;
+	line-height:30px;
 }
 .footer_main_friend_link_title ul li a{
 	display:block;
 	width:200px;
 }
 .select{
-	/* font-size:18px; */
+	background-color:#000;
+	border-bottom:3px solid #fff;
 }
 .footer_main_friend_link_con{
 	height:130px;
