@@ -483,14 +483,15 @@ input{
 	font-size:15px;
 }
 .footer_main{
-	height:170px;
+	height:auto!important;
+	height:200px;
+	min-height:200px;
 	background-color:#1D1D1D;
 }
 .footer_main_logo{
-	padding-top:10px;
-	background-color:#1D1D1D;
+	padding:10px 10px 0 10px;;
 	float:left;
-	width:370px;
+	width:350px;
 	height:160px;
 }
 .footer_main_logo img{
@@ -498,25 +499,24 @@ input{
 	height:130px;
 }
 .footer_main_friend_link{
-	color:#000;
+	color:#fff;
 	background-color:#1D1D1D;
 	float:left;
 	width:800px;
-	height:170px;
 }
 .footer_main_friend_link_title{
 	width:800px;
-	height:40px;
+	height:50px;
 }
 .footer_main_friend_link_title ul{
 	width:800px;
-	height:30px;
+	height:50px;
 }
 .footer_main_friend_link_title ul li{
 	text-align:center;
 	width:200px;
 	float:left;
-	line-height:30px;
+	line-height:47px;
 }
 .footer_main_friend_link_title ul li a{
 	display:block;
@@ -524,31 +524,47 @@ input{
 }
 .select{
 	background-color:#000;
+	color:#FFAD01;/* #FFAD01 */
 	border-bottom:3px solid #fff;
 }
 .footer_main_friend_link_con{
-	height:130px;
+	height:auto!important;
+	height:150px;
+	min-height:150px;
 	background-color:#1D1D1D;
 }
 .mod{
+	padding:10px 20px;
 	font-size:14px;
 	color:#fff;
-	width:800px;
-	height:130px;
-	display:none;
+	width:760px;
 }
-.mod ul li{
+.mod_link li{
 	float:left;
 	width:25%;
+	line-height:1.6;
 	text-align:center;
 }
-.mod ul li a:hover{
+.mod_link li a:hover{
 	color:#FFAD01;
 }
 .mod_pad{
 	display:block;
-	margin-left:70px;
-	margin-right:70px;
+}
+.mod_pad_left{
+	width:380px;
+	display:block;
+	float:left;
+	line-height:2;
+}
+.mod_pad_right{
+	width:380px;
+	display:block;
+	float:left;
+}
+.mod_pad_right img{
+	width:150px;
+	height:150px;
 }
 .foot_copyright{
 	font-size:15px;

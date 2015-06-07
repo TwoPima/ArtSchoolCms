@@ -15,17 +15,24 @@
 						  </div>
 						   <div id="footer_main_friend_link_con" class="footer_main_friend_link_con">
 						   	<div class="mod" style="display:block;">
-						   			<ul>
-						   					
+						   			<ul class="mod_link">
 							   			 <volist name="link" id="val">
 							   				<li><a href="{$val.url}">{$val.name}</a></li>
 							   			</volist> 
+							   			
 						   			</ul>
 						   	</div>
 						   	<div class="mod" style="display:none;">
 						   		<span class="mod_pad">
-							   			TEL:{$set.tel}<br>
-							   			E-mail:{$set.mail_username}<br>
+						   			<span class="mod_pad_left">
+						   				联系人:{$set.site_name}<br>
+							   			联系电话:{$set.tel}<br>
+							   			联系邮箱:{$set.mail_username}<br>
+							   			联系地址:{$set.address}<br>
+						   			</span>
+						   			<span class="mod_pad_right">
+						   				微信：<br><img src="__ROOT__/{$set.site_logo}">
+						   			</span>
 							   			
 						   		</span>
 						   	</div>
@@ -37,7 +44,6 @@
 						   	<div class="mod" style="display:none;">
 							   	<span class="mod_pad">	
 								   	院长信箱：{$set.president_email}
-								   	微信：<img src="__ROOT__/{$set.site_logo}">
 							   	</span>	
 						   	</div>
 						  </div>
