@@ -63,8 +63,6 @@ class ProfessionAction extends CommonAction {
 		$getNowHere=$this->getNowHere($result_se[0]['cate_id']);
 		$this->assign('now_here',$getNowHere);
 
-		
-		
 		//上一篇
 		$where_front['id'] = array('lt',$_GET['id']);
 		$where_front['is_img']="0";

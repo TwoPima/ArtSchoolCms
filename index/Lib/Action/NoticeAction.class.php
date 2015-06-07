@@ -34,14 +34,8 @@ class NoticeAction extends CommonAction {
 		$result_se=$model->where($where)->select();
 		//上一篇
 		$front=$model->where("id<".$_GET['id'])->order('id desc')->limit('1')->find();
-		if (empty($front)) {
-			$front="3123123123123";
-		}
 		//下一篇
 		$after=$model->where("id>".$_GET['id'])->order('id desc')->limit('1')->find();
-		if (empty($after)) {
-			$after="132123123";
-		}
 		if ($_GET['type']=="0") {
 			$str="重要通知";
 			$str1="0";

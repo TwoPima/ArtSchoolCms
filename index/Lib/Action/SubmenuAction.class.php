@@ -31,22 +31,22 @@ class SubmenuAction extends CommonAction {
 		if ($cate_tea_lea['alias']=="teacher") {
 			$mod_tea_leader=M('Teacher');
 			$mod_pro=M('Profession_cate');
-			$Stus=D('Teacher');
+		/* 	$Stus=D('Teacher');
 			
-			$arr=$Stus->relation(true)->select();
-			dump($arr);
-			exit();
-		/* $zhuanye=$mod_pro->where('pid=0')->order('sort_order ASC')->select();
-		dump($zhuanye);
+			$arr=$Stus->relation(true)->select(); */
+ 		$zhuanye=$mod_pro->where('pid=0')->order('sort_order ASC')->select();
 		foreach($zhuanye as $key=>$val){
 			$data[$key]['name']=$val['name'];
 				$whereTeaLeader['is_teacher']="1";
 				$whereTeaLeader['pid']=$val['id'];
 				$jiaoshi=$mod_tea_leader->where($whereTeaLeader)->select();
-			$data[$key]['name']=$jiaoshi;
+				
+				foreach($jiaoshi as $key1=>$val1){
+					$data1[$key][$key1]=$val1['name'];
+				}
+			$data[$key]['data']=$data1[$key];
 		}
-
-		 */
+		//var_dump($data);exit;
 		$this->assign('teaList',$data);
 		
 		//页面代码

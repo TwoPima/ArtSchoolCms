@@ -16,27 +16,18 @@
 								<span class="span2">Teaching staff</span>
 						</div>
 						<div class="main_con_con">
-						<?php
-							foreach($data as $val){
-			echo $val['name'];
-			foreach($val['data'] as $vo){
-				echo $vo['shujuku jiaoshiname'];
-			}
-		}
-						?>
-						 <volist name="teaList['parent']" id='val'>
-					<li style="width:10%"><a href="__APP__/Submenu/showFirstMenu?id={$val.id}&pid={$val.id}">{$val.name}</a>
-						 <ul>
-							<volist name="article_cate_list['sub'][$val['id']]" id='sval'>
-							<if condition="$sval.in_site  eq '1'">
-							<li id=""><a  target="_blank" href="{$sval.url}">{$sval.name}</a></li>
-							<else/>
-							<li id=""><a  target="_blank" href="__APP__/Submenu/index?id={$sval.id}&pid={$val.id}">{$sval.name}</a></li>
-							</if>
-							</volist>
-						 </ul>
-					</li>
-				</volist>
+						
+						<php>
+							foreach($teaList as $val){
+							echo " <ul>";
+								echo "<li style="width:10%"><a href="__APP__/Submenu/showFirstMenu?id={$val.id}&pid={$val.id}">{$val.name}</a>";
+									foreach($val['data'] as $key=>$vo){
+										echo "	<li id=""><a  target="_blank" href="{$sval.url}">$vo</a></li>";
+									}
+							echo "</li>";
+							echo " </ul>";
+						}
+						</php>
 							<volist name="pro" id='sval'>
 								<div class="teacher">
 										<div class="teacher_function">
