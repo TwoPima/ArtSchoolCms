@@ -43,6 +43,11 @@ class DepartmentAction extends CommonAction {
 		$id=$_GET['id'];
 		$model=M($table);
 		$cate_name_model=M($table.'_'.'cate');
+		//图片新闻
+		$where3['cate_id']=$_GET['pid'];
+		$where3['is_img']="1";
+		$detail_photo = $model->where($where3)->limit(1)->select();
+		$this->assign('detail_photo',$detail_photo);
 		//右侧名字找出来
 		$where_name['id']="$id";
 		$dep_cate_name = $cate_name_model->where($where_name)->select();
@@ -58,8 +63,6 @@ class DepartmentAction extends CommonAction {
 		//分页显示
 		$where_article_list['cate_id']="$id";
 		$count =$model->where($where_article_list)->count();
-		/* dump($count);
-		exit(); */
 		$page = new Page($count,10);
 		$article_list=$model->where($where_article_list)->limit($page->firstRow.','.$page->listRows)->order('add_time ASC')->select();
 		$showPage = $page->show();
@@ -74,6 +77,15 @@ class DepartmentAction extends CommonAction {
 		$id=$_GET['id'];
 		$model=M($table);
 		$where['id']="$id";
+		$cate_name_model=M($table.'_'.'cate');
+		//图片新闻
+		$where3['id']=$_GET['cate_id'];
+		$detail_photo1 = $cate_name_model->where($where3)->limit(1)->select();
+		$where3['is_img']="1";
+		$where3['cate_id']=$detail_photo1[0]['pid'];
+		$where4['cate_id']=$where3['cate_id'];
+		$detail_photo = $model->where($where4)->limit(1)->select();
+		$this->assign('detail_photo',$detail_photo);
 		//左侧您现在的位置
 		$getNowHere=$this->secGetNowHere($_GET['id'],$table);
 		$this->assign('now_here',$getNowHere);

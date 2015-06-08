@@ -9,6 +9,7 @@ class SubmenuAction extends CommonAction {
 		$menu_mod = M('Article_cate');
 		$where['pid']=$_GET['pid'];
 		$where['status']="1";
+		$where['in_site']="0";
 		$result_cate = $menu_mod->where($where)->order('sort_order ASC')->select();
 		$this->assign('mainleft_cate_list',$result_cate);
 		

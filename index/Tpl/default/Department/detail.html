@@ -2,7 +2,7 @@
 <!-- photo start -->
 <div id="photo">
 	<div class="container">
-			<img src="__ROOT__/statics/index/Image/teacher.jpg" alt="tuqian">
+		<img src="__ROOT__/data/news/{$detail_photo[0]['img']}" alt="zongheban">
 	</div>
 </div>
  <div id="classics_main">
@@ -25,8 +25,7 @@
 		<div class="main_con" id="main_con">
 			<div class="main_con_con">
 						<div class="main_con_title">
-								<span class="span1"></span>
-								<span class="span2">{$detail[0]['title']}</span>
+								<span class="span1">{$detail[0]['title']}</span>
 						</div>
 						<div class="main_con_text">
 							{$detail[0]['info']}
