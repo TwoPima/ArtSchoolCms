@@ -126,6 +126,7 @@ return array(
 	'VERIFY_ERROR'=>'验证码错误',
 		'tips'=>'温馨提示',
 		'attach'=>'附近上传',
+		'in_site'=>'外链文章',
 		
 );
 ?>

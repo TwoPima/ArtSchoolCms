@@ -18,6 +18,12 @@ $(function(){
 	 $("#is_img2").click(function(){  
 				$(".onlyArtcle").show();
 		  });  
+	 $("#in_site1").click(function(){  
+			$(".onlyInsite").hide();
+	  });    
+	 $("#in_site").click(function(){  
+				$(".onlyInsite").show();
+		  }); 
 })
 </script>
 
@@ -38,6 +44,14 @@ $(function(){
         <th width="100">{:L('url')} :</th>
         <td><input type="text" name="url" id="url" class="input-text" size="60" value="{$article.url}"></td>
       </tr>
+       <tr>
+      <th>{:L('in_site')} :</th>
+      <td>
+         <input type="radio" name="in_site"  id="in_site1" onclick="changeData(1);" value="1" <if condition="$article.in_site eq '1'">checked="checked"</if>  />站外
+         <input type="radio" name="in_site"  id="in_site" onclick="changeData(0);" value="0" <if condition="$article.in_site eq '0'">checked="checked"</if> />站内
+         <span style="color:red;">{:L('tips')} :1、站外链接填写:主要填写链接地址，分类和标题名称；</span>  
+      </td>
+    </tr>
        <tr>
         <th>{:L('is_img')} :</th>
         <td id="imgTitle"><input id="is_img" type="radio" name="is_img" class="radio_style" value="1" <if condition="$article.is_img eq 1"> checked</if>>
@@ -69,7 +83,7 @@ $(function(){
           <th>{:L('orig')} :</th>
           <td><input type="text" name="orig" id="orig" class="input-text" value="{$article.orig}" size="30"></td>
       </tr>
-      <tr>
+      <tr class="onlyInsite">
       	<th>{:L('img')} :</th>
       	<td>
         	<input type="file" name="img" id="img" class="input-text" style="width:200px;" />
@@ -78,11 +92,11 @@ $(function(){
             </if>
         </td>
       </tr>
-      <tr class="onlyArtcle">
+      <tr class="onlyArtcle onlyInsite">
         <th>{:L('abst')} :</th>
         <td><textarea name="abst" id="abst" style="width:68%;height:50px;">{$article.abst}</textarea></td>
       </tr>
-      <tr class="onlyArtcle">
+      <tr class="onlyArtcle onlyInsite">
         <th>{:L('info')} :</th>
         <td>        	
 			<tpl:editor id="info" name="info" type="KINDEDITOR" style="width:70%;height:350px;" >{$article.info}</tpl:editor>

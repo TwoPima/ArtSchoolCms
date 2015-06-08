@@ -150,7 +150,6 @@ function add()
 			if(false === $data = $article_mod->create()){
 				$this->error($article_mod->error());
 			}
-			$upload_list = $this->_upload();
 			if($_FILES['img']['name']!=''||$_FILES['attachment']['name']!=''){
 				$upload_list = $this->_upload();
 				if ($_FILES['img']['name']!='') {

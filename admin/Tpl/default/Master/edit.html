@@ -12,6 +12,12 @@ $(function(){
 			$("#list_"+aid).hide();
 		});
 	});
+	 $("#in_site1").click(function(){  
+			$(".onlyInsite").hide();
+	  });    
+	 $("#in_site").click(function(){  
+				$(".onlyInsite").show();
+		  }); 
 })
 </script>
 
@@ -30,10 +36,19 @@ $(function(){
          <span style="color:red;">{:L('tips')} :1、附件上传填写:无须填写链接地址、摘要、详细内容（默认是文档资讯类型即可）,标题名称必须为文档名称；</span>
         </td>
       </tr>
+       <tr>
+      <th>{:L('in_site')} :</th>
+      <td>
+         <input type="radio" name="in_site"  id="in_site1" onclick="changeData(1);" value="1" <if condition="$article.in_site eq '1'">checked="checked"</if>  />站外
+         <input type="radio" name="in_site"  id="in_site" onclick="changeData(0);" value="0" <if condition="$article.in_site eq '0'">checked="checked"</if> />站内
+         <span style="color:red;">{:L('tips')} :1、站外链接填写:主要填写链接地址，分类和标题名称；</span>  
+      </td>
+    </tr>
 	  <tr>
         <th width="100">{:L('url')} :</th>
         <td><input type="text" name="url" id="url" class="input-text" size="60" value="{$article.url}"></td>
       </tr>
+      
       <tr>
         <th>{:L('cate_id')} :</th>
         <td><select name="cate_id" id="cate_id" style="width:200px;">
@@ -57,7 +72,7 @@ $(function(){
           <th>{:L('orig')} :</th>
           <td><input type="text" name="orig" id="orig" class="input-text" value="{$article.orig}" size="30"></td>
       </tr>
-      <tr>
+      <tr class="onlyInsite">
       	<th>{:L('img')} :</th>
       	<td>
         	<input type="file" name="img" id="img" class="input-text" style="width:200px;" />
@@ -72,11 +87,11 @@ $(function(){
            <tpl:calendar id="add_time" class="input-text" name="add_time" size="30">{$article.add_time}</tpl:calendar>
            </td>
       </tr>
-      <tr>
+      <tr class="onlyInsite">
         <th>{:L('abst')} :</th>
         <td><textarea name="abst" id="abst" style="width:68%;height:50px;">{$article.abst}</textarea></td>
       </tr>
-      <tr>
+      <tr class="onlyInsite">
         <th>{:L('info')} :</th>
         <td>        	
 			<tpl:editor id="info" name="info" type="KINDEDITOR" style="width:70%;height:350px;" >{$article.info}</tpl:editor>
@@ -101,7 +116,7 @@ $(function(){
           &nbsp;未审核
           </td>
       </tr>
-       <tr class="onlyArtcle">
+       <tr class="onlyArtcle onlyInsite">
         <th width="100">{:L('attach')}:</th>
         <td>
        		<input type="file" name="attachment" id="attachment" class="input-text"  />

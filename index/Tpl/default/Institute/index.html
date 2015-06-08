@@ -31,10 +31,17 @@
 				<ul class="main_con_list">
 					<volist name="article_list" id='sval'>
 						<li>
-						<a href="__APP__/Institute/detail?id={$sval.id}&mo=Institute">
+						<if condition="$sval.in_site  eq '1'">
+						<a target="_blank"  href="{$sval.url}">
 						<img src="__ROOT__/statics/index/Image/list.png" alt="xiaotubiao">{$sval.title}
 						<span class="main_con_list_right">{$sval.add_time}</span>
 						</a>
+						<else/>
+						<a href="__URL__/detail?id={$sval.id}&mo=Institute">
+						<img src="__ROOT__/statics/index/Image/list.png" alt="xiaotubiao">{$sval.title}
+						<span class="main_con_list_right">{$sval.add_time}</span>
+						</a>
+						</if>
 						</li>
 					</volist>
 				</ul>
