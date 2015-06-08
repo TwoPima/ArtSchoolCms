@@ -18,24 +18,41 @@ class ProfessionAction extends CommonAction {
 		$detail_photo = $pro_mod->where($where3)->limit(1)->select();
 		$this->assign('detail_photo',$detail_photo);
 		//左侧您现在的位置
-		$getNowHere=$this->secGetNowHere($_GET['id'],Profession);
-		$this->assign('now_here',$getNowHere);
+		$herestr= '您现在的位置:'.'<a style="color:#000;" href="__APP__">&nbsp;&nbsp;首页&nbsp;&nbsp;</a>';
+		if (empty($_GET['id'])) {
+			$nowwhere['id']=$_GET['pid'];
+			$uplevels=$cate_mod->where($nowwhere)->field("id,name")->find();
+		}else {
+			$nowwhere['id']=$_GET['id'];
+			$uplevels = $cate_mod->field("id,name")->where($nowwhere)->find();
+		}
+		$nowHere="$herestr"."->&nbsp;&nbsp;".$uplevels['name'];
+		$this->assign('now_here',$nowHere);
 		//分类名称详细显示一个
-		$detail_cate=$this->detailCatesingle($_GET['id'],Profession);
-		$this->assign('detail_cate',$detail_cate);
+			if (empty($_GET['id'])) {
+				$cate_where2['id']=$_GET['pid'];
+				$result = $cate_mod->where($cate_where2)->field("id,name")->find();
+			}else {
+				$where2['id']=$_GET['id'];
+				$result = $cate_mod->where($where2)->field("id,name")->find();
+			}
+		$detail_catname=$result['name'];
+		$this->assign('detail_cate',$detail_catname);
 		
 		//提取专业介
 		$intro_mod=M('Profession');
-		$where['status']="1";
-		$where['is_img'] = "0";
+		$where_list['status']="1";
+		$where_list['is_img'] = "0";
 		if (empty($_GET['id'])) {
-			$where['pid'] = "0";
-			$count =$intro_mod->where($where)->count();
-			$intro_pro= $intro_mod->where($where)->order('ordid ASC')->select();
+			$cate_where3['pid']=$_GET['pid'];
+			$result = $cate_mod->where($cate_where3)->order('sort_order ASC')->field("id,name")->find();
+			$where_list['cate_id']=$result['id'];
+			$count =$intro_mod->where($where_list)->count();
+			$intro_pro= $intro_mod->where($where_list)->order('ordid ASC')->select();
 		}else{
-			$where['cate_id']=$_GET['id'];
-			$count =$intro_mod->where($where)->count();
-			$intro_pro= $intro_mod->where($where)->order('ordid ASC')->select();
+			$where_list['cate_id']=$_GET['id'];
+			$count =$intro_mod->where($where_list)->count();
+			$intro_pro= $intro_mod->where($where_list)->order('ordid ASC')->select();
 		}
 		$page = new Page($count,10);
 		$showPage = $page->show();
@@ -59,7 +76,14 @@ class ProfessionAction extends CommonAction {
 		//左侧您现在的位置*****传送的ID为cate_id******
 		$getNowHere=$this->secGetNowHere($result_se[0]['cate_id'],Profession);
 		$this->assign('now_here',$getNowHere);
-
+		//三级页面的图片显示
+		$where_photo['id']=$result_se[0]['cate_id'];
+		$detail_photo = $menu_mod->where($where_photo)->select();
+		$where_photo1['id']=$detail_photo[0]['pid'];
+		$photo = $menu_mod->where($where_photo1)->select();
+		$where_photo2['cate_id']=$photo[0]['id'];
+		$photo1 = $model->where($where_photo2)->select();
+		$this->assign('detail_photo',$photo1);
 		//上一篇
 		$where_front['id'] = array('lt',$_GET['id']);
 		$where_front['is_img']="0";

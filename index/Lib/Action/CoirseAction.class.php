@@ -38,14 +38,8 @@ public function index(){
 		$result_se=$model->where($where)->select();
 		//上一篇
 		$front=$model->where("id<".$_GET['id'])->order('id desc')->limit('1')->find();
-		if (empty($front)) {
-			$front="3123123123123";
-		}
 		//下一篇
 		$after=$model->where("id>".$_GET['id'])->order('id desc')->limit('1')->find();
-		if (empty($after)) {
-			$after="132123123";
-		}
 		//分类列表
 		$menu_mod = M('Coirse_cate');
 		$cate_where['id']=$result_se[0]['cate_id'];
