@@ -135,7 +135,6 @@ class SubmenuAction extends CommonAction {
 	}
 	public function showFirstMenu(){
 		$menu_mod = M('Article_cate');
-		
 		$where['pid']=$_GET['pid'];
 		$re_only_menu=$menu_mod->where($where)->count();//判别是否只有一个菜单
 		if ($re_only_menu == "0") {
@@ -146,30 +145,32 @@ class SubmenuAction extends CommonAction {
 			$result_cate = $menu_mod->where($where)->order('sort_order ASC')->select();
 			//资讯列表
 			$detail_mod=M('Article');
-			$where1['cate_id']=$_GET['id'];
+			$result_cate1 = $menu_mod->where($where)->order('sort_order ASC')->limit(1)->find();
+			$where1['cate_id']=$result_cate1['id'];
 			$where1['status']="1";
 			$where1['is_img'] = "0";
 			$count = $detail_mod->where($where1)->count();
 			$page = new Page($count,10);
 			$article_list = $detail_mod->where($where1)->limit($page->firstRow.','.$page->listRows)->order('add_time DESC,ordid ASC')->select();
+			$this->assign('article_list',$article_list);
 			$showPage = $page->show();
 			
 			//分类名称详细显示
-			$where2['id']=$_GET['id'];
+			$where2['id']=$result_cate1['id'];
 			$detail_cate = $menu_mod->where($where2)->select();
-			
+			$this->assign('detail_cate',$detail_cate);
 			//图片新闻
 			$where3['cate_id']=$_GET['pid'];
 			$where3['is_img']="1";
 			$detail_photo = $detail_mod->where($where3)->limit(1)->select();
 			
-			$getNowHere=$this->getNowHere($_GET['id']);
-			
+			$getNowHere=$this->getNowHere($result_cate1['id']);
 			$this->assign('now_here',$getNowHere);
+			
 			$this->assign('detail_photo',$detail_photo);
 			$this->assign('mainleft_cate_list',$result_cate);
-			$this->assign('article_list',$article_list);
-			$this->assign('detail_cate',$detail_cate);
+			
+		
 			$this->assign("page", $showPage);
 			$this->display('index');
 		}

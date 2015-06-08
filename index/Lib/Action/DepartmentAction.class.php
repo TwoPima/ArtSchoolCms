@@ -70,14 +70,13 @@ class DepartmentAction extends CommonAction {
 		$this->assign('article_list',$article_list);
 		$this->display();
 }
-
-
 		public function detail(){
 		$table=$_GET['mo'];
 		$id=$_GET['id'];
 		$model=M($table);
-		$where['id']="$id";
+		$where['id']=$id;
 		$cate_name_model=M($table.'_'.'cate');
+		$result_se=$model->where($where)->select();
 		//图片新闻
 		$where3['id']=$_GET['cate_id'];
 		$detail_photo1 = $cate_name_model->where($where3)->limit(1)->select();
@@ -86,16 +85,26 @@ class DepartmentAction extends CommonAction {
 		$where4['cate_id']=$where3['cate_id'];
 		$detail_photo = $model->where($where4)->limit(1)->select();
 		$this->assign('detail_photo',$detail_photo);
+		//分类列表
+		$menu_mod = M('Article_cate');
+		$cate_where['id']=$result_se[0]['cate_id'];
+		$cate_where['status']="1";
+		$result_cate = $menu_mod->where($cate_where)->order('sort_order ASC')->select();
+		$this->assign('mainleft_cate_list',$result_cate);
 		//左侧您现在的位置
-		$getNowHere=$this->secGetNowHere($_GET['id'],$table);
+		$getNowHere=$this->getNowHere($result_se[0]['cate_id']);
 		$this->assign('now_here',$getNowHere);
 		//正文部分
 		$detail=$model->where($where)->select();
 		$this->assign('detail',$detail);
 		//上一篇
-		$front=$model->where("id<".$_GET['id'])->order('id desc')->find();
+		$where_front['id'] = array('lt',$_GET['id']);
+		$where_front['is_img']="0";
+		$front=$model->where($where_front)->order('id desc')->find();
 		//下一篇
-		$after=$model->where("id>".$_GET['id'])->order('id desc')->find();
+		$where_after['id'] = array('gt',$_GET['id']);
+		$where_after['is_img']="0";
+		$after=$model->where($where_after)->order('id desc')->find();
 		$this->assign('front',$front);
 		$this->assign('after',$after);
 		

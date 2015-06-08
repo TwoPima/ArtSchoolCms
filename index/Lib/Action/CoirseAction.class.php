@@ -10,8 +10,10 @@ public function index(){
 		$model=M('Coirse');
 		//加载头部导航信息
 		$where_index['pid']=0;
-		$where_index['is_index']=1;
-		$re_cate_list=$mod_cate_list->where($where_index)->order('sort_order ASC')->select();
+		$re_cate_list=$mod_cate_list->where($where_index)->order('sort_order DESC')->limit(7)->select();
+		$re_cate_list1=$mod_cate_list->where($where_index)->order('sort_order ASC')->limit(1)->find();
+		$this->assign('top_cate_list',$re_cate_list);
+		$this->assign('top_cate_list1',$re_cate_list1);
 		//视频课件提取
 		$whereArt['type']="1";
 		$count =$model->where($whereArt)->count();
