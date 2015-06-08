@@ -25,7 +25,7 @@
 			<div class="main_con" id="main_con">
 				<div class="main_con_con">
 					<div class="main_con_title">
-						<span class="span2">{$dep_cate_name[0][name]}</span>
+						<span class="span1">{$dep_cate_name[0][name]}</span>
 					</div>
 					<ul class="main_con_list">
 						<volist name="article_list" id='sval'>
@@ -33,7 +33,6 @@
 										<a href="__APP__/Department/detail?id={$sval.id}&mo=Article&cate_id={$sval.cate_id}">
 										<span class="main_con_list_right">{$sval.add_time}</span>
 										<img src="__ROOT__/statics/index/Image/list.png" alt="xiaotubiao">{$sval.title}
-										
 										</a>
 									</li>
 						</volist>

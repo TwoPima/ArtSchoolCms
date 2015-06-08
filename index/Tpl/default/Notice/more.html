@@ -29,8 +29,9 @@
 							<volist name="notice_list" id='sval'>
 								<li>
 								<a href="__APP__/Notice/detail?id={$sval.id}">
-								<img src="__ROOT__/statics/index/Image/list.png" alt="xiaotubiao">{$sval.name}
 								<span class="main_con_list_right">{$sval.uploadtime|date="Y-m-d",###}</span>
+								<img src="__ROOT__/statics/index/Image/list.png" alt="xiaotubiao">{$sval.name}
+								
 								</a>
 								</li>
 							</volist>

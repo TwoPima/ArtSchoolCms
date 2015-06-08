@@ -13,15 +13,15 @@
 					<div class="main_con_con">
 						<div class="main_con_title">
 								<span class="span1">{$detail_cate[0]['name']}</span>
-								<span class="span2">{$detail_cate[0]['english_name']}</span>
 						</div>
 						<ul class="main_con_list">
 							<volist name="article_list" id='sval'>
 								<li>
 								<if condition="$sval.in_site  eq '1'">
 									<a target="_blank"  href="{$sval.url}">
-									<img src="__ROOT__/statics/index/Image/list.png" alt="xiaotubiao">{$sval.title}
 									<span class="main_con_list_right">{$sval.add_time}</span>
+									<img src="__ROOT__/statics/index/Image/list.png" alt="xiaotubiao">{$sval.title}
+								
 									</a>
 									<else/>
 								<a href="__URL__/detail?id={$sval.id}&mo=Article">

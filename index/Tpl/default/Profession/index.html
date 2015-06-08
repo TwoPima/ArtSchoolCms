@@ -32,13 +32,15 @@
 						<li>
 						<if condition="$sval.in_site  eq '1'">
 						<a target="_blank"  href="{$sval.url}">
-						<img src="__ROOT__/statics/index/Image/list.png" alt="xiaotubiao">{$sval.title}
 						<span class="main_con_list_right">{$sval.add_time}</span>
+						<img src="__ROOT__/statics/index/Image/list.png" alt="xiaotubiao">{$sval.title}
+						
 						</a>
 						<else/>
 						<a href="__URL__/detail?id={$sval.id}&mo=Profession">
-						<img src="__ROOT__/statics/index/Image/list.png" alt="xiaotubiao">{$sval.title}
 						<span class="main_con_list_right">{$sval.add_time}</span>
+						<img src="__ROOT__/statics/index/Image/list.png" alt="xiaotubiao">{$sval.title}
+						
 						</a>
 						</if>
 						</li>
