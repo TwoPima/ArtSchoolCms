@@ -14,11 +14,6 @@ public function index(){
 	 * 并且只提取
 	*  艺术硕士、研究所、文化艺术团、精品课程；
 	*/
-		/* $catid=$_GET['id'];
-		$getmodel="Military";
-		$get_mod_cate=$getmodel.'_'.'cate';
-		$cate=M($get_mod_cate);
-		$model=M($getmodel); */
 		$catid=$_GET['id'];
 		$model=M('Military');
 		if (empty($catid)) {

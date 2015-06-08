@@ -91,9 +91,13 @@ class SubmenuAction extends CommonAction {
 		$where['id']=$_GET['id'];
 		$result_se=$model->where($where)->select();
 		//上一篇
-		$front=$model->where("id<".$_GET['id'])->order('id desc')->find();
+		$where_front['id'] = array('lt',$_GET['id']);
+		$where_front['is_img']="0";
+		$front=$model->where($where_front)->order('id desc')->find();
 		//下一篇
-		$after=$model->where("id>".$_GET['id'])->order('id desc')->find();
+		$where_after['id'] = array('gt',$_GET['id']);
+		$where_after['is_img']="0";
+		$after=$model->where($where_after)->order('id desc')->find();
 		//分类列表
 		$menu_mod = M('Article_cate');
 		$cate_where['id']=$result_se[0]['cate_id'];

@@ -65,7 +65,6 @@ class ProfessionAction extends CommonAction {
 		$model=M($table);
 		$where['id']=$_GET['id'];
 		$result_se=$model->where($where)->select();
-	
 		//分类列表
 		$menu_mod = M('Profession_cate');
 		$cate_where['id']=$result_se[0]['cate_id'];
