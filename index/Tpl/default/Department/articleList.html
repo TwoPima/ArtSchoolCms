@@ -2,7 +2,7 @@
 <!-- photo start -->
 <div id="photo">
 	<div class="container">
-			<img src="__ROOT__/statics/index/Image/teacher.jpg" alt="tuqian">
+			<img src="__ROOT__/data/news/{$detail_photo[0]['img']}" alt="#">
 	</div>
 </div>
  <div id="classics_main">
@@ -30,7 +30,7 @@
 					<ul class="main_con_list">
 						<volist name="article_list" id='sval'>
 									<li>
-										<a href="__APP__/Department/detail?id={$sval.id}&mo=Article">
+										<a href="__APP__/Department/detail?id={$sval.id}&mo=Article&cate_id={$sval.cate_id}">
 										<img src="__ROOT__/statics/index/Image/list.png" alt="xiaotubiao">{$sval.title}
 										<span class="main_con_list_right">{$sval.add_time}</span>
 										</a>

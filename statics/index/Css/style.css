@@ -533,8 +533,9 @@ input{
 	float:left;
 }
 .mod_pad_right img{
-	width:150px;
-	height:150px;
+	margin-left:50px;
+	width:100px;
+	height:100px;
 }
 .foot_copyright{
 	font-size:15px;
@@ -677,8 +678,8 @@ color:#000;
 .main_con_con{
 	padding:10px 20px;
 	height:auto!important;
-	height:500px;
-	min-height:500px;
+	height:600px;
+	min-height:600px;
 }
 /*经典列表属性*/
 .main_con_list{
