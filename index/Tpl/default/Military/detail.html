@@ -5,10 +5,10 @@
 			<img src="__ROOT__/statics/index/Image/teacher.jpg" alt="tuqian">
 	</div>
 </div>
-<div id="class_main">
+<div id="classics_main">
 	<div class="container clearfix">
 	<!-- 左侧 -->
-				<div class="main_list" id="main_list">
+			<div class="main_list" id="main_list">
 				<div class="main_list_title">
 					<img src="__ROOT__/statics/index/Image/nav_house.png" alt="lala">
 					{$now_here}
@@ -19,25 +19,23 @@
 						<li ><a href="__APP__/Department/detail?id={$val.id}&pid={$val.pid}&mo=Article">{$val.name}</a></li>
 					</volist>
 				</ul> 
-			</div>
+				</div>
 			</div><!--  右侧-->
-		<div class="class_main_con" >
+		<div class="main_con" id="main_con">
+			<div class="main_con_con">
 				<div class="main_con_title">
-						<span class="span1"></span>
-						<span class="span2">{$detail[0]['title']}</span>
+						<span class="span1">{$detail[0]['title']}</span>
 				</div>
-				<div class="main_con_con">
-					<p>
+				<div class="main_con_text">
 					{$detail[0]['info']}
-					</p>
 				</div>
-		</div>
+			</div>
 		<div class="attach">
-							<if condition="$attatch.id eq ''">
-								<else/>
-								 <a href="__URL__/download?filename={$attatch['url']}&site=military">附件下载：{$attatch['title']}</a>
-							 </if>
-						</div>
+			<if condition="$attatch.id eq ''">
+				<else/>
+				 <a href="__URL__/download?filename={$attatch['url']}&site=military">附件下载：{$attatch['title']}</a>
+			 </if>
+		</div>
 		<div class="paging_next">
 				<span class="paging_left">
 				<if condition="$front.id eq ''">
@@ -53,6 +51,7 @@
 				<a href="__URL__/detail?id={$after.id}">{$after.title}</a>
 				</if>
 				</span>
+		</div>
 		</div>
 	</div>
 </div>
