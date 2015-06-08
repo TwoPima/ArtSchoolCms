@@ -5,8 +5,11 @@
 }
 body{
 	margin:auto;
-	font-family:微软雅黑;
+	font-family: Helvetica, 'Hiragino Sans GB', 'Microsoft Yahei', '微软雅黑', Arial, sans-serif;
 	font-size:16px;
+}
+img{
+	border:none;
 }
 ul{
 	list-style:none;
@@ -75,7 +78,7 @@ input{
 
 /*---------------header--------------------*/
 #header{
-	background-color:red;
+	background-color:#10646F;
 	background-image:url(../Image/top.jpg);
 }
 .top{
@@ -88,9 +91,14 @@ input{
 .logo{
 	float:left;
 	height:120px;
+	width:330px;
+}
+.logo img{
+	width:330px;
+	height:120px;
 }
 .sousuo{
-	margin-top:35px;
+	margin-top:40px;
 	margin-right:70px;
 	float:right;
 }
@@ -197,9 +205,9 @@ input{
   #buttons .on {
       display:block;
       background:#333;
-		   	filter:alpha(opacity=70);  /* ie 有效*/
-			-moz-opacity:0.7; /* Firefox  有效*/
-			opacity: 0.7; /* 通用，其他浏览器  有效*/
+	   	filter:alpha(opacity=70);  /* ie 有效*/
+		-moz-opacity:0.7; /* Firefox  有效*/
+		opacity: 0.7; /* 通用，其他浏览器  有效*/
 		
   }
   .arrow { 
@@ -250,14 +258,10 @@ input{
 	float:right;
 }
 .importantnews ul li{
+	border-bottom:1px dashed #fff;
 	line-height:1.7;
 }
-.importantnews  hr{
-	height:1px; 
-	border:none;
-	border-top:1px dashed #fff;
-	*height:1px;
-}
+
 .importantnews ul li a{
 	font-size:14px;
 	color:#fff;
@@ -335,6 +339,7 @@ input{
 }
 .collegenews ul li{
 	line-height:1.7;
+	border-bottom:1px dashed #000;
 }
 .collegenews ul li a{
 	font-size:14px;
@@ -346,11 +351,7 @@ input{
 .collegenews ul li a:hover{
 	color:#FFAD01;
 }
-.collegenews  hr{
-		height:1px; 
-		border:none;
-		border-top:1px dashed #000;
-}
+
 /*------------------office-------------------*/
 #office{
 	height:360px;
@@ -493,7 +494,7 @@ input{
 	width:200px;
 }
 .select{
-	background-color:#000;
+	background-color:#1D1D1D;
 	color:#FFAD01;
 	border-bottom:3px solid #fff;
 }

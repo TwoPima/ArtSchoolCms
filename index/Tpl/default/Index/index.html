@@ -2,6 +2,7 @@
 <!-- photochange and importantnews start-->
 <div id="photochange_importantnews">
 	<div class="container">
+	<!-- 图片轮换开始 -->
 			<div id="photochange">
 				<div id="list" style="left: -800px;">
 				   		<img src="__ROOT__/data/advert/{$Adasc[0]['code']}" alt="{$Adasc[0]['ordid']}"/>
@@ -20,11 +21,12 @@
 			    <a href="javascript:;" id="prev" class="arrow">&lt;</a>
 			    <a href="javascript:;" id="next" class="arrow">&gt;</a>
 			</div>
+			<!-- 图片轮换结束 -->
 			<div class="importantnews">
 				<h1>重要通知 </h1>
 					 <ul>
 				 		<volist name="Notice" id="val">
-					   		<li ><a href="__APP__/Notice/detail?mo=Notice&id={$val.id}&type={$val.type}">{$val.name|msubstr=0,18,'utf-8',true}<span>【{$val.uploadtime|date="m-d",###}】</span></a></li><hr>
+					   		<li><span>【{$val.uploadtime|date="m-d",###}】</span><a href="__APP__/Notice/detail?mo=Notice&id={$val.id}&type={$val.type}">{$val.name|msubstr=0,18,'utf-8',true}</a></li>
 					   	</volist>
 						</ul> 
 				<h3><a href="__APP__/Notice/more/mo=Notice&type=0">READ MORE >></a></h3>
@@ -85,7 +87,7 @@
 				<h1>学院新闻</h1>
 					 <ul>
 					 	<volist name="CollegeNotice" id="val">
-					   		<li><a href="__APP__/Notice/detail?mo=Notice&id={$val.id}&type={$val.type}">{$val.name|msubstr=0,21,'utf-8',true}<span>【{$val.uploadtime|date="m-d",###}】</span></a></li><hr>
+					   		<li><span>【{$val.uploadtime|date="m-d",###}】</span><a href="__APP__/Notice/detail?mo=Notice&id={$val.id}&type={$val.type}">{$val.name|msubstr=0,21,'utf-8',true}</a></li>
 					   	</volist>
 						</ul> 
 				<h3><a href="__APP__/Notice/more/type=1">READ MORE >></a></h3>
