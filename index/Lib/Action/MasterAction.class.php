@@ -60,6 +60,9 @@ class MasterAction extends CommonAction {
 		$cate_where['id']=$result_se[0]['cate_id'];
 		$cate_where['status']="1";
 		$result_cate = $menu_mod->where($cate_where)->order('sort_order ASC')->select();
+		//左侧您现在的位置*****传送的ID为cate_id******
+		$getNowHere=$this->secGetNowHere($result_se[0]['cate_id'],Master);
+		$this->assign('now_here',$getNowHere);
 		//附件下载
 		$attatch_mod = D('attatch');
 		$whereAtta['type']="1";

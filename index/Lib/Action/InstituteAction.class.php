@@ -61,6 +61,11 @@ class InstituteAction extends CommonAction {
 		$cate_where['id']=$result_se[0]['cate_id'];
 		$cate_where['status']="1";
 		$result_cate = $menu_mod->where($cate_where)->order('sort_order ASC')->select();
+		$this->assign('mainleft_cate_list',$result_cate);
+		
+		//左侧您现在的位置*****传送的ID为cate_id******
+		$getNowHere=$this->secGetNowHere($result_se[0]['cate_id'],Institute);
+		$this->assign('now_here',$getNowHere);
 		//附件下载
 		$attatch_mod = D('attatch');
 		$whereAtta['type']="3";
@@ -68,7 +73,7 @@ class InstituteAction extends CommonAction {
 		$attatch= $attatch_mod->where($whereAtta)->find();
 		$this->assign('attatch',$attatch);
 	
-		$this->assign('mainleft_cate_list',$result_cate);
+	
 	
 		$this->assign('front',$front);//上一条
 		$this->assign('after',$after);//下一条

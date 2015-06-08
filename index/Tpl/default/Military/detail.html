@@ -15,8 +15,8 @@
 				</div>
 				<div class="main_list_nav">
 				 <ul>
-					<volist name="dep_cate_list" id='val'>
-						<li ><a href="__APP__/Department/detail?id={$val.id}&pid={$val.pid}&mo=Article">{$val.name}</a></li>
+					<volist name="mainleft_cate_list" id='val'>
+						<li ><a href="__URL__/detail?id={$val.id}&pid={$val.pid}&mo=Military">{$val.name}</a></li>
 					</volist>
 				</ul> 
 				</div>
@@ -41,14 +41,14 @@
 				<if condition="$front.id eq ''">
 					没有文章了！
 					<else/>
-					<a href="__URL__/detail?id={$front.id}">{$front.title}</a>
+					<a href="__URL__/detail?id={$front.id}&mo=Military">{$front.title}</a>
 				 </if>
 				</span>
 				<span class="paging_right">
 				<if condition="$after.id eq ''">
 					没有文章了！
 				<else/>
-				<a href="__URL__/detail?id={$after.id}">{$after.title}</a>
+				<a href="__URL__/detail?id={$after.id}&mo=Military">{$after.title}</a>
 				</if>
 				</span>
 		</div>
