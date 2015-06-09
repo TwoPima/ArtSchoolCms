@@ -9,52 +9,50 @@
 				</div>
 		</div>
 </div>
-<div id="classics_main">
+<div id="class_main">
 	<div class="container clearfix">
 			<!-- 左侧 -->
-			<div class="main_list" id="main_list">
-				<div class="main_list_title">
+			<div class="class_main_left">
+				<!-- <div class="main_list_title">
 					<img src="__ROOT__/statics/index/Image/nav_house.png" alt="lala">
 					{$now_here}
-				</div>
-				<div class="main_list_nav">
+				</div> -->
 				 <ul>
-					<li ><a href="__URL__/detail?id={$prolist.id}"><img src="__ROOT__/statics/index/Image/left_nav.jpg">{$prolist.name}</a></li>
+					<li ><a href="__URL__/detail?id={$prolist.id}">{$prolist.name}</a></li>
 				</ul> 
 			</div>
-			</div>
 			<!--  右侧-->
-		<div class="main_con" id="main_con">
-			<div class="main_con_con" >
-			 	<div class="main_con_title">
-						<span class="span1">
-						{$prolist.name}</span>
+		<div class="class_main_con">
+			<div class="class_main_con_con" >
+			 	<div class="class_main_con_title">
+					<span class="span1">{$prolist.name}</span>
 				</div> 
-				<ul class="main_con_list">
-					<volist name="article_list" id='sval'>
-						<li>
-						<if condition="$sval.in_site  eq '1'">
-						<a target="_blank"  href="{$sval.url}">
-						<span class="main_con_list_right">{$sval.add_time}</span>
-						<img src="__ROOT__/statics/index/Image/list.png" alt="xiaotubiao">{$sval.title}
-						
-						</a>
-						<else/>
-						<a href="__URL__/detail?id={$sval.id}&mo=Coirse">
-						<span class="main_con_list_right">{$sval.add_time}</span>
-						<img src="__ROOT__/statics/index/Image/list.png" alt="xiaotubiao">{$sval.title}
-						
-						</a>
-						</if>
-						</li>
-					</volist>
-				</ul>
-			</div>
-			<!-- 分页显示 -->
-			<p class="paging">
-				{$page}
-			</p>
-			</div>
+				<div class="class_main_con_show">
+					<ul class="class_article_list">
+						<volist name="article_list" id='sval'>
+							<li>
+							<if condition="$sval.in_site  eq '1'">
+							<a target="_blank"  href="{$sval.url}">
+							<span class="main_con_list_right">{$sval.add_time}</span>
+							<img src="__ROOT__/statics/index/Image/list.png" alt="xiaotubiao">{$sval.title}
+							</a>
+							<else/>
+							<a href="__URL__/detail?id={$sval.id}&mo=Coirse">
+							<span class="main_con_list_right">{$sval.add_time}</span>
+							<img src="__ROOT__/statics/index/Image/list.png" alt="xiaotubiao">{$sval.title}
+							
+							</a>
+							</if>
+							</li>
+						</volist>
+					</ul>
+				</div>
+				<!-- 分页显示 -->
+				<p class="paging">
+					{$page}
+				</p>
+			</div><!-- ./class_main_con_con -->
+		</div>
 	</div>
 </div> 
 <include file="Public:footer"/>
