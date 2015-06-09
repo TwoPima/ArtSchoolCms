@@ -8,29 +8,27 @@
 				</div>
 		</div>
 </div>
-<div id="classics_main">
+<div id="class_main">
 	<div class="container clearfix">
 			<!-- 左侧 -->
-			<div class="main_list" id="main_list">
-				<div class="main_list_title">
+			<div class="class_main_left" >
+				<!-- <div class="main_list_title">
 					<img src="__ROOT__/statics/index/Image/nav_house.png" alt="lala">
 					{$now_here}
-				</div>
-				<div class="main_list_nav">
+				</div> -->
 				 <ul>
 					<volist name="mainleft_cate_list" id='val'>
-						<li ><a href="__URL__/index?id={$val.id}&pid={$val.pid}"><img src="__ROOT__/statics/index/Image/left_nav.jpg">{$val.name}</a></li>
+						<li ><a href="__URL__/index?id={$val.id}&pid={$val.pid}">{$val.name}</a></li>
 					</volist>
 				</ul> 
 			</div>
-			</div>
 			<!--  右侧-->
-			<div class="main_con" id="main_con">
-				<div class="main_con_con">
-						<div class="main_con_title">
+			<div class="class_main_con" >
+				<div class="class_main_con_con">
+						<div class="class_main_con_title">
 								<span class="span1">{$detail[0]['title']}</span>
 						</div>
-						<div class="main_con_text">
+						<div class="class_main_con_show">
 							{$detail[0]['info']}
 						</div>
 				</div>

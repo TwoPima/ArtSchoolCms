@@ -54,6 +54,7 @@ class DepartmentAction extends CommonAction {
 		$this->assign('dep_cate_name',$dep_cate_name);
 		//提出左侧导航列表
 		$where_menu['pid']="$pid";
+		$where_menu['in_site']="0";
 		$dep_cate_list = $cate_name_model->where($where_menu)->order('sort_order ASC')->select();
 		$this->assign('dep_cate_list',$dep_cate_list);
 		//左侧您现在的位置

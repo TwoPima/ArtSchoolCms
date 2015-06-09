@@ -16,9 +16,10 @@
 				<a href="__APP__"><img src="__ROOT__/statics/index/Image/logo.jpg" alt=""></a>
 			</div>
 			<div class="sousuo_class">
-				<form action="##">
-						<input class="newinput" type="text" name="###">
-						<input type="submit" value="搜索">
+				<form name="searchform" action="__APP__/Index/search" method="post">
+						<input class="newinput" type="text" name="word">
+						<input type="hidden" name="mo" value="Article" />
+					 	<input type="submit" name="search"  value="搜索" />
 				</form>
 			</div>
 		</div>

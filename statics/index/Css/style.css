@@ -139,6 +139,7 @@ input{
 	font-size:15px;
 }
 .nav ul li ul li{
+	margin:auto;
 	line-height:40px;
 	padding:0 10px;
 	float:left;
@@ -161,7 +162,7 @@ input{
 #photochange_importantnews{
 	height:450px;
 	width:100%;
-	background-image:url(../Image/bg.jpg);
+	background:#fff url(../Image/bg2.jpg) repeat-x;/*  #10646F*/
 }
 /*-----------------轮换图------------------*/
 #photochange {
@@ -558,44 +559,6 @@ input{
 .main_mid{
 	
 }
-/* .class_main_con{
-	width:100%;
-	background-color:red;
-}
-
-.class_main_list ul{
-	height:auto!important;
-	height:400px;
-	min-height:400px;
-}
-
-.class_main_list ul li{
-	height:40px;
-	font-size:15px;
-	padding-left:15px;
-	padding-right:15px;
-	margin-top:1px;
-}
-
-.class_main_list ul li img{
-	margin-right:10px;
-	width:13px;
-	height:13px;
-}
-.class_main_list a{
-	font-size:14px;
-	height:30px;
-	line-height:30px;
-	color:#000;
-}
-.class_main_list a:hover{
-	font-weight:bold;
-	color:#FEAF00;
-}
-.class_main_list_right{
-	float:right;
-	font-size:14px;
-} */
 /*---二级页面头部导航---*/
 #photo{
 	background-color:#10646F;
@@ -660,6 +623,9 @@ color:#000;
 	margin-left:30px;
 	float:left;
 	width:840px;
+	height:auto!important;
+	height:600px;
+	min-height:600px;
 }
 .main_con_title{
 	padding:5px 0;
@@ -671,12 +637,13 @@ color:#000;
 	font-weight:bold;
 	font-size:20px;
 }
-.span2{
-	color:#10646F;
-	font-weight:bold;
-	font-size:18px;
-}
+
 .main_con_con{
+	margin-top:10px;
+	margin-bottom:10px;
+	border:3px solid #F4F4F4;
+	border-radius:15px;
+	-moz-border-radius:15px; /* Old Firefox */
 	padding:10px 20px;
 	height:auto!important;
 	height:600px;
@@ -685,6 +652,9 @@ color:#000;
 /*经典列表属性*/
 .main_con_list{
 	margin-top:15px;
+	height:auto!important;
+	height:600px;
+	min-height:600px;
 }
 
 .main_con_list li{
@@ -715,10 +685,10 @@ color:#000;
 /*经典z正文属性*/
 .main_con_text{
 	padding:10px 10px;
+	height:auto!important;
+	height:600px;
+	min-height:600px;
 }
-
-
-
 /*-----------------------------------精品课程正文部门------------------------*/
 /*-----------------精品课程----------------------*/
 .sousuo_class{
@@ -759,18 +729,18 @@ input{
 #header_class{
 	background-image:url(../Image/top.jpg);
 	color:#fff;
-	height:75px;
+	height:85px;
 }
 .top_class{
 	height:10px;
 	background-color:#000;
 }
 .logo_class{
-	height:65px;
+	height:75px;
 	float:left;
 }
 .logo_class img{
-	height:65px;
+	height:75px;
 }
 .sousuo_class{
 	margin-top:15px;
@@ -799,7 +769,6 @@ input{
 #class_main{
 	padding-top:30px;
 	padding-bottom:30px;
-	border:1px solid red;
 	background-color:#EEEEEE;
 }
 /* 左侧分类 */
@@ -830,22 +799,27 @@ border-left:10px solid #10646F;
 }
 /* 右侧分类 */
 .class_main_con{
-	padding:10px 20px;
 	float:right;
-	width:810px;
+	width:850px;
 	background-color:#fff;
 	height:auto!important;
-	height:600px;
-	min-height:600px;
-	
+	height:700px;
+	min-height:700px;
 }
-.class_main_con h3{
-	line-height:40px;
+.class_main_con_con{
+	margin:10px 20px;
+	height:auto!important;
+	height:700px;
+	min-height:700px;
+}
+.class_main_con_title{
+	padding:10px 5px;
+	border-bottom:3px solid #EBE9EA;
 }
 .class_main_con_show {
 	height:auto!important;
-	height:600px;
-	min-height:600px;
+	height:700px;
+	min-height:700px;
 }
 .class_video_list a{
 	color:#000;
@@ -886,7 +860,7 @@ border-left:10px solid #10646F;
 
 /*精品课程列表*/
 .class_article_list{
-	
+	margin-top:10px;
 }
 .class_article_list li{
 	height:40px;
@@ -915,29 +889,21 @@ border-left:10px solid #10646F;
 } */
 /*------------------------精品课程article end---------------------------*/
 
-
-
-
-
-
-
 /* ----------------分页显示------------- */
 /* 分页*/
-.paging{
-	width:100%;
+.main_paging{
 	height:30px;
-	background-color:#000;
-	border:1px solid red;
 }
-.paging a{
+.main_paging a{
 	height:30px;
 	color:#000;
 	font-size:15px;
 }
-.paging a:hover{
+.main_paging a:hover{
 	color:#FFAD01;
 	font-size:15px;
 }
+
 /* 下一片*/
 .paging_next{
 	width:100%;
@@ -964,7 +930,7 @@ border-left:10px solid #10646F;
 }
 /*--------------- 分页显示------------ */
 /*--------------- 艺术硕士左侧的列表页 结束------------ */
-/*-----------------jingpinkecheng--------------*/
+/*-----------------精品课程--------------*/
 /*----------------teacher-------------*/
 .teacher{
 	margin-top:30px;
@@ -1059,7 +1025,45 @@ border-left:10px solid #10646F;
 	height:161px;
 	width:449px;
 }
+/*没有用处的 css*/
+ /* .class_main_con{
+	width:100%;
+	background-color:red;
+}
 
+.class_main_list ul{
+	height:auto!important;
+	height:400px;
+	min-height:400px;
+}
+
+.class_main_list ul li{
+	height:40px;
+	font-size:15px;
+	padding-left:15px;
+	padding-right:15px;
+	margin-top:1px;
+}
+
+.class_main_list ul li img{
+	margin-right:10px;
+	width:13px;
+	height:13px;
+}
+.class_main_list a{
+	font-size:14px;
+	height:30px;
+	line-height:30px;
+	color:#000;
+}
+.class_main_list a:hover{
+	font-weight:bold;
+	color:#FEAF00;
+}
+.class_main_list_right{
+	float:right;
+	font-size:14px;
+}  */
 
 
 
