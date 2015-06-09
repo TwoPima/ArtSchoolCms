@@ -2,38 +2,59 @@
 <div id="nav_class">
 		<div class="container">
 				<div class="nav_class_link">
-					<span><a href="__APP__/Coirse/index">教学视频</a></span>
+					<span><a href="__APP__/Coirse/index">{$top_cate_list1.name}</a></span>
 					<volist name="top_cate_list" id='sval'>
 						<span><a href="__APP__/Coirse/articleList?id={$sval.id}&mo=Coirse_cate">{$sval.name}</a></span>
 					</volist>
 				</div>
 		</div>
 </div>
-<div id="class_main">
+<div id="classics_main">
 	<div class="container clearfix">
-		<div class="class_main_left" >
-			<ul style="color:red;">
-				<span style="color:red;"><a href="__APP__/Coirse/articleList?id={$pro_list.id}&mo=Coirse_cate">{$pro_list.name}</a></span>
-			</ul>
-		</div>
-		<div class="class_main_con">
-			<ul>
-				<volist name="article_list" id='sval'>
-					<li>
-						<a href="__APP__/Coirse/detail?id={$sval.id}&mo=Coirse">
-						<span class="class_main_list_right">{$sval.add_time}</span>
+			<!-- 左侧 -->
+			<div class="main_list" id="main_list">
+				<div class="main_list_title">
+					<img src="__ROOT__/statics/index/Image/nav_house.png" alt="lala">
+					{$now_here}
+				</div>
+				<div class="main_list_nav">
+				 <ul>
+					<li ><a href="__URL__/detail?id={$prolist.id}"><img src="__ROOT__/statics/index/Image/left_nav.jpg">{$prolist.name}</a></li>
+				</ul> 
+			</div>
+			</div>
+			<!--  右侧-->
+		<div class="main_con" id="main_con">
+			<div class="main_con_con" >
+			 	<div class="main_con_title">
+						<span class="span1">
+						{$prolist.name}</span>
+				</div> 
+				<ul class="main_con_list">
+					<volist name="article_list" id='sval'>
+						<li>
+						<if condition="$sval.in_site  eq '1'">
+						<a target="_blank"  href="{$sval.url}">
+						<span class="main_con_list_right">{$sval.add_time}</span>
 						<img src="__ROOT__/statics/index/Image/list.png" alt="xiaotubiao">{$sval.title}
 						
-					</a>
-					</li>
-				</volist>
-			</ul>
-			<div class="paging">
-			<p>
+						</a>
+						<else/>
+						<a href="__URL__/detail?id={$sval.id}&mo=Coirse">
+						<span class="main_con_list_right">{$sval.add_time}</span>
+						<img src="__ROOT__/statics/index/Image/list.png" alt="xiaotubiao">{$sval.title}
+						
+						</a>
+						</if>
+						</li>
+					</volist>
+				</ul>
+			</div>
+			<!-- 分页显示 -->
+			<p class="paging">
 				{$page}
 			</p>
-		</div>
-		</div>
+			</div>
 	</div>
-</div>
+</div> 
 <include file="Public:footer"/>

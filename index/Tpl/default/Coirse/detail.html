@@ -8,43 +8,55 @@
 				</div>
 		</div>
 </div>
-<div id="class_main">
+<div id="classics_main">
 	<div class="container clearfix">
-		<div class="class_main_con" >
-				<div class="main_con_title">
-						<span class="span1">{$detail[0]['title']}</span>
+			<!-- 左侧 -->
+			<div class="main_list" id="main_list">
+				<div class="main_list_title">
+					<img src="__ROOT__/statics/index/Image/nav_house.png" alt="lala">
+					{$now_here}
 				</div>
+				<div class="main_list_nav">
+				 <ul>
+					<volist name="mainleft_cate_list" id='val'>
+						<li ><a href="__URL__/index?id={$val.id}&pid={$val.pid}"><img src="__ROOT__/statics/index/Image/left_nav.jpg">{$val.name}</a></li>
+					</volist>
+				</ul> 
+			</div>
+			</div>
+			<!--  右侧-->
+			<div class="main_con" id="main_con">
 				<div class="main_con_con">
-					<p>
-					{$detail[0]['info']}
-					</p>
+						<div class="main_con_title">
+								<span class="span1">{$detail[0]['title']}</span>
+						</div>
+						<div class="main_con_text">
+							{$detail[0]['info']}
+						</div>
 				</div>
-				<div class="attach">
-							<if condition="$attatch.id eq ''">
-								<else/>
-								 <a href="__URL__/download?filename={$attatch['url']}&site=Coirse">附件下载：{$attatch['title']}</a>
-							 </if>
-						</div>
-				<div class="paging_next">
-								<span class="paging_left">
-								<if condition="$front.id eq ''">
-									没有文章了！
-									<else/>
-									<a href="__APP__/Coirse/detail?id={$front.id}&mo=Coirse">{$front.title}</a>
-								 </if>
-								</span>
-								
-								<span class="paging_right">
-								<if condition="$after.id eq ''">
-									没有文章了！
-								<else/>
-								<a href="__APP__/Coirse/detail?id={$after.id}&mo=Coirse">{$after.title}</a>
-								</if>
-								</span>
-						</div>
+					<div class="attach">
+						<if condition="$attatch.id eq ''">
+							<else/>
+							 <a href="__URL__/download?filename={$attatch['url']}&site=Coirse">附件下载：{$attatch['title']}</a>
+						 </if>
+					</div>
+					<div class="paging_next">
+						<span class="paging_left">
+						<if condition="$front.id eq ''">
+							没有文章了！
+							<else/>
+							<a href="__URL__/detail?id={$front.id}&mo=Coirse">{$front.title}</a>
+						 </if>
+						</span>
+						<span class="paging_right">
+						<if condition="$after.id eq ''">
+							没有文章了！
+						<else/>
+						<a href="__URL__/detail?id={$after.id}&mo=Coirse">{$after.title}</a>
+						</if>
+						</span>
+				</div>
+			</div>
 		</div>
-		
-	</div>
-</div>
-
+		</div>
 <include file="Public:footer"/>

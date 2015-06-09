@@ -27,7 +27,7 @@
 								<if condition="$front.id eq ''">
 									没有文章了！
 									<else/>
-									<a href="__APP__/Submenu/detail?id={$front.id}&mo=Article">{$front.title}</a>
+									<a href="__APP__/Submenu/detail?id={$front.id}&mo=Article&type=1">{$front.title}</a>
 								 </if>
 								</span>
 								
@@ -35,7 +35,7 @@
 								<if condition="$after.id eq ''">
 									没有文章了！
 								<else/>
-								<a href="__APP__/Submenu/detail?id={$after.id}&mo=Article">{$after.title}</a>
+								<a href="__APP__/Submenu/detail?id={$after.id}&mo=Article&type=1">{$after.title}</a>
 								</if>
 								</span>
 						</div>

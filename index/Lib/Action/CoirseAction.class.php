@@ -38,6 +38,9 @@ public function index(){
 		$model=M($table);
 		$where['id']=$_GET['id'];
 		$result_se=$model->where($where)->select();
+		//左侧您现在的位置*****传送的ID为cate_id******
+		$getNowHere=$this->secGetNowHere($result_se[0]['cate_id'],Coirse);
+		$this->assign('now_here',$getNowHere);
 		//上一篇
 		$front=$model->where("id<".$_GET['id'])->order('id desc')->limit('1')->find();
 		//下一篇
@@ -66,8 +69,10 @@ public function index(){
 		$model=M('Coirse');
 		//加载头部导航信息
 		$where_index['pid']=0;
-		$where_index['is_index']=1;
-		$re_cate_list=$mod_cate_list->where($where_index)->order('sort_order ASC')->select();
+		$re_cate_list=$mod_cate_list->where($where_index)->order('sort_order DESC')->limit(7)->select();
+		$re_cate_list1=$mod_cate_list->where($where_index)->order('sort_order ASC')->limit(1)->find();
+		$this->assign('top_cate_list',$re_cate_list);
+		$this->assign('top_cate_list1',$re_cate_list1);
 		//左边分类提取
 		$wherPro['pid']=$_GET['id'];
 		$prolist=$mod_cate_list->where($wherPro)->order('sort_order ASC')->select();
@@ -91,14 +96,21 @@ public function index(){
 		$model=M('Coirse');
 		//加载头部导航信息
 		$where_index['pid']=0;
-		$where_index['is_index']=1;
-		$re_cate_list=$mod_cate_list->where($where_index)->order('sort_order ASC')->select();
+		$re_cate_list=$mod_cate_list->where($where_index)->order('sort_order DESC')->limit(7)->select();
+		$re_cate_list1=$mod_cate_list->where($where_index)->order('sort_order ASC')->limit(1)->find();
+		$this->assign('top_cate_list',$re_cate_list);
+		$this->assign('top_cate_list1',$re_cate_list1);
 		//专业提取
 		$wherPro['id']=$_GET['id'];
 		$pro_mod=M('Profession_cate');
 		$prolist=$pro_mod->where($wherPro)->order('sort_order ASC')->find();
-	
-	
+		$this->assign('prolist',$prolist);
+		//左侧您现在的位置
+		$herestr= '您现在的位置:'.'<a style="color:#000;" href="__APP__">&nbsp;&nbsp;首页&nbsp;&nbsp;</a>';
+		$nowwhere['id']=$_GET['id'];
+		$uplevels = $pro_mod->field("id,name")->where($nowwhere)->find();
+		$nowHere="$herestr"."->&nbsp;&nbsp;".$uplevels['name'];
+		$this->assign('now_here',$nowHere);
 		//根据专提取信息
 		$where['pro_id']=$_GET['id'];
 		$where['status']="1";
@@ -109,7 +121,6 @@ public function index(){
 	
 		$this->assign("page", $showPage);
 		$this->assign('top_cate_list',$re_cate_list);
-		$this->assign('pro_list',$prolist);
 		$this->assign('article_list',$article_list);
 		$this->display();
 	}

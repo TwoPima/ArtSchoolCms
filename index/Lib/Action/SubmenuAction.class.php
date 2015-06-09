@@ -72,33 +72,32 @@ class SubmenuAction extends CommonAction {
 		}else {
 			//分页显示
 			$count = $detail_mod->where($where1)->count();
-			$page = new Page($count,10);
-			$article_list = $detail_mod->where($where1)->limit($page->firstRow.','.$page->listRows)->order('add_time DESC,ordid ASC')->select();
-			$showPage = $page->show();
-			$this->assign("page", $showPage);
-			//分类名称详细显示
-			$where2['id']=$_GET['id'];
-			$detail_cate = $menu_mod->where($where2)->select();
+			if ($count<1) {
+				$this->detail($_GET['id'],$_GET['pid']);
+			}else {
+				$page = new Page($count,10);
+				$article_list = $detail_mod->where($where1)->limit($page->firstRow.','.$page->listRows)->order('add_time DESC,ordid ASC')->select();
+				$showPage = $page->show();
+				$this->assign("page", $showPage);
+				//分类名称详细显示
+				$where2['id']=$_GET['id'];
+				$detail_cate = $menu_mod->where($where2)->select();
+					
+				$this->assign('detail_cate',$detail_cate);
+				$this->assign('article_list',$article_list);
+				$this->display();
+			}
 			
-			$this->assign('detail_cate',$detail_cate);
-			$this->assign('article_list',$article_list);
-			$this->display();
 		}
 		
 	}
-	public function detail(){
+	public function detail($id){
+		if ($_GET['type']=="1") {
 		$table=$_GET['mo'];
 		$model=M($table);
 		$where['id']=$_GET['id'];
+		//详细页面
 		$result_se=$model->where($where)->select();
-		//上一篇
-		$where_front['id'] = array('lt',$_GET['id']);
-		$where_front['is_img']="0";
-		$front=$model->where($where_front)->order('id desc')->find();
-		//下一篇
-		$where_after['id'] = array('gt',$_GET['id']);
-		$where_after['is_img']="0";
-		$after=$model->where($where_after)->order('id desc')->find();
 		//分类列表
 		$menu_mod = M('Article_cate');
 		$cate_where['id']=$result_se[0]['cate_id'];
@@ -111,7 +110,31 @@ class SubmenuAction extends CommonAction {
 		$photo = $menu_mod->where($where_photo1)->select();
 		$where_photo2['cate_id']=$photo[0]['id'];
 		$photo1 = $model->where($where_photo2)->select();
-		$this->assign('detail_photo',$photo1);
+		//位置
+		$getNowHere=$this->getNowHere($result_se[0]['cate_id']);
+		}else {
+		//从导航直接传值过来
+			$model=M('Article');
+			$where['id']=$id;
+			//详细页面
+			$result_se=$model->where($where)->select();
+			//分类列表（直接提取）
+			$menu_mod = M('Article_cate');
+			$result_cate=$menu_mod->where($where)->limit(1)->select();
+			//图片显示
+			$where_photo2['cate_id']=$_GET['pid'];
+			$photo1 = $model->where($where_photo2)->limit(1)->select();
+			//位置
+			$getNowHere=$this->getNowHere($id);
+		}
+		//上一篇
+		$where_front['id'] = array('lt',$_GET['id']);
+		$where_front['is_img']="0";
+		$front=$model->where($where_front)->order('id desc')->find();
+		//下一篇
+		$where_after['id'] = array('gt',$_GET['id']);
+		$where_after['is_img']="0";
+		$after=$model->where($where_after)->order('id desc')->find();
 		//分类名称详细显示
 		$where2['id']=$_GET['id'];
 		$detail_cate = $menu_mod->where($where2)->select();
@@ -122,8 +145,7 @@ class SubmenuAction extends CommonAction {
 		$attatch= $attatch_mod->where($whereAtta)->find();
 		$this->assign('attatch',$attatch);
 		
-		$getNowHere=$this->getNowHere($result_se[0]['cate_id']);
-		
+		$this->assign('detail_photo',$photo1);
 		$this->assign('now_here',$getNowHere);
 		$this->assign('mainleft_cate_list',$result_cate);
 		$this->assign('detail_cate',$detail_cate);

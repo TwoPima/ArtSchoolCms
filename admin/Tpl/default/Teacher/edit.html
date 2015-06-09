@@ -55,14 +55,6 @@
             </if>
         </td>
       </tr>
-       <tr>
-        	<th>{:L('status')}：</th>
-        	<td>
-            	<input type="radio" name="status" id="status" value="1" <if condition="$Teacher['status'] eq '1'">checked="checked"</if>>  &nbsp;已审核&nbsp;&nbsp;&nbsp;
-                <input type="radio" name="status" id="status" value="0" <if condition="$Teacher['status'] eq '0'">checked="checked"</if>>  &nbsp;待审核
-            </td>
-          </tr>
-      <tr>
         <th>{:L('intro')} :</th>
         <td>        	
 			<tpl:editor id="intro" name="intro" type="KINDEDITOR"  style="height: 200px; width:1000px;" >{$Teacher.intro}</tpl:editor>
