@@ -142,6 +142,7 @@ class ArticleAction extends BaseAction
 function add()
 	{
 		if(isset($_POST['dosubmit'])){
+		
 			$article_mod = D('article');
 			$attatch_mod = D('attatch');
 			if($_POST['title']==''){
