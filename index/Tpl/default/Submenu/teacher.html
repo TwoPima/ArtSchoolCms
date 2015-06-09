@@ -16,23 +16,21 @@
 								<span class="span2">Teaching staff</span>
 						</div>
 						<div class="main_con_con">
-						 	<php>
-								foreach($teaList as $val){
-								echo "
-								<div class='teacher'>
-								<div class='teacher_function'>
-								<span><b>".$val.name."</b></span>
-								</div>
-								<div class='teacher_name'>
-									<ul>
-									";
-									foreach($teaList['data'] as $vo){
-										echo"<li><a href='#'>".$vo."</a></li>";
-									}
-									echo"</ul>";
-									echo "</div>";
-									echo "</div>";
-									}
+						<php>
+						 	foreach ($teaList as $teaList_row){
+								echo "<div class='teacher'>";
+								echo "<div class='teacher_function'>";
+								echo "<span><b>".$teaList_row['zhuanye']['name']."</b></span>";
+								echo "</div>";
+								echo "<div class='teacher_name'>
+										<ul>";
+										foreach ($teaList_row['jiaoshi'] as $jiaoshi_row){
+											echo" <li><a href='#'>".$jiaoshi_row['name']."</a></li>";
+											 }
+									echo "</ul>
+									</div>
+								</div>";	
+								}
 							</php>
 						</div>
 				</div>

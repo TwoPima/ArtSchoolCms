@@ -32,34 +32,33 @@ class SubmenuAction extends CommonAction {
 		if ($cate_tea_lea['alias']=="teacher") {
 			$mod_tea_leader=M('Teacher');
 			$mod_pro=M('Profession_cate');
-		/* 	$Stus=D('Teacher');
-				<!-- 	
-						<php>
-							foreach($teaList as $val){
-							echo "<ul>";
-								echo "<li style="width:10%;"><a href="__URL__/showFirstMenu?id=$val.id&pid=$val.id">$val.name</a>";
-									foreach($val['data'] as $key=>$vo){
-										echo "	<li><a  target="_blank" href="$sval.url">$vo</a></li>";
-									}
-							echo "</li>";
-							echo " </ul>";
-						}
-						</php> -->
-			$arr=$Stus->relation(true)->select(); */
  		$zhuanye=$mod_pro->where('pid=0')->order('sort_order ASC')->select();
-		foreach($zhuanye as $key=>$val){
+ 		$zhuanye_array=array();
+ 		foreach($zhuanye as $zhuanye_row){
+ 			$zhuanye_temp_array['zhuanye']['id']=$zhuanye_row['id'];
+ 			$zhuanye_temp_array['zhuanye']['name']=$zhuanye_row['name'];
+ 			$whereTeaLeader['is_teacher']="1";
+ 			$whereTeaLeader['pid']=$zhuanye_row['id'];
+ 			$jiaoshi=$mod_tea_leader->where($whereTeaLeader)->select();
+ 			foreach($jiaoshi as $val1){
+ 				$teacher_array=array();
+ 				$teacher_array['id']=$val1['id'];
+ 				$teacher_array['name']=$val1['name'];
+ 				$zhuanye_temp_array['jiaoshi'][]=$teacher_array;
+ 			}
+ 			$zhuanye_array[]=$zhuanye_temp_array;			
+ 		}
+		/* foreach($zhuanye as $key=>$val){
 			$data[$key]['name']=$val['name'];
-				$whereTeaLeader['is_teacher']="1";
-				$whereTeaLeader['pid']=$val['id'];
-				$jiaoshi=$mod_tea_leader->where($whereTeaLeader)->select();
+				
 				
 				foreach($jiaoshi as $key1=>$val1){
 					$data1[$key][$key1]=$val1['name'];
 				}
 			$data[$key]['data']=$data1[$key];
-		}
+		} */
 		//var_dump($data);exit;
-		$this->assign('teaList',$data);
+		$this->assign('teaList',$zhuanye_array);
 		
 		//页面代码
 			$this->display('teacher');
