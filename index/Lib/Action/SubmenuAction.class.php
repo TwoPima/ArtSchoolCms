@@ -32,35 +32,23 @@ class SubmenuAction extends CommonAction {
 		if ($cate_tea_lea['alias']=="teacher") {
 			$mod_tea_leader=M('Teacher');
 			$mod_pro=M('Profession_cate');
- 		$zhuanye=$mod_pro->where('pid=0')->order('sort_order ASC')->select();
- 		$zhuanye_array=array();
- 		foreach($zhuanye as $zhuanye_row){
- 			$zhuanye_temp_array['zhuanye']['id']=$zhuanye_row['id'];
- 			$zhuanye_temp_array['zhuanye']['name']=$zhuanye_row['name'];
- 			$whereTeaLeader['is_teacher']="1";
- 			$whereTeaLeader['pid']=$zhuanye_row['id'];
- 			$jiaoshi=$mod_tea_leader->where($whereTeaLeader)->select();
- 			foreach($jiaoshi as $val1){
- 				$teacher_array=array();
- 				$teacher_array['id']=$val1['id'];
- 				$teacher_array['name']=$val1['name'];
- 				$zhuanye_temp_array['jiaoshi'][]=$teacher_array;
- 			}
- 			$zhuanye_array[]=$zhuanye_temp_array;			
- 		}
-		/* foreach($zhuanye as $key=>$val){
-			$data[$key]['name']=$val['name'];
-				
-				
-				foreach($jiaoshi as $key1=>$val1){
-					$data1[$key][$key1]=$val1['name'];
-				}
-			$data[$key]['data']=$data1[$key];
-		} */
-		//var_dump($data);exit;
-		$this->assign('teaList',$zhuanye_array);
-		
-		//页面代码
+	 		$zhuanye=$mod_pro->where('pid=0')->order('sort_order ASC')->select();
+	 		$zhuanye_array=array();
+	 		foreach($zhuanye as $zhuanye_row){
+	 			$zhuanye_temp_array['zhuanye']['id']=$zhuanye_row['id'];
+	 			$zhuanye_temp_array['zhuanye']['name']=$zhuanye_row['name'];
+	 			$whereTeaLeader['is_teacher']="1";
+	 			$whereTeaLeader['pid']=$zhuanye_row['id'];
+	 			$jiaoshi=$mod_tea_leader->where($whereTeaLeader)->select();
+	 			foreach($jiaoshi as $val1){
+	 				$teacher_array=array();
+	 				$teacher_array['id']=$val1['id'];
+	 				$teacher_array['name']=$val1['name'];
+	 				$zhuanye_temp_array['jiaoshi'][]=$teacher_array;
+	 			}
+	 			$zhuanye_array[]=$zhuanye_temp_array;			
+	 		}
+			$this->assign('teaList',$zhuanye_array);
 			$this->display('teacher');
 		}elseif ($cate_tea_lea['alias']=="leader"){
 			$mod_tea_leader=M('Teacher');
@@ -71,9 +59,9 @@ class SubmenuAction extends CommonAction {
 		}else {
 			//分页显示
 			$count = $detail_mod->where($where1)->count();
-			if ($count<1) {
+		/* 	if ($count<1) {
 				$this->detail($_GET['id'],$_GET['pid']);
-			}else {
+			}else { */
 				$page = new Page($count,10);
 				$article_list = $detail_mod->where($where1)->limit($page->firstRow.','.$page->listRows)->order('add_time DESC,ordid ASC')->select();
 				$showPage = $page->show();
@@ -85,7 +73,6 @@ class SubmenuAction extends CommonAction {
 				$this->assign('detail_cate',$detail_cate);
 				$this->assign('article_list',$article_list);
 				$this->display();
-			}
 			
 		}
 		
