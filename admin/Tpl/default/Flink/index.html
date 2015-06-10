@@ -29,7 +29,7 @@
         <tr>
 			<th width=40>ID</th>
             <th width=20><input type="checkbox" value="" id="check_box" onclick="selectall('id[]');"></th>            
-            <th width="40">图片</th>
+          <!--   <th width="40">图片</th> -->
             <th width=200>链接名称</th>
 			<th align=left>&nbsp;&nbsp;&nbsp;&nbsp;链接地址</th>
             <th width=150>所属分类</th>
@@ -43,11 +43,11 @@
           <tr>
             <td align="center">{$val.id}</td>
             <td align="center"><input type="checkbox" value="{$val.id}" name="id[]"></td>            
-            <td align="center">
+          <!--   <td align="center">
                 <if condition="$val['img'] neq ''">
                     <img src="__ROOT__/data/flink/{$val.img}" height="30px"/>
                 </if>            	
-            </td>
+            </td> -->
             <td align="center">{$val.name}</td>
             <td align="left">&nbsp;&nbsp;&nbsp;<font color="red">{$val.url}</font></td>
             <td align="center"><b>{$val.cate_name}</b></td>

@@ -27,15 +27,16 @@
                 </td>
                 <td align="center"><if condition="$val.type eq '1'"><em class="blue">学院新闻</em><else/>重要通知</if></td>
                 <td align="center"><if condition="$val.in_site eq '1'"><em class="blue">站内</em><else/>站外</if></td>
-                <td align="center"><a class="blue" href="javascript:edit({$val.id},'{$val.name}')">编辑</a> </td>
-            </tr>
-            </volist>
+               <td align="center"><a class="blue" href="{:u('Notice/edit', array('id'=>$val['id']))}">编辑</a></td>
+				</tr>
+	        </volist>
         </tbody>
     </table>
     <div class="btn">
     <label for="check_box">全选/取消</label>
     <input type="submit" class="button" name="dosubmit" value="删除" onclick="return confirm('确认删除')"/>
     
+    	<div id="pages">{$page}</div>
     </div>
 
     </div>

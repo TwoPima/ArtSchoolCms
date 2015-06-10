@@ -15,14 +15,22 @@ class NoticeAction extends BaseAction{
 	function index()
 	{		
 		/*通知列表  */
-		$notice_list = $this->notice_mod->order('uploadtime')->select();
+		import("ORG.Util.Page");
+		$count = $this->notice_mod->count();
+		$p = new Page($count,20);
+		$article_list = $this->notice_mod->limit($p->firstRow.','.$p->listRows)->order('add_time DESC,ordid ASC')->select();
+		
+		$notice_list = $this->notice_mod->order('uploadtime desc')->select();
 		$list_rel=array();
 		foreach ($notice_list as $value){			
 			$list_rel[]=$value;
 		}	
+		
+		$page = $p->show();
+		$this->assign('page',$page);
 		$this->assign('notice_list',$list_rel);
-		$big_menu = array('javascript:window.top.art.dialog({id:\'add\',iframe:\'?m=Notice&a=add\', title:\'添加通知\', width:\'540\', height:\'510\', lock:true}, function(){var d = window.top.art.dialog({id:\'add\'}).data.iframe;var form = d.document.getElementById(\'dosubmit\');form.click();return false;}, function(){window.top.art.dialog({id:\'add\'}).close()});void(0);','添加通知');
-		$this->assign('big_menu',$big_menu);
+		/* $big_menu = array('javascript:window.top.art.dialog({id:\'add\',iframe:\'?m=Notice&a=add\', title:\'添加通知\', width:\'540\', height:\'510\', lock:true}, function(){var d = window.top.art.dialog({id:\'add\'}).data.iframe;var form = d.document.getElementById(\'dosubmit\');form.click();return false;}, function(){window.top.art.dialog({id:\'add\'}).close()});void(0);','添加通知');
+		$this->assign('big_menu',$big_menu); */
 		$this->assign('show_header', true);
 		$this->display();
 	}
@@ -66,7 +74,7 @@ class NoticeAction extends BaseAction{
 			}
  */
 			$app_cate_id = $this->notice_mod->save($vo);
-			$this->success('修改成功', '', '', 'edit');
+			$this->success(L('operation_success'),U('Notice/index'));
 		}else{
 			$id = isset($_REQUEST['id'])&&intval($_REQUEST['id'])?intval($_REQUEST['id']):$this->error('请选择分类');
 			$notice = $this->notice_mod->where('id='.$id)->find();			
