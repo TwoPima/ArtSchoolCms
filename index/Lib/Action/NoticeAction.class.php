@@ -16,8 +16,8 @@ class NoticeAction extends CommonAction {
 		$condition['is_show']="1";
 		$m=M('Notice');
 		$count = $m->where($condition)->count();
-		$page = new Page($count,5);
-		$article_list = $m->where($condition)->limit($page->firstRow.','.$page->listRows)->order('uploadtime DESC')->select();
+		$page = new Page($count,15);
+		$article_list = $m->where($condition)->limit($page->firstRow.','.$page->listRows)->order('add_time DESC')->select();
 		$showPage = $page->show();
 		
 		

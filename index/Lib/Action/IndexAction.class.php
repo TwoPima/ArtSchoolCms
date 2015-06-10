@@ -3,9 +3,9 @@ class IndexAction extends CommonAction{
     //首页
 	public function _before_index(){
 		//---------------------重要通知
-		$this->assign('Notice',M('Notice')->where('type=0 AND is_show=1')->order('uploadtime DESC')->limit(11)->select());
+		$this->assign('Notice',M('Notice')->where('type=0 AND is_show=1')->order('add_time DESC')->limit(11)->select());
 		//---------------------学院新闻
-		$this->assign('CollegeNotice',M('Notice')->where('type=1 AND is_show=1')->order('uploadtime DESC')->limit(10)->select());
+		$this->assign('CollegeNotice',M('Notice')->where('type=1 AND is_show=1')->order('add_time DESC')->limit(10)->select());
 		//---------------------幻灯片轮播数据添加
 		$this->assign('Ad',M('Ad')->where("type='image' AND status=1")->order('ordid ASC')->limit(5)->select());
 		$this->assign('Adasc',M('Ad')->where("type='image' AND status=1")->order('ordid ASC')->limit(1)->select());
