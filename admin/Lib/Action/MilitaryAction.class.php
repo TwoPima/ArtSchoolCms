@@ -71,13 +71,12 @@ class MilitaryAction extends BaseAction
 			if($data['cate_id']==0){
 				$this->error('请选择资讯分类');
 			}
-		if(!empty($_FILES['img']['name'])||!empty($_FILES['attachment']['name'][0])){
+			if ($_FILES['img']['name']!='') {
+				//只有图片不为空时
 				$upload_list = $this->_upload();
-				if ($_FILES['img']['name']!='') {
-					//只有图片不为空时
-					$data['img'] = $upload_list['0']['savename'];
-				}
-				if ($_FILES['attachment']['name']!='') {
+				$data['img'] = $upload_list['0']['savename'];
+			}
+				/* if ($_FILES['attachment']['name']!='') {
 					$file['title'] = $upload_list[0]['name'];
 					$file['filetype'] = $upload_list[0]['extension'];
 					$file['filesize'] = $upload_list[0]['size'];
@@ -88,15 +87,15 @@ class MilitaryAction extends BaseAction
 					if ($attatch) {
 						//看是否已经存在;
 						$attatch_mod->where('aid='.$_POST['id'])->save($file);
-						/* if ($attatch_mod->where('aid='.$_POST['id'])->save($file)) {
+						if ($attatch_mod->where('aid='.$_POST['id'])->save($file)) {
 						 $this->error('上传附件出现问题！');
-						} */
+						} 
 					}else {
 						//如果不存在直接添加；
 						$re_atta_add=$attatch_mod->add($file);
 					}
 				}
-			}
+			} */
 			$result = $article_mod->save($data);
 			if(false !== $result){
 				$this->success(L('operation_success'),U('Military/index'));
@@ -120,12 +119,12 @@ class MilitaryAction extends BaseAction
 		    }
 			$article_info = $article_mod->where('id='.$article_id)->find();
 
-				//附件
+		/* 		//附件
 			$attatch_mod = D('attatch');
 			$whereAtta['type']="2";
 			$whereAtta['aid']=$_POST['id'];
 			$attatch= $attatch_mod->where($whereAtta)->find();
-			$this->assign('attatch',$attatch);
+			$this->assign('attatch',$attatch); */
 			
 			$this->assign('show_header', false);
 	    	$this->assign('cate_list',$cate_list);
@@ -147,37 +146,18 @@ class MilitaryAction extends BaseAction
 			if(false === $data = $article_mod->create()){
 				$this->error($article_mod->error());
 			}
-		$upload_list = $this->_upload();
-		    if ($_FILES['img']['name']!='') {
-		    	//只有图片不为空时
-		        $data['img'] = $upload_list['0']['savename'];
-		    } 
-		    if ($_FILES['attachment']['name'][0]!='') {
-			    array_shift($upload_list);
-			    $aid_arr = array();
-		        foreach ($upload_list as $att) {
-		            $file['title'] = $att['name'];
-		            $file['filetype'] = $att['extension'];
-				    $file['filesize'] = $att['size'];
-				    $file['url'] = $att['savename'];
-				    $file['uptime'] = date('Y-m-d H:i:s');
-				    $file['aid']=$_POST['id'];
-				    $file['type']="2";
-				    $attatch_mod->add($file);
-				  /*  if ($attatch_mod->add($file)) {
-				   		$this->error('上传附件出现问题！');
-				   }  */
-		        }
+			if ($_FILES['img']['name']!='') {
+				$upload_list = $this->_upload();
+				$data['img'] = $upload_list['0']['savename'];
 			}
-			//$data['add_time']=date('Y-m-d H:i:s',time());
 			$result = $article_mod->add($data);
 			if($result){
 				$cate = M('Military_cate')->field('id,pid')->where("id=".$data['cate_id'])->find();
 				if( $cate['pid']!=0 ){
-					M('article_cate')->where("id=".$cate['pid'])->setInc('article_nums');
-					M('article_cate')->where("id=".$data['cate_id'])->setInc('article_nums');
+					M('Military_cate')->where("id=".$cate['pid'])->setInc('article_nums');
+					M('Military_cate')->where("id=".$data['cate_id'])->setInc('article_nums');
 				}else{
-					M('article_cate')->where("id=".$data['cate_id'])->setInc('article_nums');
+					M('Military_cate')->where("id=".$data['cate_id'])->setInc('article_nums');
 				}
 				$this->success('添加成功');
 			}else{

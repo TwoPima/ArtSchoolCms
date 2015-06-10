@@ -82,13 +82,13 @@ class SubmenuAction extends CommonAction {
 		$table=$_GET['mo'];
 		$model=M($table);
 		$where['id']=$_GET['id'];
+		$menu_mod = M('Article_cate');
 		//详细页面
 		$result_se=$model->where($where)->select();
-		//分类列表
-		$menu_mod = M('Article_cate');
+	/* 	//分类列表
 		$cate_where['id']=$result_se[0]['cate_id'];
 		$cate_where['status']="1";
-		$result_cate = $menu_mod->where($cate_where)->order('sort_order ASC')->select();
+		$result_cate = $menu_mod->where($cate_where)->order('sort_order ASC')->select(); */
 		//图片显示
 		$where_photo['id']=$result_se[0]['cate_id'];
 		$detail_photo = $menu_mod->where($where_photo)->select();
@@ -113,7 +113,15 @@ class SubmenuAction extends CommonAction {
 			//位置
 			$getNowHere=$this->getNowHere($id);
 		}
-		//上一篇
+		//分类列表
+		$where4['id']=$result_se[0]['cate_id'];
+		$detail4 = $menu_mod->where($where4)->select();
+		$wherePid['pid']=$detail4[0]['pid'];
+		$wherePid['status']="1";
+		$wherePid['in_site']="0";
+		$result_cate = $menu_mod->where($wherePid)->order('sort_order ASC')->select();
+		$this->assign('mainleft_cate_list',$result_cate);
+		/* //上一篇
 		$where_front['id'] = array('lt',$_GET['id']);
 		$where_front['is_img']="0";
 		$front=$model->where($where_front)->order('id desc')->find();
@@ -121,6 +129,10 @@ class SubmenuAction extends CommonAction {
 		$where_after['id'] = array('gt',$_GET['id']);
 		$where_after['is_img']="0";
 		$after=$model->where($where_after)->order('id desc')->find();
+			
+		$this->assign('front',$front);
+		$this->assign('after',$after);
+		 */
 		//分类名称详细显示
 		$where2['id']=$_GET['id'];
 		$detail_cate = $menu_mod->where($where2)->select();
@@ -135,9 +147,7 @@ class SubmenuAction extends CommonAction {
 		$this->assign('now_here',$getNowHere);
 		$this->assign('mainleft_cate_list',$result_cate);
 		$this->assign('detail_cate',$detail_cate);
-		
-		$this->assign('front',$front);
-		$this->assign('after',$after);
+	
 		$this->assign('detail',$result_se);
 		$this->display();
 	}
@@ -171,13 +181,10 @@ class SubmenuAction extends CommonAction {
 			$where3['cate_id']=$_GET['pid'];
 			$where3['is_img']="1";
 			$detail_photo = $detail_mod->where($where3)->limit(1)->select();
-			
 			$getNowHere=$this->getNowHere($result_cate1['id']);
 			$this->assign('now_here',$getNowHere);
-			
 			$this->assign('detail_photo',$detail_photo);
 			$this->assign('mainleft_cate_list',$result_cate);
-			
 		
 			$this->assign("page", $showPage);
 			$this->display('index');
