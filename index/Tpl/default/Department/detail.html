@@ -16,7 +16,7 @@
 			<div class="main_list_nav">
 				 <ul>
 					<volist name="mainleft_cate_list" id='val'>
-						<li ><a href="__URL__/detail?id={$val.id}&pid={$val.pid}&mo=Article"><img src="__ROOT__/statics/index/Image/left_nav.jpg">{$val.name}</a></li>
+						<li ><a href="__URL__/articleList?id={$val.id}&pid={$val.pid}&mo=Article"><img src="__ROOT__/statics/index/Image/left_nav.jpg">{$val.name}</a></li>
 					</volist>
 				</ul> 
 			</div>
@@ -25,7 +25,7 @@
 		<div class="main_con" id="main_con">
 			<div class="main_con_con">
 						<div class="main_con_title">
-								<span class="span1">{$detail[0]['title']}</span>
+								<span class="span1">{$detail[0]['title']|msubstr=0,53,'utf-8',false}</span>
 						</div>
 						<div class="main_con_text">
 							{$detail[0]['info']}

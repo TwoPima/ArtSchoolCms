@@ -26,7 +26,7 @@
 			<div class="class_main_con" >
 				<div class="class_main_con_con">
 						<div class="class_main_con_title">
-								<span class="span1">{$detail[0]['title']}</span>
+								<span class="span1">{$detail[0]['title']|msubstr=0,53,'utf-8',false}</span>
 						</div>
 						<div class="class_main_con_show">
 							{$detail[0]['info']}

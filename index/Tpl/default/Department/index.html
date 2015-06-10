@@ -16,7 +16,7 @@
 			<div class="main_list_nav">
 				 <ul>
 					<volist name="dep_cate_list" id='val'>
-						<li ><a href="__APP__/Department/articleList?id={$val.id}&pid={$val.pid}&mo=Article"><img src="__ROOT__/statics/index/Image/left_nav.jpg">{$val.name}</a></li>
+						<li ><a href="__URL__/articleList?id={$val.id}&pid={$val.pid}&mo=Article"><img src="__ROOT__/statics/index/Image/left_nav.jpg">{$val.name}</a></li>
 					</volist>
 				</ul> 
 			</div>
@@ -32,7 +32,7 @@
 									<li>
 										<a href="__APP__/Department/detail?id={$sval.id}&cate_id={$sval.cate_id}&mo=Article">
 										<span class="main_con_list_right">{$sval.add_time}</span>
-										<img src="__ROOT__/statics/index/Image/list.png" alt="xiaotubiao">{$sval.title}
+										<img src="__ROOT__/statics/index/Image/list.png" alt="xiaotubiao">{$sval.title|msubstr=0,53,'utf-8',false}
 										</a>
 									</li>
 						</volist>

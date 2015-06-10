@@ -32,7 +32,7 @@
 									<li>
 										<a href="__APP__/Department/detail?id={$sval.id}&mo=Article&cate_id={$sval.cate_id}">
 										<span class="main_con_list_right">{$sval.add_time}</span>
-										<img src="__ROOT__/statics/index/Image/list.png" alt="xiaotubiao">{$sval.title}
+										<img src="__ROOT__/statics/index/Image/list.png" alt="xiaotubiao">{$sval.title|msubstr=0,53,'utf-8',false}
 										</a>
 									</li>
 						</volist>
