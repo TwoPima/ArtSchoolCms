@@ -32,9 +32,9 @@
 						 <ul>
 							<volist name="article_cate_list['sub'][$val['id']]" id='sval'>
 							<if condition="$sval.in_site  eq '1'">
-							<li id=""><a  target="_blank" href="{$sval.url}">{$sval.name}</a></li>
+							<li id=""><a  target="_self" href="{$sval.url}">{$sval.name}</a></li>
 							<else/>
-							<li id=""><a  target="_blank" href="__APP__/Submenu/index?id={$sval.id}&pid={$val.id}">{$sval.name}</a></li>
+							<li id=""><a  target="_self" href="__APP__/Submenu/index?id={$sval.id}&pid={$val.id}">{$sval.name}</a></li>
 							</if>
 							</volist>
 						 </ul>
