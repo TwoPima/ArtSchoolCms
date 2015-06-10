@@ -49,7 +49,7 @@ class NoticeAction extends BaseAction{
 			}
 			//保存当前数据
 			$app_cate_id = $this->notice_mod->add();
-			$this->success('添加成功', '', '', 'add');
+			$this->success(L('operation_success'),U('Notice/index'));
 		}else{			
 			$this->assign('show_header', false);
 			$this->display();

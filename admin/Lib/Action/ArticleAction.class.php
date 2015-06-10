@@ -69,6 +69,9 @@ class ArticleAction extends BaseAction
 			$article_mod = D('article');
 			$attatch_mod = D('attatch');
 			$data = $article_mod->create();
+			//时间处理
+			$add_time=$_POST['add_time'];
+			$data['add_time'] = strtotime($add_time);
 			if($data['cate_id']==0){
 				$this->error('请选择资讯分类');
 			}
