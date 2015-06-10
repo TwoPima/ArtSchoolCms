@@ -1,7 +1,7 @@
 <tagLib name="tpl" />
 <include file="Public:header" />
 <div class="pad_10">
-<form action="{:u('Notice/add')}" method="post" name="myform" id="myform" >
+<form action="{:u('Notice/add')}" method="post"  enctype="multipart/form-data" name="myform" id="myform" >
 <table width="100%" cellpadding="2" cellspacing="1" class="table_form">	
 	<tr>
       <th></th>
@@ -38,29 +38,22 @@
          <input type="radio" name="type" onclick="changeData(0);" value="0" <if condition="$notice.type eq '0'">checked="checked"</if> />重要通知
       </td>
     </tr>
-	<tr id="tr_url"  >
+	<tr id=""  >
 	      <th>内容</th>
-	      <td>
-	      	<tpl:editor id="content" name="content" type="KINDEDITOR" style="width:70%; height:350px;" >{$notice.content}</tpl:editor>
-		 </td>
+	    <td>            	
+		<tpl:editor id="content" name="content" type="KINDEDITOR" style="width:70%;height:350px;" ></tpl:editor>
+	</td>
     </tr>
 </table>
- <div class="bk15"></div>
-  <div class="btn">
-    <input type="submit" value="{$Think.lang.submit}" name="dosubmit"  >
-  </div>
-<!-- <input type="submit" name="dosubmit" id="dosubmit" class="dialog" value=" "> -->
-</form>
+  <input type="submit" name="dosubmit" id="dosubmit" value="{$Think.lang.submit} ">
+  </form>
 <script type="text/javascript">
-	$(function(){
-		$.formValidator.initConfig({formid:"myform",autotip:true,onerror:function(msg,obj){window.top.art.dialog({content:msg,lock:true,width:'250',height:'50'}, function(){this.close();$(obj).focus();})}});
-		
-		$("#name").formValidator({onshow:"不能为空",onfocus:"不能为空"}).inputValidator({min:1,onerror:"请填写导航名称"});
-		$("#content").formValidator({onshow:"不能为空",onfocus:"不能为空"}).inputValidator({min:1,onerror:"请填写通知内容"});
-		//$("#url").formValidator({onshow:"不能为空",onfocus:"不能为空"}).inputValidator({min:1,onerror:"请填写导航RUL"});
-	});
-
-
+$(function(){
+	$.formValidator.initConfig({formid:"myform",autotip:true,onerror:function(msg,obj){window.top.art.dialog({content:msg,lock:true,width:'250',height:'50'}, function(){this.close();$(obj).focus();})}});
+	$("#name").formValidator({onshow:"不能为空",onfocus:"不能为空"}).inputValidator({min:1,onerror:"请填写导航名称"});
+	$("#content").formValidator({onshow:"不能为空",onfocus:"不能为空"}).inputValidator({min:1,onerror:"请填写通知的内容"});
+	//$("#url").formValidator({onshow:"不能为空",onfocus:"不能为空"}).inputValidator({min:1,onerror:"请填写导航RUL"});
+});
 </script>
 </div>
 </body>

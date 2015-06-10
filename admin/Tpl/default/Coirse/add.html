@@ -5,6 +5,12 @@ $(function(){
 	$("#add_attatch").click(function(){
 	$("#attatch_tr").clone().prependTo($("#attatch_tr").parent());
 	});
+	$("#type").click(function(){  
+		$(".onlyVideo").hide();
+  });    
+ $("#type1").click(function(){  
+			$(".onlyVideo").show();
+	  });
 })
 </script>
 <form action="{:u('Coirse/add')}" method="post" name="myform" id="myform"  enctype="multipart/form-data" style="margin-top:10px;">
@@ -20,7 +26,15 @@ $(function(){
             <th width="100">{:L('title')}:</th>
             <td><input type="text" name="title" id="title" class="input-text" size="60"></td>
           </tr>
-          <tr>
+       <tr>
+        <th>{:L('type')} :</th>
+        <td><input type="radio" name="type" id="type" class="radio_style" value="1" <if condition="$article.type eq 1"> checked</if>>
+          &nbsp;视频课件&nbsp;&nbsp;&nbsp;
+          <input type="radio" name="type" id="type1" class="radio_style" value="0" <if condition="$article.type eq 0">  checked</if>>
+          &nbsp;文档
+          </td>
+      </tr>
+           <tr class="onlyVideo">
         <th width="100">{:L('duty')} :</th>
         <td><input type="text" name="duty" id="duty" class="input-text" size="60" value="{$article.duty}"></td>
       </tr>
@@ -30,13 +44,13 @@ $(function(){
            <tpl:calendar id="add_time" class="input-text" name="add_time" size="30">{$article.add_time}</tpl:calendar>
            </td>
       </tr>
-      <tr>
+      <tr class="onlyVideo">
         <th width="100">{:L('due_time')} :</th>
         <td>
            <tpl:calendar id="due_time" class="input-text" name="due_time" size="30">{$article.due_time}</tpl:calendar>
            </td>
            </tr>
-      <tr>
+      <tr class="onlyVideo">
         <th width="100">{:L('uploadby')} :</th>
         <td><input type="text" name="uploadby" id="uploadby" class="input-text" size="60" value="{$article.uploadby}"></td>
       </tr>
@@ -51,14 +65,6 @@ $(function(){
                 <input type="radio" name="in_site" class="radio_style"  id="in_site" value="0" <if condition="$article['in_site'] eq '0'">checked="checked"</if>> &nbsp;校外&nbsp;&nbsp;&nbsp;
             </td>
           </tr>
-          <tr>
-        <th>{:L('type')} :</th>
-        <td><input type="radio" name="type" class="radio_style" value="1" <if condition="$article.type eq 1"> checked</if>>
-          &nbsp;视频课件&nbsp;&nbsp;&nbsp;
-          <input type="radio" name="type" class="radio_style" value="0" <if condition="$article.type eq 0">  checked</if>>
-          &nbsp;文档
-          </td>
-      </tr>
        <tr>
         <th>{:L('intro')} :</th>
         <td><textarea name="intro" id="intro" style="width:68%;height:50px;">{$article.intro}</textarea></td>
