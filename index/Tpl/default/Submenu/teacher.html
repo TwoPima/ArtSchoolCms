@@ -2,20 +2,21 @@
 <!-- photo start -->
 <div id="photo">
 	<div class="container">
-		<img src="Image/teacher.jpg" alt="tuqian">
+	<img src="__ROOT__/data/news/{$detail_photo[0]['img']}" alt="tuqian">
 	</div>
 </div>
 <!-- photo end -->
 <!-- mian  start -->
-<div id="main">
+<div id="classics_main">
 	<div class="container clearfix">
 			<include file="Public:mainleft"/>
-				<div class="main_con" id="main_con">
+				<div class="main_con">
+					<div class="main_con_con">
 						<div class="main_con_title">
 								<span class="span1">师资队伍</span>
-								<span class="span2">Teaching staff</span>
 						</div>
-						<div class="main_con_con">
+						<div class="main_con_text">
+
 						<php>
 						 	foreach ($teaList as $teaList_row){
 								echo "<div class='teacher'>";
@@ -33,6 +34,7 @@
 								}
 							</php>
 						</div>
+						</div><!-- ./main_con_con -->
 				</div>
 	</div>
 </div>

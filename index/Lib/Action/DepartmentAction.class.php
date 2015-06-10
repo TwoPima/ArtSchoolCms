@@ -108,7 +108,6 @@ class DepartmentAction extends CommonAction {
 		$after=$model->where($where_after)->order('id desc')->find();
 		$this->assign('front',$front);
 		$this->assign('after',$after);
-		
 		$this->display();
 }
 }

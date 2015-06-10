@@ -162,7 +162,7 @@ input{
 #photochange_importantnews{
 	height:450px;
 	width:100%;
-	background:#fff url(../Image/bg2.jpg) repeat-x;/*  #10646F*/
+	background:#10646F url(../Image/bg.jpg) repeat-x;
 }
 /*-----------------轮换图------------------*/
 #photochange {
@@ -193,8 +193,8 @@ input{
     left: 0px;
   }
   #buttons span{
-     color:#fff;
-     font-size:18px;
+    color:#fff;
+    font-size:18px;
     display:none;
     cursor: pointer;
     width:715px;
@@ -416,18 +416,6 @@ input{
 	font-size:14px;
 }
 
-/* .office_main_content h5{
-	padding:4px 5px;
-	background-color:#000;
-	filter:alpha(opacity=50);  ie 有效
-	-moz-opacity:0.5; Firefox  有效
-	opacity: 0.5; 通用，其他浏览器  有效
-	position:absolute;
-	right:0px;
-	bottom:0px;
-} */
-
-
 /*-------------discipline-------*/
 #discipline{
 	height:360px;
@@ -585,7 +573,7 @@ input{
 	border-bottom:10px solid #10646F;
 }
 .main_list_title a{
-color:#000;
+	color:#000;
 }
 .main_list_title img{
 		width:16px;
@@ -648,6 +636,13 @@ color:#000;
 	height:auto!important;
 	height:600px;
 	min-height:600px;
+}
+.main_con_con a{
+	color:#10646F;
+	font-size:14px;
+}
+.main_con_con a:hover{
+	color:#FEAF00;
 }
 /*经典列表属性*/
 .main_con_list{
@@ -1027,6 +1022,7 @@ border-left:10px solid #10646F;
 	float:left;
 	height:161px;
 	width:449px;
+	line-height:1;
 }
 /*没有用处的 css*/
  /* .class_main_con{

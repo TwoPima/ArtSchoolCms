@@ -26,7 +26,7 @@
 				<h1>重要通知 </h1>
 					 <ul>
 				 		<volist name="Notice" id="val">
-					   		<li><span>【{$val.uploadtime|date="m-d",###}】</span><a href="__APP__/Notice/detail?mo=Notice&id={$val.id}&type={$val.type}">{$val.name|msubstr=0,18,'utf-8',true}</a></li>
+					   		<li><span>【{$val.uploadtime|date="m-d",###}】</span><a href="__APP__/Notice/detail?mo=Notice&id={$val.id}&type={$val.type}">{$val.name|msubstr=0,17,'utf-8',true}</a></li>
 					   	</volist>
 						</ul> 
 				<h3><a href="__APP__/Notice/more/mo=Notice&type=0">READ MORE >></a></h3>
@@ -111,7 +111,7 @@
 							</div>
 							<div class="office_main_content">
 									<h4>&nbsp;{$val.alias}</h4>
-									<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$val.intro|msubstr=0,53,'utf-8',false}
+									<p style="font-size:14px;">{$val.intro|msubstr=0,68,'utf-8',true}
 									</p>
 							</div>
 						</a>
@@ -137,9 +137,7 @@
 						</div>
 						<div class="office_main_content">
 								<h4>&nbsp;{$val.name}</h4>
-								<p>
-									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$val.intro|msubstr=0,53,'utf-8',false}
-								</p>
+								<p style="font-size:14px;">{$val.intro|msubstr=0,68,'utf-8',true}</p>
 						</div>
 					</a>	
 				</div>
