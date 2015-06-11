@@ -48,8 +48,7 @@ class NoticeAction extends BaseAction{
 				$this->error('该名称已经存在');
 			}
 			//时间处理
-			$add_time=$_POST['add_time'];
-			$vo['add_time'] = strtotime($add_time);
+			$vo['add_time'] = strtotime($_POST['add_time']);
 			//保存当前数据
 			$app_cate_id = $this->notice_mod->add($vo);
 			$this->success(L('operation_success'),U('Notice/index'));
@@ -75,14 +74,15 @@ class NoticeAction extends BaseAction{
 					$this->error('名称不能重复！');
 				}
 			}
- */			$add_time=$_POST['add_time'];
-			$vo['add_time'] = strtotime($add_time);
+ */			//时间处理
+			$vo['add_time'] = strtotime($_POST['add_time']);
 			$app_cate_id = $this->notice_mod->save($vo);
 			$this->success(L('operation_success'),U('Notice/index'));
 		}else{
 			$id = isset($_REQUEST['id'])&&intval($_REQUEST['id'])?intval($_REQUEST['id']):$this->error('请选择分类');
 			$notice = $this->notice_mod->where('id='.$id)->find();			
 			//print_r($notice);
+			//$notice['add_time']=date('Y-m-d',$notice['add_time']);
 			$this->assign('notice',$notice);			
 			$this->assign('show_header', false);
 			$this->display();
