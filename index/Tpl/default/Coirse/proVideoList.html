@@ -1,8 +1,13 @@
 <include file="Public:secondheader"/>
 <include file="Coirse:CoirseTop"/>
 <div id="class_main">
-		<div class="container clearfix">
+	<div class="container clearfix">
+			<!-- 左侧 -->
 			<div class="class_main_left">
+				 <div class="main_list_title">
+					<img src="__ROOT__/statics/index/Image/nav_house.png" alt="lala">
+					{$now_here}
+				</div>
 				<ul>
 				<li><a href="#">全部课程</a></li>
 					<volist name="pro_list" id='sval'>
@@ -16,21 +21,22 @@
 					</volist>
 				</ul>
 			</div>
-				<div class="class_main_con">
+			<!--  右侧-->
+		<div class="class_main_con">
 					<div class="class_main_con_con">
 						<div class="class_main_con_title">
-						<span class="span1">{$detail_cate}全部视频</span>
+						<span class="span1">{$left_detail_name.name}视频课件</span>
 						</div>
 						<div class="class_main_con_show">
 							<ul class="class_video_list">
-								<volist name="video_list" id='sval'>
+								<volist name="article_video_list" id='val'>
 								<li>
-									<a href="{$sval.url}">
+									<a href="{$val.url}">
 									<img src="__ROOT__/statics/index/Image/class.jpg" alt="照片没出来">
 									<div class="class_main_con_into">
-										<p>{$sval.title|msubstr=0,15,'utf-8',false}></p>
-										<span class="class_main_con_into_left">{$sval.duty}</span>
-										<span class="class_main_con_into_right">{$sval.due_time}</span>
+										<p>{$val.title|msubstr=0,15,'utf-8',false}></p>
+										<span class="class_main_con_into_left">{$val.duty}</span>
+										<span class="class_main_con_into_right">{$val.due_time}</span>
 									</div>
 									</a>
 								</li>
@@ -42,7 +48,7 @@
 							{$page}
 						</p>
 					</div><!-- ./class_main_con_con -->
-				</div>
-		</div>
-</div>
- <include file="Public:footer"/>
+			</div>
+	</div>
+</div> 
+<include file="Public:footer"/>
