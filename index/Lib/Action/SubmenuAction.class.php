@@ -62,7 +62,7 @@ class SubmenuAction extends CommonAction {
 		/* 	if ($count<1) {
 				$this->detail($_GET['id'],$_GET['pid']);
 			}else { */
-				$page = new Page($count,10);
+				$page = new Page($count,15);
 				$article_list = $detail_mod->where($where1)->limit($page->firstRow.','.$page->listRows)->order('add_time DESC,ordid ASC')->select();
 				$showPage = $page->show();
 				$this->assign("page", $showPage);
@@ -168,7 +168,7 @@ class SubmenuAction extends CommonAction {
 			$where1['status']="1";
 			$where1['is_img'] = "0";
 			$count = $detail_mod->where($where1)->count();
-			$page = new Page($count,10);
+			$page = new Page($count,15);
 			$article_list = $detail_mod->where($where1)->limit($page->firstRow.','.$page->listRows)->order('add_time DESC,ordid ASC')->select();
 			$this->assign('article_list',$article_list);
 			$showPage = $page->show();

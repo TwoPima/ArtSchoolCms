@@ -14,7 +14,6 @@ class ArticleAction extends BaseAction
 	{
 		$article_mod = D('article');
 		$article_cate_mod = D('article_cate');
-
 		//搜索
 		$where = '1=1';
 		if (isset($_GET['keyword']) && trim($_GET['keyword'])) {
@@ -67,7 +66,6 @@ class ArticleAction extends BaseAction
 		if(isset($_POST['dosubmit'])){
 			//编辑提交操作
 			$article_mod = D('article');
-			$attatch_mod = D('attatch');
 			$data = $article_mod->create();
 			//时间处理
 			$add_time=$_POST['add_time'];
@@ -134,6 +132,9 @@ class ArticleAction extends BaseAction
 				$data['img'] = $upload_list['0']['savename'];
 			}
 			//$data['add_time']=date('Y-m-d H:i:s',time());
+			//时间处理
+			$add_time=$_POST['add_time'];
+			$data['add_time'] = strtotime($add_time);
 			$result = $article_mod->add($data);
 			if($result){
 				$cate = M('article_cate')->field('id,pid')->where("id=".$data['cate_id'])->find();

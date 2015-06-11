@@ -66,6 +66,10 @@ class MasterAction extends BaseAction
 				$upload_list = $this->_upload();
 				$data['img'] = $upload_list['0']['savename'];
 			}
+			//时间处理
+			$add_time=$_POST['add_time'];
+			$data['add_time'] = strtotime($add_time);
+			
 			$result = $article_mod->save($data);
 			if(false !== $result){
 				$this->success(L('operation_success'),U('Master/index'));
@@ -120,6 +124,9 @@ class MasterAction extends BaseAction
 				$upload_list = $this->_upload();
 				$data['img'] = $upload_list['0']['savename'];
 			}
+			//时间处理
+			$add_time=$_POST['add_time'];
+			$data['add_time'] = strtotime($add_time);
 			$result = $article_mod->add($data);
 			if($result){
 				$cate = M('Master_cate')->field('id,pid')->where("id=".$data['cate_id'])->find();

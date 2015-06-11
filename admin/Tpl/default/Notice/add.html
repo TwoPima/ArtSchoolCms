@@ -9,7 +9,7 @@
     </tr>
 	<tr>
       <th width="100">通知名称 :</th>
-      <td><input type="text" name="name" id="name" class="input-text" value="{$notice.name}"></if></td>
+      <td><input size="50" type="text" name="name" id="name" class="input-text" value="{$notice.name}"></if></td>
     </tr>
     <tr>
       <th>是否锁定</th>
@@ -51,7 +51,6 @@
 $(function(){
 	$.formValidator.initConfig({formid:"myform",autotip:true,onerror:function(msg,obj){window.top.art.dialog({content:msg,lock:true,width:'250',height:'50'}, function(){this.close();$(obj).focus();})}});
 	$("#name").formValidator({onshow:"不能为空",onfocus:"不能为空"}).inputValidator({min:1,onerror:"请填写导航名称"});
-	$("#content").formValidator({onshow:"不能为空",onfocus:"不能为空"}).inputValidator({min:1,onerror:"请填写通知的内容"});
 	//$("#url").formValidator({onshow:"不能为空",onfocus:"不能为空"}).inputValidator({min:1,onerror:"请填写导航RUL"});
 });
 </script>

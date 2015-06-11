@@ -47,8 +47,11 @@ class NoticeAction extends BaseAction{
 			if($result != 0){
 				$this->error('该名称已经存在');
 			}
+			//时间处理
+			$add_time=$_POST['add_time'];
+			$vo['add_time'] = strtotime($add_time);
 			//保存当前数据
-			$app_cate_id = $this->notice_mod->add();
+			$app_cate_id = $this->notice_mod->add($vo);
 			$this->success(L('operation_success'),U('Notice/index'));
 		}else{			
 			$this->assign('show_header', false);
@@ -72,7 +75,8 @@ class NoticeAction extends BaseAction{
 					$this->error('名称不能重复！');
 				}
 			}
- */
+ */			$add_time=$_POST['add_time'];
+			$vo['add_time'] = strtotime($add_time);
 			$app_cate_id = $this->notice_mod->save($vo);
 			$this->success(L('operation_success'),U('Notice/index'));
 		}else{
