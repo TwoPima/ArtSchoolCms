@@ -35,6 +35,9 @@ class TeacherAction extends BaseAction
 				$upload_list = $this->_upload();
 				$data['img'] = $upload_list['0']['savename'];
 			}
+			if($data['pid']==0){
+				$this->error('请选择专业类别');
+			}
 			//最后的整体操作
 			$result = $profession_mod->where('id='.$data['id'])->save($data);
 			if(false !== $result){
@@ -48,6 +51,15 @@ class TeacherAction extends BaseAction
 			if( isset($_GET['id']) ){
 				$article_id = isset($_GET['id']) && intval($_GET['id']) ? intval($_GET['id']) : $this->error(L('please_select'));
 			}
+			//专业提取
+			$pro_cate_mod = D('Profession_cate');
+			$result_pro = $pro_cate_mod->where('pid=0')->order('sort_order ASC')->select();
+			$pro_list = array();
+			foreach ($result_pro as $val) {
+				$pro_list[]=$val;
+			}
+			$this->assign('pro_list',$pro_list);
+			
 			$article_info = $article_mod->where('id='.$article_id)->find();
 			$this->assign('show_header', false);
 			$this->assign('Teacher',$article_info);
@@ -64,6 +76,11 @@ class TeacherAction extends BaseAction
 				$upload_list = $this->_upload();
 				$data['img'] = $upload_list['0']['savename'];
 			}
+			echo $data['pid'];
+			exit();
+			if($data['pid']==0){
+				$this->error('请选择专业类别');
+			}
 			//$data['add_time']=date('Y-m-d H:i:s',time());
 			$result = $profession_mod->add($data);
 			if($result){
@@ -72,6 +89,15 @@ class TeacherAction extends BaseAction
 				$this->error('添加失败');
 			}
 		}else{
+			//专业提取
+			$pro_cate_mod = D('Profession_cate');
+			$result_pro = $pro_cate_mod->where('pid=0')->order('sort_order ASC')->select();
+			$pro_list = array();
+			foreach ($result_pro as $val) {
+				$pro_list[]=$val;
+			}
+			$this->assign('pro_list',$pro_list);
+				
 	    	$this->display();
 		}
 	}

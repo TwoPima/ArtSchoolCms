@@ -20,6 +20,16 @@
         <th width="100">{:L('name')} :</th>
         <td><input type="text" name="name" id="name" class="input-text" size="60" value="{$Teacher.name}"></td>
       </tr>
+       <tr>
+        <th>{:L('pid')} :</th>
+        <td><select name="pid" id="pid" style="width:200px;">
+        	<option value="0">--请选择专业类别--</option>
+            <volist name="pro_list" id="val">
+              <option <if condition="$Teacher['pid'] eq $val['id']"> selected="selected" </if> value="{$val.id}">{$val.name}</option>
+            </volist>
+          </select>
+          </td>
+      </tr>
          <tr>
        	<th>{:L('is_leader')}：</th>
        	<td>

@@ -110,7 +110,7 @@ class CoirseAction extends BaseAction
 		    	$pro_list[]=$val;
 		    }
 			$article_info = $article_mod->where('id='.$article_id)->find();
-
+			$this->assign('pro_list',$pro_list);
 			/* //附件
 			$attatch_mod = D('attatch');
 			$whereAtta['type']="5";
@@ -120,7 +120,7 @@ class CoirseAction extends BaseAction
 			
 			$this->assign('show_header', false);
 	    	$this->assign('cate_list',$cate_list);
-	    	$this->assign('pro_list',$pro_list);
+	    	
 			$this->assign('article',$article_info);
 			$this->display();
 		}

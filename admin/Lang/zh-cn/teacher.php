@@ -13,6 +13,7 @@ return array(
 	'IS_HOT'=>'热门推荐',
 		'is_leader'=>'领导',//1领导；
 		'is_teacher'=>'教师',//1教师；
+		'pid'=>'专业',
 	'OPERATIONAL'=>'操作'
 );
 ?>
