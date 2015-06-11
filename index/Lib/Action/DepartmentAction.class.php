@@ -30,7 +30,7 @@ class DepartmentAction extends CommonAction {
 		//分页显示
 		$where_article_list['cate_id']="$name_id";
 		$count =$model->where($where_article_list)->count();
-		$page = new Page($count,10);
+		$page = new Page($count,15);
 		$article_list=$model->where($where_article_list)->limit($page->firstRow.','.$page->listRows)->order('add_time ASC')->select();
 		$showPage = $page->show();
 		$this->assign("page", $showPage);
@@ -64,7 +64,7 @@ class DepartmentAction extends CommonAction {
 		//分页显示
 		$where_article_list['cate_id']="$id";
 		$count =$model->where($where_article_list)->count();
-		$page = new Page($count,10);
+		$page = new Page($count,15);
 		$article_list=$model->where($where_article_list)->limit($page->firstRow.','.$page->listRows)->order('add_time ASC')->select();
 		$showPage = $page->show();
 		$this->assign("page", $showPage);

@@ -30,58 +30,57 @@ class SubmenuAction extends CommonAction {
 		$where1['is_img'] = "0";
 		$where1['cate_id']=$_GET['id'];
 		$where1['status']="1";
-		$count = $detail_mod->where($where1)->count();
-		if ($count==1) {
-			//显示具体文章资讯内容
-			$this->indexDetail($_GET['id'],$_GET['pid']);
-		}else {
-			$page = new Page($count,10);
-			$article_list = $detail_mod->where($where1)->limit($page->firstRow.','.$page->listRows)->order('add_time DESC,ordid ASC')->select();
-			$showPage = $page->show();
-			$this->assign("page", $showPage);
-			$this->assign('article_list',$article_list);
 		
-			//判断是否是师资队伍和现任领导
-			$where_tea_lea['id']=$_GET['id'];
-			$cate_tea_lea = $menu_mod->where($where_tea_lea)->find();
-			if ($cate_tea_lea['alias']=="teacher") {
-				$mod_tea_leader=M('Teacher');
-				$mod_pro=M('Profession_cate');
-				$zhuanye=$mod_pro->where('pid=0')->order('sort_order ASC')->select();
-				$zhuanye_array=array();
-				foreach($zhuanye as $zhuanye_row){
-					$zhuanye_temp_array['zhuanye']['id']=$zhuanye_row['id'];
-					$zhuanye_temp_array['zhuanye']['name']=$zhuanye_row['name'];
-					$whereTeaLeader['is_teacher']="1";
-					$whereTeaLeader['pid']=$zhuanye_row['id'];
-					$jiaoshi=$mod_tea_leader->where($whereTeaLeader)->select();
-					var_dump($jiaoshi);
-					foreach($jiaoshi as $val1){
-						$teacher_array=array();
-						$teacher_array['id']=$val1['id'];
-						$teacher_array['name']=$val1['name'];
-						$zhuanye_temp_array['jiaoshi'][]=$teacher_array;
-					}
-					$zhuanye_array[]=$zhuanye_temp_array;
+		//判断是否是师资队伍和现任领导
+		$where_tea_lea['id']=$_GET['id'];
+		$cate_tea_lea = $menu_mod->where($where_tea_lea)->find();
+		if ($cate_tea_lea['alias']=="teacher") {
+			$mod_tea_leader=M('Teacher');
+			$mod_pro=M('Profession_cate');
+			$zhuanye=$mod_pro->where('pid=0')->order('sort_order ASC')->select();
+			$zhuanye_array=array();
+			foreach($zhuanye as $zhuanye_row){
+				$zhuanye_temp_array['zhuanye']['id']=$zhuanye_row['id'];
+				$zhuanye_temp_array['zhuanye']['name']=$zhuanye_row['name'];
+				$whereTeaLeader['is_teacher']="1";
+				$whereTeaLeader['pid']=$zhuanye_row['id'];
+				$jiaoshi=$mod_tea_leader->where($whereTeaLeader)->select();
+				foreach($jiaoshi as $val1){
+					$teacher_array=array();
+					$teacher_array['id']=$val1['id'];
+					$teacher_array['name']=$val1['name'];
+					$zhuanye_temp_array['jiaoshi'][]=$teacher_array;
 				}
-				print_r('<pre>');
-				print_r($zhuanye_array);
-				print_r('</pre>');
-				exit();
-			
-				$this->assign('teaList',$zhuanye_array);
-				$this->display('teacher');
-			}elseif ($cate_tea_lea['alias']=="leader"){
-				$mod_tea_leader=M('Teacher');
-				$whereTeaLeader['is_leader']="1";
-				$re_tea=$mod_tea_leader->where($whereTeaLeader)->order('ordid ASC')->select();
-				$this->assign('teaList',$re_tea);
-				$this->display('leader');
-			}else {
-				$this->display();
+				$zhuanye_array[]=$zhuanye_temp_array;
 			}
-				
+		/* 	print_r('<pre>');
+			print_r($zhuanye_array);
+			print_r('</pre>');
+			exit(); */
+			$this->assign('teaList',$zhuanye_array);
+			$this->display('teacher');
+		}elseif ($cate_tea_lea['alias']=="leader"){
+			$mod_tea_leader=M('Teacher');
+			$whereTeaLeader['is_leader']="1";
+			$re_tea=$mod_tea_leader->where($whereTeaLeader)->order('ordid ASC')->select();
+			$this->assign('teaList',$re_tea);
+			$this->display('leader');
+		}else {
+			$count = $detail_mod->where($where1)->count();
+			if ($count==1) {
+				//显示具体文章资讯内容
+				$this->indexDetail($_GET['id'],$_GET['pid']);
+			}else {
+				$page = new Page($count,10);
+				$article_list = $detail_mod->where($where1)->limit($page->firstRow.','.$page->listRows)->order('add_time DESC,ordid ASC')->select();
+				$showPage = $page->show();
+				$this->assign("page", $showPage);
+				$this->assign('article_list',$article_list);
+			
+			}
+			$this->display();
 		}
+		
 		
 		
 	}
@@ -149,10 +148,10 @@ class SubmenuAction extends CommonAction {
 			$where['in_site']="0";
 			$result_cate = $menu_mod->where($where)->order('sort_order ASC')->select();
 			$this->assign('mainleft_cate_list',$result_cate);
-			
 			//资讯列表
 			$detail_mod=M('Article');
 			$result_cate1 = $menu_mod->where($where)->order('sort_order ASC')->limit(1)->find();
+			
 			//分类名称详细显示
 			$where2['id']=$result_cate1['id'];
 			$detail_cate = $menu_mod->where($where2)->select();
@@ -165,6 +164,7 @@ class SubmenuAction extends CommonAction {
 			
 			$getNowHere=$this->getNowHere($result_cate1['id']);
 			$this->assign('now_here',$getNowHere);
+			
 			$where1['cate_id']=$result_cate1['id'];
 			$where1['status']="1";
 			$where1['is_img'] = "0";

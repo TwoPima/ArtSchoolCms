@@ -55,6 +55,7 @@ class ArticleCateAction extends BaseAction
 		    if($result != 0){
 		        $this->error('该分类已经存在');
 		    }
+		  
 			//保存当前数据
 		    $article_cate_id = $article_cate_mod->add();
 		    $this->success(L('operation_success'), '', '', 'add');
