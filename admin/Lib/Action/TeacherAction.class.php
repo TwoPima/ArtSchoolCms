@@ -76,8 +76,6 @@ class TeacherAction extends BaseAction
 				$upload_list = $this->_upload();
 				$data['img'] = $upload_list['0']['savename'];
 			}
-			echo $data['pid'];
-			exit();
 			if($data['pid']==0){
 				$this->error('请选择专业类别');
 			}

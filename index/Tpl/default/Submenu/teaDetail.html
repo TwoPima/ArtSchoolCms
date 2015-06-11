@@ -1,0 +1,43 @@
+<include file="Public:header"/>
+<!-- photo start -->
+<div id="photo">
+	<div class="container">
+	<img src="__ROOT__/data/news/{$detail_photo[0]['img']}" alt="tuqian">
+	</div>
+</div>
+<!-- photo end -->
+<<div id="classics_main">
+	<div class="container clearfix">
+			<!-- 左侧 -->
+				<div class="main_list" id="main_list">
+					<div class="main_list_title">
+						<img src="__ROOT__/statics/index/Image/nav_house.png" alt="lala">
+						您现在的位置：<a  href="__APP__">首页</a>&nbsp;>&nbsp;个人简历
+					</div>
+					<div class="main_list_nav">
+						 <ul>
+							<li id=""><a href="__APP__/Notice/more?type=1"><img src="__ROOT__/statics/index/Image/left_nav.jpg">学院新闻</a></li>
+						</ul> 
+					</div>
+				</div>
+			<!-- 右侧 -->
+				<div class="main_con" >
+					<div class="main_con_con">
+						<div class="main_con_title">
+								<span class="span1">{$detail[0]['title']|msubstr=0,53,'utf-8',false}</span>
+						</div>
+						<div class="main_con_text">
+							{$detail[0]['info']}
+						</div>
+						
+						<div class="attach">
+							<if condition="$attatch.id eq ''">
+								<else/>
+								 <a href="__URL__/download?filename={$attatch['url']}&site=news">附件下载：{$attatch['title']}</a>
+							 </if>
+						</div>
+				</div>
+			
+	</div>
+</div>
+<include file="Public:footer"/>
