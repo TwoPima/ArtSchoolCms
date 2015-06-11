@@ -10,7 +10,7 @@
     </tr>
 	<tr>
       <th width="100">通知名称 :</th>
-      <td><input type="text" name="name" id="name" class="input-text" value="{$notice.name}"></if></td>
+      <td><input size="50"  type="text" name="name" id="name" class="input-text" value="{$notice.name}"></if></td>
     </tr>
     <tr>
       <th>是否锁定</th>
@@ -22,7 +22,7 @@
     <tr>
           <th>{:L('add_time')} :</th>
           <td>
-          <tpl:calendar id="add_time" class="input-text" name="add_time" size="30">{$article.add_time}</tpl:calendar>
+          <tpl:calendar id="add_time" class="input-text" name="add_time" size="30">{$notice.add_time|date="Y-m-d",###}</tpl:calendar>
           </td>
       </tr>
     <tr>

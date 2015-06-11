@@ -67,9 +67,6 @@ class ArticleAction extends BaseAction
 			//编辑提交操作
 			$article_mod = D('article');
 			$data = $article_mod->create();
-			//时间处理
-			$add_time=$_POST['add_time'];
-			$data['add_time'] = strtotime($add_time);
 			if($data['cate_id']==0){
 				$this->error('请选择资讯分类');
 			}
@@ -132,9 +129,6 @@ class ArticleAction extends BaseAction
 				$data['img'] = $upload_list['0']['savename'];
 			}
 			//$data['add_time']=date('Y-m-d H:i:s',time());
-			//时间处理
-			$add_time=$_POST['add_time'];
-			$data['add_time'] = strtotime($add_time);
 			$result = $article_mod->add($data);
 			if($result){
 				$cate = M('article_cate')->field('id,pid')->where("id=".$data['cate_id'])->find();

@@ -76,9 +76,6 @@ class InstituteAction extends BaseAction
 				$upload_list = $this->_upload();
 				$data['img'] = $upload_list['0']['savename'];
 			}
-			//时间处理
-			$add_time=$_POST['add_time'];
-			$data['add_time'] = strtotime($add_time);
 			$result = $article_mod->save($data);
 			if(false !== $result){
 				$this->success(L('operation_success'),U('Institute/index'));
@@ -101,14 +98,6 @@ class InstituteAction extends BaseAction
 		    	}
 		    }
 			$article_info = $article_mod->where('id='.$article_id)->find();
-
-			
-		/* 	//附件
-			$attatch_mod = D('attatch');
-			$whereAtta['type']="3";
-			$whereAtta['aid']=$_POST['id'];
-			$attatch= $attatch_mod->where($whereAtta)->find();
-			$this->assign('attatch',$attatch); */
 			
 			$this->assign('show_header', false);
 	    	$this->assign('cate_list',$cate_list);
@@ -135,9 +124,6 @@ class InstituteAction extends BaseAction
 				$upload_list = $this->_upload();
 				$data['img'] = $upload_list['0']['savename'];
 			}
-			//时间处理
-			$add_time=$_POST['add_time'];
-			$data['add_time'] = strtotime($add_time);
 			$result = $article_mod->add($data);
 			if($result){
 				$cate = M('Institute_cate')->field('id,pid')->where("id=".$data['cate_id'])->find();

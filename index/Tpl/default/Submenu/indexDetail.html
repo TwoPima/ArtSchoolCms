@@ -1,0 +1,31 @@
+<include file="Public:header"/>
+<!-- photo start -->
+<div id="photo">
+	<div class="container">
+		<img src="__ROOT__/data/news/{$detail_photo[0]['img']}" alt="tuqian">
+	</div>
+</div>
+<!-- photo end -->
+<div id="classics_main">
+	<div class="container clearfix">
+				<include file="Public:mainleft"/>
+				<div class="main_con" >
+					<div class="main_con_con">
+						<div class="main_con_title">
+								<span class="span1">{$detail['title']|msubstr=0,35,'utf-8',false}</span>
+						</div>
+						<div class="main_con_text">
+							{$detail['info']}
+						</div>
+						<div class="attach">
+							<if condition="$attatch.id eq ''">
+								<else/>
+								 <a href="__URL__/download?filename={$attatch['url']}&site=news">附件下载：{$attatch['title']}</a>
+							 </if>
+						</div>
+						</div>
+				</div>
+			
+	</div>
+</div>
+<include file="Public:footer"/>
