@@ -20,11 +20,11 @@
 								<if condition="$sval.in_site  eq '1'">
 									<a target="_blank"  href="{$sval.url}">
 									<span class="main_con_list_right">{$sval.add_time}</span>
-									<img src="__ROOT__/statics/index/Image/list.png" alt="xiaotubiao">{$sval.title|msubstr=0,53,'utf-8',true}
+									<img src="__ROOT__/statics/index/Image/list.png" alt="xiaotubiao">{$sval.title|msubstr=0,35,'utf-8',true}
 									</a>
 									<else/>
 								<a href="__URL__/detail?id={$sval.id}&mo=Article&type=1">
-								<img src="__ROOT__/statics/index/Image/list.png" alt="xiaotubiao">{$sval.title|msubstr=0,53,'utf-8',false}
+								<img src="__ROOT__/statics/index/Image/list.png" alt="xiaotubiao">{$sval.title|msubstr=0,35,'utf-8',false}
 								<span class="main_con_list_right">{$sval.add_time}</span>
 								</a>
 								</if>
