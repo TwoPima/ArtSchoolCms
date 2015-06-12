@@ -773,7 +773,7 @@ height:30px;
 }
 .class_main_left ul li:hover{
 	background-color:#10646F;
-	border-left:10px solid #FFAD01;
+	border-left:10px solid #FFAD01;/*  */
 	color:#fff;
 }
 .class_main_left ul li:hover a{
@@ -797,13 +797,14 @@ height:30px;
 	padding-left:30px;
 	color:#fff;
 }
-.class_main_left ul li hr{
-	margin:0 10px;
-	border:1px solid #eeeeee;
-}
 .class_main_left ul li a span{
+	
 	float:right;
 	margin-right:20px;
+}
+.class_main_left ul li a span img{
+	width:20px;
+	height:20px;
 }
 #class_link {
 	background-color:#fff;
