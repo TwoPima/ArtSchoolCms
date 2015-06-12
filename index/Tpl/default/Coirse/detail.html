@@ -1,21 +1,13 @@
 <include file="Public:secondheader"/>
-<div id="nav_class">
-		<div class="container">
-				<div class="nav_class_link">
-				<volist name="cate_list" id='sval'>
-				<span><a href="__APP__/Coirse/articleList?id={$sval.id}&mo=Coirse_cate">{$sval.name}</a></span>
-				</volist>
-				</div>
-		</div>
-</div>
+<include file="Coirse:CoirseTop"/>
 <div id="class_main">
 	<div class="container clearfix">
 			<!-- 左侧 -->
 			<div class="class_main_left" >
-				<!-- <div class="main_list_title">
+				 <div class="main_list_title">
 					<img src="__ROOT__/statics/index/Image/nav_house.png" alt="lala">
 					{$now_here}
-				</div> -->
+				</div>
 				 <ul>
 					<volist name="mainleft_cate_list" id='val'>
 						<li ><a href="__URL__/index?id={$val.id}&pid={$val.pid}">{$val.name}</a></li>
