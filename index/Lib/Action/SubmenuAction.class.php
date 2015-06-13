@@ -76,9 +76,9 @@ class SubmenuAction extends CommonAction {
 				$showPage = $page->show();
 				$this->assign("page", $showPage);
 				$this->assign('article_list',$article_list);
-			
+				$this->display();
 			}
-			$this->display();
+		
 		}
 		
 		
