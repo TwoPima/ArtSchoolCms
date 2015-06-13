@@ -28,8 +28,9 @@ class DepartmentAction extends CommonAction {
 		$this->assign('dep_cate_con',$dep_cate_con);
 		//右侧第的列表信息
 		//分页显示
-		$where_article_list['cate_id']="$name_id";
+		$where_article_list['cate_id']=$name_id;
 		$count =$model->where($where_article_list)->count();
+		
 		$page = new Page($count,15);
 		$article_list=$model->where($where_article_list)->limit($page->firstRow.','.$page->listRows)->order('add_time ASC')->select();
 		$showPage = $page->show();
@@ -109,6 +110,20 @@ class DepartmentAction extends CommonAction {
 		$this->assign('front',$front);
 		$this->assign('after',$after);
 		$this->display();
+}
+/*  *
+ * //首页导航之后的详细页面
+*/
+public function indexDetail($id,$pid){
+	$model=M('Article');
+	$menu_mod = M('Article_cate');
+	//详细页面
+	$where3['is_img'] = "0";
+	$where3['cate_id']=$id;
+	$where3['status']="1";
+	$result_se=$model->where($where3)->find();
+	$this->assign('detail',$result_se);
+	$this->display('indexDetail');
 }
 }
 ?>

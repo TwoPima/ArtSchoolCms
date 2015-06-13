@@ -4,7 +4,7 @@
 // +----------------------------------------------------------------------
 */
 class ProfessionAction extends CommonAction {
-	public function _before_index(){
+	public function index(){
 		//分类列表
 		$cate_mod = M('Profession_cate');
 		$cate_where['pid']=$_GET['pid'];
@@ -48,17 +48,47 @@ class ProfessionAction extends CommonAction {
 			$result = $cate_mod->where($cate_where3)->order('sort_order ASC')->field("id,name")->find();
 			$where_list['cate_id']=$result['id'];
 			$count =$intro_mod->where($where_list)->count();
-			$intro_pro= $intro_mod->where($where_list)->order('ordid ASC')->select();
+			if ($count=="1"){
+				//显示具体文章资讯内容
+				$this->indexDetail($result['id']);
+			}else{
+				$intro_pro= $intro_mod->where($where_list)->order('ordid ASC')->select();
+				$page = new Page($count,10);
+				$showPage = $page->show();
+				$this->assign("page", $showPage);
+				$this->assign('article_list',$intro_pro);
+				$this->display();
+			}
+			
 		}else{
 			$where_list['cate_id']=$_GET['id'];
 			$count =$intro_mod->where($where_list)->count();
-			$intro_pro= $intro_mod->where($where_list)->order('ordid ASC')->select();
+			if ($count=="1"){
+				//显示具体文章资讯内容
+				$this->indexDetail($_GET['id']);
+			}else{
+				$intro_pro= $intro_mod->where($where_list)->order('ordid ASC')->select();
+				$page = new Page($count,10);
+				$showPage = $page->show();
+				$this->assign("page", $showPage);
+				$this->assign('article_list',$intro_pro);
+				$this->display();
+			}
 		}
-		$page = new Page($count,10);
-		$showPage = $page->show();
-		$this->assign("page", $showPage);
-		$this->assign('article_list',$intro_pro);
 		
+	}
+	/*  *
+	 * //首页之后的详细页面
+	*/
+	public function indexDetail($id){
+		$model=M('Profession');
+		//详细页面
+		$where3['is_img'] = "0";
+		$where3['cate_id']=$id;
+		$where3['status']="1";
+		$result_se=$model->where($where3)->find();
+		$this->assign('detail',$result_se);
+		$this->display('indexDetail');
 	}
 	public function detail(){
 		$table=$_GET['mo'];
