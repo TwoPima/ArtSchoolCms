@@ -64,7 +64,7 @@
             <td align="center">
            	 <input type="checkbox" value="{$val.id}" name="id[]">
 			</td>           
-            <td align="left"><a class="blue" href="{:u('Profession/edit', array('id'=>$val['id']))}">{$val.title}</a><if condition="$val['url'] neq ''"><br><a href="{$val.url}" target=_blank>{$val.url}</a></if>&nbsp;&nbsp;</td>
+            <td align="left"><a class="blue" href="{:u('Profession/edit', array('id'=>$val['id']))}">{$val.title|msubstr=0,50,'utf-8',true}</a><if condition="$val['url'] neq ''"><br><a href="{$val.url}" target=_blank>{$val.url|msubstr=0,50,'utf-8',true}</a></if>&nbsp;&nbsp;</td>
             <td align="center"><b>{$val.cate_name.name}</b></td>
               	 <td align="center">
              <if condition="$val.is_img eq '0'">

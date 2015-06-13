@@ -63,7 +63,7 @@
             <td align="center">
            	 <input type="checkbox" value="{$val.id}" name="id[]">
 			</td>           
-            <td align="left"><a class="blue" href="{:u('Master/edit', array('id'=>$val['id']))}">{$val.title}</a><if condition="$val['url'] neq ''"><br><a href="{$val.url}" target=_blank>{$val.url}</a></if>&nbsp;&nbsp;</td>
+            <td align="left"><a class="blue" href="{:u('Master/edit', array('id'=>$val['id']))}">{$val.title|msubstr=0,50,'utf-8',true}</a><if condition="$val['url'] neq ''"><br><a href="{$val.url|msubstr=0,50,'utf-8',true}" target=_blank>{$val.url}</a></if>&nbsp;&nbsp;</td>
             <td align="center"><b>{$val.cate_name.name}</b></td>
             <td align="center">{$val.add_time}</td>
             <td align="center"><input  type="text" class="input-text-c input-text" value="{$val.ordid}" id="sort_{$val.id}" onblur="sort({$val.id},'ordid',this.value)" size="4" name="listorders[{$val.id}]"></td>
