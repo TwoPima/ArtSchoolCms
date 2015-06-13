@@ -20,7 +20,7 @@ class NoticeAction extends BaseAction{
 		$p = new Page($count,20);
 		$article_list = $this->notice_mod->limit($p->firstRow.','.$p->listRows)->order('add_time DESC,ordid ASC')->select();
 		
-		$notice_list = $this->notice_mod->order('uploadtime desc')->select();
+		$notice_list = $this->notice_mod->order('add_time desc')->select();
 		$list_rel=array();
 		foreach ($notice_list as $value){			
 			$list_rel[]=$value;
