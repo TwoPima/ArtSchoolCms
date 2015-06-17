@@ -1,10 +1,5 @@
 <?php
 defined('ROOT_PATH') or define('ROOT_PATH', dirname(__FILE__));
-if (!is_file(ROOT_PATH . '/data/install.lock')) {
-    header('Location: ./install.php');
-    exit;
-}
-
 /* 当前程序版本 */
 define('NOW_VERSION', '1.0');
 /* 当前程序Release */

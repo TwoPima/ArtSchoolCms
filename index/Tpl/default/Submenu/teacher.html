@@ -18,21 +18,23 @@
 						<div class="main_con_text">
 
 						<php>
-						 	foreach ($teaList as $teaList_row){
-								echo "<div class='teacher'>";
-								echo "<div class='teacher_function'>";
-								echo "<span><b>".$teaList_row['zhuanye']['name']."</b></span>";
-								echo "</div>";
-								echo "<div class='teacher_name'>
+			foreach ($teaList as $teaList_row){
+				echo "<div class='teacher'>";
+				echo "<div class='teacher_function'>";
+				echo "<span><b>".$teaList_row['zhuanye']['name']."</b></span>";
+				echo "</div>";
+				echo "<div class='teacher_name'>
 										<ul>";
-										foreach ($teaList_row['jiaoshi'] as $jiaoshi_row){
-											echo" <li><a href='./teaDetail?id=".$jiaoshi_row['id']."'>".$jiaoshi_row['name']."</a></li>";
-											 }
-									echo "</ul>
+				foreach ($teaList_row['jiaoshi'] as $jiaoshi_row){
+					echo" <li><a href='./teaDetail?id=".$jiaoshi_row['id']."'>".$jiaoshi_row['name']."</a></li>";
+				}
+				echo "</ul>
 									</div>
-								</div>";	
-								}
-							</php>
+								</div>";
+			}
+			</php>
+					
+					
 						</div>
 						</div><!-- ./main_con_con -->
 				</div>

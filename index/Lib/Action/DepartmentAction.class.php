@@ -15,7 +15,7 @@ class DepartmentAction extends CommonAction {
 		$detail_photo = $model->where($where3)->limit(1)->select();
 		$this->assign('detail_photo',$detail_photo);
 		//提出左侧导航列表
-		$where_menu['pid']="$id";
+		$where_menu['pid']=$id;
 		$where_menu['in_site']="0";
 		$dep_cate_list = $cate_name_model->where($where_menu)->order('sort_order ASC')->select();
 		$this->assign('dep_cate_list',$dep_cate_list);

@@ -10,7 +10,7 @@
                 <th width="40">{:L('position')}</th>
                 <th width="40">{:L('is_teacher')}</th>
                  <th width="40">{:L('is_leader')}</th>
-                <th width="40">{:L('ishot')}</th>
+               <!--  <th width="40">{:L('ishot')}</th> -->
                 <th width="40">{:L('ORDID')}</th>
                 <th width="40">{:L('operational')}</th>
             </tr>
@@ -26,7 +26,7 @@
                 	<else/>否</if>
                 </td>
                 <td align="center"><if condition="$val.is_leader eq '1'"><em class="blue">是</em><else/>否</if></td>
-                <td align="center"><if condition="$val.ishot eq '1'"><em class="blue">是</em><else/>否</if></td>
+               <!--  <td align="center"><if condition="$val.ishot eq '1'"><em class="blue">是</em><else/>否</if></td> -->
                 <td align="center"><input type="text" class="input-text-c input-text" id="sort_{$val.id}" onblur="sort({$val.id},'sort_order',this.value)" value="{$val.ordid}" size="4" name="listorders[{$val.id}]"></td>
                	<td align="center"><a class="blue" href="{:u('Teacher/edit', array('id'=>$val['id']))}">编辑</a></td>
               </tr>
