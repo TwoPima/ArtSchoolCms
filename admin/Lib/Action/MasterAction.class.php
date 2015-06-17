@@ -61,6 +61,9 @@ class MasterAction extends BaseAction
 			if($data['cate_id']==0){
 				$this->error('请选择资讯分类');
 			}
+			if($_POST['add_time']==''){
+				$this->error('请选择时间');
+			}
 			if ($_FILES['img']['name']!='') {
 				//只有图片不为空时
 				$upload_list = $this->_upload();
@@ -113,6 +116,9 @@ class MasterAction extends BaseAction
 			$attatch_mod = D('attatch');
 			if($_POST['title']==''){
 				$this->error(L('input').L('article_title'));
+			}
+			if($_POST['add_time']==''){
+				$this->error('请选择时间');
 			}
 			if(false === $data = $article_mod->create()){
 				$this->error($article_mod->error());

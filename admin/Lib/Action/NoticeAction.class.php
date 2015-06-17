@@ -43,6 +43,9 @@ class NoticeAction extends BaseAction{
 			if($vo['name']==''){
 				$this->error('通知名称不能为空');
 			}
+			if($vo['add_time']==''){
+				$this->error('请选择时间');
+			}
 			$result = $this->notice_mod->where("id=".$vo['id']." AND name='".$vo['name']."'")->count();
 			if($result != 0){
 				$this->error('该名称已经存在');
@@ -65,7 +68,9 @@ class NoticeAction extends BaseAction{
 			if( false === $vo = $this->notice_mod->create() ){
 				$this->error( $this->notice_mod->error() );
 			}
-
+			if($_POST['add_time']==''){
+				$this->error('请选择时间');
+			}
 			$old_notice = $this->notice_mod->where('id='.$_POST['id'])->find();
 
 			//名称不能重复
