@@ -46,12 +46,7 @@ class CommonAction extends Action {
 		$this->assign('list',$list); */
 		$this->display();
 	}
-	/* public function listNews($firstRow = 0, $listRows = 20,$where) {
-		$name=$this->getModelName();
-		$M = M($name);
-		$list = $M->where($where)->limit("$firstRow , $listRows")->select();
-		return $list;
-	} */
+
 	//详细操作；根据传过来的表名和类型取数据
 	public function detail(){		
 		$table=$_GET['m'];

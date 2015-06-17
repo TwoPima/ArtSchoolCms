@@ -5,7 +5,7 @@
 }
 body{
 	margin:auto;
-	font-family: Helvetica, 'Hiragino Sans GB', 'Microsoft Yahei', '微软雅黑', Arial, sans-serif;
+	font-family:Microsoft Yahei, '微软雅黑', Arial, sans-serif;
 	font-size:16px;
 }
 img{
@@ -770,10 +770,10 @@ height:30px;
 	padding-left:25px;
 	color:#000;
 	display:block;
+	border:1px solid red;
 }
 .class_main_left ul li:hover{
 	background-color:#10646F;
-	border-left:10px solid #FFAD01;/*  */
 	color:#fff;
 }
 .class_main_left ul li:hover a{
@@ -820,27 +820,6 @@ height:30px;
 	background-color:#FFAD01;
 	border:none;
 }
-/* 
-.class_mian_list ul li ul li{
-	width: 100px;
-	height:50px;
-}
-.class_mian_list ul li ul li a{
-	color:#000;
-}
-.class_mian_list ul li ul li a:hover{
-	background-color:red;
-}
-.class_mian_list ul li ul li{
-	background-color: #fff;
-}
-
-
- */
-
-
-
-
 
 /* 右侧分类 */
 .class_main_con{

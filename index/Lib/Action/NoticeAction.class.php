@@ -7,10 +7,12 @@ class NoticeAction extends CommonAction {
 	public function more(){
 		if ($_GET['type']=="0") {
 			$str="重要通知";
+			$noticeImgName="tongzhi";
 			$str1="0";
 		}else {
 			$str="学院新闻";
 			$str1="1";
+			$noticeImgName="xueyuan";
 		}
 		$condition['type']=$str1;
 		$condition['is_show']="1";
@@ -23,6 +25,7 @@ class NoticeAction extends CommonAction {
 		
 		$this->assign('notice_list',$article_list);
 		$this->assign('bigmenu',$str);
+		$this->assign('noticeImgName',$noticeImgName);
 		$this->assign("page", $showPage);
 		$this->display();
 		
@@ -38,9 +41,11 @@ class NoticeAction extends CommonAction {
 		if ($_GET['type']=="0") {
 			$str="重要通知";
 			$str1="0";
+			$noticeImgName="tongzhi";
 		}else {
 			$str="学院新闻";
 			$str1="1";
+			$noticeImgName="xueyuan";
 		}
 		//分类列表
 		$menu_mod = M('Master_cate');
@@ -55,6 +60,7 @@ class NoticeAction extends CommonAction {
 		$this->assign('after',$after);//下一条
 		$this->assign('detail',$result_se);
 		$this->assign('bigmenu',$str);
+		$this->assign('noticeImgName',$noticeImgName);
 		$this->display();
 	}
 	

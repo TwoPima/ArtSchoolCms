@@ -27,9 +27,9 @@ class SubmenuAction extends CommonAction {
 		$result_cate = $menu_mod->where($where1)->order('sort_order ASC')->select();
 		$this->assign('mainleft_cate_list',$result_cate);
 		//资讯列表
-		$where1['is_img'] = "0";
-		$where1['cate_id']=$_GET['id'];
-		$where1['status']="1";
+		$where4['is_img'] = "0";
+		$where4['cate_id']=$_GET['id'];
+		$where4['status']="1";
 		
 		//判断是否是师资队伍和现任领导
 		$where_tea_lea['id']=$_GET['id'];
@@ -102,13 +102,13 @@ class SubmenuAction extends CommonAction {
 			$this->assign('teaList',$re_tea);
 			$this->display('leader');
 		}else {
-			$count = $detail_mod->where($where1)->count();
+			$count = $detail_mod->where($where4)->count();
 			if ($count==1) {
 				//显示具体文章资讯内容
 				$this->indexDetail($_GET['id'],$_GET['pid']);
 			}else {
 				$page = new Page($count,10);
-				$article_list = $detail_mod->where($where1)->limit($page->firstRow.','.$page->listRows)->order('add_time DESC,ordid ASC')->select();
+				$article_list = $detail_mod->where($where4)->limit($page->firstRow.','.$page->listRows)->order('add_time DESC,ordid ASC')->select();
 				$showPage = $page->show();
 				$this->assign("page", $showPage);
 				$this->assign('article_list',$article_list);
