@@ -71,6 +71,9 @@ class ProfessionAction extends BaseAction
 			if($data['cate_id']==0){
 				$this->error('请选择分类');
 			}
+			if($_POST['add_time']==''){
+				$this->error('请选择时间');
+			}
 			if ($_FILES['img']['name']!=''||$_FILES['attachment']['name'][0]!='') {
 			    $upload_list = $this->_upload();
 			    if ($_FILES['img']['name']!=''&&$_FILES['attachment']['name'][0]!='') {
@@ -152,6 +155,9 @@ class ProfessionAction extends BaseAction
 			$attatch_mod = D('attatch');
 			if($_POST['title']==''){
 				$this->error(L('input').L('article_title'));
+			}
+			if($_POST['add_time']==''){
+				$this->error('请选择时间');
 			}
 			if(false === $data = $article_mod->create()){
 				$this->error($article_mod->error());

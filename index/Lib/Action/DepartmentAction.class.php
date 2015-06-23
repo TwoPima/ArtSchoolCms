@@ -22,21 +22,40 @@ class DepartmentAction extends CommonAction {
 		//左侧您现在的位置
 		$getNowHere=$this->secGetNowHere($_GET['id'],$table);
 		$this->assign('now_here',$getNowHere);
-		//右侧提出第一条数据的正文
+		//右侧标题栏的名称
 		$dep_cate_con = $cate_name_model->where($where_menu)->order('sort_order ASC')->limit(1)->select();
-		$name_id= $dep_cate_con[0][id];
 		$this->assign('dep_cate_con',$dep_cate_con);
 		//右侧第的列表信息
-		//分页显示
-		$where_article_list['cate_id']=$name_id;
+		$where_article_list['is_img'] = "0";
+		$where_article_list['cate_id']=$dep_cate_con[0]['id'];
+		$where_article_list['status']="1";
 		$count =$model->where($where_article_list)->count();
+		if ($count==1) {
+			//显示具体文章资讯内容
+			$this->indexDetail($dep_cate_con[0]['id']);
+		}else {
+			$page = new Page($count,15);
+			$article_list=$model->where($where_article_list)->limit($page->firstRow.','.$page->listRows)->order('add_time ASC')->select();
+			$showPage = $page->show();
+			$this->assign("page", $showPage);
+			$this->assign('article_list',$article_list);
+			$this->display();
+		}
 		
-		$page = new Page($count,15);
-		$article_list=$model->where($where_article_list)->limit($page->firstRow.','.$page->listRows)->order('add_time ASC')->select();
-		$showPage = $page->show();
-		$this->assign("page", $showPage);
-		$this->assign('article_list',$article_list);
-		$this->display();
+	}
+	/*  *
+	 * //首页导航之后的详细页面
+	*/
+	public function indexDetail($id){
+		$model=M('Article');
+		$menu_mod = M('Article_cate');
+		//详细页面
+		$where3['is_img'] = "0";
+		$where3['cate_id']=$id;
+		$where3['status']="1";
+		$result_se=$model->where($where3)->find();
+		$this->assign('detail',$result_se);
+		$this->display('indexDetail');
 	}
 		public function articleList(){
 		$table=$_GET['mo'];
@@ -50,11 +69,11 @@ class DepartmentAction extends CommonAction {
 		$detail_photo = $model->where($where3)->limit(1)->select();
 		$this->assign('detail_photo',$detail_photo);
 		//右侧名字找出来
-		$where_name['id']="$id";
+		$where_name['id']=$id;
 		$dep_cate_name = $cate_name_model->where($where_name)->select();
 		$this->assign('dep_cate_name',$dep_cate_name);
 		//提出左侧导航列表
-		$where_menu['pid']="$pid";
+		$where_menu['pid']=$pid;
 		$where_menu['in_site']="0";
 		$dep_cate_list = $cate_name_model->where($where_menu)->order('sort_order ASC')->select();
 		$this->assign('dep_cate_list',$dep_cate_list);
@@ -62,15 +81,21 @@ class DepartmentAction extends CommonAction {
 		$getNowHere=$this->secGetNowHere($_GET['id'],$table);
 		$this->assign('now_here',$getNowHere);
 		//右侧第的列表信息
-		//分页显示
-		$where_article_list['cate_id']="$id";
+		$where_article_list['cate_id']=$id;
+		$where_article_list['is_img'] = "0";
+		$where_article_list['status']="1";
 		$count =$model->where($where_article_list)->count();
-		$page = new Page($count,15);
-		$article_list=$model->where($where_article_list)->limit($page->firstRow.','.$page->listRows)->order('add_time ASC')->select();
-		$showPage = $page->show();
-		$this->assign("page", $showPage);
-		$this->assign('article_list',$article_list);
-		$this->display();
+		if ($count==1) {
+		//显示具体文章资讯内容
+		$this->indexDetail($id);
+		}else {
+			$page = new Page($count,15);
+			$article_list=$model->where($where_article_list)->limit($page->firstRow.','.$page->listRows)->order('add_time ASC')->select();
+			$showPage = $page->show();
+			$this->assign("page", $showPage);
+			$this->assign('article_list',$article_list);
+			$this->display();
+		}
 }
 		public function detail(){
 		$table=$_GET['mo'];
@@ -99,31 +124,8 @@ class DepartmentAction extends CommonAction {
 		//正文部分
 		$detail=$model->where($where)->select();
 		$this->assign('detail',$detail);
-		//上一篇
-		$where_front['id'] = array('lt',$_GET['id']);
-		$where_front['is_img']="0";
-		$front=$model->where($where_front)->order('id desc')->find();
-		//下一篇
-		$where_after['id'] = array('gt',$_GET['id']);
-		$where_after['is_img']="0";
-		$after=$model->where($where_after)->order('id desc')->find();
-		$this->assign('front',$front);
-		$this->assign('after',$after);
 		$this->display();
 }
-/*  *
- * //首页导航之后的详细页面
-*/
-public function indexDetail($id,$pid){
-	$model=M('Article');
-	$menu_mod = M('Article_cate');
-	//详细页面
-	$where3['is_img'] = "0";
-	$where3['cate_id']=$id;
-	$where3['status']="1";
-	$result_se=$model->where($where3)->find();
-	$this->assign('detail',$result_se);
-	$this->display('indexDetail');
-}
+
 }
 ?>

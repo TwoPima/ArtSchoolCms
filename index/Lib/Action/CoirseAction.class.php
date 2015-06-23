@@ -60,6 +60,19 @@ public function index(){
 		$this->display();
 	}
 	/*  *
+	 * //首页导航之后的详细页面
+	*/
+	public function indexDetail($id){
+		$model=M('Coirse');
+		//详细页面
+		$where3['is_img'] = "0";
+		$where3['cate_id']=$id;
+		$where3['status']="1";
+		$result_se=$model->where($where3)->find();
+		$this->assign('detail',$result_se);
+		$this->display('indexDetail');
+	}
+	/*  *
 	 * 根据头部导航下的菜单提取相关文档信息；
 	* 
 	*/
