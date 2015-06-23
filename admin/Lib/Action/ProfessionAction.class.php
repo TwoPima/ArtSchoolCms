@@ -109,9 +109,6 @@ class ProfessionAction extends BaseAction
 			        }
 			    }
 			}
-			//时间处理
-			$add_time=$_POST['add_time'];
-			$data['add_time'] = strtotime($add_time);
 			$result = $article_mod->save($data);
 			if(false !== $result){
 				$this->success(L('operation_success'),U('Profession/index'));
@@ -194,8 +191,8 @@ class ProfessionAction extends BaseAction
 			    }
 			}
 			//时间处理
-			$add_time=$_POST['add_time'];
-			$data['add_time'] = strtotime($add_time);
+			/* $add_time=$_POST['add_time'];
+			$data['add_time'] = strtotime($add_time); */
 			//$data['add_time']=date('Y-m-d H:i:s',time());
 			$result = $article_mod->add($data);
 			if($result){

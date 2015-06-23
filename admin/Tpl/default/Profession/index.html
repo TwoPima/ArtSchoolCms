@@ -47,7 +47,7 @@
                 <th width=50>ID</th>
                 <th width=25><input type="checkbox" value="" id="check_box" onclick="selectall('id[]');"></th>               
                 <th width=280>{:L('title')}</th>
-                <th>{:L('cate_id')}</th>
+                <th width=100>{:L('cate_id')}</th>
                  <th width="60">{:L('is_img')}</th>
                 <th width=150>{:L('time')}</th>
                 <th width=60>{:L('sort')}</th>
@@ -66,7 +66,7 @@
 			</td>           
             <td align="left"><a class="blue" href="{:u('Profession/edit', array('id'=>$val['id']))}">{$val.title|msubstr=0,50,'utf-8',true}</a><if condition="$val['url'] neq ''"><br><a href="{$val.url}" target=_blank>{$val.url|msubstr=0,50,'utf-8',true}</a></if>&nbsp;&nbsp;</td>
             <td align="center"><b>{$val.cate_name.name}</b></td>
-              	 <td align="center">
+              <td align="center">
              <if condition="$val.is_img eq '0'">
             	<em class="blue">资讯文章</em>
               <else /><em class="blue">图片导航</em>
