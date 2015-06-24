@@ -13,9 +13,11 @@ $(function(){
 		  });  
 	 $("#in_site1").click(function(){  
 			$(".onlyInsite").hide();
+			$(".onlyUrl").show();
 	  });    
 	 $("#in_site").click(function(){  
 				$(".onlyInsite").show();
+				$(".onlyUrl").hide();
 		  }); 
 })
 </script>
@@ -32,10 +34,6 @@ $(function(){
             <th width="100">{:L('title')}:</th>
             <td><input type="text" name="title" id="title" class="input-text" size="60"></td>
           </tr>
-		  <tr>
-            <th width="100">{:L('url')}:</th>
-            <td><input type="text" name="url" id="url" class="input-text" size="60"></td>
-          </tr>
            <tr>
       <th>{:L('in_site')} :</th>
       <td>
@@ -44,6 +42,10 @@ $(function(){
          <span style="color:red;">{:L('tips')} :1、站外链接填写:主要填写链接地址，分类和标题名称；</span>  
       </td>
     </tr>
+    <tr  class="onlyUrl">
+            <th width="100">{:L('url')}:</th>
+            <td><input type="text" name="url" id="url" class="input-text" size="60"></td>
+          </tr>
       <tr class="onlyInsite">
         <th>{:L('is_img')} :</th>
         <td id="imgTitle"><input id="is_img" type="radio" name="is_img" class="radio_style" value="1" <if condition="$article.is_img eq 1"> checked</if>>

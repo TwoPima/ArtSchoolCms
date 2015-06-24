@@ -20,9 +20,11 @@ $(function(){
 		  });  
 	 $("#in_site1").click(function(){  
 			$(".onlyInsite").hide();
+			$(".onlyUrl").show();
 	  });    
 	 $("#in_site").click(function(){  
 				$(".onlyInsite").show();
+				$(".onlyUrl").hide();
 		  }); 
 	 //$("#is_img").bind("click", function(event) { $(".onlyArtcle").hide(); $(".onlyArtcle").hide(); });
 	/*  $(".judgeImgArticle").click(function(){
@@ -65,7 +67,7 @@ $(function(){
          <span style="color:red;">{:L('tips')} :1、站外链接填写:主要填写链接地址，分类和标题名称；</span>  
       </td>
     </tr>
-	  <tr>
+	  <tr class="onlyUrl">
         <th width="100">{:L('url')} :</th>
         <td><input type="text" name="url" id="url" class="input-text" size="60" value="{$article.url}"></td>
       </tr>

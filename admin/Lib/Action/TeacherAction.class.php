@@ -17,7 +17,8 @@ class TeacherAction extends BaseAction
 	public function index()
 	{
 		/*列表  */
-		$teacher_list = $this->teacher_mod->order('ordid ASC')->select();
+		$teacher=D('Teacher');
+		$teacher_list = $teacher->order('ordid ASC')->select();
 		$list_rel=array();
 		foreach ($teacher_list as $value){			
 			$list_rel[]=$value;

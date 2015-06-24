@@ -157,6 +157,7 @@ class MilitaryAction extends BaseAction
 				$upload_list = $this->_upload();
 				$data['img'] = $upload_list['0']['savename'];
 			}
+			$result = $article_mod->add($data);
 			if($result){
 				$cate = M('Military_cate')->field('id,pid')->where("id=".$data['cate_id'])->find();
 				if( $cate['pid']!=0 ){

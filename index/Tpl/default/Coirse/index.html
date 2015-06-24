@@ -6,8 +6,8 @@
 				<ul>
 				<li><a href="#">全部课程</a></li>
 					<volist name="pro_list" id='sval'>
-						<li><a  href="__URL__/proArticleList?id={$sval.id}">{$sval.name}
-						<span></span></a>
+						<li>{$sval.name}
+						<span></span>
 							<ul>
 								<li id="class_link"><a href="__URL__/proArticleList?id={$sval.id}&type=1">视频</a></li>
 								<li id="class_link"><a  href="__URL__/proArticleList?id={$sval.id}&type=0">资讯</a></li>
