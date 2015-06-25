@@ -3,7 +3,7 @@ return array(
     'NAME' => '名称',    
 	'sort_order'=>'排序值',
 	'PLACE'=>'办公地点',
-	'PHONE'=>'办公电话',
+	'PHONE'=>'联系方式',
 	'create_time'=>'增加时间',
 	'position'=>'职位',
 	'intro'=>'个人简历',

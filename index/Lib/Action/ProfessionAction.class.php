@@ -18,7 +18,7 @@ class ProfessionAction extends CommonAction {
 		$detail_photo = $pro_mod->where($where3)->limit(1)->select();
 		$this->assign('detail_photo',$detail_photo);
 		//左侧您现在的位置
-		$herestr= '您现在的位置:'.'<a style="color:#000;" href="__APP__">&nbsp;&nbsp;首页&nbsp;&nbsp;</a>';
+		$herestr= '您现在的位置:'.'<a  href="__APP__">&nbsp;&nbsp;首页&nbsp;&nbsp;</a>';
 		if (empty($_GET['id'])) {
 			$nowwhere['id']=$_GET['pid'];
 			$uplevels=$cate_mod->where($nowwhere)->field("id,name")->find();
@@ -45,14 +45,14 @@ class ProfessionAction extends CommonAction {
 		$where_list['is_img'] = "0";
 		if (empty($_GET['id'])) {
 			$cate_where3['pid']=$_GET['pid'];
-			$result = $cate_mod->where($cate_where3)->order('sort_order ASC')->field("id,name")->find();
+			$result = $cate_mod->where($cate_where3)->order('add_time ASC')->field("id,name")->find();
 			$where_list['cate_id']=$result['id'];
 			$count =$intro_mod->where($where_list)->count();
 			if ($count=="1"){
 				//显示具体文章资讯内容
 				$this->indexDetail($result['id']);
 			}else{
-				$intro_pro= $intro_mod->where($where_list)->order('ordid ASC')->select();
+				$intro_pro= $intro_mod->where($where_list)->order('add_time DESC')->select();
 				$page = new Page($count,10);
 				$showPage = $page->show();
 				$this->assign("page", $showPage);
@@ -67,7 +67,7 @@ class ProfessionAction extends CommonAction {
 				//显示具体文章资讯内容
 				$this->indexDetail($_GET['id']);
 			}else{
-				$intro_pro= $intro_mod->where($where_list)->order('ordid ASC')->select();
+				$intro_pro= $intro_mod->where($where_list)->order('add_time DESC')->select();
 				$page = new Page($count,10);
 				$showPage = $page->show();
 				$this->assign("page", $showPage);

@@ -3,15 +3,16 @@
 <div id="class_main">
 	<div class="container clearfix">
 		<div class="class_main_left" >
-		<div class="main_list_title">
-					<img src="__ROOT__/statics/index/Image/nav_house.png" alt="lala">
-					{$now_here}
-				</div>
+			<div class="class_main_list_title">
+				<img src="__ROOT__/statics/index/Image/nav_house.png" alt="lala">
+				{$now_here}
+			</div>
 			<ul>
 				<volist name="mainleft_cate_list" id='pval'>
 					<li>
 						<a href="__URL__/articleLeftList?id={$pval.id}&pid={$pval.pid}">{$pval.name}</a>
 						
+					</li>
 				</volist>
 			</ul>
 		</div>
@@ -19,13 +20,21 @@
 			<div class="class_main_con_con">
 				<div class="class_main_con_show">
 					<ul class="class_article_list">
-						<volist name="article_list" id='sval'>
+							<volist name="article_list" id='detailval'>
 							<li>
-								<a href="__URL__/detail?id={$sval.id}&cid={$sval.cate_id}">
-									<span class="class_article_list_right">{$sval.add_time}</span>
-									<img src="__ROOT__/statics/index/Image/list.png" alt="xiaotubiao">{$sval.title|msubstr=0,53,'utf-8',false}
-								</a>
+							<if condition="$detailval.in_site  eq '1'">
+							<a target="_blank"  href="__URL__/detail?id={$detailval.id}&cid={$detailval.cate_id}">
+							<span class="main_con_list_right">{$detailval.add_time}</span>
+							<img src="__ROOT__/statics/index/Image/list.png" alt="xiaotubiao">{$detailval.title|msubstr=0,53,'utf-8',false}
+							</a>
+							<else/>
+							<a href="{$detailval.url}">
+							<span class="main_con_list_right">{$detailval.add_time}</span>
+							<img src="__ROOT__/statics/index/Image/list.png" alt="xiaotubiao">{$detailval.title|msubstr=0,53,'utf-8',false}
+							</a>
+							</if>
 							</li>
+						</volist>
 						</volist>
 					</ul>
 				</div>
