@@ -55,7 +55,7 @@ class MasterAction extends CommonAction {
 				//显示具体文章资讯内容
 				$this->indexDetail($catid);
 			}else {
-				$article_list=$model->where($whereArt)->order('ordid ASC')->select();
+				$article_list=$model->where($whereArt)->order('add_time DESC')->select();
 				$this->assign('article_list',$article_list);
 				$page = new Page($count,10);
 				$showPage = $page->show();

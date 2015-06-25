@@ -46,19 +46,17 @@ class SubmenuAction extends CommonAction {
 				$whereTeaLeader['is_teacher']="1";
 				$whereTeaLeader['pid']=$zhuanye_row['id'];
 				$jiaoshi=$mod_tea_leader->where($whereTeaLeader)->select();
-				
 				foreach($jiaoshi as $key=>$val1){
 					$teacher_array=array();
 					$teacher_array['id']=$val1['id'];
 					$teacher_array['name']=$val1['name'];
 					
 					$zhuanye_temp_array['jiaoshi'.$key1][$key]=$teacher_array;
-					var_dump($zhuanye_temp_array);
 				}
 				
 				$zhuanye_array[$key1]=$zhuanye_temp_array;
 			}
-		exit;
+		//exit;
 		  /* 	print_r('<pre>');
 			print_r($zhuanye_array);
 			print_r('</pre>');
@@ -92,7 +90,7 @@ class SubmenuAction extends CommonAction {
 			}
 			</php> */
 			
-		//	$this->assign('teaList',$data);
+			$this->assign('teaList',$data);
 			$this->assign('teaList',$zhuanye_array);
 			$this->display('teacher');
 		}elseif ($cate_tea_lea['alias']=="leader"){
