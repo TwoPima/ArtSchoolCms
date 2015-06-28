@@ -17,20 +17,10 @@ class ArticleCateAction extends BaseAction
         $article_cate_mod = M('article_cate');
         $article_mod = D('article');
     	$result = $article_cate_mod->order('sort_order ASC')->select();
-    	$article_cate_list = array();
     	foreach ($result as $val) {
     	    if ($val['pid']==0) {
-//    	    	$cates = $article_cate_mod->where("pid=".$val['id'])->select();
-//    	    	$nums = 0;
-//    	    	if( $cates ){
-//    	    		foreach( $cates as $sval ){ $nums+=$article_mod->where("cate_id=".$sval['id'])->count(); }
-//    	    	}else{
-//    	    		$nums = $article_mod->where("cate_id=".$val['id'])->count();
-//    	    	}
-//    	    	$val['nums'] =$nums;
     	        $article_cate_list['parent'][$val['id']] = $val;
     	    } else {
-    	    	//$val['nums'] = $article_mod->where("cate_id=".$val['id'])->count();
     	        $article_cate_list['sub'][$val['pid']][] = $val;
     	    }
     	}
