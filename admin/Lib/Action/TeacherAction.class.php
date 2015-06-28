@@ -14,9 +14,8 @@ class TeacherAction extends BaseAction
 	function __construct(){
 		$this->teacher_mod=M('Teacher');
 	}
-	public function index()
-	{
-		/*列表  */
+	/*public function index()
+	 {
 		$teacher=D('Teacher');
 		$teacher_list = $teacher->order('ordid ASC')->select();
 		$list_rel=array();
@@ -25,8 +24,36 @@ class TeacherAction extends BaseAction
 		}	
 		$this->assign('teacher_list',$list_rel);
 		$this->display();
-	}
-
+	} */
+	public function index()
+	{
+		$article_mod = D('teacher');
+		$article_cate_mod = D('profession_cate');
+		import("ORG.Util.Page");
+		$count = $article_mod->count();
+		$p = new Page($count,20);
+		$article_list = $article_mod->limit($p->firstRow.','.$p->listRows)->order('create_time DESC,ordid ASC')->select();
+	
+		$key = 1;
+		foreach($article_list as $k=>$val){
+			$article_list[$k]['key'] = ++$p->firstRow;
+			$article_list[$k]['cate_name'] = $article_cate_mod->where('id='.$val['pid'])->find();
+		}
+		$result = $article_cate_mod->order('sort_order ASC')->select();
+		$cate_list = array();
+		foreach ($result as $val) {
+			if ($val['pid']==0) {
+				$cate_list['parent'][$val['id']] = $val;
+			} else {
+				$cate_list['sub'][$val['pid']][] = $val;
+			}
+		}
+		$page = $p->show();
+		$this->assign('page',$page);
+		$this->assign('cate_list', $cate_list);
+		$this->assign('article_list',$article_list);
+		$this->display();
+	 }
 	function edit()
 	{
 	if(isset($_POST['dosubmit'])){

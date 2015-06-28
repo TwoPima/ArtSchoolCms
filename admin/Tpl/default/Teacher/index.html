@@ -7,6 +7,7 @@
             <tr>
                 <th width="4%"><input type="checkbox" value="all" id="check_box" onclick="selectall('id[]');" name="all"></th>              	
                 <th width="90">{:L('name')}</th>
+                 <th width="90">{:L('pid')}</th>
                 <th width="40">{:L('position')}</th>
                 <th width="40">{:L('is_teacher')}</th>
                  <th width="40">{:L('is_leader')}</th>
@@ -16,10 +17,11 @@
             </tr>
         </thead>
     	<tbody>
-        	<volist name="teacher_list" id='val'>
+        	<volist name="article_list" id="val" >
             <tr>
                 <td align="center"><input type="checkbox" value="{$val.id}" name="id[]"></td>                
                 <td align="center">{$val.name}</td>
+                 <td align="center"><b>{$val.cate_name.name}</b></td>
                 <td align="center">{$val.position}</td>
                 <td align="center">
                 	<if condition="$val.is_teacher eq '1'"><em class="blue">是</em>
