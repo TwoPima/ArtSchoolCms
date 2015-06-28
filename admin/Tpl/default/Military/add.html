@@ -27,8 +27,7 @@ $(function(){
           <tr>
             <th width="100">{:L('title')}:</th>
             <td><input type="text" name="title" id="title" class="input-text" size="60">
-            
-             <span style="color:red;">{:L('tips')} :1、附件上传填写:无须填写链接地址、摘要、详细内容（默认是文档资讯类型即可）,标题名称必须为文档名称；</span>
+             <!-- <span style="color:red;">{:L('tips')} :1、附件上传填写:无须填写链接地址、摘要、详细内容（默认是文档资讯类型即可）,标题名称必须为文档名称；</span> -->
             </td>
           </tr>
            <tr>
@@ -60,7 +59,8 @@ $(function(){
                     </volist>
                   </notempty>
                 </volist>
-              </select></td>
+              </select>
+              </td>
           </tr>
           <tr>
           	<th>{:L('orig')} :</th>
@@ -150,14 +150,12 @@ function SwapTab(name,cls_show,cls_hide,cnt,cur){
 		}
 	}
 }
-
 function submitFrom(){
 	if($("#cate_id").val()==0)
 	{
-	   alert('请选择文章分类');
+	   alert('请选择所属分类');
 	   return false;
 	}
-
 }
 </script>
 </body></html>

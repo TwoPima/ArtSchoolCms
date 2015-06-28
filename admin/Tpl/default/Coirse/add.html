@@ -38,10 +38,11 @@ $(function(){
           </tr>
        <tr>
         <th>{:L('type')} :</th>
-        <td><input type="radio" name="type" id="type1" class="radio_style" value="1" >
-          &nbsp;视频课件&nbsp;&nbsp;&nbsp;
-          <input type="radio" name="type" id="type" class="radio_style" value="0">
-          &nbsp;文档
+        <td>
+        <input type="radio" name="type" id="type1" class="radio_style" value="0" <if condition="$article.type eq 0">  checked</if>>
+		&nbsp;文档&nbsp;&nbsp;&nbsp;
+		<input type="radio" name="type" id="type" class="radio_style" value="1" <if condition="$article.type eq 1"> checked</if>>
+          &nbsp;视频
           </td>
       </tr>
       <tr>

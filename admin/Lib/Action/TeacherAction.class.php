@@ -63,9 +63,7 @@ class TeacherAction extends BaseAction
 				$upload_list = $this->_upload();
 				$data['img'] = $upload_list['0']['savename'];
 			}
-			if($data['pid']==0){
-				$this->error('请选择专业类别');
-			}
+			
 			//最后的整体操作
 			$result = $profession_mod->where('id='.$data['id'])->save($data);
 			if(false !== $result){
@@ -95,8 +93,8 @@ class TeacherAction extends BaseAction
 		}
 	}
 
-	function add()
-	{
+	function add(){
+
 	if(isset($_POST['dosubmit'])){
 			$profession_mod = M('Teacher');
 			$data = $profession_mod->create();
@@ -104,12 +102,13 @@ class TeacherAction extends BaseAction
 				$upload_list = $this->_upload();
 				$data['img'] = $upload_list['0']['savename'];
 			}
-			if($data['pid']==0){
+			/* if($data['pid']==0){
 				$this->error('请选择专业类别');
-			}
-			//$data['add_time']=date('Y-m-d H:i:s',time());
+			} */
 			$result = $profession_mod->add($data);
 			if($result){
+			 	dump($_POST);
+				exit(); 
 				$this->success('添加成功');
 			}else{
 				$this->error('添加失败');

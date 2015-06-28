@@ -54,10 +54,10 @@ class SubmenuAction extends CommonAction {
 						
 					$zhuanye_temp_array['jiaoshi'.$key1][$key]=$teacher_array;
 				}
-			
+				
 				$zhuanye_array[$key1]=$zhuanye_temp_array;
 			}
-			
+
 			$this->assign('teaList',$zhuanye_array);
 			$this->display('teacher');
 		}elseif ($cate_tea_lea['alias']=="leader"){
@@ -72,7 +72,7 @@ class SubmenuAction extends CommonAction {
 				//显示具体文章资讯内容
 				$this->indexDetail($_GET['id'],$_GET['pid']);
 			}else {
-				$page = new Page($count,10);
+				$page = new Page($count,15);
 				$article_list = $detail_mod->where($where4)->limit($page->firstRow.','.$page->listRows)->order('add_time DESC,ordid ASC')->select();
 				$showPage = $page->show();
 				$this->assign("page", $showPage);
@@ -81,9 +81,6 @@ class SubmenuAction extends CommonAction {
 			}
 		
 		}
-		
-		
-		
 	}
 	/*  *
 	 * 首页其他详细页面
@@ -173,7 +170,7 @@ class SubmenuAction extends CommonAction {
 			if ($count==1) {
 				$this->indexDetail($result_cate1['id'], $result_cate1['pid']);
 			}else {
-				$page = new Page($count,10);
+				$page = new Page($count,15);
 				$article_list = $detail_mod->where($where1)->limit($page->firstRow.','.$page->listRows)->order('add_time DESC,ordid ASC')->select();
 				$this->assign('article_list',$article_list);
 				$showPage = $page->show();

@@ -30,7 +30,7 @@ class CommonAction extends Action {
 		$this->assign('set',$set);
 	
 		//友情链接
-		$this->assign('link',M('Flink')->where('status=1')->order('ordid DESC')->select());
+		$this->assign('link',M('Flink')->where('status=1')->order('ordid ASC')->select());
 	
 	}
 	//导航index操作；
