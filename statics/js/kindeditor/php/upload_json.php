@@ -30,14 +30,14 @@ $ext_arr = array(
 );
 //最大文件大小
 //$max_size = 1000000;
-$max_size = 20000000;
+$max_size = 20000000000;
 $save_path = realpath($save_path) . '/';
 
 //PHP上传失败
 if (!empty($_FILES['imgFile']['error'])) {
 	switch($_FILES['imgFile']['error']){
 		case '1':
-			$error = '超过php.ini允许的大小。';
+			$error = '超过设定允许的大小。';
 			break;
 		case '2':
 			$error = '超过表单允许的大小。';

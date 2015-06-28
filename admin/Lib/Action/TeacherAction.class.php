@@ -63,7 +63,6 @@ class TeacherAction extends BaseAction
 				$upload_list = $this->_upload();
 				$data['img'] = $upload_list['0']['savename'];
 			}
-			
 			//最后的整体操作
 			$result = $profession_mod->where('id='.$data['id'])->save($data);
 			if(false !== $result){
@@ -102,6 +101,7 @@ class TeacherAction extends BaseAction
 				$upload_list = $this->_upload();
 				$data['img'] = $upload_list['0']['savename'];
 			}
+			
 			/* if($data['pid']==0){
 				$this->error('请选择专业类别');
 			} */
@@ -166,8 +166,8 @@ class TeacherAction extends BaseAction
     	import("ORG.Net.UploadFile");
         $upload = new UploadFile();
         //设置上传文件大小
-        $upload->maxSize = 3292200;
-        //$upload->allowExts = explode(',', 'jpg,gif,png,jpeg');
+        $upload->maxSize = 31457280;
+        $upload->allowExts = explode(',', 'jpg,gif,png,jpeg');
         $upload->savePath = './data/teacher/';
 
         $upload->saveRule = uniqid;
@@ -180,7 +180,6 @@ class TeacherAction extends BaseAction
         }
         return $uploadList;
     }
-
 	function sort_order()
     {
     	$article_mod = D('Teacher');
