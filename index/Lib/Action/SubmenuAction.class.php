@@ -46,52 +46,18 @@ class SubmenuAction extends CommonAction {
 				$zhuanye_temp_array['zhuanye']['name']=$zhuanye_row['name'];
 				$whereTeaLeader['is_teacher']="1";
 				$whereTeaLeader['pid']=$zhuanye_row['id'];
-				$jiaoshi=$mod_tea_leader->where($whereTeaLeader)->select();
+				$jiaoshi=$mod_tea_leader->where($whereTeaLeader)->order('create_time DESC,ordid ASC')->select();
 				foreach($jiaoshi as $key=>$val1){
 					$teacher_array=array();
 					$teacher_array['id']=$val1['id'];
 					$teacher_array['name']=$val1['name'];
-					
+						
 					$zhuanye_temp_array['jiaoshi'.$key1][$key]=$teacher_array;
 				}
 				
 				$zhuanye_array[$key1]=$zhuanye_temp_array;
 			}
-		//exit;
-		  /* 	print_r('<pre>');
-			print_r($zhuanye_array);
-			print_r('</pre>');
-			exit();   */
-			
-			/* $m=M('Profession_cate');
-			$m2=M('Teacher');
-			$zhuanye=$m->where('pid=0')->order('sort_order ASC')->select();
-			foreach($zhuanye as $key=>$val){
-				$data[$key]['name']=$val['name'];
-				$jiaoshi=$m2->where(array('pid'=>$val['id'],'teacher'=>1))->find();
-				$data[$key]['data'][]=$jiaoshi['name'];
-				$data[$key]['data1'][]=$jiaoshi['id'];
-			} */
-			//dump($data);exit;
-			
-			/* <php>
-			foreach ($teaList as $teaList_row){
-				echo "<div class='teacher'>";
-				echo "<div class='teacher_function'>";
-				echo "<span><b>".$teaList_row['zhuanye']['name']."</b></span>";
-				echo "</div>";
-				echo "<div class='teacher_name'>
-										<ul>";
-				foreach ($teaList_row['jiaoshi'] as $jiaoshi_row){
-					echo" <li><a href='./teaDetail?id=".$jiaoshi_row['id']."'>".$jiaoshi_row['name']."</a></li>";
-				}
-				echo "</ul>
-									</div>
-								</div>";
-			}
-			</php> */
-			
-			$this->assign('teaList',$data);
+
 			$this->assign('teaList',$zhuanye_array);
 			$this->display('teacher');
 		}elseif ($cate_tea_lea['alias']=="leader"){

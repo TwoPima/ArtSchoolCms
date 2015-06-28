@@ -7,14 +7,14 @@
 	protected $_link=array(
 	'Teacher'=>array(
 		'mapping_type'=>BELONGS_TO,
-		 'class_name'=>'teacher',
-		//外键，也就是表Stus中的字段
-			"parent_key" => 'id',
-		'foreign_key'=>'id',
+		'class_name'=>'ProfessionCate',
+		"parent_key" => 'id',
+		'foreign_key'=>'pid',
 		'mapping_name'=>'tea',
+		'mapping_order'=>'',
 		//关联的字段，可以多个
-		'mapping_fields'=>'teacher',
-				//'condition'=>'cname',
+		'condition '=>'status=1',
+		'mapping_fields'=>'id,name',
 		//'as_fields'=>'cname:classname'
 	),
 );
