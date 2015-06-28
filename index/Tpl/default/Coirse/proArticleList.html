@@ -28,17 +28,17 @@
 				</div> 
 				<div class="class_main_con_show">
 					<ul class="class_article_list">
-						<volist name="article_video_list" id='val'>
+						<volist name="article_video_list" id='detailval'>
 							<li>
-							<if condition="$sval.in_site  eq '1'">
-							<a target="_blank"  href="{$val.url}">
-							<span class="main_con_list_right">{$val.add_time}</span>
-							<img src="__ROOT__/statics/index/Image/list.png" alt="xiaotubiao">{$val.title|msubstr=0,53,'utf-8',false}
+							<if condition="$detailval.in_site  eq '1'">
+							<a target="_blank"  href="__URL__/detail?id={$detailval.id}&cid={$detailval.cate_id}">
+							<span class="main_con_list_right">{$detailval.add_time}</span>
+							<img src="__ROOT__/statics/index/Image/list.png" alt="xiaotubiao">{$detailval.title|msubstr=0,53,'utf-8',false}
 							</a>
 							<else/>
-							<a href="__URL__/detail?id={$val.id}&mo=Coirse">
-							<span class="main_con_list_right">{$val.add_time}</span>
-							<img src="__ROOT__/statics/index/Image/list.png" alt="xiaotubiao">{$val.title|msubstr=0,53,'utf-8',false}
+							<a href="{$detailval.url}">
+							<span class="main_con_list_right">{$detailval.add_time}</span>
+							<img src="__ROOT__/statics/index/Image/list.png" alt="xiaotubiao">{$detailval.title|msubstr=0,53,'utf-8',false}
 							</a>
 							</if>
 							</li>

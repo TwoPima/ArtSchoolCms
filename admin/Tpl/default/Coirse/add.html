@@ -7,10 +7,20 @@ $(function(){
 	});
 	$("#type").click(function(){  
 		$(".onlyVideo").hide();
-  });    
- $("#type1").click(function(){  
+		$(".onlyArt").show();
+  	});    
+ 	$("#type1").click(function(){  
 			$(".onlyVideo").show();
+			$(".onlyArt").hide();
 	  });
+ 	 $("#in_site").click(function(){  
+			$(".onlyInsite").hide();
+			$(".onlyUrl").show();
+	  });    
+	 $("#in_site1").click(function(){  
+				$(".onlyInsite").show();
+				$(".onlyUrl").hide();
+		  }); 
 })
 </script>
 <form action="{:u('Coirse/add')}" method="post" name="myform" id="myform"  enctype="multipart/form-data" style="margin-top:10px;">
@@ -30,11 +40,18 @@ $(function(){
         <th>{:L('type')} :</th>
         <td>
         <input type="radio" name="type" id="type1" class="radio_style" value="0" <if condition="$article.type eq 0">  checked</if>>
-          &nbsp;文档
-        <input type="radio" name="type" id="type" class="radio_style" value="1" <if condition="$article.type eq 1"> checked</if>>
-          &nbsp;视频&nbsp;&nbsp;&nbsp;
+		&nbsp;文档&nbsp;&nbsp;&nbsp;
+		<input type="radio" name="type" id="type" class="radio_style" value="1" <if condition="$article.type eq 1"> checked</if>>
+          &nbsp;视频
           </td>
       </tr>
+      <tr>
+        	<th>{:L('in_site')}：</th>
+        	<td>
+            	<input type="radio" name="in_site" class="radio_style"  id="in_site1" value="1" > &nbsp;校内&nbsp;&nbsp;&nbsp;
+                <input type="radio" name="in_site" class="radio_style"  id="in_site" value="0" > &nbsp;校外&nbsp;&nbsp;&nbsp;
+            </td>
+          </tr>
            <tr class="onlyVideo">
         <th width="100">{:L('duty')} :</th>
         <td><input type="text" name="duty" id="duty" class="input-text" size="60" value="{$article.duty}"></td>
@@ -55,16 +72,9 @@ $(function(){
         <th width="100">{:L('uploadby')} :</th>
         <td><input type="text" name="uploadby" id="uploadby" class="input-text" size="60" value="{$article.uploadby}"></td>
       </tr>
-		  <tr>
+           <tr class="onlyUrl">
             <th width="100">{:L('url')}:</th>
             <td><input type="text" name="url" id="url" class="input-text" size="60"></td>
-          </tr>
-            <tr>
-        	<th>{:L('in_site')}：</th>
-        	<td>
-            	<input type="radio" name="in_site" class="radio_style"  id="in_site" value="1" <if condition="$article['in_site'] eq '1'">checked="checked"</if>> &nbsp;校内&nbsp;&nbsp;&nbsp;
-                <input type="radio" name="in_site" class="radio_style"  id="in_site" value="0" <if condition="$article['in_site'] eq '0'">checked="checked"</if>> &nbsp;校外&nbsp;&nbsp;&nbsp;
-            </td>
           </tr>
        <tr>
         <th>{:L('intro')} :</th>
@@ -104,15 +114,15 @@ $(function(){
           	<th>{:L('orig')} :</th>
             <td><input type="text" name="orig" id="orig" class="input-text" size="30"></td>
           </tr>
-          <tr>
+          <!-- <tr>
           	<th>{:L('img')} :</th>
             <td><input type="file" name="img" id="img" class="input-text"  style="width:200px;" /></td>
-          </tr>
-          <tr>
+          </tr> -->
+          <tr class="onlyArt onlyInsite">
             <th>{:L('abst')} :</th>
             <td><textarea name="abst" id="abst" style="width:68%;height:50px;"></textarea></td>
           </tr>
-           <tr>
+           <tr class="onlyArt  onlyInsite">
             <th>{:L('info')} :</th>
             <td>            	
 				<tpl:editor id="info" name="info" type="KINDEDITOR" style="width:70%;height:350px;" ></tpl:editor>
@@ -137,15 +147,6 @@ $(function(){
               &nbsp;待审核
               </td>
           </tr>
-           <!-- <tr class="onlyArtcle">
-        <th width="100">{:L('attach')}:</th>
-        <td>
-       		<input type="file" name="attachment" id="attachment" class="input-text"  />
-            <if condition="$attatch['title'] neq ''">
-            <a href="">{$attatch.title}</a>__URL__/downAttatch?id={$attatch.id} 
-            </if>
-        </td>
-      </tr> -->
         </table>
       </div>
       

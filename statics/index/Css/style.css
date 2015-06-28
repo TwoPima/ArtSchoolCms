@@ -788,6 +788,7 @@ height:30px;
 	padding-left:15px;
 	color:#000;
 	display:block;
+	
 }
 .class_main_left ul li:hover{
 	background-color:#337981;
@@ -799,6 +800,7 @@ height:30px;
 .class_main_left ul li:hover a{
 	padding-left:30px;
 	color:#fff;
+
 }
 .class_main_left ul li ul{
  	display: none; 

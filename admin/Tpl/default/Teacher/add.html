@@ -9,16 +9,25 @@
             <th width="100">{:L('name')}:</th>
             <td><input type="text" name="name" id="name" class="input-text" size="60"></td>
           </tr>
+          	<!-- 是不是领导 -->
+             <tr>
+       	<th>{:L('is_leader')}：</th>
+       	<td>
+           	<input type="radio" name="is_leader" id="is_leader" value="1" <if condition="$Teacher['is_leader'] eq '1'">checked="checked"</if>>  &nbsp;是&nbsp;&nbsp;&nbsp;
+            <input type="radio" name="is_leader"   id="is_leader2" value="0"<if condition="$Teacher['is_leader'] eq '0'">checked="checked"</if>>  &nbsp;否
+         </td>
+        </tr>
        <tr>
         <th>{:L('pid')} :</th>
-        <td><select name="pid" id="pid" style="width:200px;">
+        <td>
+        <select name="pid" id="pid" style="width:200px;">
         	<option value="0">--请选择专业类别--</option>
             <volist name="pro_list" id="val">
               <option <if condition="$article['pid'] eq $val['id']"> selected="selected" </if> value="{$val.id}">{$val.name}</option>
             </volist>
           </select>
           </td>
-      </tr>
+     	 </tr>
 		  <tr>
             <th width="100">{:L('position')}:</th>
             <td><input type="text" name="position" id="position" class="input-text" size="60"></td>
@@ -27,19 +36,12 @@
             <th width="100">{:L('PHONE')}:</th>
             <td><input type="text" name="phone" id="phone" class="input-text" size="60"></td>
           </tr>
-          <tr>
-       	<th>{:L('is_leader')}：</th>
-       	<td>
-           	<input type="radio" name="is_leader" id="is_leader" value="1" <if condition="$Teacher['is_leader'] eq '1'">checked="checked"</if>>  &nbsp;是&nbsp;&nbsp;&nbsp;
-               <input type="radio" name="is_leader"   id="is_leader" value="0"<if condition="$Teacher['is_leader'] eq '0'">checked="checked"</if>>  &nbsp;否
-           </td>
-        </tr>
-          <tr>
+         <tr>
        	<th>{:L('is_teacher')}：</th>
        	<td>
            	<input type="radio" name="is_teacher" id="is_teacher" value="1" <if condition="$Teacher['is_teacher'] eq '1'">checked="checked"</if>>  &nbsp;是&nbsp;&nbsp;&nbsp;
                <input type="radio" name="is_teacher"   id="is_teacher" value="0"<if condition="$Teacher['is_teacher'] eq '0'">checked="checked"</if>>  &nbsp;否
-           </td>
+          </td>
         </tr>
           <tr>
           	<th>{:L('img')} :</th>
@@ -62,4 +64,5 @@
     </div>
   </div>
 </form>
-</body></html>
+</body>
+</html>

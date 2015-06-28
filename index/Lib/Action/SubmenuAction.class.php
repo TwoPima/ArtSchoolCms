@@ -37,8 +37,9 @@ class SubmenuAction extends CommonAction {
 		if ($cate_tea_lea['alias']=="teacher") {
 			$mod_tea_leader=M('Teacher');
 			$mod_pro=M('Profession_cate');
+			//列出专业
 			$zhuanye=$mod_pro->where('pid=0')->order('sort_order ASC')->select();
-			 $zhuanye_array=array();
+			$zhuanye_array=array();
 			foreach($zhuanye as $key1=>$zhuanye_row){
 				$jiaoshi=array();
 				$zhuanye_temp_array['zhuanye']['id']=$zhuanye_row['id'];
@@ -105,7 +106,7 @@ class SubmenuAction extends CommonAction {
 				//显示具体文章资讯内容
 				$this->indexDetail($_GET['id'],$_GET['pid']);
 			}else {
-				$page = new Page($count,10);
+				$page = new Page($count,15);
 				$article_list = $detail_mod->where($where4)->limit($page->firstRow.','.$page->listRows)->order('add_time DESC,ordid ASC')->select();
 				$showPage = $page->show();
 				$this->assign("page", $showPage);
@@ -114,9 +115,6 @@ class SubmenuAction extends CommonAction {
 			}
 		
 		}
-		
-		
-		
 	}
 	/*  *
 	 * 首页其他详细页面
@@ -206,7 +204,7 @@ class SubmenuAction extends CommonAction {
 			if ($count==1) {
 				$this->indexDetail($result_cate1['id'], $result_cate1['pid']);
 			}else {
-				$page = new Page($count,10);
+				$page = new Page($count,15);
 				$article_list = $detail_mod->where($where1)->limit($page->firstRow.','.$page->listRows)->order('add_time DESC,ordid ASC')->select();
 				$this->assign('article_list',$article_list);
 				$showPage = $page->show();

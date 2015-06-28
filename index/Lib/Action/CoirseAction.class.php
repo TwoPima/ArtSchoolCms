@@ -4,7 +4,7 @@
 // +----------------------------------------------------------------------
 */
 class CoirseAction extends CommonAction {
-	
+	/* 精品课程首页列biao */
 public function index(){
 		$mod_cate_list=M('Coirse_cate');
 		$model=M('Coirse');
@@ -46,11 +46,13 @@ public function index(){
 		$result_se=$model->where($where)->select();
 		$this->assign('detail',$result_se);
 		//分类列表
-		$menu_mod = M('Coirse_cate');
-		$cate_where['pid']=$_GET['id'];
-		$cate_where['status']="1";
+		$cate_where1['id']=$_GET['cid'];
+		$cate_where1['status']="1";
 		//$cate_where['in_site']="0";
-		$result_cate = $menu_mod->where($cate_where)->order('sort_order ASC')->select();
+		$result_cate = $mod_cate_list->where($cate_where1)->find();
+		$cate_where['pid']=$result_cate['pid'];
+		$cate_where['status']="1";
+		$result_cate = $mod_cate_list->where($cate_where)->order('sort_order ASC')->select();
 		$this->assign('mainleft_cate_list',$result_cate);
 		
 		//左侧您现在的位置
@@ -98,16 +100,14 @@ public function index(){
 		$nowHere="$herestr"."->&nbsp;&nbsp;".$uplevels['name'];
 		$this->assign('now_here',$nowHere);
 		//提取信息
-		$where['id']=$_GET['id'];
+		$result_cate_detail = $mod_cate_list->where($cate_where)->order('sort_order ASC')->find();
+		$where['cate_id']=$result_cate_detail['id'];
 		$where['status']="1";
 		$article_list=$model->where($where)->order('ordid ASC')->select();
 		$count =$model->where($where)->count();
 		$page = new Page($count,10);
 		$showPage = $page->show();
-		
 		$this->assign('page', $showPage);
-		$this->assign('top_cate_list',$re_cate_list);
-		$this->assign('pro_list',$prolist);
 		$this->assign('article_list',$article_list);
 		$this->display();
 	}
@@ -124,12 +124,6 @@ public function index(){
 		$re_cate_list1=$mod_cate_list->where($where_index)->order('sort_order ASC')->limit(1)->find();
 		$this->assign('top_cate_list',$re_cate_list);
 		$this->assign('top_cate_list1',$re_cate_list1);
-		
-/* 		//专业提取
-		$wherPro['id']=$_GET['id'];
-		$pro_mod=M('Profession_cate');
-		$prolist=$pro_mod->where($wherPro)->order('sort_order ASC')->find();
-		$this->assign('prolist',$prolist); */
 		//专业提取
 		$pro_mod=M('Profession_cate');
 		$prolist=$pro_mod->where('status=1 AND pid=0')->order('sort_order ASC')->select();
@@ -160,6 +154,42 @@ public function index(){
 			$this->display();
 			
 		}
+	}
+	/* 头部导航点击->左侧菜单的列表文章显示 */
+	public  function articleLeftList(){
+		$mod_cate_list=M('Coirse_cate');
+		$model=M('Coirse');
+		
+		//加载头部导航信息
+		$where_index['pid']=0;
+		$re_cate_list=$mod_cate_list->where($where_index)->order('sort_order DESC')->limit(7)->select();
+		$re_cate_list1=$mod_cate_list->where($where_index)->order('sort_order ASC')->limit(1)->find();
+		$this->assign('top_cate_list',$re_cate_list);
+		$this->assign('top_cate_list1',$re_cate_list1);
+		//左侧分类显示菜单
+		$cate_where['pid']=$_GET['pid'];
+		$cate_where['status']="1";
+		//$cate_where['in_site']="0";
+		$result_cate = $mod_cate_list->where($cate_where)->order('sort_order ASC')->select();
+		$this->assign('mainleft_cate_list',$result_cate);
+		//左侧您现在的位置
+		$herestr= '位置:'.'<a style="color:#000;" href="__APP__">&nbsp;首页&nbsp;</a>'.'->&nbsp;'.'<a href="__URL__/index">精品课程</a>&nbsp;&nbsp;';
+		$nowwhere['id']=$_GET['id'];
+		$uplevels = $mod_cate_list->field("id,name")->where($nowwhere)->find();
+		$nowHere="$herestr"."->&nbsp;&nbsp;".$uplevels['name'];
+		$this->assign('now_here',$nowHere);
+		//提取信息
+		$where['id']=$_GET['id'];
+		$where['status']="1";
+		$article_list=$model->where($where)->order('ordid ASC')->select();
+		$count =$model->where($where)->count();
+		$page = new Page($count,10);
+		$showPage = $page->show();
+		$this->assign('page', $showPage);
+		$this->assign('top_cate_list',$re_cate_list);
+		$this->assign('article_list',$article_list);
+		
+		$this->display();
 	}
 }
 
