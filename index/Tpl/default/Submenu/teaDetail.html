@@ -2,7 +2,7 @@
 <!-- photo start -->
 <div id="photo">
 	<div class="container">
-	<img src="__ROOT__/data/news/{$detail_photo[0]['img']}" alt="tuqian">
+	<img src="__ROOT__/data/news/{$detail_photo['img']}" alt="tuqian">
 	</div>
 </div>
 <!-- photo end -->
@@ -12,32 +12,26 @@
 				<div class="main_list" id="main_list">
 					<div class="main_list_title">
 						<img src="__ROOT__/statics/index/Image/nav_house.png" alt="lala">
-						您现在的位置：<a  href="__APP__">首页</a>&nbsp;>&nbsp;个人简历
+						您现在的位置：<a  href="__APP__">首页</a>&nbsp;>&nbsp;师资队伍
 					</div>
-					<div class="main_list_nav">
-						 <ul>
-							<li id=""><a href="__APP__/Notice/more?type=1"><img src="__ROOT__/statics/index/Image/left_nav.jpg">学院新闻</a></li>
-						</ul> 
-					</div>
+				<div class="main_list_nav">
+					 <ul>
+						<volist name="mainleft_cate_list" id='sval'>
+							<li><a href="__APP__/Submenu/index?id={$sval.id}&pid={$sval.pid}&type=2"><img src="__ROOT__/statics/index/Image/left_nav.jpg">{$sval.name}</a></li>
+						</volist>
+					</ul> 
+				</div>
 				</div>
 			<!-- 右侧 -->
 				<div class="main_con" >
 					<div class="main_con_con">
 						<div class="main_con_title">
-								<span class="span1">{$detail[0]['title']|msubstr=0,53,'utf-8',false}</span>
+								<span class="span1">{$detail['name']}</span>
 						</div>
 						<div class="main_con_text">
-							{$detail[0]['info']}
-						</div>
-						
-						<div class="attach">
-							<if condition="$attatch.id eq ''">
-								<else/>
-								 <a href="__URL__/download?filename={$attatch['url']}&site=news">附件下载：{$attatch['title']}</a>
-							 </if>
+							{$detail['intro']}
 						</div>
 				</div>
-			
 	</div>
 </div>
 <include file="Public:footer"/>
