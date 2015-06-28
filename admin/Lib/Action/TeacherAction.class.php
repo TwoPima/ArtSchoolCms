@@ -80,8 +80,6 @@ class TeacherAction extends BaseAction
 			} */
 			$result = $profession_mod->add($data);
 			if($result){
-			 	dump($_POST);
-				exit(); 
 				$this->success('添加成功');
 			}else{
 				$this->error('添加失败');
