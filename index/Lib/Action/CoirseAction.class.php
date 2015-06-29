@@ -173,7 +173,7 @@ public function index(){
 		$result_cate = $mod_cate_list->where($cate_where)->order('sort_order ASC')->select();
 		$this->assign('mainleft_cate_list',$result_cate);
 		//左侧您现在的位置
-		$herestr= '位置:'.'<a style="color:#000;" href="__APP__">&nbsp;首页&nbsp;</a>'.'->&nbsp;'.'<a href="__URL__/index">精品课程</a>&nbsp;&nbsp;';
+		$herestr= /* '位置:'.'<a style="color:#000;" href="__APP__">&nbsp;首页&nbsp;</a>'.'->&nbsp;'.*/ '<a href="__URL__/index">精品课程</a>&nbsp;&nbsp;';
 		$nowwhere['id']=$_GET['id'];
 		$uplevels = $mod_cate_list->field("id,name")->where($nowwhere)->find();
 		$nowHere="$herestr"."->&nbsp;&nbsp;".$uplevels['name'];

@@ -6,13 +6,13 @@
 				<ul>
 				<li><a style="border-bottom:3px solid #337981;">全部课程</a></li>
 					<volist name="pro_list" id='sval'>
-						<li>{$sval.name}
+						<li><a>{$sval.name}
 						<span></span>
 							<ul>
 								<li id="class_link"><a href="__URL__/proArticleList?id={$sval.id}&type=1">视频</a></li>
 								<li id="class_link"><a  href="__URL__/proArticleList?id={$sval.id}&type=0">文档</a></li>
 							</ul>
-						</li>
+						</li></a>
 					</volist>
 				</ul>
 			</div>

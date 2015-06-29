@@ -42,6 +42,7 @@ class SubmenuAction extends CommonAction {
 			$zhuanye_array=array();
 			foreach($zhuanye as $key1=>$zhuanye_row){
 				$jiaoshi=array();
+				$zhuanye_temp_array=array();
 				$zhuanye_temp_array['zhuanye']['name']=$zhuanye_row['name'];
 				$whereTeaLeader['is_teacher']="1";
 				$whereTeaLeader['pid']=$zhuanye_row['id'];
