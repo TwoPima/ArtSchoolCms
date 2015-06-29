@@ -31,8 +31,8 @@ $(function(){
            <tr>
       <th>{:L('in_site')} :</th>
       <td>
-         <input type="radio" name="in_site"  id="in_site1" onclick="changeData(1);" value="1" <if condition="$article.in_site eq '1'">checked="checked"</if>  />站外
-         <input type="radio" name="in_site"  id="in_site" onclick="changeData(0);" value="0" <if condition="$article.in_site eq '0'">checked="checked"</if> />站内
+         <input type="radio" name="in_site"  id="in_site1" onclick="changeData(1);" value="1" />站外
+         <input type="radio" name="in_site"  id="in_site" onclick="changeData(0);" value="0" />站内
          <span style="color:red;">{:L('tips')} :1、站外链接填写:主要填写链接地址，分类和标题名称；</span>  
       </td>
     </tr>
