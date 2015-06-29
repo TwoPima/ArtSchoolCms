@@ -66,13 +66,13 @@ $(function(){
       <tr>
           <th>{:L('add_time')} :</th>
           <td>
-           <tpl:calendar id="add_time" class="input-text" name="add_time" size="30">{$article.add_time}</tpl:calendar>
+           <input id="add_time"  name="add_time" type="text" value="{$article.add_time}" onClick="WdatePicker()" /> 
            </td>
       </tr>
       <tr  class="onlyVideo">
         <th width="100">{:L('due_time')} :</th>
         <td>
-           <tpl:calendar id="due_time" class="input-text" name="due_time" size="30">{$article.due_time}</tpl:calendar>
+          <input id="due_time"  name="due_time" type="text" value="{$article.due_time}" onClick="WdatePicker()" /> 
            </td>
            </tr>
       <tr  class="onlyVideo">
@@ -130,10 +130,10 @@ $(function(){
         <th>{:L('abst')} :</th>
         <td><textarea name="abst" id="abst" style="width:68%;height:50px;">{$article.abst}</textarea></td>
       </tr>
-        <tr class="onlyArt onlyInsite">
+       <!--  <tr class="onlyArt onlyInsite">
         <th>{:L('intro')} :</th>
         <td><textarea name="intro" id="intro" style="width:68%;height:50px;">{$article.intro}</textarea></td>
-      </tr>
+      </tr> -->
       <tr class="onlyArt onlyInsite">
         <th>{:L('info')} :</th>
         <td>        	

@@ -6,12 +6,12 @@ $(function(){
 	$("#attatch_tr").clone().prependTo($("#attatch_tr").parent());
 	});
 	$("#type").click(function(){  
-		$(".onlyVideo").hide();
-		$(".onlyArt").show();
+		$(".onlyVideo").show();
+		$(".onlyArt").hide();
   	});    
  	$("#type1").click(function(){  
-			$(".onlyVideo").show();
-			$(".onlyArt").hide();
+			$(".onlyVideo").hide();
+			$(".onlyArt").show();
 	  });
  	 $("#in_site").click(function(){  
 			$(".onlyInsite").hide();
@@ -58,14 +58,13 @@ $(function(){
       </tr>
        <tr>
           <th>{:L('add_time')} :</th>
-          <td>
-           <tpl:calendar id="add_time" class="input-text" name="add_time" size="30">{$article.add_time}</tpl:calendar>
-           </td>
-      </tr>
+          <td> <input id="add_time"  name="add_time" type="text" onClick="WdatePicker()"/> 
+           </tr>
+      
       <tr class="onlyVideo">
         <th width="100">{:L('due_time')} :</th>
         <td>
-           <tpl:calendar id="due_time" class="input-text" name="due_time" size="30">{$article.due_time}</tpl:calendar>
+         <input id="due_time"  name="due_time" type="text" onClick="WdatePicker()" /> 
            </td>
            </tr>
       <tr class="onlyVideo">
@@ -76,10 +75,10 @@ $(function(){
             <th width="100">{:L('url')}:</th>
             <td><input type="text" name="url" id="url" class="input-text" size="60"></td>
           </tr>
-       <tr>
+      <!--  <tr>
         <th>{:L('intro')} :</th>
         <td><textarea name="intro" id="intro" style="width:68%;height:50px;">{$article.intro}</textarea></td>
-      </tr>
+      </tr> -->
           <tr>
             <th>{:L('cate_id')}:</th>
             <td><select name="cate_id" id="cate_id" style="width:200px;">
@@ -98,7 +97,6 @@ $(function(){
                   </notempty>
                 </volist>
               </select>
-               <span style="color:red;">{:L('tips')} :1、附件上传填写:无须填写链接地址、摘要、详细内容（默认是文档资讯类型即可）,标题名称必须为文档名称；</span>
               </td>
           </tr>
            <tr>
