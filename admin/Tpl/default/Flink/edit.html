@@ -38,9 +38,11 @@
             </tr>
             <tr>
                 <th>{:L('status')} :</th>
-                <td><input type="radio" name="status" value="1" 
+                <td>
+                <input type="radio" name="status" value="1" 
                     <if condition="$flink_info.status eq 1"> checked</if>
-                    >&nbsp;已审核&nbsp;&nbsp;&nbsp; <input type="radio" name="status" value="0" 
+                    >&nbsp;已审核&nbsp;&nbsp;&nbsp; 
+                    <input type="radio" name="status" value="0" 
                     <if condition="$flink_info.status eq 0"> checked</if>
                     >&nbsp;未审核</td>
             </tr>

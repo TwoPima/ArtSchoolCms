@@ -1,0 +1,807 @@
+[ 2016-05-29T22:15:00+08:00 ] 0.0.0.0 /ArtSchoolCms/admin.php?m=Public&a=login
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001246s ]
+INFO: Run CheckLang Behavior [ RunTime:0.004761s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.006328s ]
+NOTIC: [8] Undefined index: admin_info D:\wamp\www\ArtSchoolCms\admin\Lib\Action\BaseAction.class.php 第 77 行.
+NOTIC: [8] Undefined index: admin_info D:\wamp\www\ArtSchoolCms\admin\Lib\Action\BaseAction.class.php 第 37 行.
+SQL: SHOW COLUMNS FROM `sch_role` [ RunTime:0.057657s ]
+NOTIC: [8] Undefined index: admin_info D:\wamp\www\ArtSchoolCms\admin\Lib\Action\BaseAction.class.php 第 41 行.
+SQL: SELECT `name`,`status`,`remark`,`create_time`,`update_time` FROM `sch_role` WHERE ( id= ) LIMIT 1   [ RunTime:0.000806s ]
+ERR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') LIMIT 1' at line 1
+ [ SQL语句 ] : SELECT `name`,`status`,`remark`,`create_time`,`update_time` FROM `sch_role` WHERE ( id= ) LIMIT 1  
+SQL: SHOW COLUMNS FROM `sch_group` [ RunTime:0.075724s ]
+SQL: SELECT `id`,`title` FROM `sch_group` WHERE ( status=1 ) ORDER BY sort ASC  [ RunTime:0.001080s ]
+SQL: SHOW COLUMNS FROM `sch_setting` [ RunTime:0.010697s ]
+SQL: SELECT * FROM `sch_setting`  [ RunTime:0.000502s ]
+NOTIC: [8] Undefined index: iframe D:\wamp\www\ArtSchoolCms\admin\Lib\Action\BaseAction.class.php 第 62 行.
+SQL: SHOW COLUMNS FROM `sch_admin` [ RunTime:0.075211s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.012077s ]
+INFO: [ view_template ] --END-- [ RunTime:0.012216s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:0.049144s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.049331s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.001577s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.001635s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.001637s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.001834s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.007296s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.002681s ]
+INFO: [ view_end ] --END-- [ RunTime:0.002953s ]
+
+[ 2016-05-29T22:15:02+08:00 ] 0.0.0.0 /ArtSchoolCms/admin.php?m=Public&a=verify&rand=1464531300
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.002313s ]
+INFO: Run CheckLang Behavior [ RunTime:0.002967s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.005471s ]
+NOTIC: [8] Undefined index: admin_info D:\wamp\www\ArtSchoolCms\admin\Lib\Action\BaseAction.class.php 第 77 行.
+NOTIC: [8] Undefined index: admin_info D:\wamp\www\ArtSchoolCms\admin\Lib\Action\BaseAction.class.php 第 37 行.
+SQL: SHOW COLUMNS FROM `sch_role` [ RunTime:0.010475s ]
+NOTIC: [8] Undefined index: admin_info D:\wamp\www\ArtSchoolCms\admin\Lib\Action\BaseAction.class.php 第 41 行.
+SQL: SELECT `name`,`status`,`remark`,`create_time`,`update_time` FROM `sch_role` WHERE ( id= ) LIMIT 1   [ RunTime:0.000537s ]
+ERR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') LIMIT 1' at line 1
+ [ SQL语句 ] : SELECT `name`,`status`,`remark`,`create_time`,`update_time` FROM `sch_role` WHERE ( id= ) LIMIT 1  
+SQL: SHOW COLUMNS FROM `sch_group` [ RunTime:0.011110s ]
+SQL: SELECT `id`,`title` FROM `sch_group` WHERE ( status=1 ) ORDER BY sort ASC  [ RunTime:0.001024s ]
+SQL: SHOW COLUMNS FROM `sch_setting` [ RunTime:0.008512s ]
+SQL: SELECT * FROM `sch_setting`  [ RunTime:0.000651s ]
+NOTIC: [8] Undefined index: iframe D:\wamp\www\ArtSchoolCms\admin\Lib\Action\BaseAction.class.php 第 62 行.
+
+[ 2016-05-29T22:15:19+08:00 ] 0.0.0.0 /ArtSchoolCms/admin.php?m=Index&a=index
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001380s ]
+INFO: Run CheckLang Behavior [ RunTime:0.002762s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004314s ]
+SQL: SHOW COLUMNS FROM `sch_role` [ RunTime:0.005569s ]
+SQL: SELECT `name`,`status`,`remark`,`create_time`,`update_time` FROM `sch_role` WHERE ( id=1 ) LIMIT 1   [ RunTime:0.000522s ]
+SQL: SHOW COLUMNS FROM `sch_group` [ RunTime:0.006371s ]
+SQL: SELECT `id`,`title` FROM `sch_group` WHERE ( status=1 ) ORDER BY sort ASC  [ RunTime:0.000741s ]
+SQL: SHOW COLUMNS FROM `sch_setting` [ RunTime:0.005800s ]
+SQL: SELECT * FROM `sch_setting`  [ RunTime:0.000518s ]
+NOTIC: [8] Undefined index: iframe D:\wamp\www\ArtSchoolCms\admin\Lib\Action\BaseAction.class.php 第 62 行.
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.003257s ]
+INFO: [ view_template ] --END-- [ RunTime:0.003386s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined variable: lang D:\wamp\www\ArtSchoolCms\admin\Runtime\Cache\3b07957a53ccb31105e96f96aaa794c8.php 第 41 行.
+INFO: Run ParseTemplate Behavior [ RunTime:0.080961s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.081080s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.001863s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.001586s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.001486s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.002341s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.007619s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.001826s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001945s ]
+
+[ 2016-05-29T22:15:21+08:00 ] 0.0.0.0 /ArtSchoolCms/admin.php?m=Public&a=main
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001794s ]
+INFO: Run CheckLang Behavior [ RunTime:0.002823s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004841s ]
+SQL: SHOW COLUMNS FROM `sch_role` [ RunTime:0.020325s ]
+SQL: SELECT `name`,`status`,`remark`,`create_time`,`update_time` FROM `sch_role` WHERE ( id=1 ) LIMIT 1   [ RunTime:0.000880s ]
+SQL: SHOW COLUMNS FROM `sch_group` [ RunTime:0.011221s ]
+SQL: SELECT `id`,`title` FROM `sch_group` WHERE ( status=1 ) ORDER BY sort ASC  [ RunTime:0.000765s ]
+SQL: SHOW COLUMNS FROM `sch_setting` [ RunTime:0.009131s ]
+SQL: SELECT * FROM `sch_setting`  [ RunTime:0.000685s ]
+NOTIC: [8] Undefined index: iframe D:\wamp\www\ArtSchoolCms\admin\Lib\Action\BaseAction.class.php 第 62 行.
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.005063s ]
+INFO: [ view_template ] --END-- [ RunTime:0.005297s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined variable: sub_menu D:\wamp\www\ArtSchoolCms\admin\Runtime\Cache\a9dbfddae3d9003bea342c344a5599ca.php 第 36 行.
+NOTIC: [8] Undefined variable: big_menu D:\wamp\www\ArtSchoolCms\admin\Runtime\Cache\a9dbfddae3d9003bea342c344a5599ca.php 第 36 行.
+INFO: Run ParseTemplate Behavior [ RunTime:0.043023s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.043144s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.001362s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.001237s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.001332s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.001897s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.006212s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.002284s ]
+INFO: [ view_end ] --END-- [ RunTime:0.002499s ]
+
+[ 2016-05-29T22:15:23+08:00 ] 0.0.0.0 /ArtSchoolCms/admin.php?m=Public&a=menu&tag=9
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001846s ]
+INFO: Run CheckLang Behavior [ RunTime:0.004001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.006052s ]
+SQL: SHOW COLUMNS FROM `sch_role` [ RunTime:0.010797s ]
+SQL: SELECT `name`,`status`,`remark`,`create_time`,`update_time` FROM `sch_role` WHERE ( id=1 ) LIMIT 1   [ RunTime:0.000880s ]
+SQL: SHOW COLUMNS FROM `sch_group` [ RunTime:0.006533s ]
+SQL: SELECT `id`,`title` FROM `sch_group` WHERE ( status=1 ) ORDER BY sort ASC  [ RunTime:0.000575s ]
+SQL: SHOW COLUMNS FROM `sch_setting` [ RunTime:0.006208s ]
+SQL: SELECT * FROM `sch_setting`  [ RunTime:0.000833s ]
+NOTIC: [8] Undefined index: iframe D:\wamp\www\ArtSchoolCms\admin\Lib\Action\BaseAction.class.php 第 62 行.
+SQL: SHOW COLUMNS FROM `sch_admin` [ RunTime:0.006090s ]
+SQL: SELECT `role_id` FROM `sch_admin` WHERE ( id=1 ) LIMIT 1   [ RunTime:0.000418s ]
+SQL: SHOW COLUMNS FROM `sch_access` [ RunTime:0.069414s ]
+SQL: SELECT `node_id` FROM `sch_access` WHERE ( role_id=1 )  [ RunTime:0.025639s ]
+SQL: SHOW COLUMNS FROM `sch_node` [ RunTime:0.004831s ]
+SQL: SELECT `id`,`action`,`action_name`,`module`,`module_name`,`data` FROM `sch_node` WHERE ( auth_type<>2 AND status=1 AND is_show=0 AND group_id=9 ) ORDER BY sort DESC  [ RunTime:0.000834s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.003022s ]
+INFO: [ view_template ] --END-- [ RunTime:0.003127s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined variable: lang D:\wamp\www\ArtSchoolCms\admin\Runtime\Cache\56b8f10ffe533cc36c6f50a3d115f8bd.php 第 1 行.
+INFO: Run ParseTemplate Behavior [ RunTime:0.046065s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.046154s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.001307s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.001372s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.001222s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.001574s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.005745s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.001419s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001496s ]
+
+[ 2016-05-29T22:15:24+08:00 ] 0.0.0.0 /ArtSchoolCms/admin.php?m=Public&a=menu&tag=1
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001352s ]
+INFO: Run CheckLang Behavior [ RunTime:0.002893s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004396s ]
+SQL: SHOW COLUMNS FROM `sch_role` [ RunTime:0.004383s ]
+SQL: SELECT `name`,`status`,`remark`,`create_time`,`update_time` FROM `sch_role` WHERE ( id=1 ) LIMIT 1   [ RunTime:0.000425s ]
+SQL: SHOW COLUMNS FROM `sch_group` [ RunTime:0.005217s ]
+SQL: SELECT `id`,`title` FROM `sch_group` WHERE ( status=1 ) ORDER BY sort ASC  [ RunTime:0.000490s ]
+SQL: SHOW COLUMNS FROM `sch_setting` [ RunTime:0.004733s ]
+SQL: SELECT * FROM `sch_setting`  [ RunTime:0.000437s ]
+NOTIC: [8] Undefined index: iframe D:\wamp\www\ArtSchoolCms\admin\Lib\Action\BaseAction.class.php 第 62 行.
+SQL: SHOW COLUMNS FROM `sch_admin` [ RunTime:0.004694s ]
+SQL: SELECT `role_id` FROM `sch_admin` WHERE ( id=1 ) LIMIT 1   [ RunTime:0.000316s ]
+SQL: SHOW COLUMNS FROM `sch_access` [ RunTime:0.004578s ]
+SQL: SELECT `node_id` FROM `sch_access` WHERE ( role_id=1 )  [ RunTime:0.000605s ]
+SQL: SHOW COLUMNS FROM `sch_node` [ RunTime:0.005151s ]
+SQL: SELECT `id`,`action`,`action_name`,`module`,`module_name`,`data` FROM `sch_node` WHERE ( auth_type<>2 AND status=1 AND is_show=0 AND group_id=1 ) ORDER BY sort DESC  [ RunTime:0.000583s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.002537s ]
+INFO: [ view_template ] --END-- [ RunTime:0.002623s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined variable: lang D:\wamp\www\ArtSchoolCms\admin\Runtime\Cache\56b8f10ffe533cc36c6f50a3d115f8bd.php 第 1 行.
+NOTIC: [8] Undefined variable: lang D:\wamp\www\ArtSchoolCms\admin\Runtime\Cache\56b8f10ffe533cc36c6f50a3d115f8bd.php 第 1 行.
+NOTIC: [8] Undefined variable: lang D:\wamp\www\ArtSchoolCms\admin\Runtime\Cache\56b8f10ffe533cc36c6f50a3d115f8bd.php 第 1 行.
+NOTIC: [8] Undefined variable: lang D:\wamp\www\ArtSchoolCms\admin\Runtime\Cache\56b8f10ffe533cc36c6f50a3d115f8bd.php 第 1 行.
+NOTIC: [8] Undefined variable: lang D:\wamp\www\ArtSchoolCms\admin\Runtime\Cache\56b8f10ffe533cc36c6f50a3d115f8bd.php 第 1 行.
+INFO: Run ParseTemplate Behavior [ RunTime:0.014675s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.014806s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.001131s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.001095s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000860s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.001026s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.004354s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.001099s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001172s ]
+
+[ 2016-05-29T22:15:27+08:00 ] 0.0.0.0 /ArtSchoolCms/admin.php?m=Public&a=main
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001848s ]
+INFO: Run CheckLang Behavior [ RunTime:0.002693s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004789s ]
+SQL: SHOW COLUMNS FROM `sch_role` [ RunTime:0.005553s ]
+SQL: SELECT `name`,`status`,`remark`,`create_time`,`update_time` FROM `sch_role` WHERE ( id=1 ) LIMIT 1   [ RunTime:0.000373s ]
+SQL: SHOW COLUMNS FROM `sch_group` [ RunTime:0.005000s ]
+SQL: SELECT `id`,`title` FROM `sch_group` WHERE ( status=1 ) ORDER BY sort ASC  [ RunTime:0.000453s ]
+SQL: SHOW COLUMNS FROM `sch_setting` [ RunTime:0.005354s ]
+SQL: SELECT * FROM `sch_setting`  [ RunTime:0.000550s ]
+NOTIC: [8] Undefined index: iframe D:\wamp\www\ArtSchoolCms\admin\Lib\Action\BaseAction.class.php 第 62 行.
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.003277s ]
+INFO: [ view_template ] --END-- [ RunTime:0.003432s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined variable: sub_menu D:\wamp\www\ArtSchoolCms\admin\Runtime\Cache\a9dbfddae3d9003bea342c344a5599ca.php 第 36 行.
+NOTIC: [8] Undefined variable: big_menu D:\wamp\www\ArtSchoolCms\admin\Runtime\Cache\a9dbfddae3d9003bea342c344a5599ca.php 第 36 行.
+INFO: Run ParseTemplate Behavior [ RunTime:0.016699s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.016791s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.001544s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.001254s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.001126s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.001357s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.005521s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.001378s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001465s ]
+
+[ 2016-05-29T22:15:30+08:00 ] 0.0.0.0 /ArtSchoolCms/admin.php?m=Setting&a=index
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001290s ]
+INFO: Run CheckLang Behavior [ RunTime:0.039160s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.040645s ]
+NOTIC: [2048] Declaration of SettingAction::sendMail() should be compatible with BaseAction::sendMail($address, $title, $message) D:\wamp\www\ArtSchoolCms\admin\Lib\Action\SettingAction.class.php 第 3 行.
+SQL: SHOW COLUMNS FROM `sch_role` [ RunTime:0.010204s ]
+SQL: SELECT `name`,`status`,`remark`,`create_time`,`update_time` FROM `sch_role` WHERE ( id=1 ) LIMIT 1   [ RunTime:0.000878s ]
+SQL: SHOW COLUMNS FROM `sch_group` [ RunTime:0.010667s ]
+SQL: SELECT `id`,`title` FROM `sch_group` WHERE ( status=1 ) ORDER BY sort ASC  [ RunTime:0.000976s ]
+SQL: SHOW COLUMNS FROM `sch_setting` [ RunTime:0.008302s ]
+SQL: SELECT * FROM `sch_setting`  [ RunTime:0.000578s ]
+NOTIC: [8] Undefined index: iframe D:\wamp\www\ArtSchoolCms\admin\Lib\Action\BaseAction.class.php 第 62 行.
+NOTIC: [8] Undefined index: type D:\wamp\www\ArtSchoolCms\admin\Lib\Action\SettingAction.class.php 第 7 行.
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.011484s ]
+INFO: [ view_template ] --END-- [ RunTime:0.011647s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined variable: sub_menu D:\wamp\www\ArtSchoolCms\admin\Runtime\Cache\8363ff16aa9d6b6e92344b611cbefaac.php 第 36 行.
+NOTIC: [8] Undefined variable: big_menu D:\wamp\www\ArtSchoolCms\admin\Runtime\Cache\8363ff16aa9d6b6e92344b611cbefaac.php 第 36 行.
+INFO: Run ParseTemplate Behavior [ RunTime:0.039963s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.040077s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.001212s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000993s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000919s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.001117s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.004466s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.001131s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001214s ]
+
+[ 2016-05-29T22:18:25+08:00 ] 0.0.0.0 /ArtSchoolCms/admin.php?m=Setting&a=edit
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.003265s ]
+INFO: Run CheckLang Behavior [ RunTime:0.008391s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.012053s ]
+NOTIC: [2048] Declaration of SettingAction::sendMail() should be compatible with BaseAction::sendMail($address, $title, $message) D:\wamp\www\ArtSchoolCms\admin\Lib\Action\SettingAction.class.php 第 3 行.
+SQL: SHOW COLUMNS FROM `sch_role` [ RunTime:0.010741s ]
+SQL: SELECT `name`,`status`,`remark`,`create_time`,`update_time` FROM `sch_role` WHERE ( id=1 ) LIMIT 1   [ RunTime:0.000797s ]
+SQL: SHOW COLUMNS FROM `sch_group` [ RunTime:0.011847s ]
+SQL: SELECT `id`,`title` FROM `sch_group` WHERE ( status=1 ) ORDER BY sort ASC  [ RunTime:0.000964s ]
+SQL: SHOW COLUMNS FROM `sch_setting` [ RunTime:0.010875s ]
+SQL: SELECT * FROM `sch_setting`  [ RunTime:0.000983s ]
+NOTIC: [8] Undefined index: iframe D:\wamp\www\ArtSchoolCms\admin\Lib\Action\BaseAction.class.php 第 62 行.
+SQL: UPDATE `sch_setting` SET `data`='某某大学艺术学院郭老师' WHERE ( name='site_name' ) [ RunTime:0.001422s ]
+SQL: UPDATE `sch_setting` SET `data`='http://localhost/' WHERE ( name='site_domain' ) [ RunTime:0.001198s ]
+SQL: UPDATE `sch_setting` SET `data`='某某大学学院门户网站' WHERE ( name='site_title' ) [ RunTime:0.000471s ]
+SQL: UPDATE `sch_setting` SET `data`='中北大学艺术学院门户网站' WHERE ( name='site_keyword' ) [ RunTime:0.000379s ]
+SQL: UPDATE `sch_setting` SET `data`='857773627@qq.com' WHERE ( name='president_email' ) [ RunTime:0.000351s ]
+SQL: UPDATE `sch_setting` SET `data`='030051' WHERE ( name='postcode' ) [ RunTime:0.000345s ]
+SQL: UPDATE `sch_setting` SET `data`='宁夏亿次元科技有限公司' WHERE ( name='duty_web' ) [ RunTime:0.000469s ]
+SQL: UPDATE `sch_setting` SET `data`='18235146620' WHERE ( name='tel' ) [ RunTime:0.000366s ]
+SQL: UPDATE `sch_setting` SET `data`='宁夏亿次元科技有限公司' WHERE ( name='address' ) [ RunTime:0.000353s ]
+SQL: UPDATE `sch_setting` SET `data`='某某艺术学院门户网站' WHERE ( name='site_description' ) [ RunTime:0.000363s ]
+SQL: UPDATE `sch_setting` SET `data`='宁夏亿次元科技有限公司' WHERE ( name='about_web' ) [ RunTime:0.000302s ]
+SQL: UPDATE `sch_setting` SET `data`='1' WHERE ( name='check_code' ) [ RunTime:0.000268s ]
+SQL: UPDATE `sch_setting` SET `data`='10' WHERE ( name='article_count' ) [ RunTime:0.000324s ]
+SQL: UPDATE `sch_setting` SET `data`='10' WHERE ( name='comment_time' ) [ RunTime:0.000274s ]
+SQL: UPDATE `sch_setting` SET `data`='非经营性互联网信息服务审批号（晋）ICP备05000467号' WHERE ( name='site_icp' ) [ RunTime:0.000280s ]
+SQL: UPDATE `sch_setting` SET `data`='' WHERE ( name='statistics_code' ) [ RunTime:0.000270s ]
+SQL: UPDATE `sch_setting` SET `data`='<meta property=\\\"qc:admins\\\" content=\\\"271503564761116217636\\\" />' WHERE ( name='site_share' ) [ RunTime:0.000275s ]
+SQL: UPDATE `sch_setting` SET `data`='smtp.163.com' WHERE ( name='mail_smtp' ) [ RunTime:0.000356s ]
+SQL: UPDATE `sch_setting` SET `data`='25' WHERE ( name='mail_port' ) [ RunTime:0.000303s ]
+SQL: UPDATE `sch_setting` SET `data`='PassWord01!' WHERE ( name='mail_password' ) [ RunTime:0.000286s ]
+SQL: UPDATE `sch_setting` SET `data`='中北大学艺术学院门户网站' WHERE ( name='mail_fromname' ) [ RunTime:0.000283s ]
+SQL: UPDATE `sch_setting` SET `data`='欢迎使用树根cms，这是一封感谢信' WHERE ( name='mail_title' ) [ RunTime:0.000281s ]
+SQL: UPDATE `sch_setting` SET `data`='<body style=\\\"margin: 10px;\\\">\r\n<div align=\\\"center\\\"><img src=\\\"http://www.phonegap100.com/static/image/common/logo.png\\\"></div><br>\r\n<br>\r\n <h3>欢迎使用 树根cms 此系统由phonegap中文网 <a href=\\\"http://www.phonegap100.com\\\" target=\\\"_blank\\\">phonegap100.com</a>提供 </h3>\r\n<br>\r\n\r\n在使用中遇到任何问题，请到phonegap中文网提出，感谢大家对此程序的支持，我们的qq群：295402925\r\n\r\n</body>' WHERE ( name='mail_content' ) [ RunTime:0.000298s ]
+SQL: UPDATE `sch_setting` SET `data`='webmaster@nuc.edu.cn' WHERE ( name='mail_username' ) [ RunTime:0.000289s ]
+SQL: UPDATE `sch_setting` SET `data`='' WHERE ( name='mail_receive_username' ) [ RunTime:0.000328s ]
+SQL: UPDATE `sch_setting` SET `data`='1' WHERE ( name='site_status' ) [ RunTime:0.000294s ]
+SQL: UPDATE `sch_setting` SET `data`='升级' WHERE ( name='closed_reason' ) [ RunTime:0.000322s ]
+NOTIC: [8] Use of undefined constant uniqid - assumed 'uniqid' D:\wamp\www\ArtSchoolCms\admin\Lib\Action\BaseAction.class.php 第 231 行.
+SQL: UPDATE `sch_setting` SET `data`='./data/setting/574afa31807ae.png' WHERE ( name='site_logo' ) [ RunTime:0.000496s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.002113s ]
+INFO: [ view_template ] --END-- [ RunTime:0.002202s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:0.023810s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.023917s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.001002s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000948s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000857s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.001052s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.004081s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.001182s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001262s ]
+
+[ 2016-05-29T22:18:29+08:00 ] 0.0.0.0 /ArtSchoolCms/admin.php?m=Setting&a=index
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001722s ]
+INFO: Run CheckLang Behavior [ RunTime:0.005469s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.007419s ]
+NOTIC: [2048] Declaration of SettingAction::sendMail() should be compatible with BaseAction::sendMail($address, $title, $message) D:\wamp\www\ArtSchoolCms\admin\Lib\Action\SettingAction.class.php 第 3 行.
+SQL: SHOW COLUMNS FROM `sch_role` [ RunTime:0.010137s ]
+SQL: SELECT `name`,`status`,`remark`,`create_time`,`update_time` FROM `sch_role` WHERE ( id=1 ) LIMIT 1   [ RunTime:0.000913s ]
+SQL: SHOW COLUMNS FROM `sch_group` [ RunTime:0.010438s ]
+SQL: SELECT `id`,`title` FROM `sch_group` WHERE ( status=1 ) ORDER BY sort ASC  [ RunTime:0.001024s ]
+SQL: SHOW COLUMNS FROM `sch_setting` [ RunTime:0.011104s ]
+SQL: SELECT * FROM `sch_setting`  [ RunTime:0.000970s ]
+NOTIC: [8] Undefined index: iframe D:\wamp\www\ArtSchoolCms\admin\Lib\Action\BaseAction.class.php 第 62 行.
+NOTIC: [8] Undefined index: type D:\wamp\www\ArtSchoolCms\admin\Lib\Action\SettingAction.class.php 第 7 行.
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.004463s ]
+INFO: [ view_template ] --END-- [ RunTime:0.004733s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined variable: sub_menu D:\wamp\www\ArtSchoolCms\admin\Runtime\Cache\8363ff16aa9d6b6e92344b611cbefaac.php 第 36 行.
+NOTIC: [8] Undefined variable: big_menu D:\wamp\www\ArtSchoolCms\admin\Runtime\Cache\8363ff16aa9d6b6e92344b611cbefaac.php 第 36 行.
+INFO: Run ParseTemplate Behavior [ RunTime:0.031941s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.032116s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.001903s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.001734s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000974s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.001127s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.006027s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.001158s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001235s ]
+
+[ 2016-05-29T22:20:16+08:00 ] 0.0.0.0 /ArtSchoolCms/admin.php?m=Setting&a=edit
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001430s ]
+INFO: Run CheckLang Behavior [ RunTime:0.003468s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.005176s ]
+NOTIC: [2048] Declaration of SettingAction::sendMail() should be compatible with BaseAction::sendMail($address, $title, $message) D:\wamp\www\ArtSchoolCms\admin\Lib\Action\SettingAction.class.php 第 3 行.
+SQL: SHOW COLUMNS FROM `sch_role` [ RunTime:0.010994s ]
+SQL: SELECT `name`,`status`,`remark`,`create_time`,`update_time` FROM `sch_role` WHERE ( id=1 ) LIMIT 1   [ RunTime:0.001090s ]
+SQL: SHOW COLUMNS FROM `sch_group` [ RunTime:0.009770s ]
+SQL: SELECT `id`,`title` FROM `sch_group` WHERE ( status=1 ) ORDER BY sort ASC  [ RunTime:0.000958s ]
+SQL: SHOW COLUMNS FROM `sch_setting` [ RunTime:0.009987s ]
+SQL: SELECT * FROM `sch_setting`  [ RunTime:0.001174s ]
+NOTIC: [8] Undefined index: iframe D:\wamp\www\ArtSchoolCms\admin\Lib\Action\BaseAction.class.php 第 62 行.
+SQL: UPDATE `sch_setting` SET `data`='某某大学艺术学院郭老师' WHERE ( name='site_name' ) [ RunTime:0.000800s ]
+SQL: UPDATE `sch_setting` SET `data`='http://localhost/' WHERE ( name='site_domain' ) [ RunTime:0.000653s ]
+SQL: UPDATE `sch_setting` SET `data`='某某大学学院门户网站' WHERE ( name='site_title' ) [ RunTime:0.000588s ]
+SQL: UPDATE `sch_setting` SET `data`='中北大学艺术学院门户网站' WHERE ( name='site_keyword' ) [ RunTime:0.000370s ]
+SQL: UPDATE `sch_setting` SET `data`='857773627@qq.com' WHERE ( name='president_email' ) [ RunTime:0.000376s ]
+SQL: UPDATE `sch_setting` SET `data`='030051' WHERE ( name='postcode' ) [ RunTime:0.000386s ]
+SQL: UPDATE `sch_setting` SET `data`='宁夏亿次元科技有限公司' WHERE ( name='duty_web' ) [ RunTime:0.000376s ]
+SQL: UPDATE `sch_setting` SET `data`='18235146620' WHERE ( name='tel' ) [ RunTime:0.000378s ]
+SQL: UPDATE `sch_setting` SET `data`='宁夏亿次元科技有限公司' WHERE ( name='address' ) [ RunTime:0.000401s ]
+SQL: UPDATE `sch_setting` SET `data`='某某艺术学院门户网站' WHERE ( name='site_description' ) [ RunTime:0.000471s ]
+SQL: UPDATE `sch_setting` SET `data`='宁夏亿次元科技有限公司' WHERE ( name='about_web' ) [ RunTime:0.000368s ]
+SQL: UPDATE `sch_setting` SET `data`='1' WHERE ( name='check_code' ) [ RunTime:0.000370s ]
+SQL: UPDATE `sch_setting` SET `data`='10' WHERE ( name='article_count' ) [ RunTime:0.000362s ]
+SQL: UPDATE `sch_setting` SET `data`='10' WHERE ( name='comment_time' ) [ RunTime:0.000369s ]
+SQL: UPDATE `sch_setting` SET `data`='非经营性互联网信息服务审批号（晋）ICP备05000467号' WHERE ( name='site_icp' ) [ RunTime:0.000380s ]
+SQL: UPDATE `sch_setting` SET `data`='' WHERE ( name='statistics_code' ) [ RunTime:0.000384s ]
+SQL: UPDATE `sch_setting` SET `data`='<meta property=\\\"qc:admins\\\" content=\\\"271503564761116217636\\\" />' WHERE ( name='site_share' ) [ RunTime:0.000379s ]
+SQL: UPDATE `sch_setting` SET `data`='smtp.163.com' WHERE ( name='mail_smtp' ) [ RunTime:0.000370s ]
+SQL: UPDATE `sch_setting` SET `data`='25' WHERE ( name='mail_port' ) [ RunTime:0.000347s ]
+SQL: UPDATE `sch_setting` SET `data`='PassWord01!' WHERE ( name='mail_password' ) [ RunTime:0.000332s ]
+SQL: UPDATE `sch_setting` SET `data`='宁夏亿次元科技有限公司' WHERE ( name='mail_fromname' ) [ RunTime:0.000365s ]
+SQL: UPDATE `sch_setting` SET `data`='欢迎使用本系统，谢谢' WHERE ( name='mail_title' ) [ RunTime:0.000350s ]
+SQL: UPDATE `sch_setting` SET `data`='<body style=\\\"margin: 10px;\\\">\r\n<div align=\\\"center\\\"><img src=\\\"http://www.phonegap100.com/static/image/common/logo.png\\\"></div><br>\r\n<br>\r\n <h3>欢迎使用 树根cms 此系统由phonegap中文网 <a href=\\\"http://www.eciyuan.net\\\" target=\\\"_blank\\\">宁夏亿次元有限公司</a>提供 </h3>\r\n<br>\r\n\r\n</body>' WHERE ( name='mail_content' ) [ RunTime:0.000375s ]
+SQL: UPDATE `sch_setting` SET `data`='857773627@qq.com' WHERE ( name='mail_username' ) [ RunTime:0.000395s ]
+SQL: UPDATE `sch_setting` SET `data`='' WHERE ( name='mail_receive_username' ) [ RunTime:0.000304s ]
+SQL: UPDATE `sch_setting` SET `data`='1' WHERE ( name='site_status' ) [ RunTime:0.000291s ]
+SQL: UPDATE `sch_setting` SET `data`='升级' WHERE ( name='closed_reason' ) [ RunTime:0.000271s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.002942s ]
+INFO: [ view_template ] --END-- [ RunTime:0.003119s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:0.015677s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015807s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.001069s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000973s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000911s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.001065s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.004245s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.001114s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001193s ]
+
+[ 2016-05-29T22:20:20+08:00 ] 0.0.0.0 /ArtSchoolCms/admin.php?m=Setting&a=index
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.003338s ]
+INFO: Run CheckLang Behavior [ RunTime:0.010467s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.014216s ]
+NOTIC: [2048] Declaration of SettingAction::sendMail() should be compatible with BaseAction::sendMail($address, $title, $message) D:\wamp\www\ArtSchoolCms\admin\Lib\Action\SettingAction.class.php 第 3 行.
+SQL: SHOW COLUMNS FROM `sch_role` [ RunTime:0.009921s ]
+SQL: SELECT `name`,`status`,`remark`,`create_time`,`update_time` FROM `sch_role` WHERE ( id=1 ) LIMIT 1   [ RunTime:0.000792s ]
+SQL: SHOW COLUMNS FROM `sch_group` [ RunTime:0.010639s ]
+SQL: SELECT `id`,`title` FROM `sch_group` WHERE ( status=1 ) ORDER BY sort ASC  [ RunTime:0.001028s ]
+SQL: SHOW COLUMNS FROM `sch_setting` [ RunTime:0.007305s ]
+SQL: SELECT * FROM `sch_setting`  [ RunTime:0.000576s ]
+NOTIC: [8] Undefined index: iframe D:\wamp\www\ArtSchoolCms\admin\Lib\Action\BaseAction.class.php 第 62 行.
+NOTIC: [8] Undefined index: type D:\wamp\www\ArtSchoolCms\admin\Lib\Action\SettingAction.class.php 第 7 行.
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.002627s ]
+INFO: [ view_template ] --END-- [ RunTime:0.002760s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined variable: sub_menu D:\wamp\www\ArtSchoolCms\admin\Runtime\Cache\8363ff16aa9d6b6e92344b611cbefaac.php 第 36 行.
+NOTIC: [8] Undefined variable: big_menu D:\wamp\www\ArtSchoolCms\admin\Runtime\Cache\8363ff16aa9d6b6e92344b611cbefaac.php 第 36 行.
+INFO: Run ParseTemplate Behavior [ RunTime:0.026651s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.026762s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.001257s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.001088s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000994s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.001123s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.004687s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.001163s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001240s ]
+
+[ 2016-05-29T22:20:27+08:00 ] 0.0.0.0 /ArtSchoolCms/admin.php?m=Public&a=menu&tag=4
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.002183s ]
+INFO: Run CheckLang Behavior [ RunTime:0.003327s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.005712s ]
+SQL: SHOW COLUMNS FROM `sch_role` [ RunTime:0.010085s ]
+SQL: SELECT `name`,`status`,`remark`,`create_time`,`update_time` FROM `sch_role` WHERE ( id=1 ) LIMIT 1   [ RunTime:0.000780s ]
+SQL: SHOW COLUMNS FROM `sch_group` [ RunTime:0.010366s ]
+SQL: SELECT `id`,`title` FROM `sch_group` WHERE ( status=1 ) ORDER BY sort ASC  [ RunTime:0.000961s ]
+SQL: SHOW COLUMNS FROM `sch_setting` [ RunTime:0.007567s ]
+SQL: SELECT * FROM `sch_setting`  [ RunTime:0.000596s ]
+NOTIC: [8] Undefined index: iframe D:\wamp\www\ArtSchoolCms\admin\Lib\Action\BaseAction.class.php 第 62 行.
+SQL: SHOW COLUMNS FROM `sch_admin` [ RunTime:0.006020s ]
+SQL: SELECT `role_id` FROM `sch_admin` WHERE ( id=1 ) LIMIT 1   [ RunTime:0.000423s ]
+SQL: SHOW COLUMNS FROM `sch_access` [ RunTime:0.006109s ]
+SQL: SELECT `node_id` FROM `sch_access` WHERE ( role_id=1 )  [ RunTime:0.000659s ]
+SQL: SHOW COLUMNS FROM `sch_node` [ RunTime:0.004415s ]
+SQL: SELECT `id`,`action`,`action_name`,`module`,`module_name`,`data` FROM `sch_node` WHERE ( auth_type<>2 AND status=1 AND is_show=0 AND group_id=4 ) ORDER BY sort DESC  [ RunTime:0.000716s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.002140s ]
+INFO: [ view_template ] --END-- [ RunTime:0.002227s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined variable: lang D:\wamp\www\ArtSchoolCms\admin\Runtime\Cache\56b8f10ffe533cc36c6f50a3d115f8bd.php 第 1 行.
+NOTIC: [8] Undefined variable: lang D:\wamp\www\ArtSchoolCms\admin\Runtime\Cache\56b8f10ffe533cc36c6f50a3d115f8bd.php 第 1 行.
+NOTIC: [8] Undefined variable: lang D:\wamp\www\ArtSchoolCms\admin\Runtime\Cache\56b8f10ffe533cc36c6f50a3d115f8bd.php 第 1 行.
+NOTIC: [8] Undefined variable: lang D:\wamp\www\ArtSchoolCms\admin\Runtime\Cache\56b8f10ffe533cc36c6f50a3d115f8bd.php 第 1 行.
+NOTIC: [8] Undefined variable: lang D:\wamp\www\ArtSchoolCms\admin\Runtime\Cache\56b8f10ffe533cc36c6f50a3d115f8bd.php 第 1 行.
+NOTIC: [8] Undefined variable: lang D:\wamp\www\ArtSchoolCms\admin\Runtime\Cache\56b8f10ffe533cc36c6f50a3d115f8bd.php 第 1 行.
+INFO: Run ParseTemplate Behavior [ RunTime:0.013229s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.013331s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.001014s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000953s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000839s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.000997s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.003988s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.001045s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001114s ]
+
+[ 2016-05-29T22:20:30+08:00 ] 0.0.0.0 /ArtSchoolCms/admin.php?m=Public&a=menu&tag=9
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001277s ]
+INFO: Run CheckLang Behavior [ RunTime:0.003514s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004962s ]
+SQL: SHOW COLUMNS FROM `sch_role` [ RunTime:0.010251s ]
+SQL: SELECT `name`,`status`,`remark`,`create_time`,`update_time` FROM `sch_role` WHERE ( id=1 ) LIMIT 1   [ RunTime:0.000787s ]
+SQL: SHOW COLUMNS FROM `sch_group` [ RunTime:0.010253s ]
+SQL: SELECT `id`,`title` FROM `sch_group` WHERE ( status=1 ) ORDER BY sort ASC  [ RunTime:0.000957s ]
+SQL: SHOW COLUMNS FROM `sch_setting` [ RunTime:0.009606s ]
+SQL: SELECT * FROM `sch_setting`  [ RunTime:0.000962s ]
+NOTIC: [8] Undefined index: iframe D:\wamp\www\ArtSchoolCms\admin\Lib\Action\BaseAction.class.php 第 62 行.
+SQL: SHOW COLUMNS FROM `sch_admin` [ RunTime:0.010557s ]
+SQL: SELECT `role_id` FROM `sch_admin` WHERE ( id=1 ) LIMIT 1   [ RunTime:0.000466s ]
+SQL: SHOW COLUMNS FROM `sch_access` [ RunTime:0.006230s ]
+SQL: SELECT `node_id` FROM `sch_access` WHERE ( role_id=1 )  [ RunTime:0.000904s ]
+SQL: SHOW COLUMNS FROM `sch_node` [ RunTime:0.007662s ]
+SQL: SELECT `id`,`action`,`action_name`,`module`,`module_name`,`data` FROM `sch_node` WHERE ( auth_type<>2 AND status=1 AND is_show=0 AND group_id=9 ) ORDER BY sort DESC  [ RunTime:0.000637s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.002896s ]
+INFO: [ view_template ] --END-- [ RunTime:0.003015s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined variable: lang D:\wamp\www\ArtSchoolCms\admin\Runtime\Cache\56b8f10ffe533cc36c6f50a3d115f8bd.php 第 1 行.
+INFO: Run ParseTemplate Behavior [ RunTime:0.015200s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015293s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.001069s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.001083s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000916s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.001039s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.004293s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.001127s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001196s ]
+
+[ 2016-05-29T22:20:34+08:00 ] 0.0.0.0 /ArtSchoolCms/admin.php?m=Public&a=main
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001299s ]
+INFO: Run CheckLang Behavior [ RunTime:0.003724s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.005233s ]
+SQL: SHOW COLUMNS FROM `sch_role` [ RunTime:0.010601s ]
+SQL: SELECT `name`,`status`,`remark`,`create_time`,`update_time` FROM `sch_role` WHERE ( id=1 ) LIMIT 1   [ RunTime:0.000987s ]
+SQL: SHOW COLUMNS FROM `sch_group` [ RunTime:0.011084s ]
+SQL: SELECT `id`,`title` FROM `sch_group` WHERE ( status=1 ) ORDER BY sort ASC  [ RunTime:0.001019s ]
+SQL: SHOW COLUMNS FROM `sch_setting` [ RunTime:0.010686s ]
+SQL: SELECT * FROM `sch_setting`  [ RunTime:0.000919s ]
+NOTIC: [8] Undefined index: iframe D:\wamp\www\ArtSchoolCms\admin\Lib\Action\BaseAction.class.php 第 62 行.
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.003029s ]
+INFO: [ view_template ] --END-- [ RunTime:0.003223s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined variable: sub_menu D:\wamp\www\ArtSchoolCms\admin\Runtime\Cache\a9dbfddae3d9003bea342c344a5599ca.php 第 36 行.
+NOTIC: [8] Undefined variable: big_menu D:\wamp\www\ArtSchoolCms\admin\Runtime\Cache\a9dbfddae3d9003bea342c344a5599ca.php 第 36 行.
+INFO: Run ParseTemplate Behavior [ RunTime:0.020553s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.020702s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.001670s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.001538s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.001373s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.001591s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.006500s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.001647s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001762s ]
+
+[ 2016-05-29T22:20:44+08:00 ] 0.0.0.0 /ArtSchoolCms/admin.php?m=Public&a=menu&tag=4
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001257s ]
+INFO: Run CheckLang Behavior [ RunTime:0.003569s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004967s ]
+SQL: SHOW COLUMNS FROM `sch_role` [ RunTime:0.010036s ]
+SQL: SELECT `name`,`status`,`remark`,`create_time`,`update_time` FROM `sch_role` WHERE ( id=1 ) LIMIT 1   [ RunTime:0.000772s ]
+SQL: SHOW COLUMNS FROM `sch_group` [ RunTime:0.010404s ]
+SQL: SELECT `id`,`title` FROM `sch_group` WHERE ( status=1 ) ORDER BY sort ASC  [ RunTime:0.000957s ]
+SQL: SHOW COLUMNS FROM `sch_setting` [ RunTime:0.008262s ]
+SQL: SELECT * FROM `sch_setting`  [ RunTime:0.000613s ]
+NOTIC: [8] Undefined index: iframe D:\wamp\www\ArtSchoolCms\admin\Lib\Action\BaseAction.class.php 第 62 行.
+SQL: SHOW COLUMNS FROM `sch_admin` [ RunTime:0.006451s ]
+SQL: SELECT `role_id` FROM `sch_admin` WHERE ( id=1 ) LIMIT 1   [ RunTime:0.000565s ]
+SQL: SHOW COLUMNS FROM `sch_access` [ RunTime:0.007530s ]
+SQL: SELECT `node_id` FROM `sch_access` WHERE ( role_id=1 )  [ RunTime:0.001270s ]
+SQL: SHOW COLUMNS FROM `sch_node` [ RunTime:0.005546s ]
+SQL: SELECT `id`,`action`,`action_name`,`module`,`module_name`,`data` FROM `sch_node` WHERE ( auth_type<>2 AND status=1 AND is_show=0 AND group_id=4 ) ORDER BY sort DESC  [ RunTime:0.000626s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.002092s ]
+INFO: [ view_template ] --END-- [ RunTime:0.002181s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined variable: lang D:\wamp\www\ArtSchoolCms\admin\Runtime\Cache\56b8f10ffe533cc36c6f50a3d115f8bd.php 第 1 行.
+NOTIC: [8] Undefined variable: lang D:\wamp\www\ArtSchoolCms\admin\Runtime\Cache\56b8f10ffe533cc36c6f50a3d115f8bd.php 第 1 行.
+NOTIC: [8] Undefined variable: lang D:\wamp\www\ArtSchoolCms\admin\Runtime\Cache\56b8f10ffe533cc36c6f50a3d115f8bd.php 第 1 行.
+NOTIC: [8] Undefined variable: lang D:\wamp\www\ArtSchoolCms\admin\Runtime\Cache\56b8f10ffe533cc36c6f50a3d115f8bd.php 第 1 行.
+NOTIC: [8] Undefined variable: lang D:\wamp\www\ArtSchoolCms\admin\Runtime\Cache\56b8f10ffe533cc36c6f50a3d115f8bd.php 第 1 行.
+NOTIC: [8] Undefined variable: lang D:\wamp\www\ArtSchoolCms\admin\Runtime\Cache\56b8f10ffe533cc36c6f50a3d115f8bd.php 第 1 行.
+INFO: Run ParseTemplate Behavior [ RunTime:0.012975s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.013073s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.001053s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000995s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000935s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.001039s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.004225s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.001157s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001229s ]
+
+[ 2016-05-29T22:28:02+08:00 ] 0.0.0.0 /ArtSchoolCms/admin.php?m=Flink&a=index
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.002252s ]
+INFO: Run CheckLang Behavior [ RunTime:0.043753s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.046314s ]
+SQL: SHOW COLUMNS FROM `sch_role` [ RunTime:0.006019s ]
+SQL: SELECT `name`,`status`,`remark`,`create_time`,`update_time` FROM `sch_role` WHERE ( id=1 ) LIMIT 1   [ RunTime:0.000499s ]
+SQL: SHOW COLUMNS FROM `sch_group` [ RunTime:0.006947s ]
+SQL: SELECT `id`,`title` FROM `sch_group` WHERE ( status=1 ) ORDER BY sort ASC  [ RunTime:0.000630s ]
+SQL: SHOW COLUMNS FROM `sch_setting` [ RunTime:0.006144s ]
+SQL: SELECT * FROM `sch_setting`  [ RunTime:0.000867s ]
+NOTIC: [8] Undefined index: iframe D:\wamp\www\ArtSchoolCms\admin\Lib\Action\BaseAction.class.php 第 62 行.
+SQL: SHOW COLUMNS FROM `sch_flink` [ RunTime:0.007243s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `sch_flink` WHERE ( 1=1 ) LIMIT 1   [ RunTime:0.000389s ]
+SQL: SELECT sch_flink.*,sch_flink_cate.name as cate_name FROM `sch_flink` LEFT JOIN sch_flink_cate ON sch_flink.cate_id = sch_flink_cate.id  WHERE ( 1=1 ) ORDER BY sch_flink.ordid ASC LIMIT 0,20   [ RunTime:0.069746s ]
+SQL: SHOW COLUMNS FROM `sch_flink_cate` [ RunTime:0.004796s ]
+SQL: SELECT * FROM `sch_flink_cate`  [ RunTime:0.000347s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.002172s ]
+INFO: [ view_template ] --END-- [ RunTime:0.002272s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined variable: sub_menu D:\wamp\www\ArtSchoolCms\admin\Runtime\Cache\bee4936740e2803d3efdc9ef3ba23dca.php 第 36 行.
+NOTIC: [8] Undefined variable: cate_id D:\wamp\www\ArtSchoolCms\admin\Runtime\Cache\bee4936740e2803d3efdc9ef3ba23dca.php 第 49 行.
+NOTIC: [8] Undefined variable: cate_id D:\wamp\www\ArtSchoolCms\admin\Runtime\Cache\bee4936740e2803d3efdc9ef3ba23dca.php 第 50 行.
+NOTIC: [8] Undefined variable: cate_id D:\wamp\www\ArtSchoolCms\admin\Runtime\Cache\bee4936740e2803d3efdc9ef3ba23dca.php 第 50 行.
+NOTIC: [8] Undefined variable: keyword D:\wamp\www\ArtSchoolCms\admin\Runtime\Cache\bee4936740e2803d3efdc9ef3ba23dca.php 第 53 行.
+INFO: Run ParseTemplate Behavior [ RunTime:0.038184s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.038278s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.001128s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.001145s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000846s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.001221s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.004632s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.001123s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001207s ]
+
+[ 2016-05-29T22:31:34+08:00 ] 0.0.0.0 /ArtSchoolCms/admin.php?m=Public&a=menu&tag=9
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001623s ]
+INFO: Run CheckLang Behavior [ RunTime:0.003194s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.005001s ]
+SQL: SHOW COLUMNS FROM `sch_role` [ RunTime:0.010813s ]
+SQL: SELECT `name`,`status`,`remark`,`create_time`,`update_time` FROM `sch_role` WHERE ( id=1 ) LIMIT 1   [ RunTime:0.001005s ]
+SQL: SHOW COLUMNS FROM `sch_group` [ RunTime:0.010802s ]
+SQL: SELECT `id`,`title` FROM `sch_group` WHERE ( status=1 ) ORDER BY sort ASC  [ RunTime:0.000958s ]
+SQL: SHOW COLUMNS FROM `sch_setting` [ RunTime:0.010341s ]
+SQL: SELECT * FROM `sch_setting`  [ RunTime:0.000902s ]
+NOTIC: [8] Undefined index: iframe D:\wamp\www\ArtSchoolCms\admin\Lib\Action\BaseAction.class.php 第 62 行.
+SQL: SHOW COLUMNS FROM `sch_admin` [ RunTime:0.011080s ]
+SQL: SELECT `role_id` FROM `sch_admin` WHERE ( id=1 ) LIMIT 1   [ RunTime:0.000739s ]
+SQL: SHOW COLUMNS FROM `sch_access` [ RunTime:0.012644s ]
+SQL: SELECT `node_id` FROM `sch_access` WHERE ( role_id=1 )  [ RunTime:0.002401s ]
+SQL: SHOW COLUMNS FROM `sch_node` [ RunTime:0.011534s ]
+SQL: SELECT `id`,`action`,`action_name`,`module`,`module_name`,`data` FROM `sch_node` WHERE ( auth_type<>2 AND status=1 AND is_show=0 AND group_id=9 ) ORDER BY sort DESC  [ RunTime:0.001177s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.004647s ]
+INFO: [ view_template ] --END-- [ RunTime:0.004851s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined variable: lang D:\wamp\www\ArtSchoolCms\admin\Runtime\Cache\56b8f10ffe533cc36c6f50a3d115f8bd.php 第 1 行.
+INFO: Run ParseTemplate Behavior [ RunTime:0.027655s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.027804s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.001297s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.001267s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.001126s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.002050s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.006046s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.001537s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001648s ]
+
+[ 2016-05-29T22:31:38+08:00 ] 0.0.0.0 /ArtSchoolCms/admin.php?m=Public&a=menu&tag=1
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001075s ]
+INFO: Run CheckLang Behavior [ RunTime:0.003282s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004557s ]
+SQL: SHOW COLUMNS FROM `sch_role` [ RunTime:0.011921s ]
+SQL: SELECT `name`,`status`,`remark`,`create_time`,`update_time` FROM `sch_role` WHERE ( id=1 ) LIMIT 1   [ RunTime:0.000661s ]
+SQL: SHOW COLUMNS FROM `sch_group` [ RunTime:0.008837s ]
+SQL: SELECT `id`,`title` FROM `sch_group` WHERE ( status=1 ) ORDER BY sort ASC  [ RunTime:0.000839s ]
+SQL: SHOW COLUMNS FROM `sch_setting` [ RunTime:0.008103s ]
+SQL: SELECT * FROM `sch_setting`  [ RunTime:0.000810s ]
+NOTIC: [8] Undefined index: iframe D:\wamp\www\ArtSchoolCms\admin\Lib\Action\BaseAction.class.php 第 62 行.
+SQL: SHOW COLUMNS FROM `sch_admin` [ RunTime:0.008352s ]
+SQL: SELECT `role_id` FROM `sch_admin` WHERE ( id=1 ) LIMIT 1   [ RunTime:0.000334s ]
+SQL: SHOW COLUMNS FROM `sch_access` [ RunTime:0.004188s ]
+SQL: SELECT `node_id` FROM `sch_access` WHERE ( role_id=1 )  [ RunTime:0.000597s ]
+SQL: SHOW COLUMNS FROM `sch_node` [ RunTime:0.005920s ]
+SQL: SELECT `id`,`action`,`action_name`,`module`,`module_name`,`data` FROM `sch_node` WHERE ( auth_type<>2 AND status=1 AND is_show=0 AND group_id=1 ) ORDER BY sort DESC  [ RunTime:0.000880s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.002324s ]
+INFO: [ view_template ] --END-- [ RunTime:0.002466s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined variable: lang D:\wamp\www\ArtSchoolCms\admin\Runtime\Cache\56b8f10ffe533cc36c6f50a3d115f8bd.php 第 1 行.
+NOTIC: [8] Undefined variable: lang D:\wamp\www\ArtSchoolCms\admin\Runtime\Cache\56b8f10ffe533cc36c6f50a3d115f8bd.php 第 1 行.
+NOTIC: [8] Undefined variable: lang D:\wamp\www\ArtSchoolCms\admin\Runtime\Cache\56b8f10ffe533cc36c6f50a3d115f8bd.php 第 1 行.
+NOTIC: [8] Undefined variable: lang D:\wamp\www\ArtSchoolCms\admin\Runtime\Cache\56b8f10ffe533cc36c6f50a3d115f8bd.php 第 1 行.
+NOTIC: [8] Undefined variable: lang D:\wamp\www\ArtSchoolCms\admin\Runtime\Cache\56b8f10ffe533cc36c6f50a3d115f8bd.php 第 1 行.
+INFO: Run ParseTemplate Behavior [ RunTime:0.015276s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015405s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.001565s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000974s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000864s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.001078s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.004764s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.001140s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001220s ]
+
+[ 2016-05-29T22:32:38+08:00 ] 0.0.0.0 /ArtSchoolCms/admin.php?m=Setting&a=index
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001064s ]
+INFO: Run CheckLang Behavior [ RunTime:0.003727s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.005041s ]
+NOTIC: [2048] Declaration of SettingAction::sendMail() should be compatible with BaseAction::sendMail($address, $title, $message) D:\wamp\www\ArtSchoolCms\admin\Lib\Action\SettingAction.class.php 第 3 行.
+SQL: SHOW COLUMNS FROM `sch_role` [ RunTime:0.010080s ]
+SQL: SELECT `name`,`status`,`remark`,`create_time`,`update_time` FROM `sch_role` WHERE ( id=1 ) LIMIT 1   [ RunTime:0.000766s ]
+SQL: SHOW COLUMNS FROM `sch_group` [ RunTime:0.011054s ]
+SQL: SELECT `id`,`title` FROM `sch_group` WHERE ( status=1 ) ORDER BY sort ASC  [ RunTime:0.000946s ]
+SQL: SHOW COLUMNS FROM `sch_setting` [ RunTime:0.007026s ]
+SQL: SELECT * FROM `sch_setting`  [ RunTime:0.000519s ]
+NOTIC: [8] Undefined index: iframe D:\wamp\www\ArtSchoolCms\admin\Lib\Action\BaseAction.class.php 第 62 行.
+NOTIC: [8] Undefined index: type D:\wamp\www\ArtSchoolCms\admin\Lib\Action\SettingAction.class.php 第 7 行.
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.002317s ]
+INFO: [ view_template ] --END-- [ RunTime:0.002435s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined variable: sub_menu D:\wamp\www\ArtSchoolCms\admin\Runtime\Cache\8363ff16aa9d6b6e92344b611cbefaac.php 第 36 行.
+NOTIC: [8] Undefined variable: big_menu D:\wamp\www\ArtSchoolCms\admin\Runtime\Cache\8363ff16aa9d6b6e92344b611cbefaac.php 第 36 行.
+INFO: Run ParseTemplate Behavior [ RunTime:0.025391s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.025492s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.001094s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000961s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000859s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.001039s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.004170s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.001059s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001136s ]
+
+[ 2016-05-29T22:32:42+08:00 ] 0.0.0.0 /ArtSchoolCms/admin.php?m=Role&a=index
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001383s ]
+INFO: Run CheckLang Behavior [ RunTime:0.003917s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.005501s ]
+SQL: SHOW COLUMNS FROM `sch_role` [ RunTime:0.010045s ]
+SQL: SELECT `name`,`status`,`remark`,`create_time`,`update_time` FROM `sch_role` WHERE ( id=1 ) LIMIT 1   [ RunTime:0.000865s ]
+SQL: SHOW COLUMNS FROM `sch_group` [ RunTime:0.010063s ]
+SQL: SELECT `id`,`title` FROM `sch_group` WHERE ( status=1 ) ORDER BY sort ASC  [ RunTime:0.000944s ]
+SQL: SHOW COLUMNS FROM `sch_setting` [ RunTime:0.009551s ]
+SQL: SELECT * FROM `sch_setting`  [ RunTime:0.000969s ]
+NOTIC: [8] Undefined index: iframe D:\wamp\www\ArtSchoolCms\admin\Lib\Action\BaseAction.class.php 第 62 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `sch_role` LIMIT 1   [ RunTime:0.000407s ]
+SQL: SELECT * FROM `sch_role` LIMIT 0,30   [ RunTime:0.000366s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.064451s ]
+INFO: [ view_template ] --END-- [ RunTime:0.064665s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined variable: sub_menu D:\wamp\www\ArtSchoolCms\admin\Runtime\Cache\d4338985604b83af8230480592c07e77.php 第 36 行.
+INFO: Run ParseTemplate Behavior [ RunTime:0.052351s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.052571s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.003413s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.003216s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.002874s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.003316s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.013392s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.003410s ]
+INFO: [ view_end ] --END-- [ RunTime:0.003611s ]
+
+[ 2016-05-29T22:32:47+08:00 ] 0.0.0.0 /ArtSchoolCms/admin.php?m=Role&a=auth&id=1
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001418s ]
+INFO: Run CheckLang Behavior [ RunTime:0.003705s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.005306s ]
+SQL: SHOW COLUMNS FROM `sch_role` [ RunTime:0.018074s ]
+SQL: SELECT `name`,`status`,`remark`,`create_time`,`update_time` FROM `sch_role` WHERE ( id=1 ) LIMIT 1   [ RunTime:0.000800s ]
+SQL: SHOW COLUMNS FROM `sch_group` [ RunTime:0.010815s ]
+SQL: SELECT `id`,`title` FROM `sch_group` WHERE ( status=1 ) ORDER BY sort ASC  [ RunTime:0.000919s ]
+SQL: SHOW COLUMNS FROM `sch_setting` [ RunTime:0.010691s ]
+SQL: SELECT * FROM `sch_setting`  [ RunTime:0.000940s ]
+NOTIC: [8] Undefined index: iframe D:\wamp\www\ArtSchoolCms\admin\Lib\Action\BaseAction.class.php 第 62 行.
+SQL: SHOW COLUMNS FROM `sch_access` [ RunTime:0.008102s ]
+SQL: SELECT `node_id` FROM `sch_access` WHERE ( role_id=1 )  [ RunTime:0.000884s ]
+SQL: SHOW COLUMNS FROM `sch_node` [ RunTime:0.006249s ]
+SQL: SELECT * FROM `sch_node` WHERE ( status = 1 and auth_type = 0 )  [ RunTime:0.000789s ]
+SQL: SELECT * FROM `sch_node` WHERE ( status=1 and auth_type>0 and module='Node' )  [ RunTime:0.000843s ]
+SQL: SELECT * FROM `sch_node` WHERE ( status=1 and auth_type>0 and module='Role' )  [ RunTime:0.000595s ]
+SQL: SELECT * FROM `sch_node` WHERE ( status=1 and auth_type>0 and module='Admin' )  [ RunTime:0.000482s ]
+SQL: SELECT * FROM `sch_node` WHERE ( status=1 and auth_type>0 and module='Setting' )  [ RunTime:0.000489s ]
+SQL: SELECT * FROM `sch_node` WHERE ( status=1 and auth_type>0 and module='Flink' )  [ RunTime:0.000434s ]
+SQL: SELECT * FROM `sch_node` WHERE ( status=1 and auth_type>0 and module='Article' )  [ RunTime:0.000622s ]
+SQL: SELECT * FROM `sch_node` WHERE ( status=1 and auth_type>0 and module='ArticleCate' )  [ RunTime:0.000572s ]
+SQL: SELECT * FROM `sch_node` WHERE ( status=1 and auth_type>0 and module='SellerCate' )  [ RunTime:0.000569s ]
+SQL: SELECT * FROM `sch_node` WHERE ( status=1 and auth_type>0 and module='Nav' )  [ RunTime:0.000556s ]
+SQL: SELECT * FROM `sch_node` WHERE ( status=1 and auth_type>0 and module='Public' )  [ RunTime:0.000527s ]
+SQL: SELECT * FROM `sch_node` WHERE ( status=1 and auth_type>0 and module='Group' )  [ RunTime:0.000552s ]
+SQL: SELECT * FROM `sch_node` WHERE ( status=1 and auth_type>0 and module='SellerList' )  [ RunTime:0.000573s ]
+SQL: SELECT * FROM `sch_node` WHERE ( status=1 and auth_type>0 and module='Ad' )  [ RunTime:0.000515s ]
+SQL: SELECT * FROM `sch_node` WHERE ( status=1 and auth_type>0 and module='User' )  [ RunTime:0.000505s ]
+SQL: SELECT * FROM `sch_node` WHERE ( status=1 and auth_type>0 and module='Notice' )  [ RunTime:0.000663s ]
+SQL: SELECT * FROM `sch_node` WHERE ( status=1 and auth_type>0 and module='Profession' )  [ RunTime:0.000465s ]
+SQL: SELECT * FROM `sch_node` WHERE ( status=1 and auth_type>0 and module='Teacher' )  [ RunTime:0.000366s ]
+SQL: SELECT * FROM `sch_node` WHERE ( status=1 and auth_type>0 and module='Department' )  [ RunTime:0.000305s ]
+SQL: SELECT * FROM `sch_node` WHERE ( status=1 and auth_type>0 and module='Master' )  [ RunTime:0.000357s ]
+SQL: SELECT * FROM `sch_node` WHERE ( status=1 and auth_type>0 and module='MasterCate' )  [ RunTime:0.000351s ]
+SQL: SELECT * FROM `sch_node` WHERE ( status=1 and auth_type>0 and module='Institute' )  [ RunTime:0.000352s ]
+SQL: SELECT * FROM `sch_node` WHERE ( status=1 and auth_type>0 and module='InstituteCate' )  [ RunTime:0.000348s ]
+SQL: SELECT * FROM `sch_node` WHERE ( status=1 and auth_type>0 and module='Military' )  [ RunTime:0.000351s ]
+SQL: SELECT * FROM `sch_node` WHERE ( status=1 and auth_type>0 and module='MilitaryCate' )  [ RunTime:0.000349s ]
+SQL: SELECT * FROM `sch_node` WHERE ( status=1 and auth_type>0 and module='Coirse' )  [ RunTime:0.000317s ]
+SQL: SELECT * FROM `sch_node` WHERE ( status=1 and auth_type>0 and module='CoirseCate' )  [ RunTime:0.000318s ]
+SQL: SELECT * FROM `sch_node` WHERE ( status=1 and auth_type>0 and module='ProfessionCate' )  [ RunTime:0.000360s ]
+SQL: SELECT * FROM `sch_node` WHERE ( status=1 and auth_type>0 and module='Profession' )  [ RunTime:0.000352s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.029466s ]
+INFO: [ view_template ] --END-- [ RunTime:0.029637s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined variable: sub_menu D:\wamp\www\ArtSchoolCms\admin\Runtime\Cache\7b20946950699bcc5aac895d73ea84dc.php 第 36 行.
+NOTIC: [8] Undefined variable: big_menu D:\wamp\www\ArtSchoolCms\admin\Runtime\Cache\7b20946950699bcc5aac895d73ea84dc.php 第 36 行.
+INFO: Run ParseTemplate Behavior [ RunTime:0.035523s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.035642s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.001685s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.001240s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.001152s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.001346s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.005647s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.001353s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001430s ]
+
